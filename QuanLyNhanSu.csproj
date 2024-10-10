@@ -41,6 +41,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,11 +53,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao.Designer.cs">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChamCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamCong.Designer.cs">
+      <DependentUpon>ChamCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChinhSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChinhSach.Designer.cs">
+      <DependentUpon>ChinhSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CongTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CongTac.Designer.cs">
+      <DependentUpon>CongTac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\Error.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\Notification.Designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialog\Question.cs">
       <SubType>Form</SubType>
@@ -76,11 +107,41 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomPagePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomPagePanel.Designer.cs">
+      <DependentUpon>HomPagePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HoSo.Designer.cs">
+      <DependentUpon>HoSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhenThuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhenThuong.Designer.cs">
+      <DependentUpon>KhenThuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KyLuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KyLuat.Designer.cs">
+      <DependentUpon>KyLuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhongBan.Designer.cs">
+      <DependentUpon>PhongBan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,8 +151,23 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongTinLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongTinLuong.Designer.cs">
+      <DependentUpon>ThongTinLuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TinhLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TinhLuong.Designer.cs">
+      <DependentUpon>TinhLuong.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Dialog\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Question.resx">
       <DependentUpon>Question.cs</DependentUpon>
@@ -102,8 +178,14 @@
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HomPagePanel.resx">
+      <DependentUpon>HomPagePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhongBan.resx">
+      <DependentUpon>PhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -230,6 +312,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-jake.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-jake %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suitcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chartanimation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\communication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\social.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\youtube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tik-tok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\promotion.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\satisfaction.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

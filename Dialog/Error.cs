@@ -16,5 +16,15 @@ namespace QuanLyNhanSu.Dialog
         {
             InitializeComponent();
         }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

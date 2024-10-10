@@ -17,6 +17,7 @@ namespace QuanLyNhanSu
             InitializeComponent();
             customizeDesing();
             InitializePanelProfile();
+            openChildForm(new HomPagePanel());
         }
 
         private void InitializePanelProfile()
@@ -62,6 +63,7 @@ namespace QuanLyNhanSu
             hideSubMenu();
             Login lg = new Login();
             lg.Show();
+            this.Hide();
         }
         private void guna2CircleButton1_Click_1(object sender, EventArgs e)
         {
@@ -106,19 +108,26 @@ namespace QuanLyNhanSu
             showsSubMenu(panelDanhmuc);
         }
 
+
         private void open_pb_Click(object sender, EventArgs e)
         {
+            label3.Text = "Phòng ban";
             hideSubMenu();
+            openChildForm(new PhongBan());
         }
 
         private void open_kl_Click(object sender, EventArgs e)
         {
+            label3.Text = "Kỷ luật";
             hideSubMenu();
+            openChildForm(new KyLuat());
         }
 
         private void open_kt_Click(object sender, EventArgs e)
         {
+            label3.Text = "Khen thưởng";
             hideSubMenu();
+            openChildForm(new KhenThuong());
         }
 
         private void btn_nv_Click(object sender, EventArgs e)
@@ -128,11 +137,14 @@ namespace QuanLyNhanSu
 
         private void open_hoso_Click(object sender, EventArgs e)
         {
+            label3.Text = "Hồ sơ nhân sự";
             hideSubMenu();
+            openChildForm(new HoSo());
         }
 
         private void open_chinhsach_Click(object sender, EventArgs e)
         {
+            label3.Text = "Chính sách";
             hideSubMenu();
         }
 
@@ -143,18 +155,22 @@ namespace QuanLyNhanSu
 
         private void open_ttluong_Click(object sender, EventArgs e)
         {
+            label3.Text = "Thông tin lương";
             hideSubMenu();
+            openChildForm(new ThongTinLuong());
         }
 
         private void open_tinhluong_Click(object sender, EventArgs e)
         {
+            label3.Text = "Tính lương";
             hideSubMenu();
+            openChildForm(new TinhLuong());
         }
 
         private void home_Click(object sender, EventArgs e)
         {
-            Login lg = new Login();
-            lg.Show();
+            label3.Text = "Home Page";
+            openChildForm(new HomPagePanel());
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
@@ -166,6 +182,7 @@ namespace QuanLyNhanSu
             if (!panelProfile.Visible)
             {
                 hideSubMenu();
+                panelProfile.BringToFront();
                 panelProfile.Visible = true;
                 btn_thongtin.Visible = true;
                 btn_hotro.Visible = true;
@@ -182,6 +199,42 @@ namespace QuanLyNhanSu
             }
         }
 
-     
+        private void chamcong_Click(object sender, EventArgs e)
+        {
+            label3.Text = "Chấm công";
+            openChildForm(new ChamCong());
+        }
+
+        private void btn_congtac_Click(object sender, EventArgs e)
+        {
+            label3.Text = "Công tác";
+            openChildForm(new CongTac());
+        }
+
+        private void baocao_Click(object sender, EventArgs e)
+        {
+            label3.Text = "Báo cáo thống kê";
+            openChildForm(new BaoCao());
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
     }
 }
