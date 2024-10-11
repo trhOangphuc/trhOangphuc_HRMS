@@ -74,7 +74,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(49, 14);
             this.label1.Name = "label1";
@@ -170,10 +170,12 @@
             // 
             this.panelProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelProfile.BackColor = System.Drawing.Color.Transparent;
+            this.panelProfile.BorderColor = System.Drawing.Color.Transparent;
             this.panelProfile.Controls.Add(this.btn_thongtin);
             this.panelProfile.Controls.Add(this.btn_logout);
             this.panelProfile.Controls.Add(this.btn_caidat);
             this.panelProfile.Controls.Add(this.btn_hotro);
+            this.panelProfile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panelProfile.Location = new System.Drawing.Point(1415, 0);
             this.panelProfile.Name = "panelProfile";
             this.panelProfile.Size = new System.Drawing.Size(140, 162);
@@ -805,7 +807,7 @@
             // guna2CircleButton6
             // 
             this.guna2CircleButton6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.guna2CircleButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CircleButton6.BackColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton6.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.guna2CircleButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -825,7 +827,7 @@
             // guna2CircleButton4
             // 
             this.guna2CircleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
+            this.guna2CircleButton4.BackColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -845,7 +847,7 @@
             // guna2CircleButton1
             // 
             this.guna2CircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
+            this.guna2CircleButton1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -866,7 +868,7 @@
             // guna2CircleButton2
             // 
             this.guna2CircleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
+            this.guna2CircleButton2.BackColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.guna2CircleButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;

@@ -36,6 +36,9 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net461\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -348,6 +351,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\satisfaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroundAnimation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

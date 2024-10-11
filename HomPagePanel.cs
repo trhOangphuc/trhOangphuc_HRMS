@@ -61,5 +61,15 @@ namespace QuanLyNhanSu
         {
 
         }
+
+        private void guna2PictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CircleButton7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
