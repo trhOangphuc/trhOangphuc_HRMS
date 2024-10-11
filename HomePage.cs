@@ -7,17 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QuanLyNhanSu
 {
     public partial class HomPage : Form
     {
-        public HomPage()
+        private Account accountForm;
+        private int userId; // Biến để lưu ID người dùng
+        private string username; // Biến để lưu tên tài khoản
+
+        public HomPage(int userId, string username)
         {
             InitializeComponent();
             customizeDesing();
             InitializePanelProfile();
             openChildForm(new HomPagePanel());
+
+            // Khởi tạo form Account và đăng ký sự kiện
+            accountForm = new Account(userId);
+            accountForm.ProfilePictureChanged += AccountForm_ProfilePictureChanged;
+
+            this.userId = userId;
+            this.username = username;
+            // Hiển thị tên tài khoản trong label
+            Profile.Text = username;
+        }
+
+        private void AccountForm_ProfilePictureChanged(string filePath)
+        {
+            // Cập nhật PictureBox theo filePath được gửi từ Account
+            UpdateProfilePicture(filePath);
+        }
+
+        private void UpdateProfilePicture(string filePath)
+        {
+            if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
+            {
+                ptb_homepage.Image = Image.FromFile(filePath);
+                ptb_homepage.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else
+            {
+                ptb_homepage.Image = null; // Đặt lại hình ảnh nếu file không tồn tại
+            }
         }
 
         private void InitializePanelProfile()
@@ -54,7 +87,7 @@ namespace QuanLyNhanSu
 
         private void Sw_btn_bar_Click(object sender, EventArgs e)
         {
-            HomPage homepage = new HomPage();
+            HomPage homepage = new HomPage(userId, username);
             homepage.Show();
         }
 
@@ -235,6 +268,16 @@ namespace QuanLyNhanSu
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btn_thongtin_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Account(userId));
+        }
+
+        private void ptb_homepage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

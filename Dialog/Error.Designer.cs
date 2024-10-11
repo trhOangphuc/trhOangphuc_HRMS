@@ -117,6 +117,7 @@
             this.Error_Ok.Size = new System.Drawing.Size(71, 25);
             this.Error_Ok.TabIndex = 31;
             this.Error_Ok.Text = "OK";
+            this.Error_Ok.Click += new System.EventHandler(this.Error_Ok_Click);
             // 
             // textError
             // 
@@ -156,6 +157,7 @@
             this.Name = "Error";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Error";
+            this.Load += new System.EventHandler(this.Error_Load);
             this.Sw_panel_view.ResumeLayout(false);
             this.Sw_panel_view.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

@@ -53,6 +53,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(44, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 18);
@@ -151,29 +152,30 @@
             // 
             this.Register.AutoSize = true;
             this.Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Register.LinkColor = System.Drawing.Color.Red;
-            this.Register.Location = new System.Drawing.Point(250, 537);
+            this.Register.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
+            this.Register.Location = new System.Drawing.Point(261, 532);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(79, 24);
             this.Register.TabIndex = 53;
             this.Register.TabStop = true;
             this.Register.Text = "Register";
             this.Register.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Register_LinkClicked);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(203, 184);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(200, 180);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 37);
+            this.label3.Size = new System.Drawing.Size(211, 42);
             this.label3.TabIndex = 52;
             this.label3.Text = "Đăng nhập";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login_user
             // 
-            this.Login_user.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Login_user.BackColor = System.Drawing.Color.White;
             this.Login_user.BorderColor = System.Drawing.Color.Gray;
             this.Login_user.BorderRadius = 8;
@@ -188,7 +190,7 @@
             this.Login_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_user.ForeColor = System.Drawing.Color.Black;
             this.Login_user.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.Login_user.Location = new System.Drawing.Point(161, 259);
+            this.Login_user.Location = new System.Drawing.Point(151, 250);
             this.Login_user.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.Login_user.MaxLength = 40;
             this.Login_user.Name = "Login_user";
@@ -197,7 +199,7 @@
             this.Login_user.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.Login_user.PlaceholderText = "Username";
             this.Login_user.SelectedText = "";
-            this.Login_user.Size = new System.Drawing.Size(270, 50);
+            this.Login_user.Size = new System.Drawing.Size(290, 57);
             this.Login_user.TabIndex = 46;
             this.Login_user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -205,7 +207,6 @@
             // 
             this.Login_passwd.AcceptsReturn = true;
             this.Login_passwd.AcceptsTab = true;
-            this.Login_passwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Login_passwd.BackColor = System.Drawing.Color.White;
             this.Login_passwd.BorderColor = System.Drawing.Color.Gray;
             this.Login_passwd.BorderRadius = 8;
@@ -220,7 +221,7 @@
             this.Login_passwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_passwd.ForeColor = System.Drawing.Color.Black;
             this.Login_passwd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.Login_passwd.Location = new System.Drawing.Point(161, 328);
+            this.Login_passwd.Location = new System.Drawing.Point(151, 326);
             this.Login_passwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Login_passwd.MaxLength = 36;
             this.Login_passwd.Name = "Login_passwd";
@@ -229,13 +230,12 @@
             this.Login_passwd.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.Login_passwd.PlaceholderText = "Password";
             this.Login_passwd.SelectedText = "";
-            this.Login_passwd.Size = new System.Drawing.Size(270, 50);
+            this.Login_passwd.Size = new System.Drawing.Size(290, 57);
             this.Login_passwd.TabIndex = 47;
             this.Login_passwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Login_login
             // 
-            this.Login_login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Login_login.BackColor = System.Drawing.Color.White;
             this.Login_login.BorderColor = System.Drawing.Color.White;
             this.Login_login.BorderRadius = 30;
@@ -248,11 +248,11 @@
             this.Login_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Login_login.FillColor2 = System.Drawing.Color.Yellow;
             this.Login_login.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login_login.ForeColor = System.Drawing.Color.Black;
+            this.Login_login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
             this.Login_login.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.Login_login.Location = new System.Drawing.Point(161, 448);
+            this.Login_login.Location = new System.Drawing.Point(151, 448);
             this.Login_login.Name = "Login_login";
-            this.Login_login.Size = new System.Drawing.Size(263, 62);
+            this.Login_login.Size = new System.Drawing.Size(290, 62);
             this.Login_login.TabIndex = 48;
             this.Login_login.Text = "Login";
             this.Login_login.Click += new System.EventHandler(this.Login_login_Click);
@@ -261,9 +261,9 @@
             // 
             this.pictureBox1.Image = global::QuanLyNhanSu.Properties.Resources.icons8_jake;
             this.pictureBox1.ImageRotate = 0F;
-            this.pictureBox1.Location = new System.Drawing.Point(237, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(254, 72);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 95);
+            this.pictureBox1.Size = new System.Drawing.Size(103, 95);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 55;
             this.pictureBox1.TabStop = false;
@@ -279,7 +279,7 @@
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = global::QuanLyNhanSu.Properties.Resources.eye;
-            this.guna2Button1.Location = new System.Drawing.Point(403, 337);
+            this.guna2Button1.Location = new System.Drawing.Point(403, 340);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(21, 32);
             this.guna2Button1.TabIndex = 49;

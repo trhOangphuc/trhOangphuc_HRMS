@@ -138,6 +138,7 @@
             this.guna2HtmlLabel2.TabStop = false;
             this.guna2HtmlLabel2.Text = "Success";
             this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.guna2HtmlLabel2.Click += new System.EventHandler(this.guna2HtmlLabel2_Click);
             // 
             // guna2PictureBox1
             // 

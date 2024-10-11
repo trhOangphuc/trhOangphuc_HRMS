@@ -30,10 +30,10 @@
         {
             this.Sw_panel_view = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.Notification_Ok = new Guna.UI2.WinForms.Guna2Button();
-            this.textNotification = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.Notification_Ok = new Guna.UI2.WinForms.Guna2Button();
+            this.textNotification = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Sw_panel_view.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -62,38 +62,6 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "5Dogs";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // Notification_Ok
-            // 
-            this.Notification_Ok.BackColor = System.Drawing.Color.Transparent;
-            this.Notification_Ok.BorderRadius = 10;
-            this.Notification_Ok.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Notification_Ok.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Notification_Ok.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Notification_Ok.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Notification_Ok.FillColor = System.Drawing.Color.Gold;
-            this.Notification_Ok.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Notification_Ok.ForeColor = System.Drawing.Color.Black;
-            this.Notification_Ok.Location = new System.Drawing.Point(159, 322);
-            this.Notification_Ok.Name = "Notification_Ok";
-            this.Notification_Ok.Size = new System.Drawing.Size(71, 25);
-            this.Notification_Ok.TabIndex = 40;
-            this.Notification_Ok.Text = "OK";
-            this.Notification_Ok.Click += new System.EventHandler(this.Notification_Ok_Click);
-            // 
-            // textNotification
-            // 
-            this.textNotification.AutoSize = false;
-            this.textNotification.BackColor = System.Drawing.Color.Transparent;
-            this.textNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNotification.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textNotification.Location = new System.Drawing.Point(4, 227);
-            this.textNotification.Name = "textNotification";
-            this.textNotification.Size = new System.Drawing.Size(382, 89);
-            this.textNotification.TabIndex = 42;
-            this.textNotification.TabStop = false;
-            this.textNotification.Text = "Thông báo";
-            this.textNotification.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CircleButton3
             // 
@@ -135,6 +103,38 @@
             this.guna2CircleButton1.Size = new System.Drawing.Size(31, 24);
             this.guna2CircleButton1.TabIndex = 31;
             this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click);
+            // 
+            // Notification_Ok
+            // 
+            this.Notification_Ok.BackColor = System.Drawing.Color.Transparent;
+            this.Notification_Ok.BorderRadius = 10;
+            this.Notification_Ok.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Notification_Ok.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Notification_Ok.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Notification_Ok.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Notification_Ok.FillColor = System.Drawing.Color.Gold;
+            this.Notification_Ok.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Notification_Ok.ForeColor = System.Drawing.Color.Black;
+            this.Notification_Ok.Location = new System.Drawing.Point(159, 322);
+            this.Notification_Ok.Name = "Notification_Ok";
+            this.Notification_Ok.Size = new System.Drawing.Size(71, 25);
+            this.Notification_Ok.TabIndex = 40;
+            this.Notification_Ok.Text = "OK";
+            this.Notification_Ok.Click += new System.EventHandler(this.Notification_Ok_Click);
+            // 
+            // textNotification
+            // 
+            this.textNotification.AutoSize = false;
+            this.textNotification.BackColor = System.Drawing.Color.Transparent;
+            this.textNotification.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNotification.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textNotification.Location = new System.Drawing.Point(4, 227);
+            this.textNotification.Name = "textNotification";
+            this.textNotification.Size = new System.Drawing.Size(382, 89);
+            this.textNotification.TabIndex = 42;
+            this.textNotification.TabStop = false;
+            this.textNotification.Text = "Thông báo";
+            this.textNotification.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox1
             // 
