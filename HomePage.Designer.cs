@@ -835,8 +835,8 @@
             this.guna2CircleButton4.FillColor = System.Drawing.Color.ForestGreen;
             this.guna2CircleButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton4.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton4.Image = global::QuanLyNhanSu.Properties.Resources.minimize_sign;
-            this.guna2CircleButton4.ImageSize = new System.Drawing.Size(10, 10);
+            this.guna2CircleButton4.Image = global::QuanLyNhanSu.Properties.Resources.restore_down;
+            this.guna2CircleButton4.ImageSize = new System.Drawing.Size(15, 15);
             this.guna2CircleButton4.Location = new System.Drawing.Point(1852, 8);
             this.guna2CircleButton4.Name = "guna2CircleButton4";
             this.guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;

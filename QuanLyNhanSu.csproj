@@ -361,5 +361,8 @@
   <ItemGroup>
     <None Include="Resources\find.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restore-down.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
