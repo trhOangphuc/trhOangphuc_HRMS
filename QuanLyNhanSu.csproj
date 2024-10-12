@@ -176,6 +176,9 @@
     <EmbeddedResource Include="Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChinhSach.resx">
+      <DependentUpon>ChinhSach.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>

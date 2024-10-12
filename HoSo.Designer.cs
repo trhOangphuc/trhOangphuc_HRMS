@@ -39,26 +39,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_sdt = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.resetHs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.txt_dc = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.search_hs = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_searchHs = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.add_hs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_deletehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_pb = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dtg_phongban = new System.Windows.Forms.DataGridView();
-            this.dtg_congtac = new System.Windows.Forms.DataGridView();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenPB1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChucVu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_congtac = new System.Windows.Forms.DataGridView();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GhiChu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resetHs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_searchHs = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.add_hs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_deletehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -274,27 +274,6 @@
             this.label4.TabIndex = 93;
             this.label4.Text = "SĐT : ";
             // 
-            // resetHs
-            // 
-            this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetHs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.resetHs.FillColor = System.Drawing.Color.Transparent;
-            this.resetHs.FillColor2 = System.Drawing.Color.Transparent;
-            this.resetHs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.resetHs.ForeColor = System.Drawing.Color.White;
-            this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
-            this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(474, 634);
-            this.resetHs.Name = "resetHs";
-            this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.resetHs.Size = new System.Drawing.Size(46, 43);
-            this.resetHs.TabIndex = 92;
-            this.resetHs.Click += new System.EventHandler(this.resetHs_Click);
-            // 
             // txt_dc
             // 
             this.txt_dc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -359,6 +338,174 @@
             this.search_hs.Size = new System.Drawing.Size(488, 50);
             this.search_hs.TabIndex = 85;
             this.search_hs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(93, 420);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Mã phòng ban :";
+            // 
+            // txt_pb
+            // 
+            this.txt_pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_pb.BorderRadius = 20;
+            this.txt_pb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_pb.DefaultText = "";
+            this.txt_pb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_pb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_pb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_pb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_pb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_pb.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pb.ForeColor = System.Drawing.Color.Black;
+            this.txt_pb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_pb.Location = new System.Drawing.Point(228, 417);
+            this.txt_pb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_pb.Name = "txt_pb";
+            this.txt_pb.PasswordChar = '\0';
+            this.txt_pb.PlaceholderText = "";
+            this.txt_pb.SelectedText = "";
+            this.txt_pb.Size = new System.Drawing.Size(238, 36);
+            this.txt_pb.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.HoTen,
+            this.GioiTinh,
+            this.NgaySinh,
+            this.Sdt,
+            this.DiaChi,
+            this.TenPB,
+            this.ChucVu,
+            this.GhiChu});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(1041, 683);
+            this.dataGridView1.TabIndex = 93;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // dtg_phongban
+            // 
+            this.dtg_phongban.AllowUserToAddRows = false;
+            this.dtg_phongban.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtg_phongban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtg_phongban.BackgroundColor = System.Drawing.Color.White;
+            this.dtg_phongban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_phongban.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.MaPB,
+            this.TenPB1,
+            this.ChucVu1});
+            this.dtg_phongban.Location = new System.Drawing.Point(3, 713);
+            this.dtg_phongban.Name = "dtg_phongban";
+            this.dtg_phongban.RowHeadersVisible = false;
+            this.dtg_phongban.Size = new System.Drawing.Size(433, 230);
+            this.dtg_phongban.TabIndex = 94;
+            this.dtg_phongban.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_phongban_CellClick);
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "ID";
+            this.STT.FillWeight = 30.45685F;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            // 
+            // MaPB
+            // 
+            this.MaPB.DataPropertyName = "MaPB";
+            this.MaPB.FillWeight = 134.7716F;
+            this.MaPB.HeaderText = "Mã phòng ban";
+            this.MaPB.Name = "MaPB";
+            // 
+            // TenPB1
+            // 
+            this.TenPB1.DataPropertyName = "TenPB";
+            this.TenPB1.FillWeight = 134.7716F;
+            this.TenPB1.HeaderText = "Tên phòng ban";
+            this.TenPB1.Name = "TenPB1";
+            // 
+            // ChucVu1
+            // 
+            this.ChucVu1.DataPropertyName = "ChucVu";
+            this.ChucVu1.HeaderText = "Chức Vụ";
+            this.ChucVu1.Name = "ChucVu1";
+            // 
+            // dtg_congtac
+            // 
+            this.dtg_congtac.AllowUserToAddRows = false;
+            this.dtg_congtac.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtg_congtac.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtg_congtac.BackgroundColor = System.Drawing.Color.White;
+            this.dtg_congtac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_congtac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Number,
+            this.MaCT,
+            this.GhiChu1});
+            this.dtg_congtac.Location = new System.Drawing.Point(439, 713);
+            this.dtg_congtac.Name = "dtg_congtac";
+            this.dtg_congtac.RowHeadersVisible = false;
+            this.dtg_congtac.Size = new System.Drawing.Size(602, 230);
+            this.dtg_congtac.TabIndex = 95;
+            this.dtg_congtac.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_congtac_CellClick);
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "ID";
+            this.Number.FillWeight = 24.57147F;
+            this.Number.HeaderText = "STT";
+            this.Number.Name = "Number";
+            // 
+            // MaCT
+            // 
+            this.MaCT.DataPropertyName = "MaCongTac";
+            this.MaCT.FillWeight = 45.68528F;
+            this.MaCT.HeaderText = "Mã công tác";
+            this.MaCT.Name = "MaCT";
+            // 
+            // GhiChu1
+            // 
+            this.GhiChu1.DataPropertyName = "GhiChu";
+            this.GhiChu1.FillWeight = 229.7433F;
+            this.GhiChu1.HeaderText = "Ghi chú";
+            this.GhiChu1.Name = "GhiChu1";
+            // 
+            // resetHs
+            // 
+            this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetHs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.resetHs.FillColor = System.Drawing.Color.Transparent;
+            this.resetHs.FillColor2 = System.Drawing.Color.Transparent;
+            this.resetHs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.resetHs.ForeColor = System.Drawing.Color.White;
+            this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
+            this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
+            this.resetHs.Location = new System.Drawing.Point(474, 634);
+            this.resetHs.Name = "resetHs";
+            this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.resetHs.Size = new System.Drawing.Size(46, 43);
+            this.resetHs.TabIndex = 92;
+            this.resetHs.Click += new System.EventHandler(this.resetHs_Click);
             // 
             // btn_searchHs
             // 
@@ -442,211 +589,66 @@
             this.btn_updatehs.TabIndex = 7;
             this.btn_updatehs.Click += new System.EventHandler(this.btn_updatehs_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 420);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Mã phòng ban :";
-            // 
-            // txt_pb
-            // 
-            this.txt_pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_pb.BorderRadius = 20;
-            this.txt_pb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_pb.DefaultText = "";
-            this.txt_pb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_pb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_pb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_pb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_pb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_pb.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pb.ForeColor = System.Drawing.Color.Black;
-            this.txt_pb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_pb.Location = new System.Drawing.Point(228, 417);
-            this.txt_pb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txt_pb.Name = "txt_pb";
-            this.txt_pb.PasswordChar = '\0';
-            this.txt_pb.PlaceholderText = "";
-            this.txt_pb.SelectedText = "";
-            this.txt_pb.Size = new System.Drawing.Size(238, 36);
-            this.txt_pb.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.HoTen,
-            this.GioiTinh,
-            this.NgaySinh,
-            this.Sdt,
-            this.DiaChi,
-            this.TenPB,
-            this.ChucVu,
-            this.GhiChu});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1041, 683);
-            this.dataGridView1.TabIndex = 93;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // dtg_phongban
-            // 
-            this.dtg_phongban.AllowUserToAddRows = false;
-            this.dtg_phongban.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtg_phongban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_phongban.BackgroundColor = System.Drawing.Color.White;
-            this.dtg_phongban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_phongban.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.MaPB,
-            this.TenPB1,
-            this.ChucVu1});
-            this.dtg_phongban.Location = new System.Drawing.Point(3, 713);
-            this.dtg_phongban.Name = "dtg_phongban";
-            this.dtg_phongban.RowHeadersVisible = false;
-            this.dtg_phongban.Size = new System.Drawing.Size(433, 230);
-            this.dtg_phongban.TabIndex = 94;
-            // 
-            // dtg_congtac
-            // 
-            this.dtg_congtac.AllowUserToAddRows = false;
-            this.dtg_congtac.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtg_congtac.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_congtac.BackgroundColor = System.Drawing.Color.White;
-            this.dtg_congtac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_congtac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Number,
-            this.MaCT,
-            this.GhiChu1});
-            this.dtg_congtac.Location = new System.Drawing.Point(439, 713);
-            this.dtg_congtac.Name = "dtg_congtac";
-            this.dtg_congtac.RowHeadersVisible = false;
-            this.dtg_congtac.Size = new System.Drawing.Size(602, 230);
-            this.dtg_congtac.TabIndex = 95;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "ID";
-            this.Number.FillWeight = 24.57147F;
-            this.Number.HeaderText = "STT";
-            this.Number.Name = "Number";
-            // 
-            // MaCT
-            // 
-            this.MaCT.DataPropertyName = "MaCongTac";
-            this.MaCT.FillWeight = 45.68528F;
-            this.MaCT.HeaderText = "Mã công tác";
-            this.MaCT.Name = "MaCT";
-            // 
-            // GhiChu1
-            // 
-            this.GhiChu1.DataPropertyName = "GhiChu";
-            this.GhiChu1.FillWeight = 229.7433F;
-            this.GhiChu1.HeaderText = "Ghi chú";
-            this.GhiChu1.Name = "GhiChu1";
-            // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "ID";
-            this.STT.FillWeight = 30.45685F;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            // 
-            // MaPB
-            // 
-            this.MaPB.DataPropertyName = "MaPB";
-            this.MaPB.FillWeight = 134.7716F;
-            this.MaPB.HeaderText = "Mã phòng ban";
-            this.MaPB.Name = "MaPB";
-            // 
-            // TenPB1
-            // 
-            this.TenPB1.DataPropertyName = "TenPB";
-            this.TenPB1.FillWeight = 134.7716F;
-            this.TenPB1.HeaderText = "Tên phòng ban";
-            this.TenPB1.Name = "TenPB1";
-            // 
-            // ChucVu1
-            // 
-            this.ChucVu1.DataPropertyName = "ChucVu";
-            this.ChucVu1.HeaderText = "Chức Vụ";
-            this.ChucVu1.Name = "ChucVu1";
-            // 
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 22.84264F;
+            this.ID.FillWeight = 21.93456F;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             // 
             // HoTen
             // 
             this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.FillWeight = 132.8743F;
+            this.HoTen.FillWeight = 127.5921F;
             this.HoTen.HeaderText = "Họ Tên";
             this.HoTen.Name = "HoTen";
             // 
             // GioiTinh
             // 
             this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.FillWeight = 48.37848F;
+            this.GioiTinh.FillWeight = 82.23352F;
             this.GioiTinh.HeaderText = "Giới Tính";
             this.GioiTinh.Name = "GioiTinh";
             // 
             // NgaySinh
             // 
             this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.FillWeight = 99.16177F;
+            this.NgaySinh.FillWeight = 95.21973F;
             this.NgaySinh.HeaderText = "Ngày Sinh";
             this.NgaySinh.Name = "NgaySinh";
             // 
             // Sdt
             // 
             this.Sdt.DataPropertyName = "Sdt";
-            this.Sdt.FillWeight = 84.96326F;
+            this.Sdt.FillWeight = 81.58566F;
             this.Sdt.HeaderText = "Số điện thoại";
             this.Sdt.Name = "Sdt";
             // 
             // DiaChi
             // 
             this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.FillWeight = 102.7896F;
+            this.DiaChi.FillWeight = 98.70334F;
             this.DiaChi.HeaderText = "Địa chỉ";
             this.DiaChi.Name = "DiaChi";
             // 
             // TenPB
             // 
             this.TenPB.DataPropertyName = "TenPB";
-            this.TenPB.FillWeight = 83.68881F;
+            this.TenPB.FillWeight = 80.36188F;
             this.TenPB.HeaderText = "Phòng ban";
             this.TenPB.Name = "TenPB";
             // 
             // ChucVu
             // 
             this.ChucVu.DataPropertyName = "ChucVu";
-            this.ChucVu.FillWeight = 83.68881F;
+            this.ChucVu.FillWeight = 80.36188F;
             this.ChucVu.HeaderText = "Chức vụ";
             this.ChucVu.Name = "ChucVu";
             // 
             // GhiChu
             // 
             this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.FillWeight = 241.6125F;
+            this.GhiChu.FillWeight = 232.0075F;
             this.GhiChu.HeaderText = "Công tác";
             this.GhiChu.Name = "GhiChu";
             // 
@@ -699,6 +701,13 @@
         private System.Windows.Forms.DataGridView dtg_phongban;
         private System.Windows.Forms.DataGridView dtg_congtac;
         private Guna.UI2.WinForms.Guna2TextBox txt_ct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenPB1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
@@ -708,12 +717,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPB;
         private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenPB1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaCT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu1;
     }
 }

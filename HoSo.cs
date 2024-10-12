@@ -21,6 +21,8 @@ namespace QuanLyNhanSu
             LoadDataPhongban();
             LoadDataCongTac();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtg_phongban.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtg_congtac.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void LoadData()
@@ -174,18 +176,6 @@ namespace QuanLyNhanSu
                 if (row.Cells["DiaChi"].Value != null)
                 {
                     txt_dc.Text = row.Cells["DiaChi"].Value.ToString(); 
-                }
-
-                if (dataGridView1.Columns.Contains("TenPB") && row.Cells["TenPB"].Value != null)
-                {
-                    txt_pb.Text = row.Cells["TenPB"].Value.ToString();
-                }
-
-
-
-                if (dataGridView1.Columns.Contains("GhiChu") && row.Cells["GhiChu"].Value != null)
-                {
-                    txt_ct.Text = row.Cells["GhiChu"].Value.ToString();
                 }
             }
         }
@@ -427,5 +417,30 @@ namespace QuanLyNhanSu
             }
         }
 
+        private void dtg_phongban_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtg_phongban.Rows.Count)
+            {
+                DataGridViewRow row = dtg_phongban.Rows[e.RowIndex];
+                if (row.Cells["MaPB"].Value != null)
+                {
+                    txt_pb.Text = row.Cells["MaPB"].Value.ToString();
+                }
+
+            }
+        }
+
+        private void dtg_congtac_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtg_congtac.Rows.Count)
+            {
+                DataGridViewRow row = dtg_congtac.Rows[e.RowIndex];
+                if (row.Cells["MaCT"].Value != null)
+                {
+                    txt_ct.Text = row.Cells["MaCT"].Value.ToString();
+                }
+
+            }
+        }
     }
 }

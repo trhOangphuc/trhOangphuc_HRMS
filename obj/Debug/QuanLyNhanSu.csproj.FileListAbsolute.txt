@@ -25,3 +25,4 @@ D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csproj.CoreCompileInputs.cache
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNh.83172EC3.Up2Date
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.exe
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.pdb
+D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.ChinhSach.resources

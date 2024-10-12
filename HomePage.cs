@@ -179,6 +179,7 @@ namespace QuanLyNhanSu
         {
             label3.Text = "Chính sách";
             hideSubMenu();
+            openChildForm(new ChinhSach());
         }
 
         private void btn_luong_Click(object sender, EventArgs e)
