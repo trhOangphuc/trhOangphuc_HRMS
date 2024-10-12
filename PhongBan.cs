@@ -19,6 +19,7 @@ namespace QuanLyNhanSu
             InitializeComponent();
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
             LoadData();
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void LoadData()
@@ -30,6 +31,7 @@ namespace QuanLyNhanSu
                     Error error = new Error();
                     error.ErrorText = "Lỗi kết nối Database !";
                     error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
                 try
@@ -68,6 +70,15 @@ namespace QuanLyNhanSu
 
         private void add_pb_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_mapb.Text) || string.IsNullOrWhiteSpace(txt_phongban.Text)
+               || string.IsNullOrWhiteSpace(txt_chucvu.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "INSERT INTO PhongBan (MaPB, TenPB, ChucVu) VALUES (@MaPB, @TenPB, @ChucVu)";
@@ -95,6 +106,14 @@ namespace QuanLyNhanSu
 
         private void btn_updatePB_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn phòng ban để sửa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "UPDATE PhongBan SET TenPB = @TenPB, ChucVu = @ChucVu WHERE MaPB = @MaPB";
@@ -122,6 +141,14 @@ namespace QuanLyNhanSu
 
         private void btn_deletePb_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn phòng ban để xóa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "DELETE FROM PhongBan WHERE MaPB = @MaPB";
@@ -151,11 +178,11 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM PhongBan WHERE TenPB LIKE '%' + @TenPB + '%' OR ChucVu LIKE '%' + @ChucVu + '%'"; 
+                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%' OR TenPB LIKE '%' + @SearchTerm + '%' OR ChucVu LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TenPB", search_phongban.Text);
-                    command.Parameters.AddWithValue("@ChucVu", search_phongban.Text);
+                    string searchTerm = search_phongban.Text; 
+                    command.Parameters.AddWithValue("@SearchTerm", searchTerm);
 
                     try
                     {
@@ -174,9 +201,9 @@ namespace QuanLyNhanSu
                         else
                         {
                             Notification tb = new Notification();
-                            tb.NotificationText = "Không tìm thấy phòng ban !";
+                            tb.NotificationText = "Không tìm thấy phòng ban!";
                             tb.OkButtonText = "OK";
-                            LoadData();
+                            tb.ShowDialog(); 
                         }
                     }
                     catch (Exception ex)
@@ -186,6 +213,7 @@ namespace QuanLyNhanSu
                 }
             }
         }
+
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

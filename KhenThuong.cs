@@ -19,6 +19,7 @@ namespace QuanLyNhanSu
             InitializeComponent();
             LoadData();
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void LoadData()
@@ -30,6 +31,7 @@ namespace QuanLyNhanSu
                     Error error = new Error();
                     error.ErrorText = "Lỗi kết nối Database !";
                     error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
                 try
@@ -88,13 +90,22 @@ namespace QuanLyNhanSu
 
         private void add_kt_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_makt.Text) || string.IsNullOrWhiteSpace(txt_kt.Text)
+               || string.IsNullOrWhiteSpace(txt_giatri.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "INSERT INTO KhenThuong (MaKT, TenKT, GiaTri) VALUES (@MaKT, @TenKT, @GiaTri)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@MaKL", txt_makt.Text);
-                    command.Parameters.AddWithValue("@TenKL", txt_kt.Text);
+                    command.Parameters.AddWithValue("@MaKT", txt_makt.Text);
+                    command.Parameters.AddWithValue("@TenKT", txt_kt.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -115,13 +126,21 @@ namespace QuanLyNhanSu
 
         private void btn_updateKT_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn để sửa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "UPDATE KyThuong SET TenKT = @TenKT, GiaTri = @GiaTri WHERE MaKT = @MaKT";
+                string query = "UPDATE KhenThuong SET TenKT = @TenKT, GiaTri = @GiaTri WHERE MaKT = @MaKT";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@MaKL", txt_makt.Text);
-                    command.Parameters.AddWithValue("@TenKL", txt_kt.Text);
+                    command.Parameters.AddWithValue("@MaKT", txt_makt.Text);
+                    command.Parameters.AddWithValue("@TenKT", txt_kt.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -142,12 +161,20 @@ namespace QuanLyNhanSu
 
         private void btn_deleteKT_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn để xóa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "DELETE FROM KhenThuong WHERE MaKT = @MaKT";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@MaKL", txt_makt.Text);
+                    command.Parameters.AddWithValue("@MaKT", txt_makt.Text);
 
                     try
                     {
@@ -175,7 +202,7 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM KhenThuong WHERE TenKT LIKE '%' + @TenKT + '%' OR GiaTri LIKE '%' + @GiaTri + '%'";
+                string query = "SELECT * FROM KhenThuong WHERE MaKT LIKE '%' + @SearchTerm + '%' OR TenKL LIKE '%' + @SearchTerm + '%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TenKT", search_khenthuong.Text);
@@ -194,12 +221,14 @@ namespace QuanLyNhanSu
                             txt_makt.Text = dataTable.Rows[0]["MaKT"].ToString();
                             txt_kt.Text = dataTable.Rows[0]["TenKT"].ToString();
                             txt_giatri.Text = dataTable.Rows[0]["GiaTri"].ToString();
+                            Reset();
                         }
                         else
                         {
                             Notification tb = new Notification();
                             tb.NotificationText = "Không tìm thấy phòng ban !";
                             tb.OkButtonText = "OK";
+                            tb.ShowDialog();
                             LoadData();
                         }
                     }

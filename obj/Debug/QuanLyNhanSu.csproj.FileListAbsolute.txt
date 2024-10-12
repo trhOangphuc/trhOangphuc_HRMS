@@ -13,6 +13,7 @@ D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Question.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Success.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.HomPage.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.HomPagePanel.resources
+D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.HoSo.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.KhenThuong.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.KyLuat.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Login.resources

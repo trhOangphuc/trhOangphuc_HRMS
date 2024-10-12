@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyNhanSu.Dialog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,9 @@ namespace QuanLyNhanSu
             LoadQuyHienTai();
             LoadChartNhanVien();
             LoadChartPhongBan();
+            Dtg_nhanvien.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtg_phongban.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtg_congtac.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
         }
 
@@ -35,7 +39,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 
@@ -64,7 +71,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 
@@ -93,7 +103,10 @@ namespace QuanLyNhanSu
             {
                 if(connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
                 try
@@ -120,7 +133,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 
@@ -147,7 +163,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 
@@ -181,7 +200,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 
@@ -224,7 +246,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 
@@ -295,7 +320,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 
@@ -327,7 +355,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
 

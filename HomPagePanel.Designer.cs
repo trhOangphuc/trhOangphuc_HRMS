@@ -29,33 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.guna2CircleButton5 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label28 = new System.Windows.Forms.Label();
-            this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label27 = new System.Windows.Forms.Label();
-            this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label26 = new System.Windows.Forms.Label();
-            this.guna2CircleButton4 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label25 = new System.Windows.Forms.Label();
-            this.guna2CircleButton6 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -87,7 +79,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lb_tongnv = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.Dtg_nhanvien = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,15 +105,22 @@
             this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_searchHome = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2CircleButton5 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CircleButton4 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CircleButton6 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel3.SuspendLayout();
             this.guna2CustomGradientPanel4.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_nhanvien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_phongban)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_nhanvien)).BeginInit();
@@ -132,14 +130,19 @@
             this.guna2CustomGradientPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_congtac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2Panel1.Controls.Add(this.guna2PictureBox6);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Controls.Add(this.label34);
@@ -185,33 +188,11 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1666, 145);
             this.guna2Panel1.TabIndex = 61;
             // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = global::QuanLyNhanSu.Properties.Resources.satisfaction;
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(94, 15);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(62, 57);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 72;
-            this.guna2PictureBox2.TabStop = false;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::QuanLyNhanSu.Properties.Resources.promotion;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(19, 15);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(62, 57);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 71;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // label34
             // 
             this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(16, 83);
+            this.label34.Location = new System.Drawing.Point(154, 83);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(48, 13);
             this.label34.TabIndex = 70;
@@ -220,7 +201,7 @@
             // label33
             // 
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label33.Location = new System.Drawing.Point(20, 101);
+            this.label33.Location = new System.Drawing.Point(158, 101);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(262, 34);
             this.label33.TabIndex = 69;
@@ -267,44 +248,6 @@
             this.label29.TabIndex = 65;
             this.label29.Text = "Thời gian công tác";
             // 
-            // guna2CircleButton5
-            // 
-            this.guna2CircleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
-            this.guna2CircleButton5.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.guna2CircleButton5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton5.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton5.Image = global::QuanLyNhanSu.Properties.Resources.golden_retriever;
-            this.guna2CircleButton5.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton5.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton5.Location = new System.Drawing.Point(1390, 3);
-            this.guna2CircleButton5.Name = "guna2CircleButton5";
-            this.guna2CircleButton5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton5.Size = new System.Drawing.Size(183, 73);
-            this.guna2CircleButton5.TabIndex = 34;
-            // 
-            // guna2CircleButton1
-            // 
-            this.guna2CircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Image = global::QuanLyNhanSu.Properties.Resources.communication;
-            this.guna2CircleButton1.Location = new System.Drawing.Point(1390, 85);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(39, 34);
-            this.guna2CircleButton1.TabIndex = 37;
-            // 
             // label28
             // 
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -314,23 +257,6 @@
             this.label28.Size = new System.Drawing.Size(108, 13);
             this.label28.TabIndex = 64;
             this.label28.Text = "Thông tin chấm công";
-            // 
-            // guna2CircleButton2
-            // 
-            this.guna2CircleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton2.Image = global::QuanLyNhanSu.Properties.Resources.social;
-            this.guna2CircleButton2.Location = new System.Drawing.Point(1435, 85);
-            this.guna2CircleButton2.Name = "guna2CircleButton2";
-            this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton2.Size = new System.Drawing.Size(39, 34);
-            this.guna2CircleButton2.TabIndex = 38;
             // 
             // label27
             // 
@@ -342,23 +268,6 @@
             this.label27.TabIndex = 63;
             this.label27.Text = "Chấm công";
             // 
-            // guna2CircleButton3
-            // 
-            this.guna2CircleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton3.Image = global::QuanLyNhanSu.Properties.Resources.youtube;
-            this.guna2CircleButton3.Location = new System.Drawing.Point(1480, 85);
-            this.guna2CircleButton3.Name = "guna2CircleButton3";
-            this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton3.Size = new System.Drawing.Size(39, 34);
-            this.guna2CircleButton3.TabIndex = 39;
-            // 
             // label26
             // 
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -369,23 +278,6 @@
             this.label26.TabIndex = 62;
             this.label26.Text = "Tổng Lương";
             // 
-            // guna2CircleButton4
-            // 
-            this.guna2CircleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton4.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton4.Image = global::QuanLyNhanSu.Properties.Resources.tik_tok;
-            this.guna2CircleButton4.Location = new System.Drawing.Point(1525, 85);
-            this.guna2CircleButton4.Name = "guna2CircleButton4";
-            this.guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton4.Size = new System.Drawing.Size(39, 34);
-            this.guna2CircleButton4.TabIndex = 40;
-            // 
             // label25
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -395,23 +287,6 @@
             this.label25.Size = new System.Drawing.Size(59, 13);
             this.label25.TabIndex = 61;
             this.label25.Text = "Tính lương";
-            // 
-            // guna2CircleButton6
-            // 
-            this.guna2CircleButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton6.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton6.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton6.Image = global::QuanLyNhanSu.Properties.Resources.twitter;
-            this.guna2CircleButton6.Location = new System.Drawing.Point(1570, 85);
-            this.guna2CircleButton6.Name = "guna2CircleButton6";
-            this.guna2CircleButton6.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton6.Size = new System.Drawing.Size(39, 34);
-            this.guna2CircleButton6.TabIndex = 41;
             // 
             // label24
             // 
@@ -603,17 +478,17 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1521, 122);
+            this.label6.Location = new System.Drawing.Point(1572, 125);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 13);
+            this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 42;
-            this.label6.Text = "@Copy is dog :P";
+            this.label6.Text = "@Copy is cat :P";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1406, 122);
+            this.label5.Location = new System.Drawing.Point(1457, 125);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 36;
@@ -623,7 +498,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1360, 122);
+            this.label4.Location = new System.Drawing.Point(1411, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 35;
@@ -761,18 +636,6 @@
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(200, 178);
             this.guna2CustomGradientPanel2.TabIndex = 58;
             // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = global::QuanLyNhanSu.Properties.Resources.group;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(61, 114);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(57, 52);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 2;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // Dtg_nhanvien
             // 
             this.Dtg_nhanvien.AllowUserToAddRows = false;
@@ -796,35 +659,35 @@
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 38.83677F;
+            this.ID.FillWeight = 40.49127F;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             // 
             // HoTen
             // 
             this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.FillWeight = 152.2843F;
+            this.HoTen.FillWeight = 158.7718F;
             this.HoTen.HeaderText = "Họ Tên";
             this.HoTen.Name = "HoTen";
             // 
             // GioiTinh
             // 
             this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.FillWeight = 73.26923F;
+            this.GioiTinh.FillWeight = 76.3906F;
             this.GioiTinh.HeaderText = "Giới Tính";
             this.GioiTinh.Name = "GioiTinh";
             // 
             // Sdt
             // 
             this.Sdt.DataPropertyName = "Sdt";
-            this.Sdt.FillWeight = 117.8049F;
+            this.Sdt.FillWeight = 101.5229F;
             this.Sdt.HeaderText = "Số điện thoại";
             this.Sdt.Name = "Sdt";
             // 
             // DiaChi
             // 
             this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.FillWeight = 117.8049F;
+            this.DiaChi.FillWeight = 122.8235F;
             this.DiaChi.HeaderText = "Địa chỉ";
             this.DiaChi.Name = "DiaChi";
             // 
@@ -835,26 +698,26 @@
             this.chart_phongban.BackSecondaryColor = System.Drawing.Color.Transparent;
             this.chart_phongban.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart_phongban.BorderlineWidth = 2;
-            chartArea1.Name = "ChartArea1";
-            this.chart_phongban.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_phongban.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart_phongban.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart_phongban.Legends.Add(legend5);
             this.chart_phongban.Location = new System.Drawing.Point(12, 355);
             this.chart_phongban.Name = "chart_phongban";
             this.chart_phongban.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart_phongban.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart_phongban.Series.Add(series5);
             this.chart_phongban.Size = new System.Drawing.Size(318, 210);
             this.chart_phongban.TabIndex = 77;
             this.chart_phongban.Text = "Biểu đồ phòng ban";
-            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title1.Name = "Title1";
-            title1.ShadowColor = System.Drawing.Color.Goldenrod;
-            title1.Text = "Biểu đồ phòng ban";
-            title1.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
-            this.chart_phongban.Titles.Add(title1);
+            title5.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title5.Name = "Title1";
+            title5.ShadowColor = System.Drawing.Color.Goldenrod;
+            title5.Text = "Biểu đồ phòng ban";
+            title5.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
+            this.chart_phongban.Titles.Add(title5);
             // 
             // chart_nhanvien
             // 
@@ -863,26 +726,26 @@
             this.chart_nhanvien.BackSecondaryColor = System.Drawing.Color.Transparent;
             this.chart_nhanvien.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart_nhanvien.BorderlineWidth = 2;
-            chartArea2.Name = "ChartArea1";
-            this.chart_nhanvien.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_nhanvien.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart_nhanvien.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart_nhanvien.Legends.Add(legend6);
             this.chart_nhanvien.Location = new System.Drawing.Point(433, 355);
             this.chart_nhanvien.Name = "chart_nhanvien";
             this.chart_nhanvien.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_nhanvien.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart_nhanvien.Series.Add(series6);
             this.chart_nhanvien.Size = new System.Drawing.Size(318, 210);
             this.chart_nhanvien.TabIndex = 74;
             this.chart_nhanvien.Text = "Biểu đồ giới tính";
-            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title2.Name = "Title1";
-            title2.ShadowColor = System.Drawing.Color.Goldenrod;
-            title2.Text = "Biểu đồ giới tính";
-            title2.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
-            this.chart_nhanvien.Titles.Add(title2);
+            title6.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title6.Name = "Title1";
+            title6.ShadowColor = System.Drawing.Color.Goldenrod;
+            title6.Text = "Biểu đồ giới tính";
+            title6.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
+            this.chart_nhanvien.Titles.Add(title6);
             // 
             // search_home
             // 
@@ -1111,6 +974,134 @@
             this.guna2PictureBox3.TabIndex = 81;
             this.guna2PictureBox3.TabStop = false;
             // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::QuanLyNhanSu.Properties.Resources.satisfaction;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(232, 15);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(62, 57);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 72;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::QuanLyNhanSu.Properties.Resources.promotion;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(157, 15);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(62, 57);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 71;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // guna2CircleButton5
+            // 
+            this.guna2CircleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CircleButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CircleButton5.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.guna2CircleButton5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton5.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton5.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton5.Image = global::QuanLyNhanSu.Properties.Resources.golden_retriever;
+            this.guna2CircleButton5.ImageOffset = new System.Drawing.Point(0, 1);
+            this.guna2CircleButton5.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2CircleButton5.Location = new System.Drawing.Point(1441, 6);
+            this.guna2CircleButton5.Name = "guna2CircleButton5";
+            this.guna2CircleButton5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton5.Size = new System.Drawing.Size(183, 73);
+            this.guna2CircleButton5.TabIndex = 34;
+            // 
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.Image = global::QuanLyNhanSu.Properties.Resources.communication;
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1441, 88);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(39, 34);
+            this.guna2CircleButton1.TabIndex = 37;
+            // 
+            // guna2CircleButton2
+            // 
+            this.guna2CircleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CircleButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton2.Image = global::QuanLyNhanSu.Properties.Resources.social;
+            this.guna2CircleButton2.Location = new System.Drawing.Point(1486, 88);
+            this.guna2CircleButton2.Name = "guna2CircleButton2";
+            this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton2.Size = new System.Drawing.Size(39, 34);
+            this.guna2CircleButton2.TabIndex = 38;
+            // 
+            // guna2CircleButton3
+            // 
+            this.guna2CircleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CircleButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton3.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton3.Image = global::QuanLyNhanSu.Properties.Resources.youtube;
+            this.guna2CircleButton3.Location = new System.Drawing.Point(1531, 88);
+            this.guna2CircleButton3.Name = "guna2CircleButton3";
+            this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton3.Size = new System.Drawing.Size(39, 34);
+            this.guna2CircleButton3.TabIndex = 39;
+            // 
+            // guna2CircleButton4
+            // 
+            this.guna2CircleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CircleButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton4.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton4.Image = global::QuanLyNhanSu.Properties.Resources.tik_tok;
+            this.guna2CircleButton4.Location = new System.Drawing.Point(1576, 88);
+            this.guna2CircleButton4.Name = "guna2CircleButton4";
+            this.guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton4.Size = new System.Drawing.Size(39, 34);
+            this.guna2CircleButton4.TabIndex = 40;
+            // 
+            // guna2CircleButton6
+            // 
+            this.guna2CircleButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CircleButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton6.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton6.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton6.Image = global::QuanLyNhanSu.Properties.Resources.twitter;
+            this.guna2CircleButton6.Location = new System.Drawing.Point(1621, 88);
+            this.guna2CircleButton6.Name = "guna2CircleButton6";
+            this.guna2CircleButton6.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton6.Size = new System.Drawing.Size(39, 34);
+            this.guna2CircleButton6.TabIndex = 41;
+            // 
             // guna2PictureBox4
             // 
             this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
@@ -1134,6 +1125,31 @@
             this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox5.TabIndex = 4;
             this.guna2PictureBox5.TabStop = false;
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = global::QuanLyNhanSu.Properties.Resources.group;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(61, 114);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(57, 52);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 2;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2PictureBox6.Image = global::QuanLyNhanSu.Properties.Resources.Animation___1728696215837;
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(0, 3);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(123, 139);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 73;
+            this.guna2PictureBox6.TabStop = false;
             // 
             // HomPagePanel
             // 
@@ -1163,15 +1179,12 @@
             this.Text = "HomPagePanel";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
             this.guna2CustomGradientPanel4.ResumeLayout(false);
             this.guna2CustomGradientPanel4.PerformLayout();
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_nhanvien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_phongban)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_nhanvien)).EndInit();
@@ -1184,8 +1197,12 @@
             this.guna2CustomGradientPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_congtac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1256,11 +1273,6 @@
         private System.Windows.Forms.Label label37;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel5;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sdt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel6;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.DataGridView dtg_congtac;
@@ -1270,5 +1282,11 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
     }
 }

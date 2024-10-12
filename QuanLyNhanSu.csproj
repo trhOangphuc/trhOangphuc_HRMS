@@ -194,6 +194,9 @@
     <EmbeddedResource Include="HomPagePanel.resx">
       <DependentUpon>HomPagePanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HoSo.resx">
+      <DependentUpon>HoSo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KhenThuong.resx">
       <DependentUpon>KhenThuong.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,6 +406,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Animation - 1728696215837.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

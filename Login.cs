@@ -84,7 +84,9 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
                     return -1; // Trả về -1 nếu không kết nối được
                 }
 

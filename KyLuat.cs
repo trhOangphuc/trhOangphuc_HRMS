@@ -19,6 +19,7 @@ namespace QuanLyNhanSu
             InitializeComponent();
             LoadData();
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void LoadData()
@@ -30,6 +31,7 @@ namespace QuanLyNhanSu
                     Error error = new Error();
                     error.ErrorText = "Lỗi kết nối Database !";
                     error.OkButtonText = "OK";
+                    error.ShowDialog();
                     return;
                 }
                 try
@@ -78,7 +80,7 @@ namespace QuanLyNhanSu
 
         private void Reset()
         {
-            search_kyluat = "";
+            search_kyluat.Text = "";
             txt_makl.Enabled = true;
             txt_makl.Text = "";
             txt_kl.Text = "";
@@ -88,6 +90,15 @@ namespace QuanLyNhanSu
 
         private void add_kl_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_makl.Text) || string.IsNullOrWhiteSpace(txt_kl.Text)
+               || string.IsNullOrWhiteSpace(txt_giatri.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "INSERT INTO KyLuat (MaKL, TenKL, GiaTri) VALUES (@MaKL, @TenKL, @GiaTri)";
@@ -115,6 +126,14 @@ namespace QuanLyNhanSu
 
         private void btn_updateKL_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn để sửa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "UPDATE KyLuat SET TenKL = @TenKL, GiaTri = @GiaTri WHERE MaKL = @MaKL";
@@ -142,6 +161,14 @@ namespace QuanLyNhanSu
 
         private void btn_deleteKl_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn để xóa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 string query = "DELETE FROM KyLuat WHERE MaKL = @MaKL";
@@ -170,11 +197,11 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM KyLuat WHERE TenKL LIKE '%' + @TenKL + '%' OR GiaTri LIKE '%' + @GiaTri + '%'";
+                string query = "SELECT * FROM KyLuat WHERE MaKL LIKE '%' + @SearchTerm + '%' OR TenKL LIKE '%' + @SearchTerm + '%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TenKL", search_kyluat.Text);
-                    command.Parameters.AddWithValue("@GiaTri", search_kyluat.Text);
+                    string searchTerm = search_kyluat.Text;
+                    command.Parameters.AddWithValue("@SearchTerm", searchTerm); 
 
                     try
                     {
@@ -186,6 +213,7 @@ namespace QuanLyNhanSu
                         if (dataTable.Rows.Count > 0)
                         {
                             dataGridView1.DataSource = dataTable;
+
                             txt_makl.Text = dataTable.Rows[0]["MaKL"].ToString();
                             txt_kl.Text = dataTable.Rows[0]["TenKL"].ToString();
                             txt_giatri.Text = dataTable.Rows[0]["GiaTri"].ToString();
@@ -193,8 +221,9 @@ namespace QuanLyNhanSu
                         else
                         {
                             Notification tb = new Notification();
-                            tb.NotificationText = "Không tìm thấy phòng ban !";
+                            tb.NotificationText = "Không tìm thấy kỷ luật!";
                             tb.OkButtonText = "OK";
+                            tb.ShowDialog();
                             LoadData();
                         }
                     }

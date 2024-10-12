@@ -83,6 +83,16 @@ namespace QuanLyNhanSu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Animation___1728696215837 {
+            get {
+                object obj = ResourceManager.GetObject("Animation___1728696215837", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ask {
             get {
                 object obj = ResourceManager.GetObject("ask", resourceCulture);
