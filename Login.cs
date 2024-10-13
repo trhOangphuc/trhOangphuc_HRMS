@@ -139,7 +139,7 @@ namespace QuanLyNhanSu
         private void Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Register register = new Register();
-            register.Show();
+            register.ShowDialog();
             this.Close();
         }
     }

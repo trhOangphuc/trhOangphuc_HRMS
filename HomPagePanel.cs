@@ -395,5 +395,9 @@ namespace QuanLyNhanSu
             SearchData(search_home.Text); // Gọi hàm tìm kiếm khi nhấn nút tìm kiếm
         }
 
+        private void lb_quy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

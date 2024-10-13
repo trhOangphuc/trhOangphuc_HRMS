@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.ptb_homepage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -56,20 +57,24 @@
             this.chamcong = new Guna.UI2.WinForms.Guna2Button();
             this.btn_congtac = new Guna.UI2.WinForms.Guna2Button();
             this.baocao = new Guna.UI2.WinForms.Guna2Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelChildForm = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.panelProfile = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_thongtin = new Guna.UI2.WinForms.Guna2Button();
             this.btn_logout = new Guna.UI2.WinForms.Guna2Button();
             this.btn_caidat = new Guna.UI2.WinForms.Guna2Button();
             this.btn_hotro = new Guna.UI2.WinForms.Guna2Button();
-            this.panelChildForm = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.TimerAnimation = new System.Windows.Forms.Timer(this.components);
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_homepage)).BeginInit();
             this.panelNhanvien.SuspendLayout();
             this.panelLuong.SuspendLayout();
             this.panelDanhmuc.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panelProfile.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panelChildForm.SuspendLayout();
+            this.panelProfile.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -100,7 +105,7 @@
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.MinimumSize = new System.Drawing.Size(900, 20);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1922, 44);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1595, 44);
             this.guna2GradientPanel1.TabIndex = 0;
             // 
             // ptb_homepage
@@ -110,7 +115,7 @@
             this.ptb_homepage.FillColor = System.Drawing.Color.Transparent;
             this.ptb_homepage.Image = global::QuanLyNhanSu.Properties.Resources.bussiness_man;
             this.ptb_homepage.ImageRotate = 0F;
-            this.ptb_homepage.Location = new System.Drawing.Point(1675, 12);
+            this.ptb_homepage.Location = new System.Drawing.Point(1348, 12);
             this.ptb_homepage.Name = "ptb_homepage";
             this.ptb_homepage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.ptb_homepage.Size = new System.Drawing.Size(23, 21);
@@ -133,7 +138,7 @@
             this.Profile.ForeColor = System.Drawing.Color.White;
             this.Profile.Image = global::QuanLyNhanSu.Properties.Resources.down;
             this.Profile.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.Profile.Location = new System.Drawing.Point(1669, 3);
+            this.Profile.Location = new System.Drawing.Point(1342, 3);
             this.Profile.Name = "Profile";
             this.Profile.Size = new System.Drawing.Size(140, 40);
             this.Profile.TabIndex = 47;
@@ -167,7 +172,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Khaki;
-            this.label3.Location = new System.Drawing.Point(895, 5);
+            this.label3.Location = new System.Drawing.Point(731, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 34);
             this.label3.TabIndex = 0;
@@ -186,7 +191,7 @@
             this.guna2CircleButton4.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton4.Image = global::QuanLyNhanSu.Properties.Resources.restore_down;
             this.guna2CircleButton4.ImageSize = new System.Drawing.Size(15, 15);
-            this.guna2CircleButton4.Location = new System.Drawing.Point(1852, 8);
+            this.guna2CircleButton4.Location = new System.Drawing.Point(1525, 8);
             this.guna2CircleButton4.Name = "guna2CircleButton4";
             this.guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton4.Size = new System.Drawing.Size(25, 24);
@@ -207,7 +212,7 @@
             this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton1.Image = global::QuanLyNhanSu.Properties.Resources.close;
             this.guna2CircleButton1.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(1883, 8);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1556, 8);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton1.Size = new System.Drawing.Size(31, 24);
@@ -228,7 +233,7 @@
             this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton2.Image = global::QuanLyNhanSu.Properties.Resources.minus;
             this.guna2CircleButton2.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton2.Location = new System.Drawing.Point(1815, 8);
+            this.guna2CircleButton2.Location = new System.Drawing.Point(1488, 8);
             this.guna2CircleButton2.Name = "guna2CircleButton2";
             this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton2.Size = new System.Drawing.Size(31, 24);
@@ -726,6 +731,35 @@
             this.baocao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.baocao.Click += new System.EventHandler(this.baocao_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panelChildForm, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(257, 44);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1338, 982);
+            this.tableLayoutPanel1.TabIndex = 49;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelChildForm.Controls.Add(this.guna2Panel2);
+            this.panelChildForm.Controls.Add(this.panelProfile);
+            this.panelChildForm.Location = new System.Drawing.Point(3, 3);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(1332, 976);
+            this.panelChildForm.TabIndex = 51;
+            // 
             // panelProfile
             // 
             this.panelProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -736,7 +770,7 @@
             this.panelProfile.Controls.Add(this.btn_caidat);
             this.panelProfile.Controls.Add(this.btn_hotro);
             this.panelProfile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelProfile.Location = new System.Drawing.Point(1415, 0);
+            this.panelProfile.Location = new System.Drawing.Point(1082, 0);
             this.panelProfile.Name = "panelProfile";
             this.panelProfile.Size = new System.Drawing.Size(140, 162);
             this.panelProfile.TabIndex = 46;
@@ -775,7 +809,6 @@
             this.btn_thongtin.Text = "Thông tin";
             this.btn_thongtin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_thongtin.Visible = false;
-            this.btn_thongtin.Click += new System.EventHandler(this.btn_thongtin_Click);
             // 
             // btn_logout
             // 
@@ -820,7 +853,6 @@
             this.btn_logout.Text = "Đăng xuất";
             this.btn_logout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_logout.Visible = false;
-            this.btn_logout.Click += new System.EventHandler(this.Sw_btn_Logout_Click_1);
             // 
             // btn_caidat
             // 
@@ -894,31 +926,32 @@
             this.btn_hotro.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_hotro.Visible = false;
             // 
-            // panelChildForm
+            // guna2Panel2
             // 
-            this.panelChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelChildForm.Controls.Add(this.panelProfile);
-            this.panelChildForm.Location = new System.Drawing.Point(257, 44);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1665, 982);
-            this.panelChildForm.TabIndex = 48;
+            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(173)))), ((int)(((byte)(118)))));
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 966);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(1332, 10);
+            this.guna2Panel2.TabIndex = 111;
+            // 
+            // TimerAnimation
+            // 
+            this.TimerAnimation.Interval = 2;
             // 
             // HomPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(173)))), ((int)(((byte)(118)))));
-            this.ClientSize = new System.Drawing.Size(1922, 1026);
-            this.Controls.Add(this.panelChildForm);
+            this.ClientSize = new System.Drawing.Size(1595, 1026);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2GradientPanel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "HomPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HomePage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
@@ -927,8 +960,9 @@
             this.panelLuong.ResumeLayout(false);
             this.panelDanhmuc.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.panelProfile.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.panelChildForm.ResumeLayout(false);
+            this.panelProfile.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -961,13 +995,16 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton6;
         private Guna.UI2.WinForms.Guna2Button btn_congtac;
+        private Guna.UI2.WinForms.Guna2Button Profile;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox ptb_homepage;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel panelChildForm;
         private Guna.UI2.WinForms.Guna2Panel panelProfile;
         private Guna.UI2.WinForms.Guna2Button btn_thongtin;
         private Guna.UI2.WinForms.Guna2Button btn_logout;
         private Guna.UI2.WinForms.Guna2Button btn_caidat;
         private Guna.UI2.WinForms.Guna2Button btn_hotro;
-        private Guna.UI2.WinForms.Guna2Button Profile;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel panelChildForm;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox ptb_homepage;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.Timer TimerAnimation;
     }
 }
