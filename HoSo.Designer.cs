@@ -60,7 +60,7 @@
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCongTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.x.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -502,7 +502,7 @@
             this.DiaChi,
             this.TenPB,
             this.MaCV,
-            this.MaCT});
+            this.MaCongTac});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -568,12 +568,12 @@
             this.MaCV.HeaderText = "Chức vụ";
             this.MaCV.Name = "MaCV";
             // 
-            // MaCT
+            // MaCongTac
             // 
-            this.MaCT.DataPropertyName = "MaCT";
-            this.MaCT.FillWeight = 114.2132F;
-            this.MaCT.HeaderText = "Công tác";
-            this.MaCT.Name = "MaCT";
+            this.MaCongTac.DataPropertyName = "MaCT";
+            this.MaCongTac.FillWeight = 114.2132F;
+            this.MaCongTac.HeaderText = "Công tác";
+            this.MaCongTac.Name = "MaCongTac";
             // 
             // HoSo
             // 
@@ -628,6 +628,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaCT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCongTac;
     }
 }

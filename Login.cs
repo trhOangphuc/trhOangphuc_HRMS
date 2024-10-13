@@ -15,8 +15,7 @@ namespace QuanLyNhanSu
 {
     public partial class Login : Form
     {
-        private string username; // Biến toàn cục để lưu tên tài khoản
-
+        private string username; 
         public Login()
         {
             InitializeComponent();
@@ -52,28 +51,28 @@ namespace QuanLyNhanSu
 
         private void Login_login_Click(object sender, EventArgs e)
         {
-            username = Login_user.Text; // Lưu tên tài khoản vào biến
-            int userId = CheckLogin(username, Login_passwd.Text); // Kiểm tra đăng nhập
+            username = Login_user.Text; 
+            int userId = CheckLogin(username, Login_passwd.Text); 
 
             if (userId != -1)
             {
                 pictureBox1.Image = QuanLyNhanSu.Properties.Resources.icons8_jake;
-                HomPage hom = new HomPage(userId, username); // Truyền userId vào HomPage
+                HomPage hom = new HomPage(userId, username); 
                 hom.Show();
                 this.Hide();
             }
             else
             {
                 pictureBox1.Image = QuanLyNhanSu.Properties.Resources.loginfalse;
-                thongbao.Text = "Sai tài khoản hoặc mật khẩu !";
+                thongbao.Text = "*Sai tài khoản hoặc mật khẩu !";
                 thongbao.ForeColor = Color.Red;
-                Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng kiểm tra lại thông tin đăng nhập !";
-                notification.OkButtonText = "OK";
-                if (notification.ShowDialog() == DialogResult.OK)
-                {
-                    Application.Exit();
-                }
+                //Notification notification = new Notification();
+                //notification.NotificationText = "Vui lòng kiểm tra lại thông tin đăng nhập !";
+                //notification.OkButtonText = "OK";
+                //if (notification.ShowDialog() == DialogResult.OK)
+                //{
+                //    Application.Exit();
+                //}
             }
         }
 
@@ -87,7 +86,7 @@ namespace QuanLyNhanSu
                     Error error = new Error();
                     error.ErrorText = "Lỗi kết nối Database !";
                     error.OkButtonText = "OK";
-                    return -1; // Trả về -1 nếu không kết nối được
+                    return -1; 
                 }
 
                 try
@@ -103,18 +102,18 @@ namespace QuanLyNhanSu
 
                         if (result != null)
                         {
-                            return Convert.ToInt32(result); // Trả về ID người dùng
+                            return Convert.ToInt32(result); 
                         }
                         else
                         {
-                            return -1; // Trả về -1 nếu không tìm thấy
+                            return -1; 
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return -1; // Trả về -1 nếu có lỗi
+                    return -1; 
                 }
             }
         }
@@ -122,17 +121,15 @@ namespace QuanLyNhanSu
         private bool isPasswordVisible = false;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            isPasswordVisible = !isPasswordVisible; // Đảo trạng thái
+            isPasswordVisible = !isPasswordVisible; 
 
             if (isPasswordVisible)
             {
-                // Hiển thị mật khẩu
-                Login_passwd.PasswordChar = '\0'; // Hiển thị văn bản
+                Login_passwd.PasswordChar = '\0'; 
             }
             else
             {
-                // Ẩn mật khẩu
-                Login_passwd.PasswordChar = '•'; // Ẩn văn bản
+                Login_passwd.PasswordChar = '•';
             }
         }
 

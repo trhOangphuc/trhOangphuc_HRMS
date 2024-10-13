@@ -170,11 +170,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="quanlynhansuDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>quanlynhansuDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,17 +255,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="quanlynhansuDataSet.xsc">
-      <DependentUpon>quanlynhansuDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="quanlynhansuDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>quanlynhansuDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="quanlynhansuDataSet.xss">
-      <DependentUpon>quanlynhansuDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Resources\close.png" />
   </ItemGroup>
   <ItemGroup>
@@ -443,15 +427,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Animation - 1728696215837.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="quanlynhansu.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="quanlynhansu_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>quanlynhansu.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7">
