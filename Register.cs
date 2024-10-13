@@ -21,7 +21,7 @@ namespace QuanLyNhanSu
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             Login lg = new Login();
             lg.Show();
         }

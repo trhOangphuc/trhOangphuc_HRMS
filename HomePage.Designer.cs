@@ -57,15 +57,15 @@
             this.chamcong = new Guna.UI2.WinForms.Guna2Button();
             this.btn_congtac = new Guna.UI2.WinForms.Guna2Button();
             this.baocao = new Guna.UI2.WinForms.Guna2Button();
+            this.TimerAnimation = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelChildForm = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelProfile = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_thongtin = new Guna.UI2.WinForms.Guna2Button();
             this.btn_logout = new Guna.UI2.WinForms.Guna2Button();
             this.btn_caidat = new Guna.UI2.WinForms.Guna2Button();
             this.btn_hotro = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.TimerAnimation = new System.Windows.Forms.Timer(this.components);
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_homepage)).BeginInit();
             this.panelNhanvien.SuspendLayout();
@@ -731,6 +731,10 @@
             this.baocao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.baocao.Click += new System.EventHandler(this.baocao_Click);
             // 
+            // TimerAnimation
+            // 
+            this.TimerAnimation.Interval = 2;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -758,7 +762,16 @@
             this.panelChildForm.Location = new System.Drawing.Point(3, 3);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(1332, 976);
-            this.panelChildForm.TabIndex = 51;
+            this.panelChildForm.TabIndex = 52;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(173)))), ((int)(((byte)(118)))));
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 966);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(1332, 10);
+            this.guna2Panel2.TabIndex = 111;
             // 
             // panelProfile
             // 
@@ -926,19 +939,6 @@
             this.btn_hotro.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_hotro.Visible = false;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(173)))), ((int)(((byte)(118)))));
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 966);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1332, 10);
-            this.guna2Panel2.TabIndex = 111;
-            // 
-            // TimerAnimation
-            // 
-            this.TimerAnimation.Interval = 2;
-            // 
             // HomPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -949,7 +949,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2GradientPanel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HomPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -997,14 +997,14 @@
         private Guna.UI2.WinForms.Guna2Button btn_congtac;
         private Guna.UI2.WinForms.Guna2Button Profile;
         private Guna.UI2.WinForms.Guna2CirclePictureBox ptb_homepage;
+        private System.Windows.Forms.Timer TimerAnimation;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel panelChildForm;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel panelProfile;
         private Guna.UI2.WinForms.Guna2Button btn_thongtin;
         private Guna.UI2.WinForms.Guna2Button btn_logout;
         private Guna.UI2.WinForms.Guna2Button btn_caidat;
         private Guna.UI2.WinForms.Guna2Button btn_hotro;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.Timer TimerAnimation;
     }
 }

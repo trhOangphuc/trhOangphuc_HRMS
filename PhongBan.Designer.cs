@@ -88,7 +88,7 @@
             this.resetb.ForeColor = System.Drawing.Color.White;
             this.resetb.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetb.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetb.Location = new System.Drawing.Point(470, 472);
+            this.resetb.Location = new System.Drawing.Point(463, 252);
             this.resetb.Name = "resetb";
             this.resetb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetb.Size = new System.Drawing.Size(46, 43);
@@ -109,7 +109,7 @@
             this.txt_mapb.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_mapb.ForeColor = System.Drawing.Color.Black;
             this.txt_mapb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_mapb.Location = new System.Drawing.Point(196, 256);
+            this.txt_mapb.Location = new System.Drawing.Point(189, 36);
             this.txt_mapb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_mapb.Name = "txt_mapb";
             this.txt_mapb.PasswordChar = '\0';
@@ -124,7 +124,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 266);
+            this.label3.Location = new System.Drawing.Point(15, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 18);
             this.label3.TabIndex = 88;
@@ -147,7 +147,7 @@
             this.search_phongban.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_phongban.ForeColor = System.Drawing.Color.Black;
             this.search_phongban.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_phongban.Location = new System.Drawing.Point(17, 546);
+            this.search_phongban.Location = new System.Drawing.Point(10, 326);
             this.search_phongban.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_phongban.MaxLength = 40;
             this.search_phongban.Name = "search_phongban";
@@ -172,7 +172,7 @@
             this.btn_searchPb.ForeColor = System.Drawing.Color.White;
             this.btn_searchPb.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchPb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchPb.Location = new System.Drawing.Point(521, 546);
+            this.btn_searchPb.Location = new System.Drawing.Point(514, 326);
             this.btn_searchPb.Name = "btn_searchPb";
             this.btn_searchPb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchPb.Size = new System.Drawing.Size(52, 50);
@@ -193,7 +193,7 @@
             this.add_pb.ForeColor = System.Drawing.Color.White;
             this.add_pb.Image = global::QuanLyNhanSu.Properties.Resources.add;
             this.add_pb.ImageSize = new System.Drawing.Size(40, 40);
-            this.add_pb.Location = new System.Drawing.Point(47, 472);
+            this.add_pb.Location = new System.Drawing.Point(40, 252);
             this.add_pb.Name = "add_pb";
             this.add_pb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.add_pb.Size = new System.Drawing.Size(46, 43);
@@ -214,7 +214,7 @@
             this.btn_deletePb.ForeColor = System.Drawing.Color.White;
             this.btn_deletePb.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletePb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletePb.Location = new System.Drawing.Point(316, 472);
+            this.btn_deletePb.Location = new System.Drawing.Point(309, 252);
             this.btn_deletePb.Name = "btn_deletePb";
             this.btn_deletePb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletePb.Size = new System.Drawing.Size(46, 43);
@@ -235,7 +235,7 @@
             this.btn_updatePB.ForeColor = System.Drawing.Color.White;
             this.btn_updatePB.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updatePB.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatePB.Location = new System.Drawing.Point(175, 472);
+            this.btn_updatePB.Location = new System.Drawing.Point(168, 252);
             this.btn_updatePB.Name = "btn_updatePB";
             this.btn_updatePB.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updatePB.Size = new System.Drawing.Size(46, 43);
@@ -248,7 +248,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 399);
+            this.label2.Location = new System.Drawing.Point(15, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 18);
             this.label2.TabIndex = 3;
@@ -268,7 +268,7 @@
             this.txt_chucvu.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_chucvu.ForeColor = System.Drawing.Color.Black;
             this.txt_chucvu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_chucvu.Location = new System.Drawing.Point(196, 389);
+            this.txt_chucvu.Location = new System.Drawing.Point(189, 169);
             this.txt_chucvu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_chucvu.Name = "txt_chucvu";
             this.txt_chucvu.PasswordChar = '\0';
@@ -283,7 +283,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 328);
+            this.label1.Location = new System.Drawing.Point(15, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 18);
             this.label1.TabIndex = 1;
@@ -303,7 +303,7 @@
             this.txt_phongban.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_phongban.ForeColor = System.Drawing.Color.Black;
             this.txt_phongban.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_phongban.Location = new System.Drawing.Point(196, 319);
+            this.txt_phongban.Location = new System.Drawing.Point(189, 99);
             this.txt_phongban.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_phongban.Name = "txt_phongban";
             this.txt_phongban.PasswordChar = '\0';

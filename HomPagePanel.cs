@@ -399,5 +399,10 @@ namespace QuanLyNhanSu
         {
 
         }
+
+        private void btn_searchHome_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

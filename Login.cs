@@ -140,7 +140,7 @@ namespace QuanLyNhanSu
         {
             Register register = new Register();
             register.ShowDialog();
-            this.Close();
+            this.Hide();
         }
     }
 }
