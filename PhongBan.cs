@@ -19,7 +19,39 @@ namespace QuanLyNhanSu
             InitializeComponent();
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
             LoadData();
+            LoadDataCV();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
+        private void LoadDataCV()
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                    return;
+                }
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT ID, MaCV FROM ChucVu ORDER BY MaCV";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dtg_chucvu.DataSource = dataTable;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void LoadData()
@@ -37,7 +69,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaPB, TenPB, ChucVu FROM PhongBan ORDER BY MaPB";
+                    string query = "SELECT ID, MaPB, TenPB FROM PhongBan ORDER BY MaPB";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -56,11 +88,13 @@ namespace QuanLyNhanSu
         private void Reset()
         {
             search_phongban.Text = "";
+            txt_chucvu.Enabled = true;
             txt_mapb.Enabled = true;
             txt_mapb.Text = "";
             txt_phongban.Text = "";
             txt_chucvu.Text = "";
             LoadData();
+            LoadDataCV();
         }
 
         private void resetb_Click(object sender, EventArgs e)
@@ -70,23 +104,21 @@ namespace QuanLyNhanSu
 
         private void add_pb_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_mapb.Text) || string.IsNullOrWhiteSpace(txt_phongban.Text)
-               || string.IsNullOrWhiteSpace(txt_chucvu.Text))
+            if (string.IsNullOrWhiteSpace(txt_mapb.Text) || string.IsNullOrWhiteSpace(txt_phongban.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
+                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin phòng ban!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "INSERT INTO PhongBan (MaPB, TenPB, ChucVu) VALUES (@MaPB, @TenPB, @ChucVu)";
+                string query = "INSERT INTO PhongBan (MaPB, TenPB) VALUES (@MaPB, @TenPB)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
                     command.Parameters.AddWithValue("@TenPB", txt_phongban.Text);
-                    command.Parameters.AddWithValue("@ChucVu", txt_chucvu.Text);
 
                     try
                     {
@@ -116,7 +148,7 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "UPDATE PhongBan SET TenPB = @TenPB, ChucVu = @ChucVu WHERE MaPB = @MaPB";
+                string query = "UPDATE PhongBan SET TenPB = @TenPB WHERE MaPB = @MaPB";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
@@ -128,6 +160,37 @@ namespace QuanLyNhanSu
                         connection.Open();
                         command.ExecuteNonQuery();
                         LoadData();
+                        Success sc = new Success();
+                        sc.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
+            }
+
+
+            if (dtg_chucvu.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn chức vụ để sửa!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                string query = "UPDATE ChucVu SET MaCV = @NewMaCV WHERE ID = @ID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NewMaCV", txt_chucvu.Text);
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        LoadDataCV(); 
                         Success sc = new Success();
                         sc.ShowDialog();
                     }
@@ -171,6 +234,37 @@ namespace QuanLyNhanSu
                     }
                 }
             }
+
+            if (dtg_chucvu.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn chức vụ để xóa!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                string query = "DELETE FROM ChucVu WHERE MaCV = @MaCV";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MaCV", txt_chucvu.Text);
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        LoadDataCV(); 
+                        Success sc = new Success();
+                        sc.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
+            }
         }
 
 
@@ -178,7 +272,7 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%' OR TenPB LIKE '%' + @SearchTerm + '%' OR ChucVu LIKE '%' + @SearchTerm + '%'";
+                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%' OR TenPB LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     string searchTerm = search_phongban.Text; 
@@ -196,7 +290,6 @@ namespace QuanLyNhanSu
                             dataGridView1.DataSource = dataTable;
                             txt_mapb.Text = dataTable.Rows[0]["MaPB"].ToString();
                             txt_phongban.Text = dataTable.Rows[0]["TenPB"].ToString();
-                            txt_chucvu.Text = dataTable.Rows[0]["ChucVu"].ToString();
                         }
                         else
                         {
@@ -204,6 +297,41 @@ namespace QuanLyNhanSu
                             tb.NotificationText = "Không tìm thấy phòng ban!";
                             tb.OkButtonText = "OK";
                             tb.ShowDialog(); 
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                string query = "SELECT * FROM ChucVu WHERE MaCV LIKE '%' + @SearchTerm + '%'";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    string searchTerm = search_phongban.Text; 
+                    command.Parameters.AddWithValue("@SearchTerm", searchTerm);
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            dtg_chucvu.DataSource = dataTable; 
+                            txt_chucvu.Text = dataTable.Rows[0]["MaCV"].ToString(); 
+                        }
+                        else
+                        {
+                            Notification tb = new Notification();
+                            tb.NotificationText = "Không tìm thấy chức vụ!";
+                            tb.OkButtonText = "OK";
+                            tb.ShowDialog();
                         }
                     }
                     catch (Exception ex)
@@ -221,7 +349,6 @@ namespace QuanLyNhanSu
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                // Kiểm tra từng cột để tránh lỗi null
                 if (row.Cells["MaPB"].Value != null)
                 {
                     txt_mapb.Text = row.Cells["MaPB"].Value.ToString();
@@ -231,11 +358,6 @@ namespace QuanLyNhanSu
                 if (row.Cells["TenPB"].Value != null)
                 {
                     txt_phongban.Text = row.Cells["TenPB"].Value.ToString();
-                }
-
-                if (row.Cells["ChucVu"].Value != null)
-                {
-                    txt_chucvu.Text = row.Cells["ChucVu"].Value.ToString();
                 }
             }
         }
@@ -248,6 +370,133 @@ namespace QuanLyNhanSu
         private void resetb_Click_1(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void dtg_chucvu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtg_chucvu.Rows.Count)
+            {
+                DataGridViewRow row = dtg_chucvu.Rows[e.RowIndex];
+
+                if (row.Cells["MaCV"].Value != null)
+                {
+                    txt_chucvu.Text = row.Cells["MaCV"].Value.ToString();
+                    txt_chucvu.Enabled = false;
+                }
+            }
+        }
+
+        private void SearchData(string searchValue)
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%' OR TenPB LIKE '%' + @SearchTerm + '%'";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    string searchTerm = search_phongban.Text;
+                    command.Parameters.AddWithValue("@SearchTerm", searchTerm);
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            dataGridView1.DataSource = dataTable;
+                            txt_mapb.Text = dataTable.Rows[0]["MaPB"].ToString();
+                            txt_phongban.Text = dataTable.Rows[0]["TenPB"].ToString();
+                        }
+                        //else
+                        //{
+                        //    Notification tb = new Notification();
+                        //    tb.NotificationText = "Không tìm thấy phòng ban!";
+                        //    tb.OkButtonText = "OK";
+                        //    tb.ShowDialog();
+                        //}
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                string query = "SELECT * FROM ChucVu WHERE MaCV LIKE '%' + @SearchTerm + '%'";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    string searchTerm = search_phongban.Text;
+                    command.Parameters.AddWithValue("@SearchTerm", searchTerm);
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            dtg_chucvu.DataSource = dataTable;
+                            txt_chucvu.Text = dataTable.Rows[0]["MaCV"].ToString();
+                        }
+                        //else
+                        //{
+                        //    Notification tb = new Notification();
+                        //    tb.NotificationText = "Không tìm thấy chức vụ!";
+                        //    tb.OkButtonText = "OK";
+                        //    tb.ShowDialog();
+                        //}
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
+            }
+        }
+
+        private void search_phongban_TextChanged(object sender, EventArgs e)
+        {
+            SearchData(search_phongban.Text);
+        }
+
+        private void guna2GradientCircleButton1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_chucvu.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin chức vụ!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                string query = "INSERT INTO ChucVu (MaCV) VALUES (@MaCV)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MaCV", txt_chucvu.Text);
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        LoadDataCV();
+                        Success sc = new Success();
+                        sc.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
+            }
         }
     }
 }

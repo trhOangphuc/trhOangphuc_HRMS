@@ -18,11 +18,11 @@ namespace QuanLyNhanSu
         {
             InitializeComponent();
             LoadData();
-            LoadDataPhongban();
-            LoadDataCongTac();
+            LoadComboBoxPhongBan();
+            LoadComboBoxChucVu();
+            LoadComboBoxCongTac();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dtg_phongban.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dtg_congtac.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
         }
 
         private void LoadData()
@@ -50,14 +50,14 @@ namespace QuanLyNhanSu
                     NV.Sdt, 
                     NV.DiaChi, 
                     PB.TenPB, 
-                    PB.ChucVu, 
-                    CT.GhiChu 
+                    CV.MaCV ,
+                    NV.MaCT
                 FROM 
                     NhanVien NV
                 LEFT JOIN 
                     PhongBan PB ON NV.MaPB = PB.MaPB
                 LEFT JOIN 
-                    CongTac CT ON NV.MaCT = CT.MaCongTac";
+                    ChucVu CV ON NV.MaCV = CV.MaCV";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -66,6 +66,7 @@ namespace QuanLyNhanSu
                         adapter.Fill(dataTable);
                         dataGridView1.DataSource = dataTable;
                         dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
                     }
                 }
                 catch (Exception ex)
@@ -75,67 +76,7 @@ namespace QuanLyNhanSu
             }
         }
 
-        private void LoadDataPhongban()
-        {
-            using (SqlConnection connection = connectdatabase.Connect())
-            {
-                if (connection == null)
-                {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
-                    error.ShowDialog();
-                    return;
-                }
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT ID, MaPB, TenPB, ChucVu FROM PhongBan";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dtg_phongban.DataSource = dataTable;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-        private void LoadDataCongTac()
-        {
-            using (SqlConnection connection = connectdatabase.Connect())
-            {
-                if (connection == null)
-                {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
-                    error.ShowDialog();
-                    return;
-                }
 
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT ID, MaCongTac, GhiChu FROM CongTac";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dtg_congtac.DataSource = dataTable;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -149,7 +90,7 @@ namespace QuanLyNhanSu
 
                 if (row.Cells["GioiTinh"].Value != null)
                 {
-                   txt_gt.Text = row.Cells["GioiTinh"].Value.ToString();
+                    txt_gt.Text = row.Cells["GioiTinh"].Value.ToString();
                 }
 
                 if (row.Cells["NgaySinh"].Value != null)
@@ -157,7 +98,7 @@ namespace QuanLyNhanSu
                     DateTime selectedDate;
                     if (DateTime.TryParse(row.Cells["NgaySinh"].Value.ToString(), out selectedDate))
                     {
-                        dtp_date.Value = selectedDate; 
+                        dtp_date.Value = selectedDate;
                     }
                 }
                 if (row.Cells["Sdt"].Value != null)
@@ -168,23 +109,19 @@ namespace QuanLyNhanSu
                 {
                     txt_dc.Text = row.Cells["DiaChi"].Value.ToString();
                 }
-                if (row.Cells["Sdt"].Value != null)
+                if (row.Cells["TenPB"].Value != null)
                 {
-                    txt_sdt.Text = row.Cells["Sdt"].Value.ToString(); 
-                }
-
-                if (row.Cells["DiaChi"].Value != null)
-                {
-                    txt_dc.Text = row.Cells["DiaChi"].Value.ToString(); 
+                    string selectedMaPB = row.Cells["TenPB"].Value.ToString();
+                    cmb_phongban.SelectedValue = selectedMaPB; 
                 }
             }
         }
 
         private void add_hs_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_ht.Text) || string.IsNullOrWhiteSpace(txt_gt.Text) 
-                || string.IsNullOrWhiteSpace(txt_dc.Text) || string.IsNullOrWhiteSpace(txt_sdt.Text) || string.IsNullOrWhiteSpace(txt_pb.Text)
-                || string.IsNullOrWhiteSpace(txt_ct.Text))
+            if (string.IsNullOrWhiteSpace(txt_ht.Text) || string.IsNullOrWhiteSpace(txt_gt.Text)
+                || string.IsNullOrWhiteSpace(txt_dc.Text) || string.IsNullOrWhiteSpace(txt_sdt.Text) || string.IsNullOrWhiteSpace(cmb_phongban.Text)
+                || string.IsNullOrWhiteSpace(cmb_congtac.Text))
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
@@ -208,8 +145,8 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
                     string query = @"
-                                  INSERT INTO NhanVien (HoTen, GioiTinh, NgaySinh, Sdt, DiaChi, MaPB, MaCT)
-                                  VALUES (@HoTen, @GioiTinh, @NgaySinh, @Sdt, @DiaChi, @MaPB, @MaCT)";
+                                  INSERT INTO NhanVien (HoTen, GioiTinh, NgaySinh, Sdt, DiaChi, MaPB, MaCV, MaCT)
+                                  VALUES (@HoTen, @GioiTinh, @NgaySinh, @Sdt, @DiaChi, @MaPB, @MaCT, @MaCV)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -218,13 +155,14 @@ namespace QuanLyNhanSu
                         command.Parameters.AddWithValue("@NgaySinh", dtp_date.Value);
                         command.Parameters.AddWithValue("@Sdt", txt_sdt.Text);
                         command.Parameters.AddWithValue("@DiaChi", txt_dc.Text);
-                        command.Parameters.AddWithValue("@MaPB", txt_pb.Text); 
-                        command.Parameters.AddWithValue("@MaCT", txt_ct.Text); 
+                        command.Parameters.AddWithValue("@MaPB", cmb_phongban.Text);
+                        command.Parameters.AddWithValue("@MaCT", cmb_congtac.Text);
+                        command.Parameters.AddWithValue("@MaCV", cmb_chucvu.Text);
 
                         command.ExecuteNonQuery();
                         Success sc = new Success();
                         sc.ShowDialog();
-                        LoadData(); 
+                        LoadData();
                     }
                 }
                 catch (Exception ex)
@@ -250,7 +188,7 @@ namespace QuanLyNhanSu
                 if (connection == null)
                 {
                     Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.ErrorText = "Lỗi kết nối Database!";
                     error.OkButtonText = "OK";
                     error.ShowDialog();
                     return;
@@ -260,9 +198,9 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
                     string query = @"
-                                    UPDATE NhanVien 
-                                    SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, Sdt = @Sdt, DiaChi = @DiaChi, MaPB = @MaPB, MaCT = @MaCt
-                                    WHERE ID = @ID";
+                            UPDATE NhanVien 
+                            SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, Sdt = @Sdt, DiaChi = @DiaChi, MaPB = @MaPB, MaCT = @MaCt, MaCV = @MaCV
+                            WHERE ID = @ID";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -272,13 +210,28 @@ namespace QuanLyNhanSu
                         command.Parameters.AddWithValue("@NgaySinh", dtp_date.Value);
                         command.Parameters.AddWithValue("@Sdt", txt_sdt.Text);
                         command.Parameters.AddWithValue("@DiaChi", txt_dc.Text);
-                        command.Parameters.AddWithValue("@MaPB", txt_pb.Text);
-                        command.Parameters.AddWithValue("@MaCT", txt_ct.Text);
+
+                        // Lấy giá trị MaPB từ ComboBox
+                        var selectedPhongBan = cmb_phongban.SelectedItem;
+                        if (selectedPhongBan != null)
+                        {
+                            command.Parameters.AddWithValue("@MaPB", ((dynamic)selectedPhongBan).Value); 
+                        }
+                        var selectedChucVu = cmb_chucvu.SelectedItem;
+                        if (selectedPhongBan != null)
+                        {
+                            command.Parameters.AddWithValue("@MaCV", ((dynamic)selectedChucVu).Value); 
+                        }
+                        var selectedCongTac = cmb_congtac.SelectedItem;
+                        if (selectedPhongBan != null)
+                        {
+                            command.Parameters.AddWithValue("@MaCT", ((dynamic)selectedChucVu).Value); 
+                        }
 
                         command.ExecuteNonQuery();
                         Success sc = new Success();
                         sc.ShowDialog();
-                        LoadData(); 
+                        LoadData(); // Tải lại dữ liệu
                     }
                 }
                 catch (Exception ex)
@@ -325,7 +278,7 @@ namespace QuanLyNhanSu
                             command.ExecuteNonQuery();
                             Success sc = new Success();
                             sc.ShowDialog();
-                            LoadData(); 
+                            LoadData();
                         }
                     }
                     catch (Exception ex)
@@ -343,8 +296,8 @@ namespace QuanLyNhanSu
             dtp_date.Value = DateTime.Now;
             txt_sdt.Text = string.Empty;
             txt_dc.Text = string.Empty;
-            txt_pb.Text = string.Empty;
-            txt_ct.Text = string.Empty;
+            cmb_phongban.Text = string.Empty;
+            cmb_congtac.Text = string.Empty;
             search_hs.Text = string.Empty;
             dataGridView1.ClearSelection();
         }
@@ -373,74 +326,107 @@ namespace QuanLyNhanSu
 
                 dataGridView1.DataSource = dataView;
             }
+        }
 
-            // Tìm kiếm trong dtg_phongban
-            DataTable dtPhongBan = (DataTable)dtg_phongban.DataSource;
-            if (dtPhongBan != null)
+        private void LoadComboBoxPhongBan()
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
             {
-                DataView dataViewPhongBan = new DataView(dtPhongBan);
-                dataViewPhongBan.RowFilter = $"MaPB LIKE '%{searchQuery}%' OR TenPB LIKE '%{searchQuery}%' OR ChucVu LIKE '%{searchQuery}%'";
-
-                // Kiểm tra nếu không có kết quả tìm kiếm
-                if (dataViewPhongBan.Count == 0)
+                string query = "SELECT MaPB, TenPB FROM PhongBan"; 
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    Notification tb = new Notification
+                    try
                     {
-                        NotificationText = "Không tìm thấy phòng ban nào!",
-                        OkButtonText = "OK"
-                    };
-                    tb.ShowDialog();
-                }
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader(); 
+                        cmb_phongban.Items.Clear();
 
-                dtg_phongban.DataSource = dataViewPhongBan;
+                        while (reader.Read())
+                        {
+                            cmb_phongban.Items.Add(new
+                            {
+                                Text = reader["MaPB"].ToString(),
+                                Value = reader["MaPB"].ToString() 
+                            });
+                        }
+                        cmb_phongban.DisplayMember = "Text";
+                        cmb_phongban.ValueMember = "Value";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
             }
-
-            // Tìm kiếm trong dtg_congtac
-            DataTable dtCongTac = (DataTable)dtg_congtac.DataSource;
-            if (dtCongTac != null)
+        }
+        private void LoadComboBoxChucVu()
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
             {
-                DataView dataViewCongTac = new DataView(dtCongTac);
-                dataViewCongTac.RowFilter = $"MaCongTac LIKE '%{searchQuery}%' OR GhiChu LIKE '%{searchQuery}%'";
-
-                // Kiểm tra nếu không có kết quả tìm kiếm
-                if (dataViewCongTac.Count == 0)
+                string query = "SELECT ID, MaCV FROM ChucVu";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    Notification tb = new Notification
+                    try
                     {
-                        NotificationText = "Không tìm thấy công tác nào!",
-                        OkButtonText = "OK"
-                    };
-                    tb.ShowDialog();
-                }
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        cmb_chucvu.Items.Clear(); 
 
-                dtg_congtac.DataSource = dataViewCongTac;
+                        while (reader.Read())
+                        {
+                            cmb_chucvu.Items.Add(new
+                            {
+                                Text = reader["MaCV"].ToString(),
+                                Value = reader["ID"].ToString()
+                            });
+                        }
+                        cmb_chucvu.DisplayMember = "Text"; 
+                        cmb_chucvu.ValueMember = "Value";  
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
+            }
+        }
+        private void LoadComboBoxCongTac()
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                string query = "SELECT ID, MaCongTac, GhiChu FROM CongTac";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        cmb_congtac.Items.Clear();
+
+                        while (reader.Read())
+                        {
+                            cmb_congtac.Items.Add(new
+                            {
+                                Text = reader["MaCongTac"].ToString(),
+                                Value = reader["ID"].ToString()
+                            });
+                        }
+                        cmb_congtac.DisplayMember = "Text";
+                        cmb_congtac.ValueMember = "Value";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                    }
+                }
             }
         }
 
-        private void dtg_phongban_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void cmb_phongban_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dtg_phongban.Rows.Count)
-            {
-                DataGridViewRow row = dtg_phongban.Rows[e.RowIndex];
-                if (row.Cells["MaPB"].Value != null)
-                {
-                    txt_pb.Text = row.Cells["MaPB"].Value.ToString();
-                }
 
-            }
-        }
-
-        private void dtg_congtac_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < dtg_congtac.Rows.Count)
-            {
-                DataGridViewRow row = dtg_congtac.Rows[e.RowIndex];
-                if (row.Cells["MaCT"].Value != null)
-                {
-                    txt_ct.Text = row.Cells["MaCT"].Value.ToString();
-                }
-
-            }
         }
     }
 }

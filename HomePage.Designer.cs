@@ -48,7 +48,6 @@
             this.open_kt = new Guna.UI2.WinForms.Guna2Button();
             this.open_kl = new Guna.UI2.WinForms.Guna2Button();
             this.open_pb = new Guna.UI2.WinForms.Guna2Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2CircleButton5 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.home = new Guna.UI2.WinForms.Guna2Button();
             this.pn_danhmuc = new Guna.UI2.WinForms.Guna2Button();
@@ -58,9 +57,8 @@
             this.btn_congtac = new Guna.UI2.WinForms.Guna2Button();
             this.baocao = new Guna.UI2.WinForms.Guna2Button();
             this.TimerAnimation = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelChildForm = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelProfile = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_thongtin = new Guna.UI2.WinForms.Guna2Button();
             this.btn_logout = new Guna.UI2.WinForms.Guna2Button();
@@ -72,7 +70,6 @@
             this.panelLuong.SuspendLayout();
             this.panelDanhmuc.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.panelChildForm.SuspendLayout();
             this.panelProfile.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +102,7 @@
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.MinimumSize = new System.Drawing.Size(900, 20);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1595, 44);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1248, 44);
             this.guna2GradientPanel1.TabIndex = 0;
             // 
             // ptb_homepage
@@ -115,7 +112,7 @@
             this.ptb_homepage.FillColor = System.Drawing.Color.Transparent;
             this.ptb_homepage.Image = global::QuanLyNhanSu.Properties.Resources.bussiness_man;
             this.ptb_homepage.ImageRotate = 0F;
-            this.ptb_homepage.Location = new System.Drawing.Point(1348, 12);
+            this.ptb_homepage.Location = new System.Drawing.Point(1001, 12);
             this.ptb_homepage.Name = "ptb_homepage";
             this.ptb_homepage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.ptb_homepage.Size = new System.Drawing.Size(23, 21);
@@ -138,7 +135,7 @@
             this.Profile.ForeColor = System.Drawing.Color.White;
             this.Profile.Image = global::QuanLyNhanSu.Properties.Resources.down;
             this.Profile.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.Profile.Location = new System.Drawing.Point(1342, 3);
+            this.Profile.Location = new System.Drawing.Point(995, 3);
             this.Profile.Name = "Profile";
             this.Profile.Size = new System.Drawing.Size(140, 40);
             this.Profile.TabIndex = 47;
@@ -172,7 +169,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Khaki;
-            this.label3.Location = new System.Drawing.Point(731, 5);
+            this.label3.Location = new System.Drawing.Point(558, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 34);
             this.label3.TabIndex = 0;
@@ -191,7 +188,7 @@
             this.guna2CircleButton4.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton4.Image = global::QuanLyNhanSu.Properties.Resources.restore_down;
             this.guna2CircleButton4.ImageSize = new System.Drawing.Size(15, 15);
-            this.guna2CircleButton4.Location = new System.Drawing.Point(1525, 8);
+            this.guna2CircleButton4.Location = new System.Drawing.Point(1178, 8);
             this.guna2CircleButton4.Name = "guna2CircleButton4";
             this.guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton4.Size = new System.Drawing.Size(25, 24);
@@ -212,7 +209,7 @@
             this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton1.Image = global::QuanLyNhanSu.Properties.Resources.close;
             this.guna2CircleButton1.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(1556, 8);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1209, 8);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton1.Size = new System.Drawing.Size(31, 24);
@@ -233,7 +230,7 @@
             this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton2.Image = global::QuanLyNhanSu.Properties.Resources.minus;
             this.guna2CircleButton2.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton2.Location = new System.Drawing.Point(1488, 8);
+            this.guna2CircleButton2.Location = new System.Drawing.Point(1141, 8);
             this.guna2CircleButton2.Name = "guna2CircleButton2";
             this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton2.Size = new System.Drawing.Size(31, 24);
@@ -244,10 +241,10 @@
             // 
             this.panelNhanvien.Controls.Add(this.open_chinhsach);
             this.panelNhanvien.Controls.Add(this.open_hoso);
-            this.panelNhanvien.Location = new System.Drawing.Point(3, 434);
+            this.panelNhanvien.Location = new System.Drawing.Point(3, 289);
             this.panelNhanvien.Name = "panelNhanvien";
             this.panelNhanvien.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panelNhanvien.Size = new System.Drawing.Size(240, 120);
+            this.panelNhanvien.Size = new System.Drawing.Size(167, 80);
             this.panelNhanvien.TabIndex = 49;
             // 
             // open_chinhsach
@@ -269,12 +266,12 @@
             this.open_chinhsach.HoverState.ForeColor = System.Drawing.Color.Black;
             this.open_chinhsach.Image = global::QuanLyNhanSu.Properties.Resources.insurance;
             this.open_chinhsach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.open_chinhsach.Location = new System.Drawing.Point(12, 61);
+            this.open_chinhsach.Location = new System.Drawing.Point(13, 45);
             this.open_chinhsach.Margin = new System.Windows.Forms.Padding(6);
             this.open_chinhsach.MaximumSize = new System.Drawing.Size(239, 53);
-            this.open_chinhsach.MinimumSize = new System.Drawing.Size(40, 53);
+            this.open_chinhsach.MinimumSize = new System.Drawing.Size(40, 30);
             this.open_chinhsach.Name = "open_chinhsach";
-            this.open_chinhsach.Size = new System.Drawing.Size(222, 53);
+            this.open_chinhsach.Size = new System.Drawing.Size(150, 30);
             this.open_chinhsach.TabIndex = 44;
             this.open_chinhsach.Text = "Chính sách";
             this.open_chinhsach.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -302,9 +299,9 @@
             this.open_hoso.Location = new System.Drawing.Point(13, 3);
             this.open_hoso.Margin = new System.Windows.Forms.Padding(6);
             this.open_hoso.MaximumSize = new System.Drawing.Size(239, 53);
-            this.open_hoso.MinimumSize = new System.Drawing.Size(40, 53);
+            this.open_hoso.MinimumSize = new System.Drawing.Size(40, 30);
             this.open_hoso.Name = "open_hoso";
-            this.open_hoso.Size = new System.Drawing.Size(222, 53);
+            this.open_hoso.Size = new System.Drawing.Size(150, 30);
             this.open_hoso.TabIndex = 43;
             this.open_hoso.Text = "Hồ sơ";
             this.open_hoso.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -314,10 +311,10 @@
             // 
             this.panelLuong.Controls.Add(this.open_tinhluong);
             this.panelLuong.Controls.Add(this.open_ttluong);
-            this.panelLuong.Location = new System.Drawing.Point(3, 625);
+            this.panelLuong.Location = new System.Drawing.Point(3, 417);
             this.panelLuong.Name = "panelLuong";
             this.panelLuong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panelLuong.Size = new System.Drawing.Size(240, 117);
+            this.panelLuong.Size = new System.Drawing.Size(167, 82);
             this.panelLuong.TabIndex = 48;
             // 
             // open_tinhluong
@@ -339,12 +336,12 @@
             this.open_tinhluong.HoverState.ForeColor = System.Drawing.Color.Black;
             this.open_tinhluong.Image = global::QuanLyNhanSu.Properties.Resources.calculator;
             this.open_tinhluong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.open_tinhluong.Location = new System.Drawing.Point(18, 64);
+            this.open_tinhluong.Location = new System.Drawing.Point(19, 48);
             this.open_tinhluong.Margin = new System.Windows.Forms.Padding(6);
             this.open_tinhluong.MaximumSize = new System.Drawing.Size(239, 53);
-            this.open_tinhluong.MinimumSize = new System.Drawing.Size(40, 53);
+            this.open_tinhluong.MinimumSize = new System.Drawing.Size(40, 30);
             this.open_tinhluong.Name = "open_tinhluong";
-            this.open_tinhluong.Size = new System.Drawing.Size(219, 53);
+            this.open_tinhluong.Size = new System.Drawing.Size(150, 30);
             this.open_tinhluong.TabIndex = 46;
             this.open_tinhluong.Text = "Tính lương";
             this.open_tinhluong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -372,9 +369,9 @@
             this.open_ttluong.Location = new System.Drawing.Point(18, 6);
             this.open_ttluong.Margin = new System.Windows.Forms.Padding(6);
             this.open_ttluong.MaximumSize = new System.Drawing.Size(239, 53);
-            this.open_ttluong.MinimumSize = new System.Drawing.Size(40, 53);
+            this.open_ttluong.MinimumSize = new System.Drawing.Size(40, 30);
             this.open_ttluong.Name = "open_ttluong";
-            this.open_ttluong.Size = new System.Drawing.Size(219, 53);
+            this.open_ttluong.Size = new System.Drawing.Size(150, 30);
             this.open_ttluong.TabIndex = 45;
             this.open_ttluong.Text = "Thông tin lương";
             this.open_ttluong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -385,10 +382,10 @@
             this.panelDanhmuc.Controls.Add(this.open_kt);
             this.panelDanhmuc.Controls.Add(this.open_kl);
             this.panelDanhmuc.Controls.Add(this.open_pb);
-            this.panelDanhmuc.Location = new System.Drawing.Point(3, 195);
+            this.panelDanhmuc.Location = new System.Drawing.Point(3, 122);
             this.panelDanhmuc.Name = "panelDanhmuc";
             this.panelDanhmuc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panelDanhmuc.Size = new System.Drawing.Size(244, 168);
+            this.panelDanhmuc.Size = new System.Drawing.Size(170, 119);
             this.panelDanhmuc.TabIndex = 47;
             // 
             // open_kt
@@ -410,12 +407,12 @@
             this.open_kt.HoverState.ForeColor = System.Drawing.Color.Black;
             this.open_kt.Image = global::QuanLyNhanSu.Properties.Resources.premium_badge;
             this.open_kt.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.open_kt.Location = new System.Drawing.Point(16, 112);
+            this.open_kt.Location = new System.Drawing.Point(15, 87);
             this.open_kt.Margin = new System.Windows.Forms.Padding(6);
             this.open_kt.MaximumSize = new System.Drawing.Size(239, 53);
-            this.open_kt.MinimumSize = new System.Drawing.Size(40, 53);
+            this.open_kt.MinimumSize = new System.Drawing.Size(40, 30);
             this.open_kt.Name = "open_kt";
-            this.open_kt.Size = new System.Drawing.Size(223, 53);
+            this.open_kt.Size = new System.Drawing.Size(150, 30);
             this.open_kt.TabIndex = 42;
             this.open_kt.Text = "Khen thưởng";
             this.open_kt.Click += new System.EventHandler(this.open_kt_Click);
@@ -439,12 +436,12 @@
             this.open_kl.HoverState.ForeColor = System.Drawing.Color.Black;
             this.open_kl.Image = global::QuanLyNhanSu.Properties.Resources.tax;
             this.open_kl.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.open_kl.Location = new System.Drawing.Point(15, 57);
+            this.open_kl.Location = new System.Drawing.Point(15, 45);
             this.open_kl.Margin = new System.Windows.Forms.Padding(6);
             this.open_kl.MaximumSize = new System.Drawing.Size(239, 53);
-            this.open_kl.MinimumSize = new System.Drawing.Size(40, 53);
+            this.open_kl.MinimumSize = new System.Drawing.Size(40, 30);
             this.open_kl.Name = "open_kl";
-            this.open_kl.Size = new System.Drawing.Size(223, 53);
+            this.open_kl.Size = new System.Drawing.Size(150, 30);
             this.open_kl.TabIndex = 41;
             this.open_kl.Text = "Kỷ luật";
             this.open_kl.Click += new System.EventHandler(this.open_kl_Click);
@@ -471,34 +468,12 @@
             this.open_pb.Location = new System.Drawing.Point(15, 3);
             this.open_pb.Margin = new System.Windows.Forms.Padding(6);
             this.open_pb.MaximumSize = new System.Drawing.Size(239, 53);
-            this.open_pb.MinimumSize = new System.Drawing.Size(40, 53);
+            this.open_pb.MinimumSize = new System.Drawing.Size(40, 30);
             this.open_pb.Name = "open_pb";
-            this.open_pb.Size = new System.Drawing.Size(223, 53);
+            this.open_pb.Size = new System.Drawing.Size(150, 30);
             this.open_pb.TabIndex = 36;
             this.open_pb.Text = "Phòng ban";
             this.open_pb.Click += new System.EventHandler(this.open_pb_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
-            this.flowLayoutPanel1.Controls.Add(this.guna2CircleButton5);
-            this.flowLayoutPanel1.Controls.Add(this.home);
-            this.flowLayoutPanel1.Controls.Add(this.pn_danhmuc);
-            this.flowLayoutPanel1.Controls.Add(this.panelDanhmuc);
-            this.flowLayoutPanel1.Controls.Add(this.btn_nv);
-            this.flowLayoutPanel1.Controls.Add(this.panelNhanvien);
-            this.flowLayoutPanel1.Controls.Add(this.btn_luong);
-            this.flowLayoutPanel1.Controls.Add(this.panelLuong);
-            this.flowLayoutPanel1.Controls.Add(this.chamcong);
-            this.flowLayoutPanel1.Controls.Add(this.btn_congtac);
-            this.flowLayoutPanel1.Controls.Add(this.baocao);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 44);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(251, 982);
-            this.flowLayoutPanel1.TabIndex = 45;
             // 
             // guna2CircleButton5
             // 
@@ -514,11 +489,11 @@
             this.guna2CircleButton5.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton5.Image = global::QuanLyNhanSu.Properties.Resources.golden_retriever;
             this.guna2CircleButton5.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton5.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton5.Location = new System.Drawing.Point(41, 3);
+            this.guna2CircleButton5.ImageSize = new System.Drawing.Size(28, 28);
+            this.guna2CircleButton5.Location = new System.Drawing.Point(3, 3);
             this.guna2CircleButton5.Name = "guna2CircleButton5";
             this.guna2CircleButton5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton5.Size = new System.Drawing.Size(167, 56);
+            this.guna2CircleButton5.Size = new System.Drawing.Size(167, 29);
             this.guna2CircleButton5.TabIndex = 33;
             // 
             // home
@@ -540,12 +515,12 @@
             this.home.HoverState.ForeColor = System.Drawing.Color.Black;
             this.home.Image = global::QuanLyNhanSu.Properties.Resources.home;
             this.home.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.home.Location = new System.Drawing.Point(6, 68);
+            this.home.Location = new System.Drawing.Point(6, 41);
             this.home.Margin = new System.Windows.Forms.Padding(6);
             this.home.MaximumSize = new System.Drawing.Size(214, 53);
-            this.home.MinimumSize = new System.Drawing.Size(40, 53);
+            this.home.MinimumSize = new System.Drawing.Size(40, 30);
             this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(214, 53);
+            this.home.Size = new System.Drawing.Size(150, 30);
             this.home.TabIndex = 39;
             this.home.Text = "Trang chủ";
             this.home.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -570,12 +545,12 @@
             this.pn_danhmuc.HoverState.ForeColor = System.Drawing.Color.Black;
             this.pn_danhmuc.Image = global::QuanLyNhanSu.Properties.Resources.options_lines;
             this.pn_danhmuc.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.pn_danhmuc.Location = new System.Drawing.Point(6, 133);
+            this.pn_danhmuc.Location = new System.Drawing.Point(6, 83);
             this.pn_danhmuc.Margin = new System.Windows.Forms.Padding(6);
             this.pn_danhmuc.MaximumSize = new System.Drawing.Size(214, 53);
-            this.pn_danhmuc.MinimumSize = new System.Drawing.Size(40, 53);
+            this.pn_danhmuc.MinimumSize = new System.Drawing.Size(40, 30);
             this.pn_danhmuc.Name = "pn_danhmuc";
-            this.pn_danhmuc.Size = new System.Drawing.Size(214, 53);
+            this.pn_danhmuc.Size = new System.Drawing.Size(150, 30);
             this.pn_danhmuc.TabIndex = 1;
             this.pn_danhmuc.Text = "Danh mục";
             this.pn_danhmuc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -600,12 +575,12 @@
             this.btn_nv.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btn_nv.Image = global::QuanLyNhanSu.Properties.Resources.multiple_users_silhouette;
             this.btn_nv.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_nv.Location = new System.Drawing.Point(6, 372);
+            this.btn_nv.Location = new System.Drawing.Point(6, 250);
             this.btn_nv.Margin = new System.Windows.Forms.Padding(6);
             this.btn_nv.MaximumSize = new System.Drawing.Size(214, 53);
-            this.btn_nv.MinimumSize = new System.Drawing.Size(40, 53);
+            this.btn_nv.MinimumSize = new System.Drawing.Size(40, 30);
             this.btn_nv.Name = "btn_nv";
-            this.btn_nv.Size = new System.Drawing.Size(214, 53);
+            this.btn_nv.Size = new System.Drawing.Size(150, 30);
             this.btn_nv.TabIndex = 35;
             this.btn_nv.Text = "Nhân sự";
             this.btn_nv.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -630,12 +605,12 @@
             this.btn_luong.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btn_luong.Image = global::QuanLyNhanSu.Properties.Resources.salary;
             this.btn_luong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_luong.Location = new System.Drawing.Point(6, 563);
+            this.btn_luong.Location = new System.Drawing.Point(6, 378);
             this.btn_luong.Margin = new System.Windows.Forms.Padding(6);
             this.btn_luong.MaximumSize = new System.Drawing.Size(214, 53);
-            this.btn_luong.MinimumSize = new System.Drawing.Size(40, 53);
+            this.btn_luong.MinimumSize = new System.Drawing.Size(40, 30);
             this.btn_luong.Name = "btn_luong";
-            this.btn_luong.Size = new System.Drawing.Size(214, 53);
+            this.btn_luong.Size = new System.Drawing.Size(150, 30);
             this.btn_luong.TabIndex = 37;
             this.btn_luong.Text = "Lương";
             this.btn_luong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -660,12 +635,12 @@
             this.chamcong.HoverState.ForeColor = System.Drawing.Color.Black;
             this.chamcong.Image = global::QuanLyNhanSu.Properties.Resources.clock;
             this.chamcong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.chamcong.Location = new System.Drawing.Point(6, 751);
+            this.chamcong.Location = new System.Drawing.Point(6, 508);
             this.chamcong.Margin = new System.Windows.Forms.Padding(6);
             this.chamcong.MaximumSize = new System.Drawing.Size(214, 53);
-            this.chamcong.MinimumSize = new System.Drawing.Size(40, 53);
+            this.chamcong.MinimumSize = new System.Drawing.Size(40, 30);
             this.chamcong.Name = "chamcong";
-            this.chamcong.Size = new System.Drawing.Size(214, 53);
+            this.chamcong.Size = new System.Drawing.Size(150, 30);
             this.chamcong.TabIndex = 36;
             this.chamcong.Text = "Chấm công";
             this.chamcong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -690,12 +665,12 @@
             this.btn_congtac.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btn_congtac.Image = global::QuanLyNhanSu.Properties.Resources.suitcase;
             this.btn_congtac.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_congtac.Location = new System.Drawing.Point(6, 816);
+            this.btn_congtac.Location = new System.Drawing.Point(6, 550);
             this.btn_congtac.Margin = new System.Windows.Forms.Padding(6);
             this.btn_congtac.MaximumSize = new System.Drawing.Size(214, 53);
-            this.btn_congtac.MinimumSize = new System.Drawing.Size(40, 53);
+            this.btn_congtac.MinimumSize = new System.Drawing.Size(40, 30);
             this.btn_congtac.Name = "btn_congtac";
-            this.btn_congtac.Size = new System.Drawing.Size(214, 53);
+            this.btn_congtac.Size = new System.Drawing.Size(150, 30);
             this.btn_congtac.TabIndex = 48;
             this.btn_congtac.Text = "Công tác";
             this.btn_congtac.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -720,12 +695,12 @@
             this.baocao.HoverState.ForeColor = System.Drawing.Color.Black;
             this.baocao.Image = global::QuanLyNhanSu.Properties.Resources.bar_chart;
             this.baocao.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.baocao.Location = new System.Drawing.Point(6, 881);
+            this.baocao.Location = new System.Drawing.Point(6, 592);
             this.baocao.Margin = new System.Windows.Forms.Padding(6);
             this.baocao.MaximumSize = new System.Drawing.Size(214, 53);
-            this.baocao.MinimumSize = new System.Drawing.Size(40, 53);
+            this.baocao.MinimumSize = new System.Drawing.Size(40, 30);
             this.baocao.Name = "baocao";
-            this.baocao.Size = new System.Drawing.Size(214, 53);
+            this.baocao.Size = new System.Drawing.Size(150, 30);
             this.baocao.TabIndex = 38;
             this.baocao.Text = "Báo cáo";
             this.baocao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -735,43 +710,35 @@
             // 
             this.TimerAnimation.Interval = 2;
             // 
-            // tableLayoutPanel1
+            // flowLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panelChildForm, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(257, 44);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1338, 982);
-            this.tableLayoutPanel1.TabIndex = 49;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.flowLayoutPanel1.Controls.Add(this.guna2CircleButton5);
+            this.flowLayoutPanel1.Controls.Add(this.home);
+            this.flowLayoutPanel1.Controls.Add(this.pn_danhmuc);
+            this.flowLayoutPanel1.Controls.Add(this.panelDanhmuc);
+            this.flowLayoutPanel1.Controls.Add(this.btn_nv);
+            this.flowLayoutPanel1.Controls.Add(this.panelNhanvien);
+            this.flowLayoutPanel1.Controls.Add(this.btn_luong);
+            this.flowLayoutPanel1.Controls.Add(this.panelLuong);
+            this.flowLayoutPanel1.Controls.Add(this.chamcong);
+            this.flowLayoutPanel1.Controls.Add(this.btn_congtac);
+            this.flowLayoutPanel1.Controls.Add(this.baocao);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 44);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(173, 656);
+            this.flowLayoutPanel1.TabIndex = 50;
             // 
             // panelChildForm
             // 
-            this.panelChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelChildForm.Controls.Add(this.guna2Panel2);
             this.panelChildForm.Controls.Add(this.panelProfile);
-            this.panelChildForm.Location = new System.Drawing.Point(3, 3);
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(173, 44);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1332, 976);
-            this.panelChildForm.TabIndex = 52;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(173)))), ((int)(((byte)(118)))));
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 966);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1332, 10);
-            this.guna2Panel2.TabIndex = 111;
+            this.panelChildForm.Size = new System.Drawing.Size(1075, 656);
+            this.panelChildForm.TabIndex = 51;
             // 
             // panelProfile
             // 
@@ -783,10 +750,10 @@
             this.panelProfile.Controls.Add(this.btn_caidat);
             this.panelProfile.Controls.Add(this.btn_hotro);
             this.panelProfile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelProfile.Location = new System.Drawing.Point(1082, 0);
+            this.panelProfile.Location = new System.Drawing.Point(822, -1);
             this.panelProfile.Name = "panelProfile";
             this.panelProfile.Size = new System.Drawing.Size(140, 162);
-            this.panelProfile.TabIndex = 46;
+            this.panelProfile.TabIndex = 48;
             // 
             // btn_thongtin
             // 
@@ -943,9 +910,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(173)))), ((int)(((byte)(118)))));
-            this.ClientSize = new System.Drawing.Size(1595, 1026);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.BackColor = System.Drawing.Color.SandyBrown;
+            this.ClientSize = new System.Drawing.Size(1248, 700);
+            this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2GradientPanel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -960,7 +927,6 @@
             this.panelLuong.ResumeLayout(false);
             this.panelDanhmuc.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.panelChildForm.ResumeLayout(false);
             this.panelProfile.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -991,16 +957,14 @@
         private Guna.UI2.WinForms.Guna2Panel panelDanhmuc;
         private Guna.UI2.WinForms.Guna2Panel panelLuong;
         private Guna.UI2.WinForms.Guna2Panel panelNhanvien;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton6;
         private Guna.UI2.WinForms.Guna2Button btn_congtac;
         private Guna.UI2.WinForms.Guna2Button Profile;
         private Guna.UI2.WinForms.Guna2CirclePictureBox ptb_homepage;
         private System.Windows.Forms.Timer TimerAnimation;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel panelChildForm;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel panelProfile;
         private Guna.UI2.WinForms.Guna2Button btn_thongtin;
         private Guna.UI2.WinForms.Guna2Button btn_logout;

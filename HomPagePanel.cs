@@ -339,6 +339,7 @@ namespace QuanLyNhanSu
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
                         Dtg_nhanvien.DataSource = dataTable;
+                        Dtg_nhanvien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
                     }
                 }
                 catch (Exception ex)
@@ -395,14 +396,9 @@ namespace QuanLyNhanSu
             SearchData(search_home.Text); // Gọi hàm tìm kiếm khi nhấn nút tìm kiếm
         }
 
-        private void lb_quy_Click(object sender, EventArgs e)
+        private void search_home_TextChanged_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void btn_searchHome_Click_1(object sender, EventArgs e)
-        {
-
+            SearchData(search_home.Text);
         }
     }
 }

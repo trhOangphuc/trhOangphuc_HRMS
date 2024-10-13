@@ -1,3 +1,5 @@
+D:\.net\QuanLyNhanSu\bin\Debug\quanlynhansu.mdf
+D:\.net\QuanLyNhanSu\bin\Debug\quanlynhansu_log.ldf
 D:\.net\QuanLyNhanSu\bin\Debug\QuanLyNhanSu.exe.config
 D:\.net\QuanLyNhanSu\bin\Debug\QuanLyNhanSu.exe
 D:\.net\QuanLyNhanSu\bin\Debug\QuanLyNhanSu.pdb
@@ -7,6 +9,7 @@ D:\.net\QuanLyNhanSu\bin\Debug\LiveCharts.pdb
 D:\.net\QuanLyNhanSu\bin\Debug\LiveCharts.xml
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csproj.AssemblyReference.cache
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Account.resources
+D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.ChinhSach.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Error.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Notification.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Question.resources
@@ -25,4 +28,3 @@ D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csproj.CoreCompileInputs.cache
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNh.83172EC3.Up2Date
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.exe
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.pdb
-D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.ChinhSach.resources

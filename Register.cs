@@ -79,15 +79,15 @@ namespace QuanLyNhanSu
                 txt_password.Focus();
                 return;
             }
-            //if (!IsValidPassword(password))
-            //{
-            //    lb_thongbao.Text = "Mật khẩu không hợp lệ: \n*Phải có ít nhất 8 ký tự, \n*Bao gồm chữ hoa, \n*Chữ thường, \n*Số và ký tự đặc biệt!";
-            //    lb_thongbao.ForeColor = Color.Red;
-            //    txt_password.Focus();
-            //    return;
-            //}
-            //if (IsValidPassword(password) && password == comfirmpassword)
-            if (password == comfirmpassword)
+            if (!IsValidPassword(password))
+            {
+                lb_thongbao.Text = "Mật khẩu không hợp lệ: \n*Phải có ít nhất 8 ký tự, \n*Bao gồm chữ hoa, \n*Chữ thường, \n*Số và ký tự đặc biệt!";
+                lb_thongbao.ForeColor = Color.Red;
+                txt_password.Focus();
+                return;
+            }
+            if (IsValidPassword(password) && password == comfirmpassword)
+                if (password == comfirmpassword)
             {
                 using (SqlConnection connection = connectdatabase.Connect())
                 {
@@ -107,9 +107,21 @@ namespace QuanLyNhanSu
                     try
                     {
                         connection.Open();
+                        string checkUserQuery = "SELECT COUNT(*) FROM TaiKhoan WHERE TaiKhoan = @TaiKhoan";
+                        using (SqlCommand checkUserCmd = new SqlCommand(checkUserQuery, connection))
+                          {
+                            checkUserCmd.Parameters.AddWithValue("@TaiKhoan", username);
+                            int userCount = (int)checkUserCmd.ExecuteScalar();
+                             if (userCount > 0) 
+                             {
+                                lb_thongbao.Text = "*Tên tài khoản đã tồn tại!";
+                                lb_thongbao.ForeColor = Color.Red;
+                                txt_username.Focus();
+                                return;
+                             }
+                        }
 
                         string query = "INSERT INTO TaiKhoan (TenTK, TaiKhoan, MatKhau) VALUES (@TenTK, @TaiKhoan, @MatKhau)";
-
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@ID", name);
