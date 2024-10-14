@@ -138,7 +138,7 @@
             this.Profile.Location = new System.Drawing.Point(995, 3);
             this.Profile.Name = "Profile";
             this.Profile.Size = new System.Drawing.Size(140, 40);
-            this.Profile.TabIndex = 47;
+            this.Profile.TabIndex = 8;
             this.Profile.Text = "Profile";
             this.Profile.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
@@ -192,7 +192,7 @@
             this.guna2CircleButton4.Name = "guna2CircleButton4";
             this.guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton4.Size = new System.Drawing.Size(25, 24);
-            this.guna2CircleButton4.TabIndex = 6;
+            this.guna2CircleButton4.TabIndex = 10;
             this.guna2CircleButton4.Click += new System.EventHandler(this.guna2CircleButton4_Click);
             // 
             // guna2CircleButton1
@@ -213,7 +213,7 @@
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton1.Size = new System.Drawing.Size(31, 24);
-            this.guna2CircleButton1.TabIndex = 2;
+            this.guna2CircleButton1.TabIndex = 11;
             this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click_1);
             // 
             // guna2CircleButton2
@@ -234,7 +234,7 @@
             this.guna2CircleButton2.Name = "guna2CircleButton2";
             this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton2.Size = new System.Drawing.Size(31, 24);
-            this.guna2CircleButton2.TabIndex = 3;
+            this.guna2CircleButton2.TabIndex = 9;
             this.guna2CircleButton2.Click += new System.EventHandler(this.guna2CircleButton2_Click_1);
             // 
             // panelNhanvien
@@ -521,7 +521,7 @@
             this.home.MinimumSize = new System.Drawing.Size(40, 30);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(150, 30);
-            this.home.TabIndex = 39;
+            this.home.TabIndex = 1;
             this.home.Text = "Trang chủ";
             this.home.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.home.Click += new System.EventHandler(this.home_Click);
@@ -551,7 +551,7 @@
             this.pn_danhmuc.MinimumSize = new System.Drawing.Size(40, 30);
             this.pn_danhmuc.Name = "pn_danhmuc";
             this.pn_danhmuc.Size = new System.Drawing.Size(150, 30);
-            this.pn_danhmuc.TabIndex = 1;
+            this.pn_danhmuc.TabIndex = 2;
             this.pn_danhmuc.Text = "Danh mục";
             this.pn_danhmuc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.pn_danhmuc.Click += new System.EventHandler(this.pn_danhmuc_Click);
@@ -581,7 +581,7 @@
             this.btn_nv.MinimumSize = new System.Drawing.Size(40, 30);
             this.btn_nv.Name = "btn_nv";
             this.btn_nv.Size = new System.Drawing.Size(150, 30);
-            this.btn_nv.TabIndex = 35;
+            this.btn_nv.TabIndex = 3;
             this.btn_nv.Text = "Nhân sự";
             this.btn_nv.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_nv.Click += new System.EventHandler(this.btn_nv_Click);
@@ -611,7 +611,7 @@
             this.btn_luong.MinimumSize = new System.Drawing.Size(40, 30);
             this.btn_luong.Name = "btn_luong";
             this.btn_luong.Size = new System.Drawing.Size(150, 30);
-            this.btn_luong.TabIndex = 37;
+            this.btn_luong.TabIndex = 4;
             this.btn_luong.Text = "Lương";
             this.btn_luong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_luong.Click += new System.EventHandler(this.btn_luong_Click);
@@ -641,7 +641,7 @@
             this.chamcong.MinimumSize = new System.Drawing.Size(40, 30);
             this.chamcong.Name = "chamcong";
             this.chamcong.Size = new System.Drawing.Size(150, 30);
-            this.chamcong.TabIndex = 36;
+            this.chamcong.TabIndex = 5;
             this.chamcong.Text = "Chấm công";
             this.chamcong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.chamcong.Click += new System.EventHandler(this.chamcong_Click);
@@ -671,7 +671,7 @@
             this.btn_congtac.MinimumSize = new System.Drawing.Size(40, 30);
             this.btn_congtac.Name = "btn_congtac";
             this.btn_congtac.Size = new System.Drawing.Size(150, 30);
-            this.btn_congtac.TabIndex = 48;
+            this.btn_congtac.TabIndex = 6;
             this.btn_congtac.Text = "Công tác";
             this.btn_congtac.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_congtac.Click += new System.EventHandler(this.btn_congtac_Click);
@@ -701,7 +701,7 @@
             this.baocao.MinimumSize = new System.Drawing.Size(40, 30);
             this.baocao.Name = "baocao";
             this.baocao.Size = new System.Drawing.Size(150, 30);
-            this.baocao.TabIndex = 38;
+            this.baocao.TabIndex = 7;
             this.baocao.Text = "Báo cáo";
             this.baocao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.baocao.Click += new System.EventHandler(this.baocao_Click);

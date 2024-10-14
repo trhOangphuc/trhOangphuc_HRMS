@@ -37,7 +37,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaKL, GiaTri FROM KyLuat ORDER BY MaKL";
+                    string query = "SELECT ID, MaKL, GiaTri FROM KyLuat ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -62,7 +62,7 @@ namespace QuanLyNhanSu
                 if (row.Cells["MaKL"].Value != null)
                 {
                     txt_makl.Text = row.Cells["MaKL"].Value.ToString();
-                    txt_makl.Enabled = true;
+                    txt_makl.Enabled = false;
                 }
 
                 if (row.Cells["GiaTri"].Value != null)
@@ -88,7 +88,7 @@ namespace QuanLyNhanSu
                || string.IsNullOrWhiteSpace(txt_giatri.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
+                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
@@ -229,6 +229,11 @@ namespace QuanLyNhanSu
         private void reset1_Click_1(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void search_kyluat_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

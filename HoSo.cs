@@ -60,7 +60,7 @@ namespace QuanLyNhanSu
                 LEFT JOIN 
                     PhongBan PB ON NV.MaPB = PB.MaPB
                 LEFT JOIN 
-                    ChucVu CV ON NV.MaCV = CV.MaCV";
+                    ChucVu CV ON NV.MaCV = CV.MaCV ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -110,6 +110,21 @@ namespace QuanLyNhanSu
                 if (row.Cells["DiaChi"].Value != null)
                 {
                     txt_dc.Text = row.Cells["DiaChi"].Value.ToString();
+                }
+                if (row.Cells["MaPB"].Value != null)
+                {
+                    string maPB = row.Cells["MaPB"].Value.ToString();
+                    cmb_phongban.SelectedIndex = cmb_phongban.FindStringExact(maPB);
+                }
+                if (row.Cells["MaCV"].Value != null)
+                {
+                    string maCV = row.Cells["MaCV"].Value.ToString();
+                    cmb_chucvu.SelectedIndex = cmb_chucvu.FindStringExact(maCV);
+                }
+                if (row.Cells["MaCongTac"].Value != null)
+                {
+                    string maCT = row.Cells["MaCongTac"].Value.ToString();
+                    cmb_congtac.SelectedIndex = cmb_congtac.FindStringExact(maCT);
                 }
             }
         }

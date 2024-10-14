@@ -268,7 +268,7 @@
             this.btn_updateKT.ForeColor = System.Drawing.Color.White;
             this.btn_updateKT.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updateKT.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updateKT.Location = new System.Drawing.Point(119, 156);
+            this.btn_updateKT.Location = new System.Drawing.Point(128, 156);
             this.btn_updateKT.Name = "btn_updateKT";
             this.btn_updateKT.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updateKT.Size = new System.Drawing.Size(46, 43);

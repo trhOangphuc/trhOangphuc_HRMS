@@ -37,7 +37,6 @@
             this.btn_searchPb = new Guna.UI2.WinForms.Guna2CircleButton();
             this.add_pb = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.btn_deletePb = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_updatePB = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_chucvu = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -61,7 +60,6 @@
             this.panel.Controls.Add(this.btn_searchPb);
             this.panel.Controls.Add(this.add_pb);
             this.panel.Controls.Add(this.btn_deletePb);
-            this.panel.Controls.Add(this.btn_updatePB);
             this.panel.Controls.Add(this.label2);
             this.panel.Controls.Add(this.txt_chucvu);
             this.panel.Dock = System.Windows.Forms.DockStyle.Right;
@@ -109,7 +107,7 @@
             this.resetb.ForeColor = System.Drawing.Color.White;
             this.resetb.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetb.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetb.Location = new System.Drawing.Point(309, 159);
+            this.resetb.Location = new System.Drawing.Point(399, 152);
             this.resetb.Name = "resetb";
             this.resetb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetb.Size = new System.Drawing.Size(46, 43);
@@ -168,7 +166,7 @@
             this.search_phongban.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_phongban.ForeColor = System.Drawing.Color.Black;
             this.search_phongban.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_phongban.Location = new System.Drawing.Point(20, 233);
+            this.search_phongban.Location = new System.Drawing.Point(20, 152);
             this.search_phongban.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_phongban.MaxLength = 40;
             this.search_phongban.Name = "search_phongban";
@@ -177,7 +175,7 @@
             this.search_phongban.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.search_phongban.PlaceholderText = "Search";
             this.search_phongban.SelectedText = "";
-            this.search_phongban.Size = new System.Drawing.Size(366, 50);
+            this.search_phongban.Size = new System.Drawing.Size(208, 50);
             this.search_phongban.TabIndex = 3;
             this.search_phongban.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.search_phongban.TextChanged += new System.EventHandler(this.search_phongban_TextChanged);
@@ -194,7 +192,7 @@
             this.btn_searchPb.ForeColor = System.Drawing.Color.White;
             this.btn_searchPb.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchPb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchPb.Location = new System.Drawing.Point(393, 233);
+            this.btn_searchPb.Location = new System.Drawing.Point(232, 152);
             this.btn_searchPb.Name = "btn_searchPb";
             this.btn_searchPb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchPb.Size = new System.Drawing.Size(52, 50);
@@ -236,33 +234,12 @@
             this.btn_deletePb.ForeColor = System.Drawing.Color.White;
             this.btn_deletePb.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletePb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletePb.Location = new System.Drawing.Point(182, 159);
+            this.btn_deletePb.Location = new System.Drawing.Point(325, 152);
             this.btn_deletePb.Name = "btn_deletePb";
             this.btn_deletePb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletePb.Size = new System.Drawing.Size(46, 43);
             this.btn_deletePb.TabIndex = 8;
             this.btn_deletePb.Click += new System.EventHandler(this.btn_deletePb_Click);
-            // 
-            // btn_updatePB
-            // 
-            this.btn_updatePB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_updatePB.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_updatePB.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_updatePB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_updatePB.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_updatePB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_updatePB.FillColor = System.Drawing.Color.Transparent;
-            this.btn_updatePB.FillColor2 = System.Drawing.Color.Transparent;
-            this.btn_updatePB.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_updatePB.ForeColor = System.Drawing.Color.White;
-            this.btn_updatePB.Image = global::QuanLyNhanSu.Properties.Resources.updated;
-            this.btn_updatePB.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatePB.Location = new System.Drawing.Point(50, 159);
-            this.btn_updatePB.Name = "btn_updatePB";
-            this.btn_updatePB.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_updatePB.Size = new System.Drawing.Size(46, 43);
-            this.btn_updatePB.TabIndex = 7;
-            this.btn_updatePB.Click += new System.EventHandler(this.btn_updatePB_Click);
             // 
             // label2
             // 
@@ -308,11 +285,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.MaPB});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(325, 655);
+            this.dataGridView1.Size = new System.Drawing.Size(622, 323);
             this.dataGridView1.TabIndex = 88;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -341,10 +318,10 @@
             this.ID2,
             this.MaCV});
             this.dtg_chucvu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_chucvu.Location = new System.Drawing.Point(325, 0);
+            this.dtg_chucvu.Location = new System.Drawing.Point(0, 323);
             this.dtg_chucvu.Name = "dtg_chucvu";
             this.dtg_chucvu.RowHeadersVisible = false;
-            this.dtg_chucvu.Size = new System.Drawing.Size(297, 655);
+            this.dtg_chucvu.Size = new System.Drawing.Size(622, 332);
             this.dtg_chucvu.TabIndex = 89;
             this.dtg_chucvu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_chucvu_CellClick);
             // 
@@ -390,7 +367,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_chucvu;
         private Guna.UI2.WinForms.Guna2GradientCircleButton add_pb;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_deletePb;
-        private Guna.UI2.WinForms.Guna2GradientCircleButton btn_updatePB;
         private Guna.UI2.WinForms.Guna2CircleButton btn_searchPb;
         private Guna.UI2.WinForms.Guna2TextBox search_phongban;
         private System.Windows.Forms.Label label3;

@@ -126,7 +126,7 @@
             // 
             this.textNotification.AutoSize = false;
             this.textNotification.BackColor = System.Drawing.Color.Transparent;
-            this.textNotification.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNotification.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.textNotification.Location = new System.Drawing.Point(4, 227);
             this.textNotification.Name = "textNotification";

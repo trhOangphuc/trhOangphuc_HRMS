@@ -49,7 +49,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaCongTac, GhiChu FROM CongTac";
+                    string query = "SELECT ID, MaCongTac, GhiChu FROM CongTac ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -81,7 +81,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, HoTen, GioiTinh, NgaySinh, Sdt, DiaChi FROM NhanVien";
+                    string query = "SELECT ID, HoTen, GioiTinh, NgaySinh, Sdt, DiaChi FROM NhanVien ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -112,7 +112,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaPB FROM PhongBan";
+                    string query = "SELECT ID, MaPB FROM PhongBan ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -385,6 +385,11 @@ namespace QuanLyNhanSu
         private void search_home_TextChanged_1(object sender, EventArgs e)
         {
             SearchData(search_home.Text);
+        }
+
+        private void chart_phongban_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

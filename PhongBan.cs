@@ -38,7 +38,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaCV FROM ChucVu ORDER BY MaCV";
+                    string query = "SELECT ID, MaCV FROM ChucVu ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -69,7 +69,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaPB FROM PhongBan ORDER BY MaPB";
+                    string query = "SELECT ID, MaPB FROM PhongBan ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -91,7 +91,6 @@ namespace QuanLyNhanSu
             txt_chucvu.Enabled = true;
             txt_mapb.Enabled = true;
             txt_mapb.Text = "";
-
             txt_chucvu.Text = "";
             LoadData();
             LoadDataCV();
@@ -398,7 +397,6 @@ namespace QuanLyNhanSu
                         if (dataTable.Rows.Count > 0)
                         {
                             dataGridView1.DataSource = dataTable;
-                            txt_mapb.Text = dataTable.Rows[0]["MaPB"].ToString();
                         }
                         //else
                         //{
@@ -433,7 +431,6 @@ namespace QuanLyNhanSu
                         if (dataTable.Rows.Count > 0)
                         {
                             dtg_chucvu.DataSource = dataTable;
-                            txt_chucvu.Text = dataTable.Rows[0]["MaCV"].ToString();
                         }
                         //else
                         //{

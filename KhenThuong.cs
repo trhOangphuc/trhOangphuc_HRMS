@@ -37,7 +37,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaKT, GiaTri FROM KhenThuong ORDER BY MaKT";
+                    string query = "SELECT ID, MaKT, GiaTri FROM KhenThuong ORDER BY ID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -61,7 +61,7 @@ namespace QuanLyNhanSu
                 if (row.Cells["MaKT"].Value != null)
                 {
                     txt_makt.Text = row.Cells["MaKT"].Value.ToString();
-                    txt_makt.Enabled = true;
+                    txt_makt.Enabled = false;
                 }
 
                 if (row.Cells["GiaTri"].Value != null)
@@ -87,7 +87,7 @@ namespace QuanLyNhanSu
                || string.IsNullOrWhiteSpace(txt_giatri.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
+                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;

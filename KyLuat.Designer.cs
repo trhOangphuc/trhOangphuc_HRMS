@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaTri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resetb = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.reset1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.txt_makl = new Guna.UI2.WinForms.Guna2TextBox();
@@ -40,9 +43,6 @@
             this.btn_updateKL = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_giatri = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.resetb.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,28 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(622, 655);
             this.dataGridView1.TabIndex = 90;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.FillWeight = 25.8912F;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 15;
+            this.ID.Name = "ID";
+            // 
+            // MaKL
+            // 
+            this.MaKL.DataPropertyName = "MaKL";
+            this.MaKL.FillWeight = 67.79305F;
+            this.MaKL.HeaderText = "Mã kỷ luật";
+            this.MaKL.Name = "MaKL";
+            // 
+            // GiaTri
+            // 
+            this.GiaTri.DataPropertyName = "GiaTri";
+            this.GiaTri.FillWeight = 161.3441F;
+            this.GiaTri.HeaderText = "Giá trị";
+            this.GiaTri.Name = "GiaTri";
             // 
             // resetb
             // 
@@ -171,6 +193,7 @@
             this.search_kyluat.Size = new System.Drawing.Size(366, 50);
             this.search_kyluat.TabIndex = 85;
             this.search_kyluat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.search_kyluat.TextChanged += new System.EventHandler(this.search_kyluat_TextChanged);
             // 
             // btn_searchKl
             // 
@@ -247,7 +270,7 @@
             this.btn_updateKL.ForeColor = System.Drawing.Color.White;
             this.btn_updateKL.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updateKL.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updateKL.Location = new System.Drawing.Point(119, 161);
+            this.btn_updateKL.Location = new System.Drawing.Point(130, 161);
             this.btn_updateKL.Name = "btn_updateKL";
             this.btn_updateKL.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updateKL.Size = new System.Drawing.Size(46, 43);
@@ -288,28 +311,6 @@
             this.txt_giatri.SelectedText = "";
             this.txt_giatri.Size = new System.Drawing.Size(238, 36);
             this.txt_giatri.TabIndex = 2;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 25.8912F;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 15;
-            this.ID.Name = "ID";
-            // 
-            // MaKL
-            // 
-            this.MaKL.DataPropertyName = "MaKL";
-            this.MaKL.FillWeight = 67.79305F;
-            this.MaKL.HeaderText = "Mã kỷ luật";
-            this.MaKL.Name = "MaKL";
-            // 
-            // GiaTri
-            // 
-            this.GiaTri.DataPropertyName = "GiaTri";
-            this.GiaTri.FillWeight = 161.3441F;
-            this.GiaTri.HeaderText = "Giá trị";
-            this.GiaTri.Name = "GiaTri";
             // 
             // KyLuat
             // 
