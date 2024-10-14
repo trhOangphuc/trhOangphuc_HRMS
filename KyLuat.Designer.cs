@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resetb = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.reset1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.txt_makl = new Guna.UI2.WinForms.Guna2TextBox();
@@ -44,8 +40,9 @@
             this.btn_updateKL = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_giatri = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_kl = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaTri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.resetb.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +56,6 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.MaKL,
-            this.TenKL,
             this.GiaTri});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -67,34 +63,6 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(622, 655);
             this.dataGridView1.TabIndex = 90;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 49.14294F;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // MaKL
-            // 
-            this.MaKL.DataPropertyName = "MaKL";
-            this.MaKL.FillWeight = 60.91373F;
-            this.MaKL.HeaderText = "Mã kỷ luật";
-            this.MaKL.Name = "MaKL";
-            // 
-            // TenKL
-            // 
-            this.TenKL.DataPropertyName = "TenKL";
-            this.TenKL.FillWeight = 144.9717F;
-            this.TenKL.HeaderText = "Tên kỷ luật";
-            this.TenKL.Name = "TenKL";
-            // 
-            // GiaTri
-            // 
-            this.GiaTri.DataPropertyName = "GiaTri";
-            this.GiaTri.FillWeight = 144.9717F;
-            this.GiaTri.HeaderText = "Giá trị";
-            this.GiaTri.Name = "GiaTri";
             // 
             // resetb
             // 
@@ -108,8 +76,6 @@
             this.resetb.Controls.Add(this.btn_updateKL);
             this.resetb.Controls.Add(this.label2);
             this.resetb.Controls.Add(this.txt_giatri);
-            this.resetb.Controls.Add(this.label1);
-            this.resetb.Controls.Add(this.txt_kl);
             this.resetb.Dock = System.Windows.Forms.DockStyle.Right;
             this.resetb.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.resetb.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
@@ -134,7 +100,7 @@
             this.reset1.ForeColor = System.Drawing.Color.White;
             this.reset1.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.reset1.ImageSize = new System.Drawing.Size(40, 40);
-            this.reset1.Location = new System.Drawing.Point(326, 229);
+            this.reset1.Location = new System.Drawing.Point(326, 161);
             this.reset1.Name = "reset1";
             this.reset1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.reset1.Size = new System.Drawing.Size(46, 43);
@@ -172,9 +138,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(19, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 18);
+            this.label3.Size = new System.Drawing.Size(74, 18);
             this.label3.TabIndex = 88;
-            this.label3.Text = "Mã kỷ luật : ";
+            this.label3.Text = "Kỷ luật : ";
             // 
             // search_kyluat
             // 
@@ -193,7 +159,7 @@
             this.search_kyluat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_kyluat.ForeColor = System.Drawing.Color.Black;
             this.search_kyluat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_kyluat.Location = new System.Drawing.Point(13, 303);
+            this.search_kyluat.Location = new System.Drawing.Point(13, 235);
             this.search_kyluat.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_kyluat.MaxLength = 40;
             this.search_kyluat.Name = "search_kyluat";
@@ -218,7 +184,7 @@
             this.btn_searchKl.ForeColor = System.Drawing.Color.White;
             this.btn_searchKl.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchKl.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchKl.Location = new System.Drawing.Point(394, 303);
+            this.btn_searchKl.Location = new System.Drawing.Point(394, 235);
             this.btn_searchKl.Name = "btn_searchKl";
             this.btn_searchKl.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchKl.Size = new System.Drawing.Size(52, 50);
@@ -239,7 +205,7 @@
             this.add_kl.ForeColor = System.Drawing.Color.White;
             this.add_kl.Image = global::QuanLyNhanSu.Properties.Resources.add;
             this.add_kl.ImageSize = new System.Drawing.Size(40, 40);
-            this.add_kl.Location = new System.Drawing.Point(22, 229);
+            this.add_kl.Location = new System.Drawing.Point(22, 161);
             this.add_kl.Name = "add_kl";
             this.add_kl.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.add_kl.Size = new System.Drawing.Size(46, 43);
@@ -260,7 +226,7 @@
             this.btn_deleteKl.ForeColor = System.Drawing.Color.White;
             this.btn_deleteKl.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deleteKl.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deleteKl.Location = new System.Drawing.Point(233, 229);
+            this.btn_deleteKl.Location = new System.Drawing.Point(233, 161);
             this.btn_deleteKl.Name = "btn_deleteKl";
             this.btn_deleteKl.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deleteKl.Size = new System.Drawing.Size(46, 43);
@@ -281,7 +247,7 @@
             this.btn_updateKL.ForeColor = System.Drawing.Color.White;
             this.btn_updateKL.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updateKL.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updateKL.Location = new System.Drawing.Point(119, 229);
+            this.btn_updateKL.Location = new System.Drawing.Point(119, 161);
             this.btn_updateKL.Name = "btn_updateKL";
             this.btn_updateKL.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updateKL.Size = new System.Drawing.Size(46, 43);
@@ -294,7 +260,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 156);
+            this.label2.Location = new System.Drawing.Point(19, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 18);
             this.label2.TabIndex = 3;
@@ -314,7 +280,7 @@
             this.txt_giatri.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_giatri.ForeColor = System.Drawing.Color.Black;
             this.txt_giatri.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_giatri.Location = new System.Drawing.Point(134, 146);
+            this.txt_giatri.Location = new System.Drawing.Point(134, 78);
             this.txt_giatri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_giatri.Name = "txt_giatri";
             this.txt_giatri.PasswordChar = '\0';
@@ -323,40 +289,27 @@
             this.txt_giatri.Size = new System.Drawing.Size(238, 36);
             this.txt_giatri.TabIndex = 2;
             // 
-            // label1
+            // ID
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên kỷ luật :";
+            this.ID.DataPropertyName = "ID";
+            this.ID.FillWeight = 25.8912F;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 15;
+            this.ID.Name = "ID";
             // 
-            // txt_kl
+            // MaKL
             // 
-            this.txt_kl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_kl.BorderRadius = 20;
-            this.txt_kl.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_kl.DefaultText = "";
-            this.txt_kl.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_kl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_kl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_kl.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_kl.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_kl.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_kl.ForeColor = System.Drawing.Color.Black;
-            this.txt_kl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_kl.Location = new System.Drawing.Point(134, 76);
-            this.txt_kl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txt_kl.Name = "txt_kl";
-            this.txt_kl.PasswordChar = '\0';
-            this.txt_kl.PlaceholderText = "";
-            this.txt_kl.SelectedText = "";
-            this.txt_kl.Size = new System.Drawing.Size(238, 36);
-            this.txt_kl.TabIndex = 0;
+            this.MaKL.DataPropertyName = "MaKL";
+            this.MaKL.FillWeight = 67.79305F;
+            this.MaKL.HeaderText = "Mã kỷ luật";
+            this.MaKL.Name = "MaKL";
+            // 
+            // GiaTri
+            // 
+            this.GiaTri.DataPropertyName = "GiaTri";
+            this.GiaTri.FillWeight = 161.3441F;
+            this.GiaTri.HeaderText = "Giá trị";
+            this.GiaTri.Name = "GiaTri";
             // 
             // KyLuat
             // 
@@ -390,12 +343,9 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_updateKL;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txt_giatri;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox txt_kl;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton reset1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenKL;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaTri;
-        private Guna.UI2.WinForms.Guna2GradientCircleButton reset1;
     }
 }

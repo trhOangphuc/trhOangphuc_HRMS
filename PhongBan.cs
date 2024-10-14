@@ -69,7 +69,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaPB, TenPB FROM PhongBan ORDER BY MaPB";
+                    string query = "SELECT ID, MaPB FROM PhongBan ORDER BY MaPB";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -91,7 +91,7 @@ namespace QuanLyNhanSu
             txt_chucvu.Enabled = true;
             txt_mapb.Enabled = true;
             txt_mapb.Text = "";
-            txt_phongban.Text = "";
+
             txt_chucvu.Text = "";
             LoadData();
             LoadDataCV();
@@ -104,7 +104,7 @@ namespace QuanLyNhanSu
 
         private void add_pb_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_mapb.Text) || string.IsNullOrWhiteSpace(txt_phongban.Text))
+            if (string.IsNullOrWhiteSpace(txt_mapb.Text))
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin phòng ban!";
@@ -114,11 +114,10 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "INSERT INTO PhongBan (MaPB, TenPB) VALUES (@MaPB, @TenPB)";
+                string query = "INSERT INTO PhongBan (MaPB) VALUES (@MaPB)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
-                    command.Parameters.AddWithValue("@TenPB", txt_phongban.Text);
 
                     try
                     {
@@ -148,11 +147,10 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "UPDATE PhongBan SET TenPB = @TenPB WHERE MaPB = @MaPB";
+                string query = "UPDATE PhongBan SET MaPB = @MaPB WHERE MaPB = @MaPB";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
-                    command.Parameters.AddWithValue("@TenPB", txt_phongban.Text);
                     command.Parameters.AddWithValue("@ChucVu", txt_chucvu.Text);
 
                     try
@@ -272,7 +270,7 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%' OR TenPB LIKE '%' + @SearchTerm + '%'";
+                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     string searchTerm = search_phongban.Text; 
@@ -289,7 +287,6 @@ namespace QuanLyNhanSu
                         {
                             dataGridView1.DataSource = dataTable;
                             txt_mapb.Text = dataTable.Rows[0]["MaPB"].ToString();
-                            txt_phongban.Text = dataTable.Rows[0]["TenPB"].ToString();
                         }
                         else
                         {
@@ -354,11 +351,6 @@ namespace QuanLyNhanSu
                     txt_mapb.Text = row.Cells["MaPB"].Value.ToString();
                     txt_mapb.Enabled = false;
                 }
-
-                if (row.Cells["TenPB"].Value != null)
-                {
-                    txt_phongban.Text = row.Cells["TenPB"].Value.ToString();
-                }
             }
         }
 
@@ -390,7 +382,7 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%' OR TenPB LIKE '%' + @SearchTerm + '%'";
+                string query = "SELECT * FROM PhongBan WHERE MaPB LIKE '%' + @SearchTerm + '%' ";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     string searchTerm = search_phongban.Text;
@@ -407,7 +399,6 @@ namespace QuanLyNhanSu
                         {
                             dataGridView1.DataSource = dataTable;
                             txt_mapb.Text = dataTable.Rows[0]["MaPB"].ToString();
-                            txt_phongban.Text = dataTable.Rows[0]["TenPB"].ToString();
                         }
                         //else
                         //{

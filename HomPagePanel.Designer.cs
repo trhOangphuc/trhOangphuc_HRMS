@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea19 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title13 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title14 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea21 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lb_quy = new System.Windows.Forms.Label();
@@ -58,11 +58,16 @@
             this.Sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtg_phongban = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label35 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label37 = new System.Windows.Forms.Label();
             this.dtg_congtac = new System.Windows.Forms.DataGridView();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label36 = new System.Windows.Forms.Label();
             this.search_home = new Guna.UI2.WinForms.Guna2TextBox();
@@ -79,7 +84,6 @@
             this.guna2CircleButton9 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2CircleButton10 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2CircleButton11 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.label18 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -89,12 +93,6 @@
             this.chart_phongban = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             this.guna2CustomGradientPanel4.SuspendLayout();
@@ -283,7 +281,8 @@
             this.Dtg_nhanvien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Dtg_nhanvien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Dtg_nhanvien.BackgroundColor = System.Drawing.Color.White;
+            this.Dtg_nhanvien.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.Dtg_nhanvien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Dtg_nhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dtg_nhanvien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -340,17 +339,32 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_phongban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_phongban.BackgroundColor = System.Drawing.Color.White;
+            this.dtg_phongban.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.dtg_phongban.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtg_phongban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_phongban.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
-            this.MaPB,
-            this.TenPB});
+            this.MaPB});
             this.dtg_phongban.Location = new System.Drawing.Point(424, 357);
             this.dtg_phongban.Name = "dtg_phongban";
             this.dtg_phongban.RowHeadersVisible = false;
             this.dtg_phongban.Size = new System.Drawing.Size(266, 113);
             this.dtg_phongban.TabIndex = 122;
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "ID";
+            this.STT.FillWeight = 38.07107F;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 15;
+            this.STT.Name = "STT";
+            // 
+            // MaPB
+            // 
+            this.MaPB.DataPropertyName = "MaPB";
+            this.MaPB.FillWeight = 130.9645F;
+            this.MaPB.HeaderText = "Phòng ban";
+            this.MaPB.Name = "MaPB";
             // 
             // guna2CustomGradientPanel5
             // 
@@ -412,7 +426,8 @@
             this.dtg_congtac.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_congtac.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_congtac.BackgroundColor = System.Drawing.Color.White;
+            this.dtg_congtac.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.dtg_congtac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtg_congtac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_congtac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Number,
@@ -423,6 +438,28 @@
             this.dtg_congtac.RowHeadersVisible = false;
             this.dtg_congtac.Size = new System.Drawing.Size(379, 112);
             this.dtg_congtac.TabIndex = 123;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "ID";
+            this.Number.FillWeight = 39.59391F;
+            this.Number.HeaderText = "STT";
+            this.Number.MinimumWidth = 15;
+            this.Number.Name = "Number";
+            // 
+            // MaCT
+            // 
+            this.MaCT.DataPropertyName = "MaCongTac";
+            this.MaCT.FillWeight = 85.02443F;
+            this.MaCT.HeaderText = "Mã công tác";
+            this.MaCT.Name = "MaCT";
+            // 
+            // GhiChu
+            // 
+            this.GhiChu.DataPropertyName = "GhiChu";
+            this.GhiChu.FillWeight = 175.3817F;
+            this.GhiChu.HeaderText = "Ghi chú";
+            this.GhiChu.Name = "GhiChu";
             // 
             // guna2CustomGradientPanel6
             // 
@@ -517,14 +554,13 @@
             this.guna2Panel1.Controls.Add(this.guna2CircleButton9);
             this.guna2Panel1.Controls.Add(this.guna2CircleButton10);
             this.guna2Panel1.Controls.Add(this.guna2CircleButton11);
-            this.guna2Panel1.Controls.Add(this.label18);
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Controls.Add(this.label6);
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 516);
+            this.guna2Panel1.Location = new System.Drawing.Point(1, 544);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1075, 139);
+            this.guna2Panel1.Size = new System.Drawing.Size(1075, 111);
             this.guna2Panel1.TabIndex = 112;
             // 
             // guna2PictureBox6
@@ -535,7 +571,7 @@
             this.guna2PictureBox6.ImageRotate = 0F;
             this.guna2PictureBox6.Location = new System.Drawing.Point(0, 3);
             this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(123, 133);
+            this.guna2PictureBox6.Size = new System.Drawing.Size(124, 105);
             this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox6.TabIndex = 73;
             this.guna2PictureBox6.TabStop = false;
@@ -546,9 +582,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2PictureBox2.Image = global::QuanLyNhanSu.Properties.Resources.satisfaction;
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(232, 15);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(232, 14);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(62, 57);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(41, 30);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox2.TabIndex = 72;
             this.guna2PictureBox2.TabStop = false;
@@ -559,9 +595,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2PictureBox1.Image = global::QuanLyNhanSu.Properties.Resources.promotion;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(157, 15);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(157, 14);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(62, 57);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(45, 30);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 71;
             this.guna2PictureBox1.TabStop = false;
@@ -571,7 +607,7 @@
             this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(154, 77);
+            this.label34.Location = new System.Drawing.Point(154, 52);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(48, 13);
             this.label34.TabIndex = 70;
@@ -581,12 +617,12 @@
             // 
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label33.Location = new System.Drawing.Point(158, 95);
+            this.label33.Location = new System.Drawing.Point(208, 52);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(260, 34);
+            this.label33.Size = new System.Drawing.Size(260, 56);
             this.label33.TabIndex = 69;
             this.label33.Text = "Thời gian có hạn phần mềm đang trong quá trình phát triển còn nhiều sai sót mong " +
-    "quý vị thông cảm !";
+    "quý vị thông cảm ! Cảm ơn đã sử dụng phần mềm.";
             // 
             // guna2CircleButton3
             // 
@@ -603,10 +639,10 @@
             this.guna2CircleButton3.Image = global::QuanLyNhanSu.Properties.Resources.golden_retriever;
             this.guna2CircleButton3.ImageOffset = new System.Drawing.Point(0, 1);
             this.guna2CircleButton3.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton3.Location = new System.Drawing.Point(869, 3);
+            this.guna2CircleButton3.Location = new System.Drawing.Point(872, 3);
             this.guna2CircleButton3.Name = "guna2CircleButton3";
             this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton3.Size = new System.Drawing.Size(164, 70);
+            this.guna2CircleButton3.Size = new System.Drawing.Size(110, 49);
             this.guna2CircleButton3.TabIndex = 34;
             // 
             // guna2CircleButton7
@@ -620,7 +656,7 @@
             this.guna2CircleButton7.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton7.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton7.Image = global::QuanLyNhanSu.Properties.Resources.communication;
-            this.guna2CircleButton7.Location = new System.Drawing.Point(850, 82);
+            this.guna2CircleButton7.Location = new System.Drawing.Point(841, 58);
             this.guna2CircleButton7.Name = "guna2CircleButton7";
             this.guna2CircleButton7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton7.Size = new System.Drawing.Size(39, 34);
@@ -637,7 +673,7 @@
             this.guna2CircleButton8.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton8.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton8.Image = global::QuanLyNhanSu.Properties.Resources.social;
-            this.guna2CircleButton8.Location = new System.Drawing.Point(895, 82);
+            this.guna2CircleButton8.Location = new System.Drawing.Point(886, 58);
             this.guna2CircleButton8.Name = "guna2CircleButton8";
             this.guna2CircleButton8.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton8.Size = new System.Drawing.Size(39, 34);
@@ -654,7 +690,7 @@
             this.guna2CircleButton9.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton9.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton9.Image = global::QuanLyNhanSu.Properties.Resources.youtube;
-            this.guna2CircleButton9.Location = new System.Drawing.Point(940, 82);
+            this.guna2CircleButton9.Location = new System.Drawing.Point(931, 58);
             this.guna2CircleButton9.Name = "guna2CircleButton9";
             this.guna2CircleButton9.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton9.Size = new System.Drawing.Size(39, 34);
@@ -671,7 +707,7 @@
             this.guna2CircleButton10.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton10.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton10.Image = global::QuanLyNhanSu.Properties.Resources.tik_tok;
-            this.guna2CircleButton10.Location = new System.Drawing.Point(985, 82);
+            this.guna2CircleButton10.Location = new System.Drawing.Point(976, 58);
             this.guna2CircleButton10.Name = "guna2CircleButton10";
             this.guna2CircleButton10.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton10.Size = new System.Drawing.Size(39, 34);
@@ -688,22 +724,11 @@
             this.guna2CircleButton11.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton11.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton11.Image = global::QuanLyNhanSu.Properties.Resources.twitter;
-            this.guna2CircleButton11.Location = new System.Drawing.Point(1030, 82);
+            this.guna2CircleButton11.Location = new System.Drawing.Point(1021, 58);
             this.guna2CircleButton11.Name = "guna2CircleButton11";
             this.guna2CircleButton11.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton11.Size = new System.Drawing.Size(39, 34);
             this.guna2CircleButton11.TabIndex = 41;
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(356, 106);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(37, 13);
-            this.label18.TabIndex = 54;
-            this.label18.Text = "Footer";
             // 
             // label7
             // 
@@ -719,7 +744,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(981, 119);
+            this.label6.Location = new System.Drawing.Point(972, 95);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 42;
@@ -729,7 +754,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(866, 119);
+            this.label5.Location = new System.Drawing.Point(857, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 36;
@@ -739,7 +764,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(820, 119);
+            this.label4.Location = new System.Drawing.Point(811, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 35;
@@ -753,6 +778,7 @@
             this.guna2PictureBox3.ImageRotate = 0F;
             this.guna2PictureBox3.Location = new System.Drawing.Point(1, 2);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Padding = new System.Windows.Forms.Padding(0, 0, 180, 0);
             this.guna2PictureBox3.Size = new System.Drawing.Size(1074, 51);
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.guna2PictureBox3.TabIndex = 124;
@@ -766,55 +792,62 @@
             this.chart_nhanvien.BackSecondaryColor = System.Drawing.Color.Transparent;
             this.chart_nhanvien.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart_nhanvien.BorderlineWidth = 2;
-            chartArea4.Name = "ChartArea1";
-            this.chart_nhanvien.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart_nhanvien.Legends.Add(legend4);
-            this.chart_nhanvien.Location = new System.Drawing.Point(49, 3);
+            chartArea19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            chartArea19.Name = "ChartArea1";
+            this.chart_nhanvien.ChartAreas.Add(chartArea19);
+            legend19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            legend19.Name = "Legend1";
+            this.chart_nhanvien.Legends.Add(legend19);
+            this.chart_nhanvien.Location = new System.Drawing.Point(7, 3);
             this.chart_nhanvien.Name = "chart_nhanvien";
-            this.chart_nhanvien.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart_nhanvien.Series.Add(series4);
-            this.chart_nhanvien.Size = new System.Drawing.Size(200, 120);
+            this.chart_nhanvien.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series19.ChartArea = "ChartArea1";
+            series19.Legend = "Legend1";
+            series19.Name = "Series1";
+            this.chart_nhanvien.Series.Add(series19);
+            this.chart_nhanvien.Size = new System.Drawing.Size(213, 120);
             this.chart_nhanvien.TabIndex = 115;
             this.chart_nhanvien.Text = "Biểu đồ giới tính";
-            title3.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title3.Name = "Title1";
-            title3.ShadowColor = System.Drawing.Color.Goldenrod;
-            title3.Text = "Biểu đồ giới tính";
-            title3.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
-            this.chart_nhanvien.Titles.Add(title3);
+            title13.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title13.Name = "Title1";
+            title13.ShadowColor = System.Drawing.Color.Goldenrod;
+            title13.Text = "Biểu đồ giới tính";
+            title13.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
+            this.chart_nhanvien.Titles.Add(title13);
             // 
             // chart_phongban
             // 
             this.chart_phongban.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chart_phongban.BackColor = System.Drawing.Color.Transparent;
+            this.chart_phongban.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.chart_phongban.BackImageTransparentColor = System.Drawing.Color.Transparent;
             this.chart_phongban.BackSecondaryColor = System.Drawing.Color.Transparent;
             this.chart_phongban.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart_phongban.BorderlineWidth = 2;
-            chartArea5.Name = "ChartArea1";
-            this.chart_phongban.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_phongban.Legends.Add(legend5);
-            this.chart_phongban.Location = new System.Drawing.Point(351, 3);
+            chartArea20.BackColor = System.Drawing.Color.Transparent;
+            chartArea20.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            chartArea20.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea20.Name = "ChartArea1";
+            this.chart_phongban.ChartAreas.Add(chartArea20);
+            legend20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            legend20.Name = "Legend1";
+            this.chart_phongban.Legends.Add(legend20);
+            this.chart_phongban.Location = new System.Drawing.Point(234, 3);
             this.chart_phongban.Name = "chart_phongban";
-            this.chart_phongban.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart_phongban.Series.Add(series5);
-            this.chart_phongban.Size = new System.Drawing.Size(208, 120);
+            this.chart_phongban.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            series20.ChartArea = "ChartArea1";
+            series20.Legend = "Legend1";
+            series20.Name = "Series1";
+            this.chart_phongban.Series.Add(series20);
+            this.chart_phongban.Size = new System.Drawing.Size(223, 120);
             this.chart_phongban.TabIndex = 114;
             this.chart_phongban.Text = "Biểu đồ phòng ban";
-            title4.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title4.Name = "Title1";
-            title4.ShadowColor = System.Drawing.Color.Goldenrod;
-            title4.Text = "Biểu đồ phòng ban";
-            title4.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
-            this.chart_phongban.Titles.Add(title4);
+            title14.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title14.BackColor = System.Drawing.Color.Transparent;
+            title14.Name = "Title1";
+            title14.ShadowColor = System.Drawing.Color.Goldenrod;
+            title14.Text = "Biểu đồ phòng ban";
+            title14.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
+            this.chart_phongban.Titles.Add(title14);
             // 
             // tableLayoutPanel7
             // 
@@ -831,69 +864,28 @@
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.43478F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.56522F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(612, 126);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(465, 126);
             this.tableLayoutPanel7.TabIndex = 6;
             // 
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
-            this.chart1.Location = new System.Drawing.Point(661, 59);
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            chartArea21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            chartArea21.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea21);
+            legend21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            legend21.Name = "Legend1";
+            this.chart1.Legends.Add(legend21);
+            this.chart1.Location = new System.Drawing.Point(696, 59);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
-            this.chart1.Size = new System.Drawing.Size(408, 257);
+            series21.ChartArea = "ChartArea1";
+            series21.Legend = "Legend1";
+            series21.Name = "Series1";
+            this.chart1.Series.Add(series21);
+            this.chart1.Size = new System.Drawing.Size(373, 257);
             this.chart1.TabIndex = 116;
             this.chart1.Text = "chart1";
-            // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "ID";
-            this.STT.FillWeight = 38.07107F;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 15;
-            this.STT.Name = "STT";
-            // 
-            // MaPB
-            // 
-            this.MaPB.DataPropertyName = "MaPB";
-            this.MaPB.FillWeight = 130.9645F;
-            this.MaPB.HeaderText = "Mã phòng ban";
-            this.MaPB.Name = "MaPB";
-            // 
-            // TenPB
-            // 
-            this.TenPB.DataPropertyName = "TenPB";
-            this.TenPB.FillWeight = 130.9645F;
-            this.TenPB.HeaderText = "Tên phòng ban";
-            this.TenPB.Name = "TenPB";
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "ID";
-            this.Number.FillWeight = 39.59391F;
-            this.Number.HeaderText = "STT";
-            this.Number.MinimumWidth = 15;
-            this.Number.Name = "Number";
-            // 
-            // MaCT
-            // 
-            this.MaCT.DataPropertyName = "MaCongTac";
-            this.MaCT.FillWeight = 85.02443F;
-            this.MaCT.HeaderText = "Mã công tác";
-            this.MaCT.Name = "MaCT";
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.FillWeight = 175.3817F;
-            this.GhiChu.HeaderText = "Ghi chú";
-            this.GhiChu.Name = "GhiChu";
             // 
             // HomPagePanel
             // 
@@ -988,7 +980,6 @@
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton9;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton10;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton11;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -1003,11 +994,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sdt;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenPB;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaCT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
     }
 }

@@ -216,7 +216,7 @@
             this.txt_username.PlaceholderText = "Username";
             this.txt_username.SelectedText = "";
             this.txt_username.Size = new System.Drawing.Size(342, 65);
-            this.txt_username.TabIndex = 37;
+            this.txt_username.TabIndex = 2;
             // 
             // txt_password
             // 
@@ -247,7 +247,7 @@
             this.txt_password.PlaceholderText = "Password";
             this.txt_password.SelectedText = "";
             this.txt_password.Size = new System.Drawing.Size(342, 65);
-            this.txt_password.TabIndex = 38;
+            this.txt_password.TabIndex = 3;
             // 
             // Login_login
             // 
@@ -269,7 +269,7 @@
             this.Login_login.Location = new System.Drawing.Point(119, 557);
             this.Login_login.Name = "Login_login";
             this.Login_login.Size = new System.Drawing.Size(342, 62);
-            this.Login_login.TabIndex = 39;
+            this.Login_login.TabIndex = 5;
             this.Login_login.Text = "Register";
             this.Login_login.Click += new System.EventHandler(this.Login_login_Click);
             // 
@@ -302,7 +302,7 @@
             this.txt_comfirm.PlaceholderText = "Comfirm password";
             this.txt_comfirm.SelectedText = "";
             this.txt_comfirm.Size = new System.Drawing.Size(342, 65);
-            this.txt_comfirm.TabIndex = 44;
+            this.txt_comfirm.TabIndex = 4;
             // 
             // txt_name
             // 
@@ -331,7 +331,7 @@
             this.txt_name.PlaceholderText = "Name";
             this.txt_name.SelectedText = "";
             this.txt_name.Size = new System.Drawing.Size(342, 65);
-            this.txt_name.TabIndex = 45;
+            this.txt_name.TabIndex = 1;
             // 
             // guna2CircleButton5
             // 
@@ -371,7 +371,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Register";
+            this.Text = "it";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             this.ResumeLayout(false);

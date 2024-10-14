@@ -40,13 +40,10 @@
             this.btn_updatePB = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_chucvu = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_phongban = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dtg_chucvu = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_chucvu = new System.Windows.Forms.DataGridView();
             this.ID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel.SuspendLayout();
@@ -67,8 +64,6 @@
             this.panel.Controls.Add(this.btn_updatePB);
             this.panel.Controls.Add(this.label2);
             this.panel.Controls.Add(this.txt_chucvu);
-            this.panel.Controls.Add(this.label1);
-            this.panel.Controls.Add(this.txt_phongban);
             this.panel.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.panel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
@@ -93,7 +88,7 @@
             this.guna2GradientCircleButton1.ForeColor = System.Drawing.Color.White;
             this.guna2GradientCircleButton1.Image = global::QuanLyNhanSu.Properties.Resources.add;
             this.guna2GradientCircleButton1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2GradientCircleButton1.Location = new System.Drawing.Point(399, 139);
+            this.guna2GradientCircleButton1.Location = new System.Drawing.Point(399, 69);
             this.guna2GradientCircleButton1.Name = "guna2GradientCircleButton1";
             this.guna2GradientCircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2GradientCircleButton1.Size = new System.Drawing.Size(46, 43);
@@ -114,7 +109,7 @@
             this.resetb.ForeColor = System.Drawing.Color.White;
             this.resetb.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetb.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetb.Location = new System.Drawing.Point(309, 229);
+            this.resetb.Location = new System.Drawing.Point(309, 159);
             this.resetb.Name = "resetb";
             this.resetb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetb.Size = new System.Drawing.Size(46, 43);
@@ -142,7 +137,7 @@
             this.txt_mapb.PlaceholderText = "";
             this.txt_mapb.SelectedText = "";
             this.txt_mapb.Size = new System.Drawing.Size(238, 36);
-            this.txt_mapb.TabIndex = 89;
+            this.txt_mapb.TabIndex = 1;
             // 
             // label3
             // 
@@ -152,9 +147,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 18);
+            this.label3.Size = new System.Drawing.Size(98, 18);
             this.label3.TabIndex = 88;
-            this.label3.Text = "Mã phòng ban: ";
+            this.label3.Text = "Phòng ban: ";
             // 
             // search_phongban
             // 
@@ -173,7 +168,7 @@
             this.search_phongban.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_phongban.ForeColor = System.Drawing.Color.Black;
             this.search_phongban.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_phongban.Location = new System.Drawing.Point(20, 303);
+            this.search_phongban.Location = new System.Drawing.Point(20, 233);
             this.search_phongban.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_phongban.MaxLength = 40;
             this.search_phongban.Name = "search_phongban";
@@ -183,7 +178,7 @@
             this.search_phongban.PlaceholderText = "Search";
             this.search_phongban.SelectedText = "";
             this.search_phongban.Size = new System.Drawing.Size(366, 50);
-            this.search_phongban.TabIndex = 85;
+            this.search_phongban.TabIndex = 3;
             this.search_phongban.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.search_phongban.TextChanged += new System.EventHandler(this.search_phongban_TextChanged);
             // 
@@ -199,7 +194,7 @@
             this.btn_searchPb.ForeColor = System.Drawing.Color.White;
             this.btn_searchPb.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchPb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchPb.Location = new System.Drawing.Point(393, 303);
+            this.btn_searchPb.Location = new System.Drawing.Point(393, 233);
             this.btn_searchPb.Name = "btn_searchPb";
             this.btn_searchPb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchPb.Size = new System.Drawing.Size(52, 50);
@@ -220,7 +215,7 @@
             this.add_pb.ForeColor = System.Drawing.Color.White;
             this.add_pb.Image = global::QuanLyNhanSu.Properties.Resources.add;
             this.add_pb.ImageSize = new System.Drawing.Size(40, 40);
-            this.add_pb.Location = new System.Drawing.Point(402, 13);
+            this.add_pb.Location = new System.Drawing.Point(399, 12);
             this.add_pb.Name = "add_pb";
             this.add_pb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.add_pb.Size = new System.Drawing.Size(46, 43);
@@ -241,7 +236,7 @@
             this.btn_deletePb.ForeColor = System.Drawing.Color.White;
             this.btn_deletePb.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletePb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletePb.Location = new System.Drawing.Point(182, 229);
+            this.btn_deletePb.Location = new System.Drawing.Point(182, 159);
             this.btn_deletePb.Name = "btn_deletePb";
             this.btn_deletePb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletePb.Size = new System.Drawing.Size(46, 43);
@@ -262,7 +257,7 @@
             this.btn_updatePB.ForeColor = System.Drawing.Color.White;
             this.btn_updatePB.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updatePB.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatePB.Location = new System.Drawing.Point(50, 229);
+            this.btn_updatePB.Location = new System.Drawing.Point(50, 159);
             this.btn_updatePB.Name = "btn_updatePB";
             this.btn_updatePB.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updatePB.Size = new System.Drawing.Size(46, 43);
@@ -275,7 +270,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 156);
+            this.label2.Location = new System.Drawing.Point(17, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 18);
             this.label2.TabIndex = 3;
@@ -295,7 +290,7 @@
             this.txt_chucvu.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_chucvu.ForeColor = System.Drawing.Color.Black;
             this.txt_chucvu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_chucvu.Location = new System.Drawing.Point(148, 146);
+            this.txt_chucvu.Location = new System.Drawing.Point(148, 76);
             this.txt_chucvu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_chucvu.Name = "txt_chucvu";
             this.txt_chucvu.PasswordChar = '\0';
@@ -303,41 +298,6 @@
             this.txt_chucvu.SelectedText = "";
             this.txt_chucvu.Size = new System.Drawing.Size(238, 36);
             this.txt_chucvu.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Phòng ban :";
-            // 
-            // txt_phongban
-            // 
-            this.txt_phongban.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_phongban.BorderRadius = 20;
-            this.txt_phongban.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_phongban.DefaultText = "";
-            this.txt_phongban.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_phongban.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_phongban.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_phongban.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_phongban.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_phongban.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_phongban.ForeColor = System.Drawing.Color.Black;
-            this.txt_phongban.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_phongban.Location = new System.Drawing.Point(148, 76);
-            this.txt_phongban.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txt_phongban.Name = "txt_phongban";
-            this.txt_phongban.PasswordChar = '\0';
-            this.txt_phongban.PlaceholderText = "";
-            this.txt_phongban.SelectedText = "";
-            this.txt_phongban.Size = new System.Drawing.Size(238, 36);
-            this.txt_phongban.TabIndex = 0;
             // 
             // dataGridView1
             // 
@@ -347,8 +307,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.MaPB,
-            this.TenPB});
+            this.MaPB});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -356,6 +315,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(325, 655);
             this.dataGridView1.TabIndex = 88;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.FillWeight = 18.37316F;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 15;
+            this.ID.Name = "ID";
+            // 
+            // MaPB
+            // 
+            this.MaPB.DataPropertyName = "MaPB";
+            this.MaPB.FillWeight = 126.4073F;
+            this.MaPB.HeaderText = "Phòng ban";
+            this.MaPB.Name = "MaPB";
             // 
             // dtg_chucvu
             // 
@@ -373,28 +347,6 @@
             this.dtg_chucvu.Size = new System.Drawing.Size(297, 655);
             this.dtg_chucvu.TabIndex = 89;
             this.dtg_chucvu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_chucvu_CellClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 43.25756F;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 15;
-            this.ID.Name = "ID";
-            // 
-            // MaPB
-            // 
-            this.MaPB.DataPropertyName = "MaPB";
-            this.MaPB.FillWeight = 101.5229F;
-            this.MaPB.HeaderText = "Mã phòng ban";
-            this.MaPB.Name = "MaPB";
-            // 
-            // TenPB
-            // 
-            this.TenPB.DataPropertyName = "TenPB";
-            this.TenPB.FillWeight = 127.6098F;
-            this.TenPB.HeaderText = "Tên phòng ban";
-            this.TenPB.Name = "TenPB";
             // 
             // ID2
             // 
@@ -434,10 +386,8 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2CustomGradientPanel panel;
-        private Guna.UI2.WinForms.Guna2TextBox txt_phongban;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txt_chucvu;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2GradientCircleButton add_pb;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_deletePb;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_updatePB;
@@ -449,10 +399,9 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton resetb;
         private System.Windows.Forms.DataGridView dtg_chucvu;
         private Guna.UI2.WinForms.Guna2GradientCircleButton guna2GradientCircleButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenPB;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID2;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
     }
 }

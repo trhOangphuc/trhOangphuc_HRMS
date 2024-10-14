@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyNhanSu
 {
@@ -22,7 +23,9 @@ namespace QuanLyNhanSu
             LoadComboBoxChucVu();
             LoadComboBoxCongTac();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
+            cmb_phongban.SelectedIndex = 0; // Đặt mục này làm mặc định
+            cmb_chucvu.SelectedIndex = 0; // Đặt mục này làm mặc định
+            cmb_congtac.SelectedIndex = 0; // Đặt mục này làm mặc định
         }
 
         private void LoadData()
@@ -49,7 +52,7 @@ namespace QuanLyNhanSu
                     NV.NgaySinh, 
                     NV.Sdt, 
                     NV.DiaChi, 
-                    PB.TenPB, 
+                    PB.MaPB, 
                     CV.MaCV ,
                     NV.MaCT
                 FROM 
@@ -113,12 +116,12 @@ namespace QuanLyNhanSu
 
         private void add_hs_Click(object sender, EventArgs e)
         {
+            
             if (string.IsNullOrWhiteSpace(txt_ht.Text) || string.IsNullOrWhiteSpace(txt_gt.Text)
-                || string.IsNullOrWhiteSpace(txt_dc.Text) || string.IsNullOrWhiteSpace(txt_sdt.Text)
-                || string.IsNullOrWhiteSpace(cmb_phongban.Text) || string.IsNullOrWhiteSpace(cmb_congtac.Text))
+                || string.IsNullOrWhiteSpace(txt_dc.Text) || string.IsNullOrWhiteSpace(txt_sdt.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin !";
+                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
@@ -138,24 +141,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string maPBQuery = "SELECT MaPB FROM PhongBan WHERE TenPB = @TenPB";
-                    string maPB = null;
-
-                    using (SqlCommand command = new SqlCommand(maPBQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@TenPB", cmb_phongban.Text); 
-                        maPB = command.ExecuteScalar() as string; 
-                    }
-
-                    if (string.IsNullOrEmpty(maPB))
-                    {
-                        Notification notification = new Notification();
-                        notification.NotificationText = "Không tìm thấy mã phòng ban!";
-                        notification.OkButtonText = "OK";
-                        notification.ShowDialog();
-                        return;
-                    }
-
+                   
                     string query = @"
                       INSERT INTO NhanVien (HoTen, GioiTinh, NgaySinh, Sdt, DiaChi, MaPB, MaCV, MaCT)
                       VALUES (@HoTen, @GioiTinh, @NgaySinh, @Sdt, @DiaChi, @MaPB, @MaCV, @MaCT)";
@@ -167,14 +153,15 @@ namespace QuanLyNhanSu
                         command.Parameters.AddWithValue("@NgaySinh", dtp_date.Value);
                         command.Parameters.AddWithValue("@Sdt", txt_sdt.Text);
                         command.Parameters.AddWithValue("@DiaChi", txt_dc.Text);
-                        command.Parameters.AddWithValue("@MaPB", maPB); 
+                        command.Parameters.AddWithValue("@MaPB", cmb_phongban.Text); 
                         command.Parameters.AddWithValue("@MaCT", cmb_congtac.Text);
                         command.Parameters.AddWithValue("@MaCV", cmb_chucvu.Text); 
 
                         command.ExecuteNonQuery(); 
                         Success sc = new Success();
-                        sc.ShowDialog(); 
-                        LoadData(); 
+                        sc.ShowDialog();
+                        LoadData();
+                        reset();
                     }
                 }
                 catch (Exception ex)
@@ -212,8 +199,21 @@ namespace QuanLyNhanSu
                     connection.Open();
                     string query = @"
                             UPDATE NhanVien 
-                            SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, Sdt = @Sdt, DiaChi = @DiaChi, MaPB = @MaPB, MaCT = @MaCT, MaCV = @MaCV
-                            WHERE ID = @ID";
+                            SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, Sdt = @Sdt, DiaChi = @DiaChi";
+                    if (cmb_phongban.SelectedItem != null)
+                    {
+                        query += ", MaPB = @MaPB";
+                    }
+                    if (cmb_chucvu.SelectedItem != null)
+                    {
+                        query += ", MaCV = @MaCV";
+                    }
+                    if (cmb_congtac.SelectedItem != null)
+                    {
+                        query += ", MaCT = @MaCT";
+                    }
+
+                    query += " WHERE ID = @ID";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -223,26 +223,24 @@ namespace QuanLyNhanSu
                         command.Parameters.AddWithValue("@NgaySinh", dtp_date.Value);
                         command.Parameters.AddWithValue("@Sdt", txt_sdt.Text);
                         command.Parameters.AddWithValue("@DiaChi", txt_dc.Text);
-                        var selectedPhongBan = cmb_phongban.SelectedItem;
-                        if (selectedPhongBan != null)
+                        if (cmb_phongban.SelectedItem != null)
                         {
-                            command.Parameters.AddWithValue("@MaPB", ((dynamic)selectedPhongBan).Value); 
+                            command.Parameters.AddWithValue("@MaPB", ((dynamic)cmb_phongban.SelectedItem).Value);
                         }
-                        var selectedChucVu = cmb_chucvu.SelectedItem;
-                        if (selectedPhongBan != null)
+                        if (cmb_chucvu.SelectedItem != null)
                         {
-                            command.Parameters.AddWithValue("@MaCV", ((dynamic)selectedChucVu).Value); 
+                            command.Parameters.AddWithValue("@MaCV", ((dynamic)cmb_chucvu.SelectedItem).Value);
                         }
-                        var selectedCongTac = cmb_congtac.SelectedItem;
-                        if (selectedPhongBan != null)
+                        if (cmb_congtac.SelectedItem != null)
                         {
-                            command.Parameters.AddWithValue("@MaCT", ((dynamic)selectedCongTac).Value); 
+                            command.Parameters.AddWithValue("@MaCT", ((dynamic)cmb_congtac.SelectedItem).Value);
                         }
 
                         command.ExecuteNonQuery();
                         Success sc = new Success();
                         sc.ShowDialog();
-                        LoadData(); 
+                        LoadData();
+                        reset();
                     }
                 }
                 catch (Exception ex)
@@ -290,6 +288,7 @@ namespace QuanLyNhanSu
                             Success sc = new Success();
                             sc.ShowDialog();
                             LoadData();
+                            reset();
                         }
                     }
                     catch (Exception ex)
@@ -300,17 +299,24 @@ namespace QuanLyNhanSu
             }
         }
 
-        private void resetHs_Click(object sender, EventArgs e)
+        private void reset()
         {
+
             txt_ht.Text = string.Empty;
             txt_gt.Text = string.Empty;
             dtp_date.Value = DateTime.Now;
             txt_sdt.Text = string.Empty;
             txt_dc.Text = string.Empty;
-            cmb_phongban.Text = string.Empty;
-            cmb_congtac.Text = string.Empty;
+            cmb_phongban.SelectedIndex = -1;
+            cmb_congtac.SelectedIndex = -1;
+            cmb_chucvu.SelectedIndex = -1;
             search_hs.Text = string.Empty;
             dataGridView1.ClearSelection();
+        }
+
+        private void resetHs_Click(object sender, EventArgs e)
+        {
+            reset();
         }
 
         private void btn_searchHs_Click(object sender, EventArgs e)
@@ -344,7 +350,7 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT MaPB, TenPB FROM PhongBan";
+                string query = "SELECT MaPB FROM PhongBan";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     try
@@ -352,10 +358,11 @@ namespace QuanLyNhanSu
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
                         cmb_phongban.Items.Clear();
-
+                        cmb_phongban.Items.Add("--Chọn phòng ban--");
                         while (reader.Read())
                         {
-                            cmb_phongban.Items.Add(new { Value = reader["MaPB"], Text = reader["TenPB"] });
+                            
+                            cmb_phongban.Items.Add(new { Value = reader["MaPB"], Text = reader["MaPB"] });
                         }
 
                         cmb_phongban.DisplayMember = "Text"; 
@@ -381,7 +388,7 @@ namespace QuanLyNhanSu
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
                         cmb_chucvu.Items.Clear();
-
+                        cmb_chucvu.Items.Add("--Chọn chức vụ--");
                         while (reader.Read())
                         {
                             cmb_chucvu.Items.Add(new { Value = reader["MaCV"], Text = reader["MaCV"] });
@@ -410,9 +417,10 @@ namespace QuanLyNhanSu
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
                         cmb_congtac.Items.Clear();
-
+                        cmb_congtac.Items.Add("--Chọn công tác--");
                         while (reader.Read())
                         {
+                            
                             cmb_congtac.Items.Add(new { Value = reader["MaCongTac"], Text = reader["MaCongTac"] });
                         }
 

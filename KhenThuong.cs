@@ -37,7 +37,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaKT, TenKT, GiaTri FROM KhenThuong ORDER BY MaKT";
+                    string query = "SELECT ID, MaKT, GiaTri FROM KhenThuong ORDER BY MaKT";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -58,17 +58,10 @@ namespace QuanLyNhanSu
             if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                // Kiểm tra từng cột để tránh lỗi null
                 if (row.Cells["MaKT"].Value != null)
                 {
                     txt_makt.Text = row.Cells["MaKT"].Value.ToString();
-                    txt_makt.Enabled = false;
-                }
-
-                if (row.Cells["TenKT"].Value != null)
-                {
-                    txt_kt.Text = row.Cells["TenKT"].Value.ToString();
+                    txt_makt.Enabled = true;
                 }
 
                 if (row.Cells["GiaTri"].Value != null)
@@ -83,14 +76,14 @@ namespace QuanLyNhanSu
             search_khenthuong.Text = "";
             txt_makt.Enabled = true;
             txt_makt.Text = "";
-            txt_kt.Text = "";
             txt_giatri.Text = "";
+            dataGridView1.ClearSelection();
             LoadData();
         }
 
         private void add_kt_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_makt.Text) || string.IsNullOrWhiteSpace(txt_kt.Text)
+            if (string.IsNullOrWhiteSpace(txt_makt.Text)
                || string.IsNullOrWhiteSpace(txt_giatri.Text))
             {
                 Notification notification = new Notification();
@@ -101,11 +94,10 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "INSERT INTO KhenThuong (MaKT, TenKT, GiaTri) VALUES (@MaKT, @TenKT, @GiaTri)";
+                string query = "INSERT INTO KhenThuong (MaKT, GiaTri) VALUES (@MaKT, @GiaTri)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaKT", txt_makt.Text);
-                    command.Parameters.AddWithValue("@TenKT", txt_kt.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -113,6 +105,7 @@ namespace QuanLyNhanSu
                         connection.Open();
                         command.ExecuteNonQuery();
                         LoadData();
+                        Reset();
                         Success sc = new Success();
                         sc.ShowDialog();
                     }
@@ -136,11 +129,10 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "UPDATE KhenThuong SET TenKT = @TenKT, GiaTri = @GiaTri WHERE MaKT = @MaKT";
+                string query = "UPDATE KhenThuong SET GiaTri = @GiaTri WHERE MaKT = @MaKT";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaKT", txt_makt.Text);
-                    command.Parameters.AddWithValue("@TenKT", txt_kt.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -148,6 +140,7 @@ namespace QuanLyNhanSu
                         connection.Open();
                         command.ExecuteNonQuery();
                         LoadData();
+                        Reset();
                         Success sc = new Success();
                         sc.ShowDialog();
                     }
@@ -181,6 +174,7 @@ namespace QuanLyNhanSu
                         connection.Open();
                         command.ExecuteNonQuery();
                         LoadData();
+                        Reset();
                         Success sc = new Success();
                         sc.BringToFront();
                         sc.ShowDialog();
@@ -202,11 +196,10 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM KhenThuong WHERE MaKT LIKE '%' + @SearchTerm + '%' OR TenKL LIKE '%' + @SearchTerm + '%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
+                string query = "SELECT * FROM KhenThuong WHERE MaKT LIKE '%' + @SearchTerm + '%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TenKT", search_khenthuong.Text);
-                    command.Parameters.AddWithValue("@GiaTri", search_khenthuong.Text);
+                    command.Parameters.AddWithValue("@SearchTerm", search_khenthuong.Text);
 
                     try
                     {
@@ -218,15 +211,11 @@ namespace QuanLyNhanSu
                         if (dataTable.Rows.Count > 0)
                         {
                             dataGridView1.DataSource = dataTable;
-                            txt_makt.Text = dataTable.Rows[0]["MaKT"].ToString();
-                            txt_kt.Text = dataTable.Rows[0]["TenKT"].ToString();
-                            txt_giatri.Text = dataTable.Rows[0]["GiaTri"].ToString();
-                            Reset();
                         }
                         else
                         {
                             Notification tb = new Notification();
-                            tb.NotificationText = "Không tìm thấy phòng ban !";
+                            tb.NotificationText = "Không tìm thấy khen thưởng !";
                             tb.OkButtonText = "OK";
                             tb.ShowDialog();
                             LoadData();

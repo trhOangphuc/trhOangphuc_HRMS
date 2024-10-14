@@ -37,7 +37,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaKL, TenKL, GiaTri FROM KyLuat ORDER BY MaKL";
+                    string query = "SELECT ID, MaKL, GiaTri FROM KyLuat ORDER BY MaKL";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -59,16 +59,10 @@ namespace QuanLyNhanSu
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                // Kiểm tra từng cột để tránh lỗi null
                 if (row.Cells["MaKL"].Value != null)
                 {
                     txt_makl.Text = row.Cells["MaKL"].Value.ToString();
-                    txt_makl.Enabled = false;
-                }
-
-                if (row.Cells["TenKL"].Value != null)
-                {
-                    txt_kl.Text = row.Cells["TenKL"].Value.ToString();
+                    txt_makl.Enabled = true;
                 }
 
                 if (row.Cells["GiaTri"].Value != null)
@@ -83,14 +77,14 @@ namespace QuanLyNhanSu
             search_kyluat.Text = "";
             txt_makl.Enabled = true;
             txt_makl.Text = "";
-            txt_kl.Text = "";
             txt_giatri.Text = "";
+            dataGridView1.ClearSelection();
             LoadData();
         }
 
         private void add_kl_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_makl.Text) || string.IsNullOrWhiteSpace(txt_kl.Text)
+            if (string.IsNullOrWhiteSpace(txt_makl.Text) 
                || string.IsNullOrWhiteSpace(txt_giatri.Text))
             {
                 Notification notification = new Notification();
@@ -101,11 +95,10 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "INSERT INTO KyLuat (MaKL, TenKL, GiaTri) VALUES (@MaKL, @TenKL, @GiaTri)";
+                string query = "INSERT INTO KyLuat (MaKL,GiaTri) VALUES (@MaKL, @GiaTri)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaKL", txt_makl.Text);
-                    command.Parameters.AddWithValue("@TenKL", txt_kl.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -113,6 +106,7 @@ namespace QuanLyNhanSu
                         connection.Open();
                         command.ExecuteNonQuery();
                         LoadData();
+                        Reset();
                         Success sc = new Success();
                         sc.ShowDialog();
                     }
@@ -136,11 +130,10 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "UPDATE KyLuat SET TenKL = @TenKL, GiaTri = @GiaTri WHERE MaKL = @MaKL";
+                string query = "UPDATE KyLuat SET GiaTri = @GiaTri WHERE MaKL = @MaKL";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaKL", txt_makl.Text);
-                    command.Parameters.AddWithValue("@TenKL", txt_kl.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -148,6 +141,7 @@ namespace QuanLyNhanSu
                         connection.Open();
                         command.ExecuteNonQuery();
                         LoadData();
+                        Reset();
                         Success sc = new Success();
                         sc.ShowDialog();
                     }
@@ -181,6 +175,7 @@ namespace QuanLyNhanSu
                         connection.Open();
                         command.ExecuteNonQuery();
                         LoadData();
+                        Reset();
                         Success sc = new Success();
                         sc.BringToFront();
                         sc.ShowDialog();
@@ -197,11 +192,10 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM KyLuat WHERE MaKL LIKE '%' + @SearchTerm + '%' OR TenKL LIKE '%' + @SearchTerm + '%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
+                string query = "SELECT * FROM KyLuat WHERE MaKL LIKE '%' + @SearchTerm + '%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    string searchTerm = search_kyluat.Text;
-                    command.Parameters.AddWithValue("@SearchTerm", searchTerm); 
+                    command.Parameters.AddWithValue("@SearchTerm", search_kyluat.Text);
 
                     try
                     {
@@ -213,10 +207,6 @@ namespace QuanLyNhanSu
                         if (dataTable.Rows.Count > 0)
                         {
                             dataGridView1.DataSource = dataTable;
-
-                            txt_makl.Text = dataTable.Rows[0]["MaKL"].ToString();
-                            txt_kl.Text = dataTable.Rows[0]["TenKL"].ToString();
-                            txt_giatri.Text = dataTable.Rows[0]["GiaTri"].ToString();
                         }
                         else
                         {
@@ -225,6 +215,7 @@ namespace QuanLyNhanSu
                             tb.OkButtonText = "OK";
                             tb.ShowDialog();
                             LoadData();
+                            Reset();
                         }
                     }
                     catch (Exception ex)

@@ -191,8 +191,17 @@
     <EmbeddedResource Include="Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao.resx">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamCong.resx">
+      <DependentUpon>ChamCong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChinhSach.resx">
       <DependentUpon>ChinhSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CongTac.resx">
+      <DependentUpon>CongTac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
@@ -239,6 +248,12 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongTinLuong.resx">
+      <DependentUpon>ThongTinLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TinhLuong.resx">
+      <DependentUpon>TinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

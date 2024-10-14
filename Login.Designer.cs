@@ -156,7 +156,7 @@
             this.Register.Location = new System.Drawing.Point(261, 532);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(79, 24);
-            this.Register.TabIndex = 53;
+            this.Register.TabIndex = 3;
             this.Register.TabStop = true;
             this.Register.Text = "Register";
             this.Register.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -200,7 +200,7 @@
             this.Login_user.PlaceholderText = "Username";
             this.Login_user.SelectedText = "";
             this.Login_user.Size = new System.Drawing.Size(290, 57);
-            this.Login_user.TabIndex = 46;
+            this.Login_user.TabIndex = 0;
             this.Login_user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Login_passwd
@@ -231,7 +231,7 @@
             this.Login_passwd.PlaceholderText = "Password";
             this.Login_passwd.SelectedText = "";
             this.Login_passwd.Size = new System.Drawing.Size(290, 57);
-            this.Login_passwd.TabIndex = 47;
+            this.Login_passwd.TabIndex = 1;
             this.Login_passwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Login_login
@@ -253,7 +253,7 @@
             this.Login_login.Location = new System.Drawing.Point(151, 448);
             this.Login_login.Name = "Login_login";
             this.Login_login.Size = new System.Drawing.Size(290, 62);
-            this.Login_login.TabIndex = 48;
+            this.Login_login.TabIndex = 2;
             this.Login_login.Text = "Login";
             this.Login_login.Click += new System.EventHandler(this.Login_login_Click);
             // 

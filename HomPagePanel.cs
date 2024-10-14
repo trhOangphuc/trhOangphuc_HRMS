@@ -112,7 +112,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaPB, TenPB FROM PhongBan";
+                    string query = "SELECT ID, MaPB FROM PhongBan";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -257,7 +257,7 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
                     // Đếm số lượng phòng ban dựa trên ID từ bảng PhongBan
-                    string query = "SELECT TenPB, COUNT(ID) AS SoLuong FROM PhongBan GROUP BY TenPB";
+                    string query = "SELECT MaPB, COUNT(ID) AS SoLuong FROM PhongBan GROUP BY MaPB";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -282,7 +282,7 @@ namespace QuanLyNhanSu
                         // Thêm dữ liệu vào biểu đồ
                         foreach (DataRow row in dataTable.Rows)
                         {
-                            series.Points.AddXY(row["TenPB"].ToString(), row["SoLuong"]);
+                            series.Points.AddXY(row["MaPB"].ToString(), row["SoLuong"]);
                         }
 
                         chart_phongban.Series.Add(series);
@@ -295,25 +295,17 @@ namespace QuanLyNhanSu
             }
         }
 
-        // Hàm tìm kiếm dữ liệu từ cả bảng NhanVien và PhongBan
         private void SearchData(string searchValue)
         {
-            // Kiểm tra nếu ô tìm kiếm trống thì load lại toàn bộ dữ liệu
             if (string.IsNullOrWhiteSpace(searchValue))
             {
-                LoadDataNhanVien();  // Tải lại dữ liệu nhân viên
-                LoadDataPhongban();  // Tải lại dữ liệu phòng ban
+                LoadDataNhanVien(); 
+                LoadDataPhongban();  
                 return;
             }
-
-            // Tìm kiếm trong bảng NhanVien
             SearchNhanVien(searchValue);
-
-            // Tìm kiếm trong bảng PhongBan
             SearchPhongBan(searchValue);
         }
-
-        // Hàm tìm kiếm trong bảng NhanVien
         private void SearchNhanVien(string searchValue)
         {
             using (SqlConnection connection = connectdatabase.Connect())
@@ -348,8 +340,6 @@ namespace QuanLyNhanSu
                 }
             }
         }
-
-        // Hàm tìm kiếm trong bảng PhongBan
         private void SearchPhongBan(string searchValue)
         {
             using (SqlConnection connection = connectdatabase.Connect())
@@ -366,8 +356,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    // Tìm kiếm trong bảng PhongBan
-                    string query = "SELECT ID, MaPB, TenPB FROM PhongBan WHERE TenPB LIKE @searchValue";
+                    string query = "SELECT ID, MaPB FROM PhongBan WHERE MaPB LIKE @searchValue";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
@@ -383,17 +372,14 @@ namespace QuanLyNhanSu
                 }
             }
         }
-
-        // Sự kiện khi text trong ô tìm kiếm thay đổi
         private void search_home_TextChanged(object sender, EventArgs e)
         {
-            SearchData(search_home.Text); // Gọi hàm tìm kiếm khi thay đổi nội dung trong hộp tìm kiếm
+            SearchData(search_home.Text);
         }
 
-        // Sự kiện khi nhấn nút tìm kiếm
         private void btn_searchHome_Click(object sender, EventArgs e)
         {
-            SearchData(search_home.Text); // Gọi hàm tìm kiếm khi nhấn nút tìm kiếm
+            SearchData(search_home.Text);
         }
 
         private void search_home_TextChanged_1(object sender, EventArgs e)

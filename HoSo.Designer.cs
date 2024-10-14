@@ -58,7 +58,7 @@
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCongTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.x.SuspendLayout();
@@ -113,7 +113,8 @@
             this.cmb_congtac.Location = new System.Drawing.Point(155, 446);
             this.cmb_congtac.Name = "cmb_congtac";
             this.cmb_congtac.Size = new System.Drawing.Size(238, 36);
-            this.cmb_congtac.TabIndex = 107;
+            this.cmb_congtac.TabIndex = 8;
+            this.cmb_congtac.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cmb_chucvu
             // 
@@ -129,7 +130,8 @@
             this.cmb_chucvu.Location = new System.Drawing.Point(155, 381);
             this.cmb_chucvu.Name = "cmb_chucvu";
             this.cmb_chucvu.Size = new System.Drawing.Size(238, 36);
-            this.cmb_chucvu.TabIndex = 106;
+            this.cmb_chucvu.TabIndex = 7;
+            this.cmb_chucvu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -147,7 +149,6 @@
             // 
             this.cmb_phongban.BackColor = System.Drawing.Color.Transparent;
             this.cmb_phongban.BorderRadius = 20;
-            this.cmb_phongban.DisplayMember = "ádfasdf";
             this.cmb_phongban.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmb_phongban.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_phongban.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -158,8 +159,9 @@
             this.cmb_phongban.Location = new System.Drawing.Point(155, 317);
             this.cmb_phongban.Name = "cmb_phongban";
             this.cmb_phongban.Size = new System.Drawing.Size(238, 36);
-            this.cmb_phongban.TabIndex = 104;
-            this.cmb_phongban.ValueMember = "ádfasdf";
+            this.cmb_phongban.TabIndex = 6;
+            this.cmb_phongban.Tag = "";
+            this.cmb_phongban.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cmb_phongban.SelectedIndexChanged += new System.EventHandler(this.cmb_phongban_SelectedIndexChanged);
             // 
             // dtp_date
@@ -175,7 +177,7 @@
             this.dtp_date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtp_date.Name = "dtp_date";
             this.dtp_date.Size = new System.Drawing.Size(238, 36);
-            this.dtp_date.TabIndex = 102;
+            this.dtp_date.TabIndex = 3;
             this.dtp_date.Value = new System.DateTime(2024, 10, 12, 6, 37, 26, 931);
             // 
             // label8
@@ -211,7 +213,7 @@
             this.txt_ht.PlaceholderText = "";
             this.txt_ht.SelectedText = "";
             this.txt_ht.Size = new System.Drawing.Size(238, 36);
-            this.txt_ht.TabIndex = 100;
+            this.txt_ht.TabIndex = 1;
             // 
             // label7
             // 
@@ -219,11 +221,11 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 19);
+            this.label7.Location = new System.Drawing.Point(18, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 18);
+            this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 99;
-            this.label7.Text = "Họ và tên";
+            this.label7.Text = "Họ và tên :";
             // 
             // label6
             // 
@@ -258,7 +260,7 @@
             this.txt_gt.PlaceholderText = "";
             this.txt_gt.SelectedText = "";
             this.txt_gt.Size = new System.Drawing.Size(238, 36);
-            this.txt_gt.TabIndex = 96;
+            this.txt_gt.TabIndex = 2;
             // 
             // label5
             // 
@@ -293,7 +295,7 @@
             this.txt_sdt.PlaceholderText = "";
             this.txt_sdt.SelectedText = "";
             this.txt_sdt.Size = new System.Drawing.Size(238, 36);
-            this.txt_sdt.TabIndex = 94;
+            this.txt_sdt.TabIndex = 4;
             // 
             // label4
             // 
@@ -349,7 +351,7 @@
             this.txt_dc.PlaceholderText = "";
             this.txt_dc.SelectedText = "";
             this.txt_dc.Size = new System.Drawing.Size(238, 36);
-            this.txt_dc.TabIndex = 89;
+            this.txt_dc.TabIndex = 5;
             // 
             // label3
             // 
@@ -390,7 +392,7 @@
             this.search_hs.PlaceholderText = "Search";
             this.search_hs.SelectedText = "";
             this.search_hs.Size = new System.Drawing.Size(308, 50);
-            this.search_hs.TabIndex = 85;
+            this.search_hs.TabIndex = 9;
             this.search_hs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_searchHs
@@ -500,7 +502,7 @@
             this.NgaySinh,
             this.Sdt,
             this.DiaChi,
-            this.TenPB,
+            this.MaPB,
             this.MaCV,
             this.MaCongTac});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -514,7 +516,7 @@
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 42.16161F;
+            this.ID.FillWeight = 33.75853F;
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 7;
             this.ID.Name = "ID";
@@ -522,57 +524,62 @@
             // HoTen
             // 
             this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.FillWeight = 138.8306F;
+            this.HoTen.FillWeight = 156.9086F;
             this.HoTen.HeaderText = "Họ Tên";
+            this.HoTen.MinimumWidth = 35;
             this.HoTen.Name = "HoTen";
             // 
             // GioiTinh
             // 
             this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.FillWeight = 89.47678F;
+            this.GioiTinh.FillWeight = 68.52793F;
             this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.MinimumWidth = 15;
             this.GioiTinh.Name = "GioiTinh";
             // 
             // NgaySinh
             // 
             this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.FillWeight = 103.6068F;
+            this.NgaySinh.FillWeight = 114.2337F;
             this.NgaySinh.HeaderText = "Ngày Sinh";
             this.NgaySinh.Name = "NgaySinh";
             // 
             // Sdt
             // 
             this.Sdt.DataPropertyName = "Sdt";
-            this.Sdt.FillWeight = 129.4333F;
+            this.Sdt.FillWeight = 106.5445F;
             this.Sdt.HeaderText = "Số điện thoại";
+            this.Sdt.MinimumWidth = 25;
             this.Sdt.Name = "Sdt";
             // 
             // DiaChi
             // 
             this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.FillWeight = 107.3972F;
+            this.DiaChi.FillWeight = 118.4129F;
             this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 11;
             this.DiaChi.Name = "DiaChi";
             // 
-            // TenPB
+            // MaPB
             // 
-            this.TenPB.DataPropertyName = "TenPB";
-            this.TenPB.FillWeight = 87.44025F;
-            this.TenPB.HeaderText = "Phòng ban";
-            this.TenPB.Name = "TenPB";
+            this.MaPB.DataPropertyName = "MaPB";
+            this.MaPB.FillWeight = 96.40897F;
+            this.MaPB.HeaderText = "Phòng ban";
+            this.MaPB.Name = "MaPB";
             // 
             // MaCV
             // 
             this.MaCV.DataPropertyName = "MaCV";
-            this.MaCV.FillWeight = 87.44025F;
+            this.MaCV.FillWeight = 96.40897F;
             this.MaCV.HeaderText = "Chức vụ";
             this.MaCV.Name = "MaCV";
             // 
             // MaCongTac
             // 
             this.MaCongTac.DataPropertyName = "MaCT";
-            this.MaCongTac.FillWeight = 114.2132F;
+            this.MaCongTac.FillWeight = 108.796F;
             this.MaCongTac.HeaderText = "Công tác";
+            this.MaCongTac.MinimumWidth = 25;
             this.MaCongTac.Name = "MaCongTac";
             // 
             // HoSo
@@ -626,7 +633,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sdt;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenPB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaCongTac;
     }
