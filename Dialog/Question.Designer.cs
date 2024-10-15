@@ -63,7 +63,7 @@
             this.text_Question.BackColor = System.Drawing.Color.Transparent;
             this.text_Question.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text_Question.ForeColor = System.Drawing.Color.Goldenrod;
-            this.text_Question.Location = new System.Drawing.Point(74, 235);
+            this.text_Question.Location = new System.Drawing.Point(86, 235);
             this.text_Question.Name = "text_Question";
             this.text_Question.Size = new System.Drawing.Size(230, 26);
             this.text_Question.TabIndex = 36;
@@ -140,7 +140,7 @@
             this.editText_question.BackColor = System.Drawing.Color.Transparent;
             this.editText_question.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editText_question.ForeColor = System.Drawing.Color.Goldenrod;
-            this.editText_question.Location = new System.Drawing.Point(74, 267);
+            this.editText_question.Location = new System.Drawing.Point(86, 267);
             this.editText_question.Name = "editText_question";
             this.editText_question.Size = new System.Drawing.Size(230, 59);
             this.editText_question.TabIndex = 38;

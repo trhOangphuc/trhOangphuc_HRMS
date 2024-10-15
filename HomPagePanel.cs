@@ -16,32 +16,33 @@ namespace QuanLyNhanSu
     public partial class HomPagePanel : Form
     {
 
+
         public HomPagePanel()
         {
             InitializeComponent();
-            LoadDataNhanVien();
-            LoadDataPhongban();
-            LoadDataCongTac();
             LoadTongNhanVien();
             LoadTongPhongBan();
             LoadQuyHienTai();
             LoadChartNhanVien();
             LoadChartPhongBan();
-            Dtg_nhanvien.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dtg_phongban.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dtg_congtac.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
+            LoadChamCong();
+            dtp_date.Value = DateTime.Now;
+            //dtp_date.Enabled = false;
+            chart_nhanvien.ChartAreas[0].BackColor = Color.Transparent;
+            chart_phongban.ChartAreas[0].BackColor = Color.Transparent;
         }
 
-        private void LoadDataCongTac()
+        private void LoadChamCong()
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 if (connection == null)
                 {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
+                    Error error = new Error
+                    {
+                        ErrorText = "Lỗi kết nối Database!",
+                        OkButtonText = "OK"
+                    };
                     error.ShowDialog();
                     return;
                 }
@@ -49,84 +50,35 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaCongTac, GhiChu FROM CongTac ORDER BY ID";
+
+                    // Lấy ngày từ DateTimePicker
+                    DateTime selectedDate = dtp_date.Value.Date; // Lấy giá trị ngày từ DateTimePicker
+
+                    string query = @"
+            SELECT COUNT(*) 
+            FROM ChamCong 
+            WHERE CONVERT(DATE, NgayLamViec) = @NgayLamViec AND LamViec = 1";
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dtg_congtac.DataSource = dataTable;
+                        // Thêm tham số kiểu DateTime cho truy vấn
+                        command.Parameters.AddWithValue("@NgayLamViec", selectedDate); // Đảm bảo chỉ truyền phần ngày
+
+                        // Lấy số lượng nhân viên làm việc (LamViec = true)
+                        int count = (int)command.ExecuteScalar();
+
+                        // Hiển thị kết quả vào lb_chamcong
+                        lb_chamcong.Text = count.ToString();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi khi truy vấn dữ liệu: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void LoadDataNhanVien()
-        {
-            using (SqlConnection connection = connectdatabase.Connect())
-            {
-                if (connection == null)
-                {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
-                    error.ShowDialog();
-                    return;
-                }
 
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT ID, HoTen, GioiTinh, NgaySinh, Sdt, DiaChi FROM NhanVien ORDER BY ID";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        Dtg_nhanvien.DataSource = dataTable;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void LoadDataPhongban()
-        {
-            using(SqlConnection connection = connectdatabase.Connect())
-            {
-                if(connection == null)
-                {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
-                    error.ShowDialog();
-                    return;
-                }
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT ID, MaPB FROM PhongBan ORDER BY ID";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dtg_phongban.DataSource = dataTable;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
         private void LoadTongNhanVien()
         {
             using (SqlConnection connection = connectdatabase.Connect())
@@ -193,7 +145,6 @@ namespace QuanLyNhanSu
             lb_quy.Text = $"{quy}"; 
         }
 
-        // Hàm tải dữ liệu nhân viên lên biểu đồ tròn (hiển thị số lượng nhân viên theo giới tính và đếm ID)
         private void LoadChartNhanVien()
         {
             using (SqlConnection connection = connectdatabase.Connect())
@@ -295,99 +246,12 @@ namespace QuanLyNhanSu
             }
         }
 
-        private void SearchData(string searchValue)
+        private void dtp_date_ValueChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(searchValue))
-            {
-                LoadDataNhanVien(); 
-                LoadDataPhongban();  
-                return;
-            }
-            SearchNhanVien(searchValue);
-            SearchPhongBan(searchValue);
-        }
-        private void SearchNhanVien(string searchValue)
-        {
-            using (SqlConnection connection = connectdatabase.Connect())
-            {
-                if (connection == null)
-                {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
-                    error.ShowDialog();
-                    return;
-                }
-
-                try
-                {
-                    connection.Open();
-                    // Tìm kiếm trong bảng NhanVien
-                    string query = "SELECT ID, HoTen, GioiTinh, NgaySinh, Sdt, DiaChi FROM NhanVien WHERE HoTen LIKE @searchValue OR Sdt LIKE @searchValue";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        Dtg_nhanvien.DataSource = dataTable;
-                        Dtg_nhanvien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tìm kiếm nhân viên: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-        private void SearchPhongBan(string searchValue)
-        {
-            using (SqlConnection connection = connectdatabase.Connect())
-            {
-                if (connection == null)
-                {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
-                    error.ShowDialog();
-                    return;
-                }
-
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT ID, MaPB FROM PhongBan WHERE MaPB LIKE @searchValue";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dtg_phongban.DataSource = dataTable;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tìm kiếm phòng ban: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-        private void search_home_TextChanged(object sender, EventArgs e)
-        {
-            SearchData(search_home.Text);
+            LoadChamCong();
         }
 
-        private void btn_searchHome_Click(object sender, EventArgs e)
-        {
-            SearchData(search_home.Text);
-        }
-
-        private void search_home_TextChanged_1(object sender, EventArgs e)
-        {
-            SearchData(search_home.Text);
-        }
-
-        private void chart_phongban_Click(object sender, EventArgs e)
+        private void lb_chamcong_Click(object sender, EventArgs e)
         {
 
         }

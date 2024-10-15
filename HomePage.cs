@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyNhanSu.Dialog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -100,7 +101,15 @@ namespace QuanLyNhanSu
         }
         private void guna2CircleButton1_Click_1(object sender, EventArgs e)
         {
-            Application.Exit();
+            Question questionForm = new Question();
+            questionForm.QuestionText = "thoát không?";
+            questionForm.OkButtonText = "Có";
+            Login lg = new Login();
+            if (questionForm.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+                lg.Show();
+            }
         }
         private void customizeDesing()
         {
@@ -271,14 +280,44 @@ namespace QuanLyNhanSu
             childForm.Show();
         }
 
-        private void btn_thongtin_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Account(userId));
-        }
-
         private void ptb_homepage_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login lg = new Login();
+            lg.ShowDialog();
+        }
+
+        private void btn_thongtin_Click_1(object sender, EventArgs e)
+        {
+            label3.Text = "Thông tin tài khoản";
+            openChildForm(new Account(userId));
+        }
+
+        private void guna2CircleButton5_Click(object sender, EventArgs e)
+        {
+            label3.Text = "Home Page";
+            openChildForm(new HomPagePanel());
+        }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            Notification notification = new Notification();
+            notification.NotificationText = "Tính năng đang phát triên !";
+            notification.OkButtonText = "OK";
+            notification.ShowDialog();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Notification notification = new Notification();
+            notification.NotificationText = "Tính năng đang phát triển !";
+            notification.OkButtonText = "OK";
+            notification.ShowDialog();
         }
     }
 }

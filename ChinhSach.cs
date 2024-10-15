@@ -41,8 +41,10 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKT, CS.MaKT, KT.GiaTri
+                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien,NV.HoTen, CS.NgayKT, CS.MaKT, KT.GiaTri
                                      From ChinhSach CS
+                                     LEFT JOIN
+                                      NhanVien NV ON CS.IDnhanvien = NV.ID
                                      LEFT JOIN
                                       KhenThuong KT ON CS.MaKT = KT.MaKT
                                      WHERE CS.MaKT IS NOT NULL
@@ -80,8 +82,10 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKL, CS.MaKL, KL.GiaTri
+                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien, NV.HoTen, CS.NgayKL, CS.MaKL, KL.GiaTri
                                      From ChinhSach CS
+                                     LEFT JOIN
+                                      NhanVien NV ON CS.IDnhanvien = NV.ID
                                      LEFT JOIN
                                       KyLuat KL ON CS.MaKL = KL.MaKL
                                      WHERE CS.MaKL IS NOT NULL
@@ -258,6 +262,7 @@ namespace QuanLyNhanSu
 
         private void reset()
         {
+            richTextBox1.Text = string.Empty;
             txt_macs.Enabled = true;
             txt_manv.Enabled = true;
             txt_macs.Text = string.Empty;
@@ -268,6 +273,8 @@ namespace QuanLyNhanSu
             search_hs.Text = string.Empty;
             dtg_thuong.ClearSelection();
             dtg_phat.ClearSelection();
+            LoadDataKT();
+            LoadDataKL();
         }
 
         private void resetHs_Click(object sender, EventArgs e)
@@ -611,10 +618,6 @@ namespace QuanLyNhanSu
             }
         }
 
-        private void search_hs_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void SearchData(string searchValue)
         {
             if (string.IsNullOrWhiteSpace(searchValue))
@@ -644,10 +647,11 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKT, CS.MaKT, KT.GiaTri
+                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien, NV.HoTen, CS.NgayKT, CS.MaKT, KT.GiaTri
                              FROM ChinhSach CS
+                             LEFT JOIN NhanVien NV ON CS.IDnhanvien = NV.ID
                              LEFT JOIN KhenThuong KT ON CS.MaKT = KT.MaKT
-                             WHERE CS.MaKT IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue)
+                             WHERE CS.MaKT IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue OR NV.HoTen LIKE @searchValue)
                              ORDER BY MaChinhSach";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -666,7 +670,7 @@ namespace QuanLyNhanSu
                         {
                             Notification tb = new Notification
                             {
-                                NotificationText = "Không tìm thấy kết quả trong bảng Khen thưởng.",
+                                NotificationText = "Không tìm thấy kết quả Khen thưởng.",
                                 OkButtonText = "OK"
                             };
                             tb.ShowDialog();
@@ -697,10 +701,11 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKL, CS.MaKL, KL.GiaTri
+                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien, NV.HoTen, CS.NgayKL, CS.MaKL, KL.GiaTri
                              FROM ChinhSach CS
+                             LEFT JOIN NhanVien NV ON CS.IDnhanvien = NV.ID
                              LEFT JOIN KyLuat KL ON CS.MaKL = KL.MaKL
-                             WHERE CS.MaKL IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue)
+                             WHERE CS.MaKL IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue OR NV.HoTen LIKE @searchValue)
                              ORDER BY MaChinhSach";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -719,7 +724,7 @@ namespace QuanLyNhanSu
                         {
                             Notification tb = new Notification
                             {
-                                NotificationText = "Không tìm thấy kết quả trong bảng Kỷ luật.",
+                                NotificationText = "Không tìm thấy kết quả Kỷ luật.",
                                 OkButtonText = "OK"
                             };
                             tb.ShowDialog();
@@ -736,6 +741,126 @@ namespace QuanLyNhanSu
         private void btn_searchHs_Click(object sender, EventArgs e)
         {
             SearchData(search_hs.Text);
+        }
+
+        private void SearchSummary()
+        {
+            // Lấy giá trị ID nhân viên từ textbox
+            string idNhanVienInput = search_hs.Text.Trim();
+            if (string.IsNullOrEmpty(idNhanVienInput))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng nhập ID của nhân viên để thực hiện !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                search_hs.Focus();
+                return;
+            }
+
+            // Kiểm tra nếu giá trị nhập vào là số
+            if (!int.TryParse(idNhanVienInput, out int idNhanVien))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng nhập vào ID của nhân viên để thống kê !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                search_hs.Focus();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error
+                    {
+                        ErrorText = "Lỗi kết nối Database!",
+                        OkButtonText = "OK"
+                    };
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+                    string query = @"
+      SELECT 
+        CS.IDnhanvien, 
+        NV.HoTen,
+        SUM(CASE WHEN KT.MaKT IS NOT NULL THEN KT.GiaTri ELSE 0 END) AS TongGiaTriKhenThuong,
+        SUM(CASE WHEN KL.MaKL IS NOT NULL THEN KL.GiaTri ELSE 0 END) AS TongGiaTriKyLuat
+      FROM 
+        ChinhSach CS
+      LEFT JOIN 
+        NhanVien NV ON CS.IDnhanvien = NV.ID
+      LEFT JOIN 
+        KhenThuong KT ON CS.MaKT = KT.MaKT
+      LEFT JOIN 
+        KyLuat KL ON CS.MaKL = KL.MaKL
+      WHERE 
+        CS.IDnhanvien = @IDnhanvien
+      GROUP BY 
+        CS.IDnhanvien, NV.HoTen
+      HAVING 
+        SUM(CASE WHEN KT.MaKT IS NOT NULL THEN KT.GiaTri ELSE 0 END) > 0 OR 
+        SUM(CASE WHEN KL.MaKL IS NOT NULL THEN KL.GiaTri ELSE 0 END) > 0
+      ORDER BY 
+        CS.IDnhanvien;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IDnhanvien", idNhanVien);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            richTextBox1.Clear(); // Xóa nội dung cũ
+                            if (reader.Read()) // Chỉ đọc một dòng
+                            {
+                                // Lấy thông tin từ reader
+                                string hoTen = reader["HoTen"].ToString();
+
+                                // Kiểm tra và lấy giá trị tổng khen thưởng
+                                object khenThuongValue = reader["TongGiaTriKhenThuong"];
+                                float tongKhenThuong = khenThuongValue is DBNull ? 0 : Convert.ToSingle(khenThuongValue);
+
+                                // Kiểm tra và lấy giá trị tổng kỷ luật
+                                object kyLuatValue = reader["TongGiaTriKyLuat"];
+                                float tongKyLuat = kyLuatValue is DBNull ? 0 : Convert.ToSingle(kyLuatValue);
+
+                                // Chuyển đổi float sang string với định dạng
+                                string tongKhenThuongString = tongKhenThuong.ToString("N2");
+                                string tongKyLuatString = tongKyLuat.ToString("N2");
+
+                                // Hiển thị thông tin trong RichTextBox
+                                richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Bold);
+                                richTextBox1.AppendText($"\tTổng chính sách của nhân viên:\n\n");
+                                richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Regular);
+                                richTextBox1.AppendText($"\tID Nhân viên: {idNhanVien}\n");
+                                richTextBox1.AppendText($"\tHọ tên: {hoTen}\n");
+                                richTextBox1.AppendText($"\tTổng giá trị khen thưởng: {tongKhenThuongString} VNĐ\n");
+                                richTextBox1.AppendText($"\tTổng giá trị kỷ luật: {tongKyLuatString} VNĐ\n\n");
+                                richTextBox1.AppendText("=====================================");
+                            }
+                            else
+                            {
+                                richTextBox1.Text = "*Không có kết quả chính sách cho nhân viên này !";
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi truy vấn dữ liệu: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            SearchSummary();
         }
     }
 }

@@ -461,5 +461,17 @@
   <ItemGroup>
     <None Include="Resources\annuities.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homepager_ecruitment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trainning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

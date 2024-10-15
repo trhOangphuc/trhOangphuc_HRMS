@@ -49,17 +49,19 @@
             this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dtg_thuong = new System.Windows.Forms.DataGridView();
-            this.MaChinhSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDnhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTriKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtg_phat = new System.Windows.Forms.DataGridView();
             this.MaChinhSach2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDnhanvien2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaTriKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaChinhSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDnhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaTriKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.x.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_thuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_phat)).BeginInit();
@@ -99,12 +101,13 @@
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 30;
+            this.guna2Button1.BorderRadius = 25;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Cyan;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
             this.guna2Button1.Image = global::QuanLyNhanSu.Properties.Resources.annuities;
@@ -114,19 +117,25 @@
             this.guna2Button1.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2Button1.Size = new System.Drawing.Size(167, 45);
             this.guna2Button1.TabIndex = 113;
-            this.guna2Button1.Text = "Tổng";
+            this.guna2Button1.Text = "Thống kê";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(24, 497);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(360, 154);
             this.richTextBox1.TabIndex = 112;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Text = "Tổng chính sách khen thưởng, kỷ luật của nhân viên";
             // 
             // add_KL
             // 
             this.add_KL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.add_KL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.add_KL.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.add_KL.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.add_KL.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -292,6 +301,7 @@
             // resetHs
             // 
             this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetHs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -303,7 +313,7 @@
             this.resetHs.ForeColor = System.Drawing.Color.White;
             this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(236, 316);
+            this.resetHs.Location = new System.Drawing.Point(295, 314);
             this.resetHs.Name = "resetHs";
             this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetHs.Size = new System.Drawing.Size(46, 43);
@@ -339,11 +349,11 @@
             this.search_hs.Size = new System.Drawing.Size(306, 50);
             this.search_hs.TabIndex = 85;
             this.search_hs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.search_hs.TextChanged += new System.EventHandler(this.search_hs_TextChanged);
             // 
             // btn_searchHs
             // 
             this.btn_searchHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_searchHs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_searchHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_searchHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_searchHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -363,6 +373,7 @@
             // add_hs
             // 
             this.add_hs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.add_hs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.add_hs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.add_hs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.add_hs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -384,6 +395,7 @@
             // btn_deletehs
             // 
             this.btn_deletehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_deletehs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_deletehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_deletehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_deletehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -395,7 +407,7 @@
             this.btn_deletehs.ForeColor = System.Drawing.Color.White;
             this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletehs.Location = new System.Drawing.Point(125, 316);
+            this.btn_deletehs.Location = new System.Drawing.Point(184, 314);
             this.btn_deletehs.Name = "btn_deletehs";
             this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
@@ -405,6 +417,7 @@
             // btn_updatehs
             // 
             this.btn_updatehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_updatehs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_updatehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_updatehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_updatehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -416,7 +429,7 @@
             this.btn_updatehs.ForeColor = System.Drawing.Color.White;
             this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatehs.Location = new System.Drawing.Point(24, 316);
+            this.btn_updatehs.Location = new System.Drawing.Point(71, 314);
             this.btn_updatehs.Name = "btn_updatehs";
             this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
@@ -444,6 +457,7 @@
             this.dtg_thuong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaChinhSach,
             this.IDnhanvien,
+            this.HoTen,
             this.NgayKT,
             this.MaKT,
             this.GiaTriKT});
@@ -455,42 +469,6 @@
             this.dtg_thuong.TabIndex = 97;
             this.dtg_thuong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_thuong_CellClick);
             // 
-            // MaChinhSach
-            // 
-            this.MaChinhSach.DataPropertyName = "MaChinhSach";
-            this.MaChinhSach.FillWeight = 30.99097F;
-            this.MaChinhSach.HeaderText = "Mã";
-            this.MaChinhSach.Name = "MaChinhSach";
-            // 
-            // IDnhanvien
-            // 
-            this.IDnhanvien.DataPropertyName = "IDnhanvien";
-            this.IDnhanvien.FillWeight = 94.3569F;
-            this.IDnhanvien.HeaderText = "Mã nhân viên";
-            this.IDnhanvien.MinimumWidth = 40;
-            this.IDnhanvien.Name = "IDnhanvien";
-            // 
-            // NgayKT
-            // 
-            this.NgayKT.DataPropertyName = "NgayKT";
-            this.NgayKT.FillWeight = 111.1461F;
-            this.NgayKT.HeaderText = "Ngày thêm";
-            this.NgayKT.Name = "NgayKT";
-            // 
-            // MaKT
-            // 
-            this.MaKT.DataPropertyName = "MaKT";
-            this.MaKT.FillWeight = 115.3232F;
-            this.MaKT.HeaderText = "Thưởng";
-            this.MaKT.Name = "MaKT";
-            // 
-            // GiaTriKT
-            // 
-            this.GiaTriKT.DataPropertyName = "GiaTri";
-            this.GiaTriKT.FillWeight = 117.8152F;
-            this.GiaTriKT.HeaderText = "Giá trị";
-            this.GiaTriKT.Name = "GiaTriKT";
-            // 
             // dtg_phat
             // 
             this.dtg_phat.AllowUserToAddRows = false;
@@ -500,6 +478,7 @@
             this.dtg_phat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaChinhSach2,
             this.IDnhanvien2,
+            this.HoTen2,
             this.NgayKL,
             this.MaKL,
             this.GiaTriKL});
@@ -526,6 +505,12 @@
             this.IDnhanvien2.MinimumWidth = 40;
             this.IDnhanvien2.Name = "IDnhanvien2";
             // 
+            // HoTen2
+            // 
+            this.HoTen2.DataPropertyName = "HoTen";
+            this.HoTen2.HeaderText = "Họ tên";
+            this.HoTen2.Name = "HoTen2";
+            // 
             // NgayKL
             // 
             this.NgayKL.DataPropertyName = "NgayKL";
@@ -546,6 +531,48 @@
             this.GiaTriKL.FillWeight = 119.0637F;
             this.GiaTriKL.HeaderText = "Giá trị";
             this.GiaTriKL.Name = "GiaTriKL";
+            // 
+            // MaChinhSach
+            // 
+            this.MaChinhSach.DataPropertyName = "MaChinhSach";
+            this.MaChinhSach.FillWeight = 30.99097F;
+            this.MaChinhSach.HeaderText = "Mã";
+            this.MaChinhSach.Name = "MaChinhSach";
+            // 
+            // IDnhanvien
+            // 
+            this.IDnhanvien.DataPropertyName = "IDnhanvien";
+            this.IDnhanvien.FillWeight = 94.3569F;
+            this.IDnhanvien.HeaderText = "Mã nhân viên";
+            this.IDnhanvien.MinimumWidth = 40;
+            this.IDnhanvien.Name = "IDnhanvien";
+            // 
+            // HoTen
+            // 
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.Name = "HoTen";
+            // 
+            // NgayKT
+            // 
+            this.NgayKT.DataPropertyName = "NgayKT";
+            this.NgayKT.FillWeight = 111.1461F;
+            this.NgayKT.HeaderText = "Ngày thêm";
+            this.NgayKT.Name = "NgayKT";
+            // 
+            // MaKT
+            // 
+            this.MaKT.DataPropertyName = "MaKT";
+            this.MaKT.FillWeight = 115.3232F;
+            this.MaKT.HeaderText = "Thưởng";
+            this.MaKT.Name = "MaKT";
+            // 
+            // GiaTriKT
+            // 
+            this.GiaTriKT.DataPropertyName = "GiaTri";
+            this.GiaTriKT.FillWeight = 117.8152F;
+            this.GiaTriKT.HeaderText = "Giá trị";
+            this.GiaTriKT.Name = "GiaTriKT";
             // 
             // ChinhSach
             // 
@@ -588,18 +615,20 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtp_date;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dtg_phat;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton add_KL;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChinhSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDnhanvien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaTriKT;
-        private Guna.UI2.WinForms.Guna2GradientCircleButton add_KL;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChinhSach2;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDnhanvien2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen2;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKL;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKL;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaTriKL;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

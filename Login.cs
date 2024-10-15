@@ -23,14 +23,7 @@ namespace QuanLyNhanSu
 
         private void guna2CircleButton1_Click_1(object sender, EventArgs e)
         {
-            Question questionForm = new Question();
-            questionForm.QuestionText = "thoát không?";
-            questionForm.OkButtonText = "Có"; 
-
-            if (questionForm.ShowDialog() == DialogResult.OK)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
         }
 
         private void guna2CircleButton2_Click(object sender, EventArgs e)
