@@ -93,6 +93,16 @@ namespace QuanLyNhanSu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap annuities {
+            get {
+                object obj = ResourceManager.GetObject("annuities", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ask {
             get {
                 object obj = ResourceManager.GetObject("ask", resourceCulture);
@@ -286,6 +296,16 @@ namespace QuanLyNhanSu.Properties {
         internal static System.Drawing.Bitmap golden_retriever {
             get {
                 object obj = ResourceManager.GetObject("golden_retriever", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gross {
+            get {
+                object obj = ResourceManager.GetObject("gross", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

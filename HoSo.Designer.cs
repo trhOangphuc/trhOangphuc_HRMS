@@ -42,14 +42,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_sdt = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.resetHs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.txt_dc = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.search_hs = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_searchHs = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.add_hs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_deletehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +56,11 @@
             this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCongTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resetHs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_searchHs = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.add_hs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_deletehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.x.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -309,27 +309,6 @@
             this.label4.TabIndex = 93;
             this.label4.Text = "SĐT : ";
             // 
-            // resetHs
-            // 
-            this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetHs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.resetHs.FillColor = System.Drawing.Color.Transparent;
-            this.resetHs.FillColor2 = System.Drawing.Color.Transparent;
-            this.resetHs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.resetHs.ForeColor = System.Drawing.Color.White;
-            this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
-            this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(341, 513);
-            this.resetHs.Name = "resetHs";
-            this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.resetHs.Size = new System.Drawing.Size(46, 43);
-            this.resetHs.TabIndex = 92;
-            this.resetHs.Click += new System.EventHandler(this.resetHs_Click);
-            // 
             // txt_dc
             // 
             this.txt_dc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -394,88 +373,7 @@
             this.search_hs.Size = new System.Drawing.Size(308, 50);
             this.search_hs.TabIndex = 9;
             this.search_hs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btn_searchHs
-            // 
-            this.btn_searchHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_searchHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_searchHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_searchHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_searchHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_searchHs.FillColor = System.Drawing.Color.Transparent;
-            this.btn_searchHs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_searchHs.ForeColor = System.Drawing.Color.White;
-            this.btn_searchHs.Image = global::QuanLyNhanSu.Properties.Resources.find;
-            this.btn_searchHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchHs.Location = new System.Drawing.Point(341, 577);
-            this.btn_searchHs.Name = "btn_searchHs";
-            this.btn_searchHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_searchHs.Size = new System.Drawing.Size(52, 50);
-            this.btn_searchHs.TabIndex = 84;
-            this.btn_searchHs.Click += new System.EventHandler(this.btn_searchHs_Click);
-            // 
-            // add_hs
-            // 
-            this.add_hs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_hs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.add_hs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.add_hs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.add_hs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.add_hs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.add_hs.FillColor = System.Drawing.Color.Transparent;
-            this.add_hs.FillColor2 = System.Drawing.Color.Transparent;
-            this.add_hs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.add_hs.ForeColor = System.Drawing.Color.White;
-            this.add_hs.Image = global::QuanLyNhanSu.Properties.Resources.add;
-            this.add_hs.ImageSize = new System.Drawing.Size(40, 40);
-            this.add_hs.Location = new System.Drawing.Point(24, 513);
-            this.add_hs.Name = "add_hs";
-            this.add_hs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.add_hs.Size = new System.Drawing.Size(46, 43);
-            this.add_hs.TabIndex = 9;
-            this.add_hs.Click += new System.EventHandler(this.add_hs_Click);
-            // 
-            // btn_deletehs
-            // 
-            this.btn_deletehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_deletehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_deletehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_deletehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_deletehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_deletehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_deletehs.FillColor = System.Drawing.Color.Transparent;
-            this.btn_deletehs.FillColor2 = System.Drawing.Color.Transparent;
-            this.btn_deletehs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_deletehs.ForeColor = System.Drawing.Color.White;
-            this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
-            this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletehs.Location = new System.Drawing.Point(228, 513);
-            this.btn_deletehs.Name = "btn_deletehs";
-            this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
-            this.btn_deletehs.TabIndex = 8;
-            this.btn_deletehs.Click += new System.EventHandler(this.btn_deletehs_Click);
-            // 
-            // btn_updatehs
-            // 
-            this.btn_updatehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_updatehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_updatehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_updatehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_updatehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_updatehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_updatehs.FillColor = System.Drawing.Color.Transparent;
-            this.btn_updatehs.FillColor2 = System.Drawing.Color.Transparent;
-            this.btn_updatehs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_updatehs.ForeColor = System.Drawing.Color.White;
-            this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
-            this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatehs.Location = new System.Drawing.Point(118, 513);
-            this.btn_updatehs.Name = "btn_updatehs";
-            this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
-            this.btn_updatehs.TabIndex = 7;
-            this.btn_updatehs.Click += new System.EventHandler(this.btn_updatehs_Click);
+            this.search_hs.TextChanged += new System.EventHandler(this.search_hs_TextChanged);
             // 
             // label1
             // 
@@ -581,6 +479,109 @@
             this.MaCongTac.HeaderText = "Công tác";
             this.MaCongTac.MinimumWidth = 25;
             this.MaCongTac.Name = "MaCongTac";
+            // 
+            // resetHs
+            // 
+            this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetHs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.resetHs.FillColor = System.Drawing.Color.Transparent;
+            this.resetHs.FillColor2 = System.Drawing.Color.Transparent;
+            this.resetHs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.resetHs.ForeColor = System.Drawing.Color.White;
+            this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
+            this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
+            this.resetHs.Location = new System.Drawing.Point(341, 513);
+            this.resetHs.Name = "resetHs";
+            this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.resetHs.Size = new System.Drawing.Size(46, 43);
+            this.resetHs.TabIndex = 92;
+            this.resetHs.Click += new System.EventHandler(this.resetHs_Click);
+            // 
+            // btn_searchHs
+            // 
+            this.btn_searchHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_searchHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_searchHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_searchHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_searchHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_searchHs.FillColor = System.Drawing.Color.Transparent;
+            this.btn_searchHs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_searchHs.ForeColor = System.Drawing.Color.White;
+            this.btn_searchHs.Image = global::QuanLyNhanSu.Properties.Resources.find;
+            this.btn_searchHs.ImageSize = new System.Drawing.Size(40, 40);
+            this.btn_searchHs.Location = new System.Drawing.Point(341, 577);
+            this.btn_searchHs.Name = "btn_searchHs";
+            this.btn_searchHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_searchHs.Size = new System.Drawing.Size(52, 50);
+            this.btn_searchHs.TabIndex = 84;
+            this.btn_searchHs.Click += new System.EventHandler(this.btn_searchHs_Click);
+            // 
+            // add_hs
+            // 
+            this.add_hs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.add_hs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.add_hs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.add_hs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.add_hs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.add_hs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.add_hs.FillColor = System.Drawing.Color.Transparent;
+            this.add_hs.FillColor2 = System.Drawing.Color.Transparent;
+            this.add_hs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.add_hs.ForeColor = System.Drawing.Color.White;
+            this.add_hs.Image = global::QuanLyNhanSu.Properties.Resources.add;
+            this.add_hs.ImageSize = new System.Drawing.Size(40, 40);
+            this.add_hs.Location = new System.Drawing.Point(24, 513);
+            this.add_hs.Name = "add_hs";
+            this.add_hs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.add_hs.Size = new System.Drawing.Size(46, 43);
+            this.add_hs.TabIndex = 9;
+            this.add_hs.Click += new System.EventHandler(this.add_hs_Click);
+            // 
+            // btn_deletehs
+            // 
+            this.btn_deletehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_deletehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_deletehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_deletehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_deletehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_deletehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_deletehs.FillColor = System.Drawing.Color.Transparent;
+            this.btn_deletehs.FillColor2 = System.Drawing.Color.Transparent;
+            this.btn_deletehs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_deletehs.ForeColor = System.Drawing.Color.White;
+            this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
+            this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
+            this.btn_deletehs.Location = new System.Drawing.Point(228, 513);
+            this.btn_deletehs.Name = "btn_deletehs";
+            this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
+            this.btn_deletehs.TabIndex = 8;
+            this.btn_deletehs.Click += new System.EventHandler(this.btn_deletehs_Click);
+            // 
+            // btn_updatehs
+            // 
+            this.btn_updatehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_updatehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_updatehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_updatehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_updatehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_updatehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_updatehs.FillColor = System.Drawing.Color.Transparent;
+            this.btn_updatehs.FillColor2 = System.Drawing.Color.Transparent;
+            this.btn_updatehs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_updatehs.ForeColor = System.Drawing.Color.White;
+            this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
+            this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
+            this.btn_updatehs.Location = new System.Drawing.Point(118, 513);
+            this.btn_updatehs.Name = "btn_updatehs";
+            this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
+            this.btn_updatehs.TabIndex = 7;
+            this.btn_updatehs.Click += new System.EventHandler(this.btn_updatehs_Click);
             // 
             // HoSo
             // 

@@ -455,5 +455,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\annuities.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -124,6 +124,9 @@
   <data name="Animation___1728696215837" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Animation - 1728696215837.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="annuities" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\annuities.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ask" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ask.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,6 +186,9 @@
   </data>
   <data name="golden_retriever" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\golden-retriever.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gross" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="group" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

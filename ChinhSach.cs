@@ -19,6 +19,8 @@ namespace QuanLyNhanSu
             InitializeComponent();
             LoadComboBoxKhenThuong();
             LoadComboBoxKyLuat();
+            LoadDataKT();
+            LoadDataKL();
             cmb_KT.SelectedIndex = 0; 
             cmb_KL.SelectedIndex = 0; 
         }
@@ -39,23 +41,12 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"
-                SELECT 
-                    NV.ID, 
-                    NV.HoTen, 
-                    NV.GioiTinh, 
-                    NV.NgaySinh, 
-                    NV.Sdt, 
-                    NV.DiaChi, 
-                    PB.MaPB, 
-                    CV.MaCV ,
-                    NV.MaCT
-                FROM 
-                    NhanVien NV
-                LEFT JOIN 
-                    PhongBan PB ON NV.MaPB = PB.MaPB
-                LEFT JOIN 
-                    ChucVu CV ON NV.MaCV = CV.MaCV ORDER BY ID";
+                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKT, CS.MaKT, KT.GiaTri
+                                     From ChinhSach CS
+                                     LEFT JOIN
+                                      KhenThuong KT ON CS.MaKT = KT.MaKT
+                                     WHERE CS.MaKT IS NOT NULL
+                                     ORDER BY MaChinhSach";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -63,7 +54,46 @@ namespace QuanLyNhanSu
                         adapter.Fill(dataTable);
                         dtg_thuong.DataSource = dataTable;
                         dtg_thuong.AllowUserToAddRows = false;
-                        dtg_thuong.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        dtg_thuong.Columns["NgayKT"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void LoadDataKL()
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKL, CS.MaKL, KL.GiaTri
+                                     From ChinhSach CS
+                                     LEFT JOIN
+                                      KyLuat KL ON CS.MaKL = KL.MaKL
+                                     WHERE CS.MaKL IS NOT NULL
+                                     ORDER BY MaChinhSach";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dtg_phat.DataSource = dataTable;
+                        dtg_phat.AllowUserToAddRows = false;
+                        dtg_phat.Columns["NgayKL"].DefaultCellStyle.Format = "dd/MM/yyyy";
                     }
                 }
                 catch (Exception ex)
@@ -130,6 +160,582 @@ namespace QuanLyNhanSu
                     }
                 }
             }
+        }
+
+        private void add_hs_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txt_macs.Text) || string.IsNullOrWhiteSpace(txt_manv.Text)
+                || string.IsNullOrWhiteSpace(cmb_KT.Text) || string.IsNullOrWhiteSpace(dtp_date.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+            if (!int.TryParse(txt_manv.Text, out int idNhanVien))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Sai ID nhân viên!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+
+                    string checkQuery = "SELECT COUNT(*) FROM NhanVien WHERE ID = @IDnhanvien";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count == 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "ID nhân viên không tồn tại!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    string checkMaChinhSachQuery = "SELECT COUNT(*) FROM ChinhSach WHERE MaChinhSach = @MaChinhSach";
+                    using (SqlCommand checkMaChinhSachCommand = new SqlCommand(checkMaChinhSachQuery, connection))
+                    {
+                        checkMaChinhSachCommand.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
+                        int countMaChinhSach = (int)checkMaChinhSachCommand.ExecuteScalar();
+
+                        if (countMaChinhSach > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Mã chính sách đã tồn tại nhập mã khác!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    string query = @"
+                      INSERT INTO ChinhSach (MaChinhSach, IDnhanvien, NgayKT, MaKT)
+                      VALUES (@MaChinhSach, @IDnhanvien, @NgayKT, @MaKT)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
+                        command.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+                        command.Parameters.AddWithValue("@NgayKT", dtp_date.Value);
+                        command.Parameters.AddWithValue("@MaKT", cmb_KT.Text);
+
+                        command.ExecuteNonQuery();
+                        Success sc = new Success();
+                        sc.ShowDialog();
+                        LoadDataKT();
+                        reset();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void reset()
+        {
+            txt_macs.Enabled = true;
+            txt_manv.Enabled = true;
+            txt_macs.Text = string.Empty;
+            txt_manv.Text = string.Empty;
+            dtp_date.Value = DateTime.Now;
+            cmb_KT.SelectedIndex = -1;
+            cmb_KL.SelectedIndex = -1;
+            search_hs.Text = string.Empty;
+            dtg_thuong.ClearSelection();
+            dtg_phat.ClearSelection();
+        }
+
+        private void resetHs_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        private void add_KL_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_macs.Text) || string.IsNullOrWhiteSpace(txt_manv.Text)
+                || string.IsNullOrWhiteSpace(cmb_KL.Text) || string.IsNullOrWhiteSpace(dtp_date.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            if (!int.TryParse(txt_manv.Text, out int idNhanVien))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Sai ID nhân viên!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+
+                    string checkQuery = "SELECT COUNT(*) FROM NhanVien WHERE ID = @IDnhanvien";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+
+                        // Thực hiện truy vấn kiểm tra
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count == 0) // Nếu không tìm thấy IDnhanvien
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "ID nhân viên không tồn tại!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    string checkMaChinhSachQuery = "SELECT COUNT(*) FROM ChinhSach WHERE MaChinhSach = @MaChinhSach";
+                    using (SqlCommand checkMaChinhSachCommand = new SqlCommand(checkMaChinhSachQuery, connection))
+                    {
+                        checkMaChinhSachCommand.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
+                        int countMaChinhSach = (int)checkMaChinhSachCommand.ExecuteScalar();
+
+                        if (countMaChinhSach > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Mã chính sách đã tồn tại nhập mã khác!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    string query = @"
+                      INSERT INTO ChinhSach (MaChinhSach, IDnhanvien, NgayKL, MaKL)
+                      VALUES (@MaChinhSach, @IDnhanvien, @NgayKL, @MaKL)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
+                        command.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+                        command.Parameters.AddWithValue("@NgayKL", dtp_date.Value);
+                        command.Parameters.AddWithValue("@MaKL", cmb_KL.Text);
+
+                        command.ExecuteNonQuery();
+                        Success sc = new Success();
+                        sc.ShowDialog();
+                        LoadDataKL();
+                        reset();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dtg_thuong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtg_thuong.Rows.Count)
+            {
+                DataGridViewRow row = dtg_thuong.Rows[e.RowIndex];
+                if (row.Cells["MaChinhSach"].Value != null)
+                {
+                    txt_macs.Text = row.Cells["MaChinhSach"].Value.ToString();
+                    txt_macs.Enabled = false;
+                }
+
+                if (row.Cells["IDnhanvien"].Value != null)
+                {
+                    txt_manv.Text = row.Cells["IDnhanvien"].Value.ToString();
+                    txt_manv.Enabled = false;
+                }
+
+                if (row.Cells["NgayKT"].Value != null)
+                {
+                    DateTime selectedDate;
+                    if (DateTime.TryParse(row.Cells["NgayKT"].Value.ToString(), out selectedDate))
+                    {
+                        dtp_date.Value = selectedDate;
+                    }
+                }
+                if (row.Cells["MaKT"].Value != null)
+                {
+                    string maKT = row.Cells["MaKT"].Value.ToString();
+                    cmb_KT.SelectedIndex = cmb_KT.FindStringExact(maKT);
+                }
+            }
+        }
+
+        private void dtg_phat_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtg_phat.Rows.Count)
+            {
+                DataGridViewRow row = dtg_phat.Rows[e.RowIndex];
+                if (row.Cells["MaChinhSach2"].Value != null)
+                {
+                    txt_macs.Text = row.Cells["MaChinhSach2"].Value.ToString();
+                    txt_macs.Enabled = false;
+                }
+
+                if (row.Cells["IDnhanvien2"].Value != null)
+                {
+                    txt_manv.Text = row.Cells["IDnhanvien2"].Value.ToString();
+                    txt_manv.Enabled = false;
+                }
+
+                if (row.Cells["NgayKL"].Value != null)
+                {
+                    DateTime selectedDate;
+                    if (DateTime.TryParse(row.Cells["NgayKL"].Value.ToString(), out selectedDate))
+                    {
+                        dtp_date.Value = selectedDate;
+                    }
+                }
+                if (row.Cells["MaKL"].Value != null)
+                {
+                    string maKL = row.Cells["MaKL"].Value.ToString();
+                    cmb_KL.SelectedIndex = cmb_KL.FindStringExact(maKL);
+                }
+            }
+        }
+
+        private void btn_deletehs_Click(object sender, EventArgs e)
+        {
+            if (dtg_thuong.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn để xóa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+            if (dtg_phat.CurrentRow == null)
+            {
+                Question questionForm = new Question();
+                questionForm.QuestionText = "xóa chinh sách thưởng này không?";
+                questionForm.OkButtonText = "Có";
+                if (questionForm.ShowDialog() == DialogResult.OK)
+                {
+                    using (SqlConnection connection = connectdatabase.Connect())
+                    {
+                        if (connection == null)
+                        {
+                            Error error = new Error();
+                            error.ErrorText = "Lỗi kết nối Database !";
+                            error.OkButtonText = "OK";
+                            error.ShowDialog();
+                            return;
+                        }
+
+                        try
+                        {
+                            connection.Open();
+                            string query = "DELETE FROM ChinhSach WHERE MaKT = @MaKT";
+
+                            using (SqlCommand command = new SqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@MaKT", dtg_thuong.CurrentRow.Cells["MaKT"].Value);
+                                command.ExecuteNonQuery();
+                                Success sc = new Success();
+                                sc.ShowDialog();
+                                LoadDataKT();
+                                reset();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+
+            if (dtg_phat.CurrentRow == null)
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn để xóa !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+            if (cmb_KL.SelectedItem != null)
+            {
+                Question questionForm2 = new Question();
+                questionForm2.QuestionText = "xóa chinh sách phạt này không?";
+                questionForm2.OkButtonText = "Có";
+                if (questionForm2.ShowDialog() == DialogResult.OK)
+                {
+                    using (SqlConnection connection = connectdatabase.Connect())
+                    {
+                        if (connection == null)
+                        {
+                            Error error = new Error();
+                            error.ErrorText = "Lỗi kết nối Database !";
+                            error.OkButtonText = "OK";
+                            error.ShowDialog();
+                            return;
+                        }
+
+                        try
+                        {
+                            connection.Open();
+                            string query = "DELETE FROM ChinhSach WHERE MaKL = @MaKL";
+
+                            using (SqlCommand command = new SqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@MaKL", dtg_phat.CurrentRow.Cells["MaKL"].Value);
+                                command.ExecuteNonQuery();
+                                Success sc = new Success();
+                                sc.ShowDialog();
+                                LoadDataKL();
+                                reset();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btn_updatehs_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_macs.Text) || string.IsNullOrWhiteSpace(txt_manv.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn chính sách để cập nhật !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database!";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+                    if (cmb_KT.SelectedItem != null)
+                    {
+                        string queryKT = @"UPDATE ChinhSach 
+                               SET NgayKT = @NgayKT, MaKT = @MaKT 
+                               WHERE MaChinhSach = @MaChinhSach";
+
+                        using (SqlCommand commandKT = new SqlCommand(queryKT, connection))
+                        {
+                            commandKT.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text); // Sửa giá trị từ CurrentRow
+                            commandKT.Parameters.AddWithValue("@NgayKT", dtp_date.Value);
+                            commandKT.Parameters.AddWithValue("@MaKT", ((dynamic)cmb_KT.SelectedItem).Value); // Kiểm tra kiểu dữ liệu
+
+                            commandKT.ExecuteNonQuery();
+                            LoadDataKT();
+                            Success sc = new Success();
+                            sc.ShowDialog();
+                            reset();
+                        }
+                        return;
+                    }
+
+                    if (cmb_KL.SelectedItem != null)
+                    {
+                        string queryKL = @"UPDATE ChinhSach 
+                               SET NgayKL = @NgayKL, MaKL = @MaKL 
+                               WHERE MaChinhSach = @MaChinhSach"; // Sửa tên cột cho đúng
+
+                        using (SqlCommand commandKL = new SqlCommand(queryKL, connection))
+                        {
+                            commandKL.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text); // Sửa giá trị từ CurrentRow
+                            commandKL.Parameters.AddWithValue("@NgayKL", dtp_date.Value);
+                            commandKL.Parameters.AddWithValue("@MaKL", ((dynamic)cmb_KL.SelectedItem).Value); // Kiểm tra kiểu dữ liệu
+
+                            commandKL.ExecuteNonQuery();
+                            LoadDataKL();
+                            Success sc = new Success();
+                            sc.ShowDialog();
+                            reset();
+                        }
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void search_hs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void SearchData(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                LoadDataKT();
+                LoadDataKL();
+                return;
+            }
+            SearchKhenthuong(searchValue);
+            SearchKyLuat(searchValue);
+        }
+        private void SearchKhenthuong(string searchValue)
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error
+                    {
+                        ErrorText = "Lỗi kết nối Database!",
+                        OkButtonText = "OK"
+                    };
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKT, CS.MaKT, KT.GiaTri
+                             FROM ChinhSach CS
+                             LEFT JOIN KhenThuong KT ON CS.MaKT = KT.MaKT
+                             WHERE CS.MaKT IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue)
+                             ORDER BY MaChinhSach";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            dtg_thuong.DataSource = dataTable;
+                            dtg_thuong.AllowUserToAddRows = false;
+                            dtg_thuong.Columns["NgayKT"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        }
+                        else
+                        {
+                            Notification tb = new Notification
+                            {
+                                NotificationText = "Không tìm thấy kết quả trong bảng Khen thưởng.",
+                                OkButtonText = "OK"
+                            };
+                            tb.ShowDialog();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tìm kiếm trong bảng Khen thưởng: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void SearchKyLuat(string searchValue)
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error
+                    {
+                        ErrorText = "Lỗi kết nối Database!",
+                        OkButtonText = "OK"
+                    };
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT CS.MaChinhSach, CS.IDnhanvien, CS.NgayKL, CS.MaKL, KL.GiaTri
+                             FROM ChinhSach CS
+                             LEFT JOIN KyLuat KL ON CS.MaKL = KL.MaKL
+                             WHERE CS.MaKL IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue)
+                             ORDER BY MaChinhSach";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            dtg_phat.DataSource = dataTable;
+                            dtg_phat.AllowUserToAddRows = false;
+                            dtg_phat.Columns["NgayKL"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        }
+                        else
+                        {
+                            Notification tb = new Notification
+                            {
+                                NotificationText = "Không tìm thấy kết quả trong bảng Kỷ luật.",
+                                OkButtonText = "OK"
+                            };
+                            tb.ShowDialog();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tìm kiếm trong bảng Kỷ luật: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btn_searchHs_Click(object sender, EventArgs e)
+        {
+            SearchData(search_hs.Text);
         }
     }
 }

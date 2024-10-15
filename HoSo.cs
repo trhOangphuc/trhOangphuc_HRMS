@@ -457,5 +457,10 @@ namespace QuanLyNhanSu
         {
 
         }
+
+        private void search_hs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
