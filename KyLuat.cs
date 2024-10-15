@@ -112,7 +112,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Notification notification = new Notification();
+                        notification.NotificationText = "Kỷ luật đã tồn tại !";
+                        notification.OkButtonText = "OK";
+                        notification.ShowDialog();
                     }
                 }
             }

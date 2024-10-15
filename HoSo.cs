@@ -142,6 +142,7 @@ namespace QuanLyNhanSu
                 return;
             }
 
+
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 if (connection == null)

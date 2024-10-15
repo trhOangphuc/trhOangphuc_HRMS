@@ -197,9 +197,11 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
-                    error.OkButtonText = "OK";
+                    Error error = new Error
+                    {
+                        ErrorText = "Lỗi kết nối Database !",
+                        OkButtonText = "OK"
+                    };
                     error.ShowDialog();
                     return;
                 }
@@ -207,8 +209,14 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    // Đếm số lượng phòng ban dựa trên ID từ bảng PhongBan
-                    string query = "SELECT MaPB, COUNT(ID) AS SoLuong FROM PhongBan GROUP BY MaPB";
+
+                    // Đếm số lượng nhân viên theo phòng ban từ bảng NhanVien và PhongBan
+                    string query = @"
+                SELECT pb.MaPB, COUNT(nv.ID) AS SoLuong 
+                FROM PhongBan pb
+                LEFT JOIN NhanVien nv ON pb.MaPB = nv.MaPB
+                GROUP BY pb.MaPB";
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -218,17 +226,19 @@ namespace QuanLyNhanSu
                         // Kiểm tra xem có dữ liệu hay không
                         if (dataTable.Rows.Count == 0)
                         {
-                            MessageBox.Show("Không có dữ liệu để hiển thị cho biểu đồ phòng ban!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Không có dữ liệu để hiển thị cho biểu đồ số nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
                         // Thiết lập biểu đồ
                         chart_phongban.Series.Clear();
                         chart_phongban.ChartAreas.Clear();
-                        chart_phongban.ChartAreas.Add(new ChartArea("PhongBanChartArea"));
+                        chart_phongban.ChartAreas.Add(new ChartArea("NhanVienChartArea"));
 
-                        Series series = new Series("PhongBan");
-                        series.ChartType = SeriesChartType.Pie;
+                        Series series = new Series("SoLuongNhanVien")
+                        {
+                            ChartType = SeriesChartType.Pie // Thiết lập loại biểu đồ là hình tròn
+                        };
 
                         // Thêm dữ liệu vào biểu đồ
                         foreach (DataRow row in dataTable.Rows)
@@ -237,6 +247,21 @@ namespace QuanLyNhanSu
                         }
 
                         chart_phongban.Series.Add(series);
+
+                        // Tắt hiển thị nhãn cho từng điểm
+                        foreach (DataPoint point in series.Points)
+                        {
+                            point.Label = ""; // Tắt hiển thị nhãn cho từng điểm
+                        }
+
+                        // Ngăn hiển thị giá trị trên các phần của biểu đồ
+                        series.IsValueShownAsLabel = false; // Ngăn hiển thị giá trị trên các phần của biểu đồ
+
+                        // Tắt hiển thị nhãn bên trong (nếu có)
+                        foreach (DataPoint point in series.Points)
+                        {
+                            point.IsValueShownAsLabel = false; // Ngăn hiển thị giá trị cho từng điểm
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -245,6 +270,7 @@ namespace QuanLyNhanSu
                 }
             }
         }
+
 
         private void dtp_date_ValueChanged(object sender, EventArgs e)
         {

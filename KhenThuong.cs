@@ -111,7 +111,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Notification notification = new Notification();
+                        notification.NotificationText = "Khen thưởng đã tồn tại !";
+                        notification.OkButtonText = "OK";
+                        notification.ShowDialog();
                     }
                 }
             }

@@ -49,6 +49,12 @@
             this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dtg_thuong = new System.Windows.Forms.DataGridView();
+            this.MaChinhSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDnhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaTriKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtg_phat = new System.Windows.Forms.DataGridView();
             this.MaChinhSach2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDnhanvien2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,12 +62,6 @@
             this.NgayKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaTriKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaChinhSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDnhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTriKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.x.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_thuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_phat)).BeginInit();
@@ -204,6 +204,7 @@
             this.txt_macs.SelectedText = "";
             this.txt_macs.Size = new System.Drawing.Size(198, 36);
             this.txt_macs.TabIndex = 108;
+            this.txt_macs.TextChanged += new System.EventHandler(this.txt_macs_TextChanged);
             // 
             // label2
             // 
@@ -216,6 +217,7 @@
             this.label2.Size = new System.Drawing.Size(127, 18);
             this.label2.TabIndex = 107;
             this.label2.Text = "Mã chính sách :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cmb_KL
             // 
@@ -469,6 +471,50 @@
             this.dtg_thuong.TabIndex = 97;
             this.dtg_thuong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_thuong_CellClick);
             // 
+            // MaChinhSach
+            // 
+            this.MaChinhSach.DataPropertyName = "MaChinhSach";
+            this.MaChinhSach.FillWeight = 43.37302F;
+            this.MaChinhSach.HeaderText = "Mã";
+            this.MaChinhSach.MinimumWidth = 15;
+            this.MaChinhSach.Name = "MaChinhSach";
+            // 
+            // IDnhanvien
+            // 
+            this.IDnhanvien.DataPropertyName = "IDnhanvien";
+            this.IDnhanvien.FillWeight = 92.18786F;
+            this.IDnhanvien.HeaderText = "Mã nhân viên";
+            this.IDnhanvien.MinimumWidth = 40;
+            this.IDnhanvien.Name = "IDnhanvien";
+            // 
+            // HoTen
+            // 
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.FillWeight = 97.70124F;
+            this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.Name = "HoTen";
+            // 
+            // NgayKT
+            // 
+            this.NgayKT.DataPropertyName = "NgayKT";
+            this.NgayKT.FillWeight = 108.5911F;
+            this.NgayKT.HeaderText = "Ngày thêm";
+            this.NgayKT.Name = "NgayKT";
+            // 
+            // MaKT
+            // 
+            this.MaKT.DataPropertyName = "MaKT";
+            this.MaKT.FillWeight = 112.6722F;
+            this.MaKT.HeaderText = "Thưởng";
+            this.MaKT.Name = "MaKT";
+            // 
+            // GiaTriKT
+            // 
+            this.GiaTriKT.DataPropertyName = "GiaTri";
+            this.GiaTriKT.FillWeight = 115.1069F;
+            this.GiaTriKT.HeaderText = "Giá trị";
+            this.GiaTriKT.Name = "GiaTriKT";
+            // 
             // dtg_phat
             // 
             this.dtg_phat.AllowUserToAddRows = false;
@@ -493,14 +539,15 @@
             // MaChinhSach2
             // 
             this.MaChinhSach2.DataPropertyName = "MaChinhSach";
-            this.MaChinhSach2.FillWeight = 26.34267F;
+            this.MaChinhSach2.FillWeight = 43.37302F;
             this.MaChinhSach2.HeaderText = "Mã";
+            this.MaChinhSach2.MinimumWidth = 15;
             this.MaChinhSach2.Name = "MaChinhSach2";
             // 
             // IDnhanvien2
             // 
             this.IDnhanvien2.DataPropertyName = "IDnhanvien";
-            this.IDnhanvien2.FillWeight = 95.35682F;
+            this.IDnhanvien2.FillWeight = 92.36769F;
             this.IDnhanvien2.HeaderText = "Mã nhân viên";
             this.IDnhanvien2.MinimumWidth = 40;
             this.IDnhanvien2.Name = "IDnhanvien2";
@@ -508,71 +555,30 @@
             // HoTen2
             // 
             this.HoTen2.DataPropertyName = "HoTen";
+            this.HoTen2.FillWeight = 96.86532F;
             this.HoTen2.HeaderText = "Họ tên";
             this.HoTen2.Name = "HoTen2";
             // 
             // NgayKL
             // 
             this.NgayKL.DataPropertyName = "NgayKL";
-            this.NgayKL.FillWeight = 112.3239F;
+            this.NgayKL.FillWeight = 108.8029F;
             this.NgayKL.HeaderText = "Ngày thêm";
             this.NgayKL.Name = "NgayKL";
             // 
             // MaKL
             // 
             this.MaKL.DataPropertyName = "MaKL";
-            this.MaKL.FillWeight = 116.5453F;
+            this.MaKL.FillWeight = 112.892F;
             this.MaKL.HeaderText = "Phạt";
             this.MaKL.Name = "MaKL";
             // 
             // GiaTriKL
             // 
             this.GiaTriKL.DataPropertyName = "GiaTri";
-            this.GiaTriKL.FillWeight = 119.0637F;
+            this.GiaTriKL.FillWeight = 115.3314F;
             this.GiaTriKL.HeaderText = "Giá trị";
             this.GiaTriKL.Name = "GiaTriKL";
-            // 
-            // MaChinhSach
-            // 
-            this.MaChinhSach.DataPropertyName = "MaChinhSach";
-            this.MaChinhSach.FillWeight = 30.99097F;
-            this.MaChinhSach.HeaderText = "Mã";
-            this.MaChinhSach.Name = "MaChinhSach";
-            // 
-            // IDnhanvien
-            // 
-            this.IDnhanvien.DataPropertyName = "IDnhanvien";
-            this.IDnhanvien.FillWeight = 94.3569F;
-            this.IDnhanvien.HeaderText = "Mã nhân viên";
-            this.IDnhanvien.MinimumWidth = 40;
-            this.IDnhanvien.Name = "IDnhanvien";
-            // 
-            // HoTen
-            // 
-            this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.HeaderText = "Họ tên";
-            this.HoTen.Name = "HoTen";
-            // 
-            // NgayKT
-            // 
-            this.NgayKT.DataPropertyName = "NgayKT";
-            this.NgayKT.FillWeight = 111.1461F;
-            this.NgayKT.HeaderText = "Ngày thêm";
-            this.NgayKT.Name = "NgayKT";
-            // 
-            // MaKT
-            // 
-            this.MaKT.DataPropertyName = "MaKT";
-            this.MaKT.FillWeight = 115.3232F;
-            this.MaKT.HeaderText = "Thưởng";
-            this.MaKT.Name = "MaKT";
-            // 
-            // GiaTriKT
-            // 
-            this.GiaTriKT.DataPropertyName = "GiaTri";
-            this.GiaTriKT.FillWeight = 117.8152F;
-            this.GiaTriKT.HeaderText = "Giá trị";
-            this.GiaTriKT.Name = "GiaTriKT";
             // 
             // ChinhSach
             // 

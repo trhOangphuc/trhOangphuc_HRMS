@@ -184,6 +184,7 @@ namespace QuanLyNhanSu
                 notification.NotificationText = "Sai ID nhân viên!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
+                txt_manv.Focus();
                 return;
             }
 
@@ -195,6 +196,7 @@ namespace QuanLyNhanSu
                     error.ErrorText = "Lỗi kết nối Database !";
                     error.OkButtonText = "OK";
                     error.ShowDialog();
+                    txt_manv.Focus();
                     return;
                 }
 
@@ -215,6 +217,7 @@ namespace QuanLyNhanSu
                             notification.NotificationText = "ID nhân viên không tồn tại!";
                             notification.OkButtonText = "OK";
                             notification.ShowDialog();
+                            txt_manv.Focus();
                             return;
                         }
                     }
@@ -861,6 +864,16 @@ namespace QuanLyNhanSu
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             SearchSummary();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_macs_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

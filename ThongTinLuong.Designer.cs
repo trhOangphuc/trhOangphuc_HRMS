@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.x = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.txt_lcb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_phucap = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmb_chucvu = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmb_phongban = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txt_ht = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_maluong = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_gt = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.resetHs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.search_hs = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_searchHs = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -45,32 +46,26 @@
             this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhuCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LuongCoBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.x.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // x
             // 
-            this.x.Controls.Add(this.guna2TextBox2);
+            this.x.Controls.Add(this.txt_lcb);
             this.x.Controls.Add(this.label3);
-            this.x.Controls.Add(this.guna2TextBox1);
+            this.x.Controls.Add(this.txt_phucap);
             this.x.Controls.Add(this.cmb_chucvu);
             this.x.Controls.Add(this.label2);
             this.x.Controls.Add(this.cmb_phongban);
-            this.x.Controls.Add(this.txt_ht);
+            this.x.Controls.Add(this.txt_maluong);
             this.x.Controls.Add(this.label7);
             this.x.Controls.Add(this.label6);
-            this.x.Controls.Add(this.txt_gt);
-            this.x.Controls.Add(this.label5);
             this.x.Controls.Add(this.resetHs);
             this.x.Controls.Add(this.search_hs);
             this.x.Controls.Add(this.btn_searchHs);
@@ -88,6 +83,64 @@
             this.x.Size = new System.Drawing.Size(405, 656);
             this.x.TabIndex = 93;
             // 
+            // txt_lcb
+            // 
+            this.txt_lcb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_lcb.BorderRadius = 20;
+            this.txt_lcb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_lcb.DefaultText = "";
+            this.txt_lcb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_lcb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_lcb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_lcb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_lcb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_lcb.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_lcb.ForeColor = System.Drawing.Color.Black;
+            this.txt_lcb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_lcb.Location = new System.Drawing.Point(155, 264);
+            this.txt_lcb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_lcb.Name = "txt_lcb";
+            this.txt_lcb.PasswordChar = '\0';
+            this.txt_lcb.PlaceholderText = "";
+            this.txt_lcb.SelectedText = "";
+            this.txt_lcb.Size = new System.Drawing.Size(238, 36);
+            this.txt_lcb.TabIndex = 109;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 273);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 18);
+            this.label3.TabIndex = 108;
+            this.label3.Text = "Lương cơ bản :";
+            // 
+            // txt_phucap
+            // 
+            this.txt_phucap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_phucap.BorderRadius = 20;
+            this.txt_phucap.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_phucap.DefaultText = "";
+            this.txt_phucap.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_phucap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_phucap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_phucap.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_phucap.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_phucap.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_phucap.ForeColor = System.Drawing.Color.Black;
+            this.txt_phucap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_phucap.Location = new System.Drawing.Point(155, 198);
+            this.txt_phucap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_phucap.Name = "txt_phucap";
+            this.txt_phucap.PasswordChar = '\0';
+            this.txt_phucap.PlaceholderText = "";
+            this.txt_phucap.SelectedText = "";
+            this.txt_phucap.Size = new System.Drawing.Size(238, 36);
+            this.txt_phucap.TabIndex = 107;
+            // 
             // cmb_chucvu
             // 
             this.cmb_chucvu.BackColor = System.Drawing.Color.Transparent;
@@ -99,10 +152,11 @@
             this.cmb_chucvu.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmb_chucvu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmb_chucvu.ItemHeight = 30;
-            this.cmb_chucvu.Location = new System.Drawing.Point(155, 198);
+            this.cmb_chucvu.Location = new System.Drawing.Point(155, 133);
             this.cmb_chucvu.Name = "cmb_chucvu";
             this.cmb_chucvu.Size = new System.Drawing.Size(238, 36);
             this.cmb_chucvu.TabIndex = 106;
+            this.cmb_chucvu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -110,7 +164,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 207);
+            this.label2.Location = new System.Drawing.Point(20, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 18);
             this.label2.TabIndex = 105;
@@ -128,34 +182,35 @@
             this.cmb_phongban.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmb_phongban.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmb_phongban.ItemHeight = 30;
-            this.cmb_phongban.Location = new System.Drawing.Point(155, 134);
+            this.cmb_phongban.Location = new System.Drawing.Point(155, 69);
             this.cmb_phongban.Name = "cmb_phongban";
             this.cmb_phongban.Size = new System.Drawing.Size(238, 36);
             this.cmb_phongban.TabIndex = 104;
+            this.cmb_phongban.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cmb_phongban.ValueMember = "ádfasdf";
             // 
-            // txt_ht
+            // txt_maluong
             // 
-            this.txt_ht.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_ht.BorderRadius = 20;
-            this.txt_ht.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_ht.DefaultText = "";
-            this.txt_ht.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_ht.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_ht.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_ht.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_ht.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_ht.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ht.ForeColor = System.Drawing.Color.Black;
-            this.txt_ht.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_ht.Location = new System.Drawing.Point(155, 13);
-            this.txt_ht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txt_ht.Name = "txt_ht";
-            this.txt_ht.PasswordChar = '\0';
-            this.txt_ht.PlaceholderText = "";
-            this.txt_ht.SelectedText = "";
-            this.txt_ht.Size = new System.Drawing.Size(238, 36);
-            this.txt_ht.TabIndex = 100;
+            this.txt_maluong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_maluong.BorderRadius = 20;
+            this.txt_maluong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_maluong.DefaultText = "";
+            this.txt_maluong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_maluong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_maluong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_maluong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_maluong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_maluong.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_maluong.ForeColor = System.Drawing.Color.Black;
+            this.txt_maluong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_maluong.Location = new System.Drawing.Point(155, 13);
+            this.txt_maluong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_maluong.Name = "txt_maluong";
+            this.txt_maluong.PasswordChar = '\0';
+            this.txt_maluong.PlaceholderText = "";
+            this.txt_maluong.SelectedText = "";
+            this.txt_maluong.Size = new System.Drawing.Size(238, 36);
+            this.txt_maluong.TabIndex = 100;
             // 
             // label7
             // 
@@ -165,9 +220,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(18, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 18);
+            this.label7.Size = new System.Drawing.Size(87, 18);
             this.label7.TabIndex = 99;
-            this.label7.Text = "Mã nhân viên :";
+            this.label7.Text = "Mã lương :";
             // 
             // label6
             // 
@@ -175,50 +230,16 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 272);
+            this.label6.Location = new System.Drawing.Point(23, 207);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 18);
             this.label6.TabIndex = 97;
             this.label6.Text = "Phụ cấp :";
             // 
-            // txt_gt
-            // 
-            this.txt_gt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_gt.BorderRadius = 20;
-            this.txt_gt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_gt.DefaultText = "";
-            this.txt_gt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_gt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_gt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_gt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_gt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_gt.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gt.ForeColor = System.Drawing.Color.Black;
-            this.txt_gt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_gt.Location = new System.Drawing.Point(155, 73);
-            this.txt_gt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txt_gt.Name = "txt_gt";
-            this.txt_gt.PasswordChar = '\0';
-            this.txt_gt.PlaceholderText = "";
-            this.txt_gt.SelectedText = "";
-            this.txt_gt.Size = new System.Drawing.Size(238, 36);
-            this.txt_gt.TabIndex = 96;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(18, 80);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 18);
-            this.label5.TabIndex = 95;
-            this.label5.Text = "Họ và tên : ";
-            // 
             // resetHs
             // 
             this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetHs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -230,11 +251,12 @@
             this.resetHs.ForeColor = System.Drawing.Color.White;
             this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(341, 400);
+            this.resetHs.Location = new System.Drawing.Point(341, 335);
             this.resetHs.Name = "resetHs";
             this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetHs.Size = new System.Drawing.Size(46, 43);
             this.resetHs.TabIndex = 92;
+            this.resetHs.Click += new System.EventHandler(this.resetHs_Click);
             // 
             // search_hs
             // 
@@ -243,7 +265,7 @@
             this.search_hs.BorderColor = System.Drawing.Color.Gray;
             this.search_hs.BorderRadius = 8;
             this.search_hs.BorderThickness = 3;
-            this.search_hs.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.search_hs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.search_hs.DefaultText = "";
             this.search_hs.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.search_hs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -253,7 +275,7 @@
             this.search_hs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_hs.ForeColor = System.Drawing.Color.Black;
             this.search_hs.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_hs.Location = new System.Drawing.Point(26, 464);
+            this.search_hs.Location = new System.Drawing.Point(26, 399);
             this.search_hs.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_hs.MaxLength = 40;
             this.search_hs.Name = "search_hs";
@@ -269,6 +291,7 @@
             // btn_searchHs
             // 
             this.btn_searchHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_searchHs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_searchHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_searchHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_searchHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -278,15 +301,17 @@
             this.btn_searchHs.ForeColor = System.Drawing.Color.White;
             this.btn_searchHs.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchHs.Location = new System.Drawing.Point(341, 464);
+            this.btn_searchHs.Location = new System.Drawing.Point(341, 399);
             this.btn_searchHs.Name = "btn_searchHs";
             this.btn_searchHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchHs.Size = new System.Drawing.Size(52, 50);
             this.btn_searchHs.TabIndex = 84;
+            this.btn_searchHs.Click += new System.EventHandler(this.btn_searchHs_Click);
             // 
             // add_hs
             // 
             this.add_hs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.add_hs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.add_hs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.add_hs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.add_hs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -298,15 +323,17 @@
             this.add_hs.ForeColor = System.Drawing.Color.White;
             this.add_hs.Image = global::QuanLyNhanSu.Properties.Resources.add;
             this.add_hs.ImageSize = new System.Drawing.Size(40, 40);
-            this.add_hs.Location = new System.Drawing.Point(24, 400);
+            this.add_hs.Location = new System.Drawing.Point(24, 335);
             this.add_hs.Name = "add_hs";
             this.add_hs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.add_hs.Size = new System.Drawing.Size(46, 43);
             this.add_hs.TabIndex = 9;
+            this.add_hs.Click += new System.EventHandler(this.add_hs_Click);
             // 
             // btn_deletehs
             // 
             this.btn_deletehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_deletehs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_deletehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_deletehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_deletehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -318,15 +345,17 @@
             this.btn_deletehs.ForeColor = System.Drawing.Color.White;
             this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletehs.Location = new System.Drawing.Point(228, 400);
+            this.btn_deletehs.Location = new System.Drawing.Point(228, 335);
             this.btn_deletehs.Name = "btn_deletehs";
             this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
             this.btn_deletehs.TabIndex = 8;
+            this.btn_deletehs.Click += new System.EventHandler(this.btn_deletehs_Click);
             // 
             // btn_updatehs
             // 
             this.btn_updatehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_updatehs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_updatehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_updatehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_updatehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -338,11 +367,12 @@
             this.btn_updatehs.ForeColor = System.Drawing.Color.White;
             this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatehs.Location = new System.Drawing.Point(118, 400);
+            this.btn_updatehs.Location = new System.Drawing.Point(118, 335);
             this.btn_updatehs.Name = "btn_updatehs";
             this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
             this.btn_updatehs.TabIndex = 7;
+            this.btn_updatehs.Click += new System.EventHandler(this.btn_updatehs_Click);
             // 
             // label1
             // 
@@ -350,7 +380,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 146);
+            this.label1.Location = new System.Drawing.Point(18, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 18);
             this.label1.TabIndex = 1;
@@ -363,10 +393,9 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.HoTen,
+            this.MaLuong,
             this.MaPB,
-            this.NgaySinh,
+            this.MaCV,
             this.PhuCap,
             this.LuongCoBan});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -375,43 +404,36 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(670, 656);
             this.dataGridView1.TabIndex = 94;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // ID
+            // MaLuong
             // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 93.59803F;
-            this.ID.HeaderText = "Mã nhân viên";
-            this.ID.MinimumWidth = 15;
-            this.ID.Name = "ID";
-            // 
-            // HoTen
-            // 
-            this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.FillWeight = 144.7926F;
-            this.HoTen.HeaderText = "Họ Tên";
-            this.HoTen.MinimumWidth = 35;
-            this.HoTen.Name = "HoTen";
+            this.MaLuong.DataPropertyName = "MaLuong";
+            this.MaLuong.FillWeight = 53.17661F;
+            this.MaLuong.HeaderText = "Mã";
+            this.MaLuong.MinimumWidth = 15;
+            this.MaLuong.Name = "MaLuong";
             // 
             // MaPB
             // 
             this.MaPB.DataPropertyName = "MaPB";
-            this.MaPB.FillWeight = 75.93732F;
+            this.MaPB.FillWeight = 95.024F;
             this.MaPB.HeaderText = "Phòng ban";
-            this.MaPB.MinimumWidth = 25;
+            this.MaPB.MinimumWidth = 26;
             this.MaPB.Name = "MaPB";
             // 
-            // NgaySinh
+            // MaCV
             // 
-            this.NgaySinh.DataPropertyName = "MaCV";
-            this.NgaySinh.FillWeight = 76.47115F;
-            this.NgaySinh.HeaderText = "Chức vụ";
-            this.NgaySinh.MinimumWidth = 25;
-            this.NgaySinh.Name = "NgaySinh";
+            this.MaCV.DataPropertyName = "MaCV";
+            this.MaCV.FillWeight = 85.37523F;
+            this.MaCV.HeaderText = "Chức vụ";
+            this.MaCV.MinimumWidth = 25;
+            this.MaCV.Name = "MaCV";
             // 
             // PhuCap
             // 
             this.PhuCap.DataPropertyName = "PhuCap";
-            this.PhuCap.FillWeight = 98.3175F;
+            this.PhuCap.FillWeight = 109.7653F;
             this.PhuCap.HeaderText = "Phụ cấp";
             this.PhuCap.MinimumWidth = 25;
             this.PhuCap.Name = "PhuCap";
@@ -419,68 +441,10 @@
             // LuongCoBan
             // 
             this.LuongCoBan.DataPropertyName = "LuongCoBan";
-            this.LuongCoBan.FillWeight = 109.2694F;
+            this.LuongCoBan.FillWeight = 121.9924F;
             this.LuongCoBan.HeaderText = "Lương cơ bản";
             this.LuongCoBan.MinimumWidth = 11;
             this.LuongCoBan.Name = "LuongCoBan";
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2TextBox1.BorderRadius = 20;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(155, 263);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(238, 36);
-            this.guna2TextBox1.TabIndex = 107;
-            // 
-            // guna2TextBox2
-            // 
-            this.guna2TextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2TextBox2.BorderRadius = 20;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(155, 329);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(238, 36);
-            this.guna2TextBox2.TabIndex = 109;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 338);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 18);
-            this.label3.TabIndex = 108;
-            this.label3.Text = "Lương cơ bản :";
             // 
             // ThongTinLuong
             // 
@@ -507,11 +471,9 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmb_chucvu;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox cmb_phongban;
-        private Guna.UI2.WinForms.Guna2TextBox txt_ht;
+        private Guna.UI2.WinForms.Guna2TextBox txt_maluong;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2TextBox txt_gt;
-        private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2GradientCircleButton resetHs;
         private Guna.UI2.WinForms.Guna2TextBox search_hs;
         private Guna.UI2.WinForms.Guna2CircleButton btn_searchHs;
@@ -520,14 +482,13 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_updatehs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private Guna.UI2.WinForms.Guna2TextBox txt_lcb;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox txt_phucap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhuCap;
         private System.Windows.Forms.DataGridViewTextBoxColumn LuongCoBan;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }
