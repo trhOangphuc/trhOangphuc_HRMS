@@ -249,10 +249,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    Notification notification = new Notification();
-                    notification.NotificationText = "Thông tin đã tồn tại !";
-                    notification.OkButtonText = "OK";
-                    notification.ShowDialog();
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }
@@ -335,7 +335,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }
@@ -383,7 +386,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }

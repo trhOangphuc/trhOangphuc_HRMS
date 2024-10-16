@@ -33,6 +33,9 @@ namespace QuanLyNhanSu
             this.username = username;
             // Hiển thị tên tài khoản trong label
             Profile.Text = username;
+
+            this.KeyPreview = true; // Cho phép Form nhận sự kiện bàn phím
+            this.KeyDown += new KeyEventHandler(HomPage_KeyDown);
         }
 
         private void AccountForm_ProfilePictureChanged(string filePath)
@@ -318,6 +321,22 @@ namespace QuanLyNhanSu
             notification.NotificationText = "Tính năng đang phát triển !";
             notification.OkButtonText = "OK";
             notification.ShowDialog();
+        }
+
+        private void HomPage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) // Kiểm tra nếu phím ESC được nhấn
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+                else
+                {
+                    // Kích hoạt sự kiện click của Button thu nhỏ
+                    guna2CircleButton4.PerformClick();
+                }
+            }
         }
     }
 }

@@ -456,7 +456,9 @@ namespace QuanLyNhanSu
                             }
                             else
                             {
-                                richTextBox1.Text = "*Không có kết quả thống kê cho nhân viên này !";
+                                richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Bold);
+                                richTextBox1.ForeColor = Color.Red;
+                                richTextBox1.Text = $"*Không có kết quả thống kê chấm công {thangNam.ToString("MM/yyyy")} cho nhân viên này !";
                             }
                         }
                     }

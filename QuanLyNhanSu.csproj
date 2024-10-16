@@ -473,5 +473,8 @@
   <ItemGroup>
     <None Include="Resources\checklist.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

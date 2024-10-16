@@ -123,7 +123,7 @@
             // 
             this.textError.AutoSize = false;
             this.textError.BackColor = System.Drawing.Color.Transparent;
-            this.textError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textError.ForeColor = System.Drawing.Color.Red;
             this.textError.Location = new System.Drawing.Point(44, 236);
             this.textError.Name = "textError";
