@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyNhanSu.Dialog;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -27,7 +28,10 @@ namespace QuanLyNhanSu
             {
                 if (connection == null)
                 {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: ";  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                     return;
                 }
 
@@ -58,13 +62,19 @@ namespace QuanLyNhanSu
                         }
                         else
                         {
-                            MessageBox.Show("Không tìm thấy thông tin người dùng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Error er = new Error();
+                            er.ErrorText = "Đã xảy ra lỗi: ";  // Thông báo lỗi chung
+                            er.OkButtonText = "OK";
+                            er.ShowDialog();
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }
@@ -115,7 +125,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi cập nhật hình ảnh: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: ";  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }

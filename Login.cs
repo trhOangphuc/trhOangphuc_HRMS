@@ -21,6 +21,7 @@ namespace QuanLyNhanSu
             InitializeComponent();
         }
 
+
         private void guna2CircleButton1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
@@ -105,7 +106,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                     return -1; 
                 }
             }

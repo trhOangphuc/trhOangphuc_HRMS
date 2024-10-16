@@ -151,14 +151,14 @@
             // Register
             // 
             this.Register.AutoSize = true;
-            this.Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Register.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
             this.Register.Location = new System.Drawing.Point(261, 532);
             this.Register.Name = "Register";
-            this.Register.Size = new System.Drawing.Size(79, 24);
+            this.Register.Size = new System.Drawing.Size(62, 18);
             this.Register.TabIndex = 3;
             this.Register.TabStop = true;
-            this.Register.Text = "Register";
+            this.Register.Text = "Đăng ký";
             this.Register.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Register_LinkClicked);
             // 
@@ -166,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
+            this.label3.ForeColor = System.Drawing.Color.Brown;
             this.label3.Location = new System.Drawing.Point(200, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(211, 42);
@@ -186,17 +186,17 @@
             this.Login_user.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Login_user.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Login_user.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Login_user.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Login_user.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.Login_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_user.ForeColor = System.Drawing.Color.Black;
-            this.Login_user.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
+            this.Login_user.HoverState.BorderColor = System.Drawing.Color.Gray;
             this.Login_user.Location = new System.Drawing.Point(151, 250);
             this.Login_user.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.Login_user.MaxLength = 40;
             this.Login_user.Name = "Login_user";
             this.Login_user.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Login_user.PasswordChar = '\0';
-            this.Login_user.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.Login_user.PlaceholderForeColor = System.Drawing.Color.Black;
             this.Login_user.PlaceholderText = "Username";
             this.Login_user.SelectedText = "";
             this.Login_user.Size = new System.Drawing.Size(290, 57);
@@ -217,17 +217,17 @@
             this.Login_passwd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Login_passwd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Login_passwd.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Login_passwd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Login_passwd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.Login_passwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_passwd.ForeColor = System.Drawing.Color.Black;
-            this.Login_passwd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
+            this.Login_passwd.HoverState.BorderColor = System.Drawing.Color.Gray;
             this.Login_passwd.Location = new System.Drawing.Point(151, 326);
             this.Login_passwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Login_passwd.MaxLength = 36;
             this.Login_passwd.Name = "Login_passwd";
             this.Login_passwd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Login_passwd.PasswordChar = '•';
-            this.Login_passwd.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.Login_passwd.PlaceholderForeColor = System.Drawing.Color.Black;
             this.Login_passwd.PlaceholderText = "Password";
             this.Login_passwd.SelectedText = "";
             this.Login_passwd.Size = new System.Drawing.Size(290, 57);
@@ -254,7 +254,7 @@
             this.Login_login.Name = "Login_login";
             this.Login_login.Size = new System.Drawing.Size(290, 62);
             this.Login_login.TabIndex = 2;
-            this.Login_login.Text = "Login";
+            this.Login_login.Text = "Đăng nhập";
             this.Login_login.Click += new System.EventHandler(this.Login_login_Click);
             // 
             // pictureBox1

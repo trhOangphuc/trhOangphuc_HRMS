@@ -22,7 +22,9 @@ namespace QuanLyNhanSu
             LoadData();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             cmb_phongban.SelectedIndex = 0; 
-            cmb_chucvu.SelectedIndex = 0; 
+            cmb_chucvu.SelectedIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
         }
 
         private void LoadData()
@@ -340,7 +342,7 @@ namespace QuanLyNhanSu
 
         private void btn_deletehs_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow == null)
+            if (string.IsNullOrEmpty(txt_maluong.Text))
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Vui lòng chọn để xóa !";

@@ -21,6 +21,7 @@ namespace QuanLyNhanSu
             LoadData();
             LoadDataCV();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
         private void LoadDataCV()
@@ -49,7 +50,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }
@@ -80,7 +84,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }
@@ -165,7 +172,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -196,7 +206,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -204,7 +217,7 @@ namespace QuanLyNhanSu
 
         private void btn_deletePb_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow == null)
+            if (string.IsNullOrEmpty(txt_mapb.Text))
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Vui lòng chọn phòng ban để xóa !";
@@ -230,12 +243,15 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
 
-            if (dtg_chucvu.CurrentRow == null)
+            if (string.IsNullOrEmpty(txt_chucvu.Text))
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Vui lòng chọn chức vụ để xóa!";
@@ -261,7 +277,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -300,7 +319,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -335,7 +357,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -411,7 +436,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -445,7 +473,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }

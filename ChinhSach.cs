@@ -22,7 +22,14 @@ namespace QuanLyNhanSu
             LoadDataKT();
             LoadDataKL();
             cmb_KT.SelectedIndex = 0; 
-            cmb_KL.SelectedIndex = 0; 
+            cmb_KL.SelectedIndex = 0;
+            dtp_date.Value = DateTime.Now;
+            dtg_phat.CellClick += dtg_phat_CellClick;
+            dtg_thuong.CellClick += dtg_thuong_CellClick;
+            dtg_phat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtg_phat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtg_phat.CellClick += new DataGridViewCellEventHandler(dtg_phat_CellClick);
+            dtg_thuong.CellClick += new DataGridViewCellEventHandler(dtg_thuong_CellClick);
         }
 
         private void LoadDataKT()
@@ -41,14 +48,14 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien,NV.HoTen, CS.NgayKT, CS.MaKT, KT.GiaTri
+                    string query = @"SELECT DISTINCT CS.IDnhanvien,NV.HoTen, CS.NgayKT, CS.MaKT, KT.GiaTri
                                      From ChinhSach CS
                                      LEFT JOIN
                                       NhanVien NV ON CS.IDnhanvien = NV.ID
                                      LEFT JOIN
                                       KhenThuong KT ON CS.MaKT = KT.MaKT
                                      WHERE CS.MaKT IS NOT NULL
-                                     ORDER BY MaChinhSach";
+                                     ORDER BY IDnhanvien";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -82,14 +89,14 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien, NV.HoTen, CS.NgayKL, CS.MaKL, KL.GiaTri
+                    string query = @"SELECT DISTINCT CS.IDnhanvien, NV.HoTen, CS.NgayKL, CS.MaKL, KL.GiaTri
                                      From ChinhSach CS
                                      LEFT JOIN
                                       NhanVien NV ON CS.IDnhanvien = NV.ID
                                      LEFT JOIN
                                       KyLuat KL ON CS.MaKL = KL.MaKL
                                      WHERE CS.MaKL IS NOT NULL
-                                     ORDER BY MaChinhSach";
+                                     ORDER BY IDnhanvien";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -169,7 +176,7 @@ namespace QuanLyNhanSu
         private void add_hs_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txt_macs.Text) || string.IsNullOrWhiteSpace(txt_manv.Text)
+            if (string.IsNullOrWhiteSpace(txt_manv.Text)
                 || string.IsNullOrWhiteSpace(cmb_KT.Text) || string.IsNullOrWhiteSpace(dtp_date.Text))
             {
                 Notification notification = new Notification();
@@ -222,29 +229,28 @@ namespace QuanLyNhanSu
                         }
                     }
 
-                    string checkMaChinhSachQuery = "SELECT COUNT(*) FROM ChinhSach WHERE MaChinhSach = @MaChinhSach";
-                    using (SqlCommand checkMaChinhSachCommand = new SqlCommand(checkMaChinhSachQuery, connection))
-                    {
-                        checkMaChinhSachCommand.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
-                        int countMaChinhSach = (int)checkMaChinhSachCommand.ExecuteScalar();
+                    //string checkMaChinhSachQuery = "SELECT COUNT(*) FROM ChinhSach WHERE IDnhanvien = @IDnhanvien";
+                    //using (SqlCommand checkMaChinhSachCommand = new SqlCommand(checkMaChinhSachQuery, connection))
+                    //{
+                    //    checkMaChinhSachCommand.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+                    //    int countMaChinhSach = (int)checkMaChinhSachCommand.ExecuteScalar();
 
-                        if (countMaChinhSach > 0)
-                        {
-                            Notification notification = new Notification();
-                            notification.NotificationText = "Mã chính sách đã tồn tại nhập mã khác!";
-                            notification.OkButtonText = "OK";
-                            notification.ShowDialog();
-                            return;
-                        }
-                    }
+                    //    if (countMaChinhSach > 0)
+                    //    {
+                    //        Notification notification = new Notification();
+                    //        notification.NotificationText = "Mã chính sách đã tồn tại nhập mã khác!";
+                    //        notification.OkButtonText = "OK";
+                    //        notification.ShowDialog();
+                    //        return;
+                    //    }
+                    //}
 
                     string query = @"
-                      INSERT INTO ChinhSach (MaChinhSach, IDnhanvien, NgayKT, MaKT)
-                      VALUES (@MaChinhSach, @IDnhanvien, @NgayKT, @MaKT)";
+                      INSERT INTO ChinhSach (IDnhanvien, NgayKT, MaKT)
+                      VALUES (@IDnhanvien, @NgayKT, @MaKT)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
                         command.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
                         command.Parameters.AddWithValue("@NgayKT", dtp_date.Value);
                         command.Parameters.AddWithValue("@MaKT", cmb_KT.Text);
@@ -258,7 +264,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Notification notification = new Notification();
+                    notification.NotificationText = "Vui lòng chọn thông tin khen thưởng !";
+                    notification.OkButtonText = "OK";
+                    notification.ShowDialog();
                 }
             }
         }
@@ -266,9 +275,7 @@ namespace QuanLyNhanSu
         private void reset()
         {
             richTextBox1.Text = string.Empty;
-            txt_macs.Enabled = true;
             txt_manv.Enabled = true;
-            txt_macs.Text = string.Empty;
             txt_manv.Text = string.Empty;
             dtp_date.Value = DateTime.Now;
             cmb_KT.SelectedIndex = -1;
@@ -287,7 +294,7 @@ namespace QuanLyNhanSu
 
         private void add_KL_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_macs.Text) || string.IsNullOrWhiteSpace(txt_manv.Text)
+            if (string.IsNullOrWhiteSpace(txt_manv.Text)
                 || string.IsNullOrWhiteSpace(cmb_KL.Text) || string.IsNullOrWhiteSpace(dtp_date.Text))
             {
                 Notification notification = new Notification();
@@ -339,29 +346,28 @@ namespace QuanLyNhanSu
                         }
                     }
 
-                    string checkMaChinhSachQuery = "SELECT COUNT(*) FROM ChinhSach WHERE MaChinhSach = @MaChinhSach";
-                    using (SqlCommand checkMaChinhSachCommand = new SqlCommand(checkMaChinhSachQuery, connection))
-                    {
-                        checkMaChinhSachCommand.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
-                        int countMaChinhSach = (int)checkMaChinhSachCommand.ExecuteScalar();
+                    //string checkMaChinhSachQuery = "SELECT COUNT(*) FROM ChinhSach WHERE IDnhanvien = @IDnhanvien";
+                    //using (SqlCommand checkMaChinhSachCommand = new SqlCommand(checkMaChinhSachQuery, connection))
+                    //{
+                    //    checkMaChinhSachCommand.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+                    //    int countMaChinhSach = (int)checkMaChinhSachCommand.ExecuteScalar();
 
-                        if (countMaChinhSach > 0)
-                        {
-                            Notification notification = new Notification();
-                            notification.NotificationText = "Mã chính sách đã tồn tại nhập mã khác!";
-                            notification.OkButtonText = "OK";
-                            notification.ShowDialog();
-                            return;
-                        }
-                    }
+                    //    if (countMaChinhSach > 0)
+                    //    {
+                    //        Notification notification = new Notification();
+                    //        notification.NotificationText = "Mã chính sách đã tồn tại nhập mã khác!";
+                    //        notification.OkButtonText = "OK";
+                    //        notification.ShowDialog();
+                    //        return;
+                    //    }
+                    //}
 
                     string query = @"
-                      INSERT INTO ChinhSach (MaChinhSach, IDnhanvien, NgayKL, MaKL)
-                      VALUES (@MaChinhSach, @IDnhanvien, @NgayKL, @MaKL)";
+                      INSERT INTO ChinhSach (IDnhanvien, NgayKL, MaKL)
+                      VALUES (@IDnhanvien, @NgayKL, @MaKL)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text);
                         command.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
                         command.Parameters.AddWithValue("@NgayKL", dtp_date.Value);
                         command.Parameters.AddWithValue("@MaKL", cmb_KL.Text);
@@ -375,7 +381,10 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Notification notification = new Notification();
+                    notification.NotificationText = "Vui lòng chọn thông tin kỷ luật !";
+                    notification.OkButtonText = "OK";
+                    notification.ShowDialog();
                 }
             }
         }
@@ -385,12 +394,6 @@ namespace QuanLyNhanSu
             if (e.RowIndex >= 0 && e.RowIndex < dtg_thuong.Rows.Count)
             {
                 DataGridViewRow row = dtg_thuong.Rows[e.RowIndex];
-                if (row.Cells["MaChinhSach"].Value != null)
-                {
-                    txt_macs.Text = row.Cells["MaChinhSach"].Value.ToString();
-                    txt_macs.Enabled = false;
-                }
-
                 if (row.Cells["IDnhanvien"].Value != null)
                 {
                     txt_manv.Text = row.Cells["IDnhanvien"].Value.ToString();
@@ -418,12 +421,6 @@ namespace QuanLyNhanSu
             if (e.RowIndex >= 0 && e.RowIndex < dtg_phat.Rows.Count)
             {
                 DataGridViewRow row = dtg_phat.Rows[e.RowIndex];
-                if (row.Cells["MaChinhSach2"].Value != null)
-                {
-                    txt_macs.Text = row.Cells["MaChinhSach2"].Value.ToString();
-                    txt_macs.Enabled = false;
-                }
-
                 if (row.Cells["IDnhanvien2"].Value != null)
                 {
                     txt_manv.Text = row.Cells["IDnhanvien2"].Value.ToString();
@@ -448,7 +445,7 @@ namespace QuanLyNhanSu
 
         private void btn_deletehs_Click(object sender, EventArgs e)
         {
-            if (dtg_thuong.CurrentRow == null)
+            if (string.IsNullOrEmpty(txt_manv.Text))
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Vui lòng chọn để xóa !";
@@ -549,7 +546,7 @@ namespace QuanLyNhanSu
 
         private void btn_updatehs_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_macs.Text) || string.IsNullOrWhiteSpace(txt_manv.Text))
+            if (string.IsNullOrWhiteSpace(txt_manv.Text))
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Vui lòng chọn chính sách để cập nhật !";
@@ -576,11 +573,11 @@ namespace QuanLyNhanSu
                     {
                         string queryKT = @"UPDATE ChinhSach 
                                SET NgayKT = @NgayKT, MaKT = @MaKT 
-                               WHERE MaChinhSach = @MaChinhSach";
+                               WHERE IDnhanvien = @IDnhanvien";
 
                         using (SqlCommand commandKT = new SqlCommand(queryKT, connection))
                         {
-                            commandKT.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text); // Sửa giá trị từ CurrentRow
+                            commandKT.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text); // Sửa giá trị từ CurrentRow
                             commandKT.Parameters.AddWithValue("@NgayKT", dtp_date.Value);
                             commandKT.Parameters.AddWithValue("@MaKT", ((dynamic)cmb_KT.SelectedItem).Value); // Kiểm tra kiểu dữ liệu
 
@@ -597,11 +594,11 @@ namespace QuanLyNhanSu
                     {
                         string queryKL = @"UPDATE ChinhSach 
                                SET NgayKL = @NgayKL, MaKL = @MaKL 
-                               WHERE MaChinhSach = @MaChinhSach"; // Sửa tên cột cho đúng
+                               WHERE IDnhanvien = @IDnhanvien"; // Sửa tên cột cho đúng
 
                         using (SqlCommand commandKL = new SqlCommand(queryKL, connection))
                         {
-                            commandKL.Parameters.AddWithValue("@MaChinhSach", txt_macs.Text); // Sửa giá trị từ CurrentRow
+                            commandKL.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text); // Sửa giá trị từ CurrentRow
                             commandKL.Parameters.AddWithValue("@NgayKL", dtp_date.Value);
                             commandKL.Parameters.AddWithValue("@MaKL", ((dynamic)cmb_KL.SelectedItem).Value); // Kiểm tra kiểu dữ liệu
 
@@ -650,12 +647,12 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien, NV.HoTen, CS.NgayKT, CS.MaKT, KT.GiaTri
+                    string query = @"SELECT DISTINCT CS.IDnhanvien, NV.HoTen, CS.NgayKT, CS.MaKT, KT.GiaTri
                              FROM ChinhSach CS
                              LEFT JOIN NhanVien NV ON CS.IDnhanvien = NV.ID
                              LEFT JOIN KhenThuong KT ON CS.MaKT = KT.MaKT
                              WHERE CS.MaKT IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue OR NV.HoTen LIKE @searchValue)
-                             ORDER BY MaChinhSach";
+                             ORDER BY IDnhanvien";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
@@ -704,12 +701,12 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT DISTINCT CS.MaChinhSach, CS.IDnhanvien, NV.HoTen, CS.NgayKL, CS.MaKL, KL.GiaTri
+                    string query = @"SELECT DISTINCT CS.IDnhanvien, NV.HoTen, CS.NgayKL, CS.MaKL, KL.GiaTri
                              FROM ChinhSach CS
                              LEFT JOIN NhanVien NV ON CS.IDnhanvien = NV.ID
                              LEFT JOIN KyLuat KL ON CS.MaKL = KL.MaKL
                              WHERE CS.MaKL IS NOT NULL AND (CS.IDnhanvien LIKE @searchValue OR NV.HoTen LIKE @searchValue)
-                             ORDER BY MaChinhSach";
+                             ORDER BY IDnhanvien";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
@@ -832,8 +829,8 @@ namespace QuanLyNhanSu
                                 float tongKyLuat = kyLuatValue is DBNull ? 0 : Convert.ToSingle(kyLuatValue);
 
                                 // Chuyển đổi float sang string với định dạng
-                                string tongKhenThuongString = tongKhenThuong.ToString("N2");
-                                string tongKyLuatString = tongKyLuat.ToString("N2");
+                                string tongKhenThuongString = tongKhenThuong.ToString();
+                                string tongKyLuatString = tongKyLuat.ToString();
 
                                 // Hiển thị thông tin trong RichTextBox
                                 richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Bold);
@@ -843,7 +840,7 @@ namespace QuanLyNhanSu
                                 richTextBox1.AppendText($"\tHọ tên: {hoTen}\n");
                                 richTextBox1.AppendText($"\tTổng giá trị khen thưởng: {tongKhenThuongString} VNĐ\n");
                                 richTextBox1.AppendText($"\tTổng giá trị kỷ luật: {tongKyLuatString} VNĐ\n\n");
-                                richTextBox1.AppendText("=====================================");
+                                richTextBox1.AppendText("=======================================");
                             }
                             else
                             {
@@ -872,6 +869,11 @@ namespace QuanLyNhanSu
         }
 
         private void txt_macs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

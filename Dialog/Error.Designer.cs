@@ -121,12 +121,13 @@
             // 
             // textError
             // 
+            this.textError.AutoSize = false;
             this.textError.BackColor = System.Drawing.Color.Transparent;
             this.textError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textError.ForeColor = System.Drawing.Color.Red;
-            this.textError.Location = new System.Drawing.Point(176, 236);
+            this.textError.Location = new System.Drawing.Point(44, 236);
             this.textError.Name = "textError";
-            this.textError.Size = new System.Drawing.Size(50, 26);
+            this.textError.Size = new System.Drawing.Size(320, 109);
             this.textError.TabIndex = 33;
             this.textError.TabStop = false;
             this.textError.Text = "Error";
@@ -162,7 +163,6 @@
             this.Sw_panel_view.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

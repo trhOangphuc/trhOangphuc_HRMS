@@ -55,14 +55,18 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2CircleButton1);
             this.guna2GradientPanel1.Controls.Add(this.guna2CircleButton2);
             this.guna2GradientPanel1.Controls.Add(this.guna2CircleButton3);
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(2, 3);
+            this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(47)))), ((int)(((byte)(0)))));
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(597, 38);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(601, 40);
             this.guna2GradientPanel1.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(39, 12);
             this.label2.Name = "label2";
@@ -72,7 +76,7 @@
             // 
             // guna2CircleButton4
             // 
-            this.guna2CircleButton4.BackColor = System.Drawing.SystemColors.Window;
+            this.guna2CircleButton4.BackColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.guna2CircleButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -102,7 +106,7 @@
             // guna2CircleButton1
             // 
             this.guna2CircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton1.BackColor = System.Drawing.SystemColors.Window;
+            this.guna2CircleButton1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -113,7 +117,7 @@
             this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton1.Image = global::QuanLyNhanSu.Properties.Resources.close;
             this.guna2CircleButton1.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(561, 6);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(565, 6);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton1.Size = new System.Drawing.Size(31, 24);
@@ -123,7 +127,7 @@
             // guna2CircleButton2
             // 
             this.guna2CircleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton2.BackColor = System.Drawing.SystemColors.Window;
+            this.guna2CircleButton2.BackColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.guna2CircleButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -134,7 +138,7 @@
             this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton2.Image = global::QuanLyNhanSu.Properties.Resources.minus;
             this.guna2CircleButton2.ImageOffset = new System.Drawing.Point(0, 1);
-            this.guna2CircleButton2.Location = new System.Drawing.Point(524, 6);
+            this.guna2CircleButton2.Location = new System.Drawing.Point(528, 6);
             this.guna2CircleButton2.Name = "guna2CircleButton2";
             this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton2.Size = new System.Drawing.Size(31, 24);
@@ -173,6 +177,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Brown;
             this.label3.Location = new System.Drawing.Point(221, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 37);
@@ -202,10 +207,10 @@
             this.txt_username.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_username.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_username.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username.ForeColor = System.Drawing.Color.Black;
-            this.txt_username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
+            this.txt_username.HoverState.BorderColor = System.Drawing.Color.Gray;
             this.txt_username.Location = new System.Drawing.Point(119, 249);
             this.txt_username.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.txt_username.MaxLength = 40;
@@ -217,6 +222,7 @@
             this.txt_username.SelectedText = "";
             this.txt_username.Size = new System.Drawing.Size(342, 65);
             this.txt_username.TabIndex = 2;
+            this.txt_username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_password
             // 
@@ -233,10 +239,10 @@
             this.txt_password.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_password.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_password.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.ForeColor = System.Drawing.Color.Black;
-            this.txt_password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
+            this.txt_password.HoverState.BorderColor = System.Drawing.Color.Gray;
             this.txt_password.Location = new System.Drawing.Point(119, 328);
             this.txt_password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_password.MaxLength = 36;
@@ -248,6 +254,7 @@
             this.txt_password.SelectedText = "";
             this.txt_password.Size = new System.Drawing.Size(342, 65);
             this.txt_password.TabIndex = 3;
+            this.txt_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Login_login
             // 
@@ -270,7 +277,7 @@
             this.Login_login.Name = "Login_login";
             this.Login_login.Size = new System.Drawing.Size(342, 62);
             this.Login_login.TabIndex = 5;
-            this.Login_login.Text = "Register";
+            this.Login_login.Text = "Đăng ký";
             this.Login_login.Click += new System.EventHandler(this.Login_login_Click);
             // 
             // txt_comfirm
@@ -288,10 +295,10 @@
             this.txt_comfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_comfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_comfirm.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_comfirm.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_comfirm.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txt_comfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_comfirm.ForeColor = System.Drawing.Color.Black;
-            this.txt_comfirm.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
+            this.txt_comfirm.HoverState.BorderColor = System.Drawing.Color.Gray;
             this.txt_comfirm.Location = new System.Drawing.Point(119, 403);
             this.txt_comfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_comfirm.MaxLength = 36;
@@ -303,6 +310,7 @@
             this.txt_comfirm.SelectedText = "";
             this.txt_comfirm.Size = new System.Drawing.Size(342, 65);
             this.txt_comfirm.TabIndex = 4;
+            this.txt_comfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_name
             // 
@@ -317,10 +325,10 @@
             this.txt_name.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_name.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_name.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_name.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_name.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.ForeColor = System.Drawing.Color.Black;
-            this.txt_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
+            this.txt_name.HoverState.BorderColor = System.Drawing.Color.Gray;
             this.txt_name.Location = new System.Drawing.Point(119, 176);
             this.txt_name.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.txt_name.MaxLength = 40;
@@ -332,6 +340,7 @@
             this.txt_name.SelectedText = "";
             this.txt_name.Size = new System.Drawing.Size(342, 65);
             this.txt_name.TabIndex = 1;
+            this.txt_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // guna2CircleButton5
             // 
