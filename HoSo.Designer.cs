@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.x = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.cmb_congtac = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmb_chucvu = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmb_phongban = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -37,7 +36,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_ht = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.txt_gt = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_sdt = new Guna.UI2.WinForms.Guna2TextBox();
@@ -60,14 +58,12 @@
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCongTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.x.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // x
             // 
-            this.x.Controls.Add(this.cmb_congtac);
             this.x.Controls.Add(this.cmb_chucvu);
             this.x.Controls.Add(this.label2);
             this.x.Controls.Add(this.cmb_phongban);
@@ -75,7 +71,6 @@
             this.x.Controls.Add(this.label8);
             this.x.Controls.Add(this.txt_ht);
             this.x.Controls.Add(this.label7);
-            this.x.Controls.Add(this.label6);
             this.x.Controls.Add(this.txt_gt);
             this.x.Controls.Add(this.label5);
             this.x.Controls.Add(this.txt_sdt);
@@ -98,23 +93,6 @@
             this.x.Name = "x";
             this.x.Size = new System.Drawing.Size(405, 655);
             this.x.TabIndex = 92;
-            // 
-            // cmb_congtac
-            // 
-            this.cmb_congtac.BackColor = System.Drawing.Color.Transparent;
-            this.cmb_congtac.BorderRadius = 20;
-            this.cmb_congtac.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmb_congtac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_congtac.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmb_congtac.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmb_congtac.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmb_congtac.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmb_congtac.ItemHeight = 30;
-            this.cmb_congtac.Location = new System.Drawing.Point(155, 446);
-            this.cmb_congtac.Name = "cmb_congtac";
-            this.cmb_congtac.Size = new System.Drawing.Size(238, 36);
-            this.cmb_congtac.TabIndex = 8;
-            this.cmb_congtac.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cmb_chucvu
             // 
@@ -227,18 +205,6 @@
             this.label7.TabIndex = 99;
             this.label7.Text = "Họ và tên :";
             // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 455);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 18);
-            this.label6.TabIndex = 97;
-            this.label6.Text = "Công tác :";
-            // 
             // txt_gt
             // 
             this.txt_gt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -324,7 +290,7 @@
             this.resetHs.ForeColor = System.Drawing.Color.White;
             this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(341, 513);
+            this.resetHs.Location = new System.Drawing.Point(339, 462);
             this.resetHs.Name = "resetHs";
             this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetHs.Size = new System.Drawing.Size(46, 43);
@@ -383,14 +349,14 @@
             this.search_hs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_hs.ForeColor = System.Drawing.Color.Black;
             this.search_hs.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_hs.Location = new System.Drawing.Point(26, 577);
+            this.search_hs.Location = new System.Drawing.Point(24, 526);
             this.search_hs.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_hs.MaxLength = 40;
             this.search_hs.Name = "search_hs";
             this.search_hs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.search_hs.PasswordChar = '\0';
             this.search_hs.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.search_hs.PlaceholderText = "Search";
+            this.search_hs.PlaceholderText = "Tìm kiếm ID hoặc tên";
             this.search_hs.SelectedText = "";
             this.search_hs.Size = new System.Drawing.Size(308, 50);
             this.search_hs.TabIndex = 9;
@@ -410,7 +376,7 @@
             this.btn_searchHs.ForeColor = System.Drawing.Color.White;
             this.btn_searchHs.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchHs.Location = new System.Drawing.Point(341, 577);
+            this.btn_searchHs.Location = new System.Drawing.Point(339, 526);
             this.btn_searchHs.Name = "btn_searchHs";
             this.btn_searchHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchHs.Size = new System.Drawing.Size(52, 50);
@@ -432,7 +398,7 @@
             this.add_hs.ForeColor = System.Drawing.Color.White;
             this.add_hs.Image = global::QuanLyNhanSu.Properties.Resources.add;
             this.add_hs.ImageSize = new System.Drawing.Size(40, 40);
-            this.add_hs.Location = new System.Drawing.Point(24, 513);
+            this.add_hs.Location = new System.Drawing.Point(22, 462);
             this.add_hs.Name = "add_hs";
             this.add_hs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.add_hs.Size = new System.Drawing.Size(46, 43);
@@ -454,7 +420,7 @@
             this.btn_deletehs.ForeColor = System.Drawing.Color.White;
             this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletehs.Location = new System.Drawing.Point(228, 513);
+            this.btn_deletehs.Location = new System.Drawing.Point(226, 462);
             this.btn_deletehs.Name = "btn_deletehs";
             this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
@@ -476,7 +442,7 @@
             this.btn_updatehs.ForeColor = System.Drawing.Color.White;
             this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatehs.Location = new System.Drawing.Point(118, 513);
+            this.btn_updatehs.Location = new System.Drawing.Point(127, 462);
             this.btn_updatehs.Name = "btn_updatehs";
             this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
@@ -509,8 +475,7 @@
             this.Sdt,
             this.DiaChi,
             this.MaPB,
-            this.MaCV,
-            this.MaCongTac});
+            this.MaCV});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -522,15 +487,15 @@
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 33.75853F;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 7;
+            this.ID.FillWeight = 60.24397F;
+            this.ID.HeaderText = "Mã";
+            this.ID.MinimumWidth = 15;
             this.ID.Name = "ID";
             // 
             // HoTen
             // 
             this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.FillWeight = 156.9086F;
+            this.HoTen.FillWeight = 151.422F;
             this.HoTen.HeaderText = "Họ Tên";
             this.HoTen.MinimumWidth = 35;
             this.HoTen.Name = "HoTen";
@@ -538,7 +503,7 @@
             // GioiTinh
             // 
             this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.FillWeight = 68.52793F;
+            this.GioiTinh.FillWeight = 66.13174F;
             this.GioiTinh.HeaderText = "Giới Tính";
             this.GioiTinh.MinimumWidth = 15;
             this.GioiTinh.Name = "GioiTinh";
@@ -546,14 +511,14 @@
             // NgaySinh
             // 
             this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.FillWeight = 114.2337F;
+            this.NgaySinh.FillWeight = 110.2393F;
             this.NgaySinh.HeaderText = "Ngày Sinh";
             this.NgaySinh.Name = "NgaySinh";
             // 
             // Sdt
             // 
             this.Sdt.DataPropertyName = "Sdt";
-            this.Sdt.FillWeight = 106.5445F;
+            this.Sdt.FillWeight = 102.819F;
             this.Sdt.HeaderText = "Số điện thoại";
             this.Sdt.MinimumWidth = 25;
             this.Sdt.Name = "Sdt";
@@ -561,7 +526,7 @@
             // DiaChi
             // 
             this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.FillWeight = 118.4129F;
+            this.DiaChi.FillWeight = 114.2724F;
             this.DiaChi.HeaderText = "Địa chỉ";
             this.DiaChi.MinimumWidth = 11;
             this.DiaChi.Name = "DiaChi";
@@ -569,24 +534,16 @@
             // MaPB
             // 
             this.MaPB.DataPropertyName = "MaPB";
-            this.MaPB.FillWeight = 96.40897F;
+            this.MaPB.FillWeight = 93.03786F;
             this.MaPB.HeaderText = "Phòng ban";
             this.MaPB.Name = "MaPB";
             // 
             // MaCV
             // 
             this.MaCV.DataPropertyName = "MaCV";
-            this.MaCV.FillWeight = 96.40897F;
+            this.MaCV.FillWeight = 93.03786F;
             this.MaCV.HeaderText = "Chức vụ";
             this.MaCV.Name = "MaCV";
-            // 
-            // MaCongTac
-            // 
-            this.MaCongTac.DataPropertyName = "MaCT";
-            this.MaCongTac.FillWeight = 108.796F;
-            this.MaCongTac.HeaderText = "Công tác";
-            this.MaCongTac.MinimumWidth = 25;
-            this.MaCongTac.Name = "MaCongTac";
             // 
             // HoSo
             // 
@@ -624,7 +581,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox txt_sdt;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox txt_ht;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -632,7 +588,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmb_chucvu;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox cmb_phongban;
-        private Guna.UI2.WinForms.Guna2ComboBox cmb_congtac;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
@@ -641,6 +596,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaCongTac;
     }
 }

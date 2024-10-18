@@ -95,11 +95,11 @@
     <Compile Include="ChinhSach.Designer.cs">
       <DependentUpon>ChinhSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="CongTac.cs">
+    <Compile Include="DuAn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CongTac.Designer.cs">
-      <DependentUpon>CongTac.cs</DependentUpon>
+    <Compile Include="DuAn.Designer.cs">
+      <DependentUpon>DuAn.cs</DependentUpon>
     </Compile>
     <Compile Include="connectdatabase.cs" />
     <Compile Include="Dialog\Error.cs">
@@ -162,6 +162,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhanCong.Designer.cs">
+      <DependentUpon>PhanCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="PhongBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,8 +206,8 @@
     <EmbeddedResource Include="ChinhSach.resx">
       <DependentUpon>ChinhSach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CongTac.resx">
-      <DependentUpon>CongTac.cs</DependentUpon>
+    <EmbeddedResource Include="DuAn.resx">
+      <DependentUpon>DuAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhanCong.resx">
+      <DependentUpon>PhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PhongBan.resx">
       <DependentUpon>PhongBan.cs</DependentUpon>
@@ -475,6 +484,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\budget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phancong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookmark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

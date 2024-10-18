@@ -21,11 +21,9 @@ namespace QuanLyNhanSu
             LoadData();
             LoadComboBoxPhongBan();
             LoadComboBoxChucVu();
-            LoadComboBoxCongTac();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             cmb_phongban.SelectedIndex = 0; // Đặt mục này làm mặc định
             cmb_chucvu.SelectedIndex = 0; // Đặt mục này làm mặc định
-            cmb_congtac.SelectedIndex = 0; // Đặt mục này làm mặc định
             dtp_date.Value = DateTime.Now;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
@@ -56,8 +54,7 @@ namespace QuanLyNhanSu
                     NV.Sdt, 
                     NV.DiaChi, 
                     PB.MaPB, 
-                    CV.MaCV ,
-                    NV.MaCT
+                    CV.MaCV 
                 FROM 
                     NhanVien NV
                 LEFT JOIN 
@@ -127,11 +124,6 @@ namespace QuanLyNhanSu
                     string maCV = row.Cells["MaCV"].Value.ToString();
                     cmb_chucvu.SelectedIndex = cmb_chucvu.FindStringExact(maCV);
                 }
-                if (row.Cells["MaCongTac"].Value != null)
-                {
-                    string maCT = row.Cells["MaCongTac"].Value.ToString();
-                    cmb_congtac.SelectedIndex = cmb_congtac.FindStringExact(maCT);
-                }
             }
         }
 
@@ -165,8 +157,8 @@ namespace QuanLyNhanSu
                     connection.Open();
                    
                     string query = @"
-                      INSERT INTO NhanVien (HoTen, GioiTinh, NgaySinh, Sdt, DiaChi, MaPB, MaCV, MaCT)
-                      VALUES (@HoTen, @GioiTinh, @NgaySinh, @Sdt, @DiaChi, @MaPB, @MaCV, @MaCT)";
+                      INSERT INTO NhanVien (HoTen, GioiTinh, NgaySinh, Sdt, DiaChi, MaPB, MaCV)
+                      VALUES (@HoTen, @GioiTinh, @NgaySinh, @Sdt, @DiaChi, @MaPB, @MaCV)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -176,7 +168,6 @@ namespace QuanLyNhanSu
                         command.Parameters.AddWithValue("@Sdt", txt_sdt.Text);
                         command.Parameters.AddWithValue("@DiaChi", txt_dc.Text);
                         command.Parameters.AddWithValue("@MaPB", cmb_phongban.Text); 
-                        command.Parameters.AddWithValue("@MaCT", cmb_congtac.Text);
                         command.Parameters.AddWithValue("@MaCV", cmb_chucvu.Text); 
 
                         command.ExecuteNonQuery(); 
@@ -233,10 +224,6 @@ namespace QuanLyNhanSu
                     {
                         query += ", MaCV = @MaCV";
                     }
-                    if (cmb_congtac.SelectedItem != null)
-                    {
-                        query += ", MaCT = @MaCT";
-                    }
 
                     query += " WHERE ID = @ID";
 
@@ -255,10 +242,6 @@ namespace QuanLyNhanSu
                         if (cmb_chucvu.SelectedItem != null)
                         {
                             command.Parameters.AddWithValue("@MaCV", ((dynamic)cmb_chucvu.SelectedItem).Value);
-                        }
-                        if (cmb_congtac.SelectedItem != null)
-                        {
-                            command.Parameters.AddWithValue("@MaCT", ((dynamic)cmb_congtac.SelectedItem).Value);
                         }
 
                         command.ExecuteNonQuery();
@@ -339,7 +322,6 @@ namespace QuanLyNhanSu
             txt_sdt.Text = string.Empty;
             txt_dc.Text = string.Empty;
             cmb_phongban.SelectedIndex = -1;
-            cmb_congtac.SelectedIndex = -1;
             cmb_chucvu.SelectedIndex = -1;
             search_hs.Text = string.Empty;
             dataGridView1.ClearSelection();
@@ -353,25 +335,52 @@ namespace QuanLyNhanSu
         private void btn_searchHs_Click(object sender, EventArgs e)
         {
             string searchQuery = search_hs.Text.ToLower();
-            DataTable dataTable = (DataTable)dataGridView1.DataSource;
-            if (dataTable != null)
-            {
-                DataView dataView = new DataView(dataTable);
-                dataView.RowFilter = $"HoTen LIKE '%{searchQuery}%'";
-                if (dataView.Count == 0)
-                {
-                    Notification tb = new Notification
-                    {
-                        NotificationText = "Không tìm thấy nhân viên nào!",
-                        OkButtonText = "OK"
-                    };
-                    tb.ShowDialog();
+            string query = @"
+        SELECT * FROM NhanVien 
+        WHERE 
+            LOWER(HoTen) LIKE @searchQuery 
+            OR ID = @id";
 
-                    dataGridView1.DataSource = dataTable;
-                }
-                else
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    dataGridView1.DataSource = dataView;
+                    command.Parameters.AddWithValue("@searchQuery", "%" + searchQuery + "%");
+
+                    if (int.TryParse(searchQuery, out int idResult))
+                    {
+                        command.Parameters.AddWithValue("@id", idResult);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@id", DBNull.Value); //xử lý trường hợp ID không phải số
+                    }
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count == 0)
+                        {
+                            Notification tb = new Notification
+                            {
+                                NotificationText = "Không tìm thấy nhân viên nào!",
+                                OkButtonText = "OK"
+                            };
+                            tb.ShowDialog();
+                        }
+                        else
+                        {
+                            dataGridView1.DataSource = dataTable; 
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
                 }
             }
         }
@@ -442,40 +451,7 @@ namespace QuanLyNhanSu
             }
         }
 
-        private void LoadComboBoxCongTac()
-        {
-            using (SqlConnection connection = connectdatabase.Connect())
-            {
-                string query = "SELECT MaCongTac FROM CongTac";  
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        cmb_congtac.Items.Clear();
-                        cmb_congtac.Items.Add("--Chọn công tác--");
-                        while (reader.Read())
-                        {
-                            
-                            cmb_congtac.Items.Add(new { Value = reader["MaCongTac"], Text = reader["MaCongTac"] });
-                        }
-
-                        cmb_congtac.DisplayMember = "Text";
-                        cmb_congtac.ValueMember = "Value"; 
-                    }
-                    catch (Exception ex)
-                    {
-                        Error er = new Error();
-                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
-                        er.OkButtonText = "OK";
-                        er.ShowDialog();
-                    }
-                }
-            }
-        }
-
-
+       
 
 
         private void cmb_phongban_SelectedIndexChanged(object sender, EventArgs e)

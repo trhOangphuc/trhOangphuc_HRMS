@@ -45,9 +45,15 @@
             this.dtg_chucvu = new System.Windows.Forms.DataGridView();
             this.ID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_chucvu)).BeginInit();
+            this.guna2CustomGradientPanel2.SuspendLayout();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel
@@ -173,7 +179,7 @@
             this.search_phongban.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.search_phongban.PasswordChar = '\0';
             this.search_phongban.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.search_phongban.PlaceholderText = "Search";
+            this.search_phongban.PlaceholderText = "Tìm kiếm tên phòng ban";
             this.search_phongban.SelectedText = "";
             this.search_phongban.Size = new System.Drawing.Size(208, 50);
             this.search_phongban.TabIndex = 3;
@@ -279,17 +285,19 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.MaPB});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(622, 323);
+            this.dataGridView1.Size = new System.Drawing.Size(622, 293);
             this.dataGridView1.TabIndex = 88;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -297,7 +305,7 @@
             // 
             this.ID.DataPropertyName = "ID";
             this.ID.FillWeight = 18.37316F;
-            this.ID.HeaderText = "ID";
+            this.ID.HeaderText = "Mã";
             this.ID.MinimumWidth = 15;
             this.ID.Name = "ID";
             // 
@@ -311,17 +319,19 @@
             // dtg_chucvu
             // 
             this.dtg_chucvu.AllowUserToAddRows = false;
+            this.dtg_chucvu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_chucvu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_chucvu.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_chucvu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_chucvu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID2,
             this.MaCV});
-            this.dtg_chucvu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_chucvu.Location = new System.Drawing.Point(0, 323);
+            this.dtg_chucvu.Location = new System.Drawing.Point(0, 30);
             this.dtg_chucvu.Name = "dtg_chucvu";
             this.dtg_chucvu.RowHeadersVisible = false;
-            this.dtg_chucvu.Size = new System.Drawing.Size(622, 332);
+            this.dtg_chucvu.Size = new System.Drawing.Size(622, 296);
             this.dtg_chucvu.TabIndex = 89;
             this.dtg_chucvu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_chucvu_CellClick);
             // 
@@ -329,7 +339,7 @@
             // 
             this.ID2.DataPropertyName = "ID";
             this.ID2.FillWeight = 34.66139F;
-            this.ID2.HeaderText = "ID";
+            this.ID2.HeaderText = "Mã";
             this.ID2.MinimumWidth = 15;
             this.ID2.Name = "ID2";
             // 
@@ -340,14 +350,70 @@
             this.MaCV.HeaderText = "Tên chức vụ";
             this.MaCV.Name = "MaCV";
             // 
+            // guna2CustomGradientPanel2
+            // 
+            this.guna2CustomGradientPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CustomGradientPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel2.Controls.Add(this.dtg_chucvu);
+            this.guna2CustomGradientPanel2.Controls.Add(this.label1);
+            this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 329);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(622, 326);
+            this.guna2CustomGradientPanel2.TabIndex = 101;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Brown;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(622, 27);
+            this.label1.TabIndex = 98;
+            this.label1.Text = "Bảng kỷ luật";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel1.Controls.Add(this.label4);
+            this.guna2CustomGradientPanel1.Controls.Add(this.dataGridView1);
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(622, 323);
+            this.guna2CustomGradientPanel1.TabIndex = 102;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Brown;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(622, 27);
+            this.label4.TabIndex = 98;
+            this.label4.Text = "Bảng kỷ luật";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // PhongBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1073, 655);
-            this.Controls.Add(this.dtg_chucvu);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PhongBan";
@@ -357,6 +423,8 @@
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_chucvu)).EndInit();
+            this.guna2CustomGradientPanel2.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -375,9 +443,13 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton resetb;
         private System.Windows.Forms.DataGridView dtg_chucvu;
         private Guna.UI2.WinForms.Guna2GradientCircleButton guna2GradientCircleButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private System.Windows.Forms.Label label4;
     }
 }

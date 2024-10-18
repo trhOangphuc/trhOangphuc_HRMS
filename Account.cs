@@ -79,8 +79,9 @@ namespace QuanLyNhanSu
             }
         }
 
-        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        private void anhdaidien()
         {
+
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
@@ -100,6 +101,11 @@ namespace QuanLyNhanSu
                 // Cập nhật đường dẫn hình ảnh vào cơ sở dữ liệu
                 UpdateProfilePictureInDatabase(filePath);
             }
+        }
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            anhdaidien();
         }
 
         private void UpdateProfilePictureInDatabase(string filePath)

@@ -21,6 +21,61 @@ namespace QuanLyNhanSu
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            ThemKyLuatChamCong();
+        }
+
+        private void ThemKyLuatChamCong()
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+
+                    // Dữ liệu cần thêm
+                    string[] maKLArray = { "Đi muộn", "Ngày công thiếu" };
+                    string[] hinhThucArray = { "Kỷ luật đi muộn", "Kỷ luật ngày công thiếu" };
+
+                    for (int i = 0; i < maKLArray.Length; i++)
+                    {
+                        // Kiểm tra xem mã khen thưởng đã tồn tại chưa
+                        string checkKhenThuong = "SELECT COUNT(*) FROM KyLuat WHERE MaKL = @MaKL";
+                        using (SqlCommand checkCommand = new SqlCommand(checkKhenThuong, connection))
+                        {
+                            checkCommand.Parameters.AddWithValue("@MaKL", maKLArray[i]);
+                            int count = (int)checkCommand.ExecuteScalar();
+
+                            if (count == 0) // Nếu không tồn tại thì thêm mới
+                            {
+                                string insertKhenThuong = "INSERT INTO KyLuat (MaKL, HinhThuc) VALUES (@MaKL, @HinhThuc)";
+                                using (SqlCommand command = new SqlCommand(insertKhenThuong, connection))
+                                {
+                                    command.Parameters.AddWithValue("@MaKL", maKLArray[i]);
+                                    command.Parameters.AddWithValue("@HinhThuc", hinhThucArray[i]);
+
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
+                }
+            }
         }
 
         private void LoadData()
@@ -38,7 +93,7 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, MaKL, GiaTri FROM KyLuat ORDER BY ID";
+                    string query = "SELECT MaKL, HinhThuc, GiaTri FROM KyLuat ORDER BY GiaTri";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -69,6 +124,11 @@ namespace QuanLyNhanSu
                     txt_makl.Enabled = false;
                 }
 
+                if (row.Cells["HinhThuc"].Value != null)
+                {
+                    txt_hinhthuc.Text = row.Cells["HinhThuc"].Value.ToString();
+                }
+
                 if (row.Cells["GiaTri"].Value != null)
                 {
                     txt_giatri.Text = row.Cells["GiaTri"].Value.ToString();
@@ -82,27 +142,38 @@ namespace QuanLyNhanSu
             txt_makl.Enabled = true;
             txt_makl.Text = "";
             txt_giatri.Text = "";
+            txt_hinhthuc.Text = string.Empty;
             dataGridView1.ClearSelection();
             LoadData();
         }
 
         private void add_kl_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_makl.Text) 
-               || string.IsNullOrWhiteSpace(txt_giatri.Text))
+            if (string.IsNullOrWhiteSpace(txt_makl.Text) )
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
+                notification.NotificationText = "Vui lòng nhập tên kỷ luật !";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
+                txt_makl.Focus();
+                return;
+            }
+            if(string.IsNullOrWhiteSpace(txt_hinhthuc.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng nhập hình thức kỷ luật !";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                txt_hinhthuc.Focus();
                 return;
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "INSERT INTO KyLuat (MaKL,GiaTri) VALUES (@MaKL, @GiaTri)";
+                string query = "INSERT INTO KyLuat (MaKL,HinhThuc,GiaTri) VALUES (@MaKL, @HinhThuc, @GiaTri)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaKL", txt_makl.Text);
+                    command.Parameters.AddWithValue("@HinhThuc", txt_hinhthuc.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -116,10 +187,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        Notification notification = new Notification();
-                        notification.NotificationText = "Kỷ luật đã tồn tại !";
-                        notification.OkButtonText = "OK";
-                        notification.ShowDialog();
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -137,10 +208,11 @@ namespace QuanLyNhanSu
             }
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "UPDATE KyLuat SET GiaTri = @GiaTri WHERE MaKL = @MaKL";
+                string query = "UPDATE KyLuat SET HinhThuc = @HinhThuc, GiaTri = @GiaTri WHERE MaKL = @MaKL";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaKL", txt_makl.Text);
+                    command.Parameters.AddWithValue("@HinhThuc", txt_hinhthuc.Text);
                     command.Parameters.AddWithValue("@GiaTri", txt_giatri.Text);
 
                     try
@@ -205,7 +277,7 @@ namespace QuanLyNhanSu
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "SELECT * FROM KyLuat WHERE MaKL LIKE '%' + @SearchTerm + '%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
+                string query = "SELECT MaKL, HinhThuc, GiaTri FROM KyLuat WHERE MaKL LIKE '%' + @SearchTerm + '%' OR HinhThuc LIKE '%' + @SearchTerm +'%' OR GiaTri LIKE '%' + @SearchTerm + '%'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@SearchTerm", search_kyluat.Text);
@@ -233,7 +305,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }

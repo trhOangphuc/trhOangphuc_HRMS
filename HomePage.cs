@@ -119,6 +119,7 @@ namespace QuanLyNhanSu
             panelDanhmuc.Visible = false;
             panelNhanvien.Visible = false;
             panelLuong.Visible = false;
+            panelCongtac.Visible = false;
         }
         private void hideSubMenu()
         {
@@ -133,6 +134,10 @@ namespace QuanLyNhanSu
             if (panelLuong.Visible == true)
             {
                 panelLuong.Visible = false;
+            }
+            if (panelCongtac.Visible == true)
+            {
+                panelCongtac.Visible = false;
             }
         }
         private void showsSubMenu(Panel subMenu)
@@ -251,12 +256,6 @@ namespace QuanLyNhanSu
             openChildForm(new ChamCong());
         }
 
-        private void btn_congtac_Click(object sender, EventArgs e)
-        {
-            label3.Text = "Công tác";
-            openChildForm(new CongTac());
-        }
-
         private void baocao_Click(object sender, EventArgs e)
         {
             label3.Text = "Báo cáo thống kê";
@@ -337,6 +336,23 @@ namespace QuanLyNhanSu
                     guna2CircleButton4.PerformClick();
                 }
             }
+        }
+
+        private void btn_congtac_Click(object sender, EventArgs e)
+        {
+            showsSubMenu(panelCongtac);
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            label3.Text = "Dự án";
+            openChildForm(new DuAn());
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            label3.Text = "Phân công";
+            openChildForm(new PhanCong());
         }
     }
 }

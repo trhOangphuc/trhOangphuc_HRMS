@@ -10,7 +10,7 @@ D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Account.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.BaoCao.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.ChamCong.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.ChinhSach.resources
-D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.CongTac.resources
+D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.DuAn.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Error.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Notification.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Dialog.Question.resources
@@ -21,6 +21,7 @@ D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.HoSo.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.KhenThuong.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.KyLuat.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Login.resources
+D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.PhanCong.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.PhongBan.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Properties.Resources.resources
 D:\.net\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Register.resources

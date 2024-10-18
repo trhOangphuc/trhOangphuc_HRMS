@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_name = new System.Windows.Forms.Label();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.img_prf = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.img_prf)).BeginInit();
+            this.img_prf = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2CustomGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_prf)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -91,26 +93,13 @@
             this.guna2CircleButton1.Image = global::QuanLyNhanSu.Properties.Resources.camera;
             this.guna2CircleButton1.ImageOffset = new System.Drawing.Point(0, 20);
             this.guna2CircleButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(563, 290);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(630, 246);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton1.Size = new System.Drawing.Size(48, 48);
             this.guna2CircleButton1.TabIndex = 1;
             this.guna2CircleButton1.Text = "guna2CircleButton1";
             this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click);
-            // 
-            // img_prf
-            // 
-            this.img_prf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.img_prf.Image = global::QuanLyNhanSu.Properties.Resources.bussiness_man;
-            this.img_prf.ImageRotate = 0F;
-            this.img_prf.Location = new System.Drawing.Point(408, 93);
-            this.img_prf.Name = "img_prf";
-            this.img_prf.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.img_prf.Size = new System.Drawing.Size(216, 201);
-            this.img_prf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.img_prf.TabIndex = 0;
-            this.img_prf.TabStop = false;
             // 
             // guna2CustomGradientPanel1
             // 
@@ -125,6 +114,25 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1025, 656);
             this.guna2CustomGradientPanel1.TabIndex = 5;
             // 
+            // img_prf
+            // 
+            this.img_prf.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.img_prf.Image = global::QuanLyNhanSu.Properties.Resources.bussiness_man;
+            this.img_prf.ImageRotate = 0F;
+            this.img_prf.Location = new System.Drawing.Point(408, 93);
+            this.img_prf.Name = "img_prf";
+            this.img_prf.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.img_prf.Size = new System.Drawing.Size(216, 201);
+            this.img_prf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.img_prf.TabIndex = 0;
+            this.img_prf.TabStop = false;
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,9 +145,9 @@
             this.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account";
-            ((System.ComponentModel.ISupportInitialize)(this.img_prf)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_prf)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,11 +155,12 @@
         #endregion
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox img_prf;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txt_name;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox img_prf;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

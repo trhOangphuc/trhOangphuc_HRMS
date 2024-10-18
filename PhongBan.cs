@@ -113,9 +113,10 @@ namespace QuanLyNhanSu
             if (string.IsNullOrWhiteSpace(txt_mapb.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng Nhập đầy đủ thông tin phòng ban!";
+                notification.NotificationText = "Vui lòng nhập tên phòng ban!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
+                txt_mapb.Focus();
                 return;
             }
             using (SqlConnection connection = connectdatabase.Connect())
@@ -484,7 +485,7 @@ namespace QuanLyNhanSu
 
         private void search_phongban_TextChanged(object sender, EventArgs e)
         {
-            SearchData(search_phongban.Text);
+           
         }
 
         private void guna2GradientCircleButton1_Click(object sender, EventArgs e)
@@ -492,9 +493,10 @@ namespace QuanLyNhanSu
             if (string.IsNullOrWhiteSpace(txt_chucvu.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin chức vụ!";
+                notification.NotificationText = "Vui lòng nhập tên chức vụ!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
+                txt_chucvu.Focus();
                 return;
             }
 

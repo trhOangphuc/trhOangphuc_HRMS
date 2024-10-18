@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.x = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btn_chamcong = new Guna.UI2.WinForms.Guna2Button();
             this.cmb_phongban = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txt_ht = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.resetHs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.search_hs = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_searchHs = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btn_deletehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,11 +49,6 @@
             this.GiaTriKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaTriKL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resetHs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_searchHs = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btn_deletehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_updatehs = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_chamcong = new Guna.UI2.WinForms.Guna2Button();
             this.x.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -65,15 +65,36 @@
             this.x.Controls.Add(this.btn_deletehs);
             this.x.Controls.Add(this.btn_updatehs);
             this.x.Controls.Add(this.label1);
-            this.x.Dock = System.Windows.Forms.DockStyle.Right;
+            this.x.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.x.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.x.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.x.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.x.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
-            this.x.Location = new System.Drawing.Point(670, 0);
+            this.x.Location = new System.Drawing.Point(0, 347);
             this.x.Name = "x";
-            this.x.Size = new System.Drawing.Size(405, 656);
+            this.x.Size = new System.Drawing.Size(1075, 309);
             this.x.TabIndex = 94;
+            // 
+            // btn_chamcong
+            // 
+            this.btn_chamcong.BackColor = System.Drawing.Color.Transparent;
+            this.btn_chamcong.BorderRadius = 25;
+            this.btn_chamcong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_chamcong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_chamcong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_chamcong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_chamcong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_chamcong.FillColor = System.Drawing.Color.MediumSpringGreen;
+            this.btn_chamcong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chamcong.ForeColor = System.Drawing.Color.Black;
+            this.btn_chamcong.Image = global::QuanLyNhanSu.Properties.Resources.checklist;
+            this.btn_chamcong.Location = new System.Drawing.Point(43, 134);
+            this.btn_chamcong.Name = "btn_chamcong";
+            this.btn_chamcong.ShadowDecoration.BorderRadius = 30;
+            this.btn_chamcong.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.btn_chamcong.Size = new System.Drawing.Size(167, 45);
+            this.btn_chamcong.TabIndex = 115;
+            this.btn_chamcong.Text = "Chấm công";
             // 
             // cmb_phongban
             // 
@@ -87,7 +108,7 @@
             this.cmb_phongban.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmb_phongban.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmb_phongban.ItemHeight = 30;
-            this.cmb_phongban.Location = new System.Drawing.Point(155, 71);
+            this.cmb_phongban.Location = new System.Drawing.Point(177, 72);
             this.cmb_phongban.Name = "cmb_phongban";
             this.cmb_phongban.Size = new System.Drawing.Size(238, 36);
             this.cmb_phongban.TabIndex = 104;
@@ -107,7 +128,7 @@
             this.txt_ht.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ht.ForeColor = System.Drawing.Color.Black;
             this.txt_ht.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_ht.Location = new System.Drawing.Point(155, 13);
+            this.txt_ht.Location = new System.Drawing.Point(177, 13);
             this.txt_ht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_ht.Name = "txt_ht";
             this.txt_ht.PasswordChar = '\0';
@@ -122,11 +143,31 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 21);
+            this.label7.Location = new System.Drawing.Point(40, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 18);
             this.label7.TabIndex = 99;
             this.label7.Text = "Mã nhân viên";
+            // 
+            // resetHs
+            // 
+            this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetHs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.resetHs.FillColor = System.Drawing.Color.Transparent;
+            this.resetHs.FillColor2 = System.Drawing.Color.Transparent;
+            this.resetHs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.resetHs.ForeColor = System.Drawing.Color.White;
+            this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
+            this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
+            this.resetHs.Location = new System.Drawing.Point(358, 132);
+            this.resetHs.Name = "resetHs";
+            this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.resetHs.Size = new System.Drawing.Size(46, 43);
+            this.resetHs.TabIndex = 92;
             // 
             // search_hs
             // 
@@ -145,7 +186,7 @@
             this.search_hs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_hs.ForeColor = System.Drawing.Color.Black;
             this.search_hs.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_hs.Location = new System.Drawing.Point(20, 200);
+            this.search_hs.Location = new System.Drawing.Point(43, 196);
             this.search_hs.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_hs.MaxLength = 40;
             this.search_hs.Name = "search_hs";
@@ -158,13 +199,71 @@
             this.search_hs.TabIndex = 85;
             this.search_hs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // btn_searchHs
+            // 
+            this.btn_searchHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_searchHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_searchHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_searchHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_searchHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_searchHs.FillColor = System.Drawing.Color.Transparent;
+            this.btn_searchHs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_searchHs.ForeColor = System.Drawing.Color.White;
+            this.btn_searchHs.Image = global::QuanLyNhanSu.Properties.Resources.find;
+            this.btn_searchHs.ImageSize = new System.Drawing.Size(40, 40);
+            this.btn_searchHs.Location = new System.Drawing.Point(358, 196);
+            this.btn_searchHs.Name = "btn_searchHs";
+            this.btn_searchHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_searchHs.Size = new System.Drawing.Size(52, 50);
+            this.btn_searchHs.TabIndex = 84;
+            // 
+            // btn_deletehs
+            // 
+            this.btn_deletehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_deletehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_deletehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_deletehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_deletehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_deletehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_deletehs.FillColor = System.Drawing.Color.Transparent;
+            this.btn_deletehs.FillColor2 = System.Drawing.Color.Transparent;
+            this.btn_deletehs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_deletehs.ForeColor = System.Drawing.Color.White;
+            this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
+            this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
+            this.btn_deletehs.Location = new System.Drawing.Point(292, 132);
+            this.btn_deletehs.Name = "btn_deletehs";
+            this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
+            this.btn_deletehs.TabIndex = 8;
+            // 
+            // btn_updatehs
+            // 
+            this.btn_updatehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_updatehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_updatehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_updatehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_updatehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_updatehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_updatehs.FillColor = System.Drawing.Color.Transparent;
+            this.btn_updatehs.FillColor2 = System.Drawing.Color.Transparent;
+            this.btn_updatehs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_updatehs.ForeColor = System.Drawing.Color.White;
+            this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
+            this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
+            this.btn_updatehs.Location = new System.Drawing.Point(223, 132);
+            this.btn_updatehs.Name = "btn_updatehs";
+            this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
+            this.btn_updatehs.TabIndex = 7;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 83);
+            this.label1.Location = new System.Drawing.Point(40, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 18);
             this.label1.TabIndex = 1;
@@ -173,6 +272,9 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -186,11 +288,10 @@
             this.GiaTriKT,
             this.GiaTriKL,
             this.TongLuong});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(670, 656);
+            this.dataGridView1.Size = new System.Drawing.Size(1075, 353);
             this.dataGridView1.TabIndex = 95;
             // 
             // ID
@@ -259,105 +360,6 @@
             this.TongLuong.FillWeight = 104.0978F;
             this.TongLuong.HeaderText = "Tổng lương";
             this.TongLuong.Name = "TongLuong";
-            // 
-            // resetHs
-            // 
-            this.resetHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.resetHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.resetHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.resetHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetHs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.resetHs.FillColor = System.Drawing.Color.Transparent;
-            this.resetHs.FillColor2 = System.Drawing.Color.Transparent;
-            this.resetHs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.resetHs.ForeColor = System.Drawing.Color.White;
-            this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
-            this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(335, 136);
-            this.resetHs.Name = "resetHs";
-            this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.resetHs.Size = new System.Drawing.Size(46, 43);
-            this.resetHs.TabIndex = 92;
-            // 
-            // btn_searchHs
-            // 
-            this.btn_searchHs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_searchHs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_searchHs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_searchHs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_searchHs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_searchHs.FillColor = System.Drawing.Color.Transparent;
-            this.btn_searchHs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_searchHs.ForeColor = System.Drawing.Color.White;
-            this.btn_searchHs.Image = global::QuanLyNhanSu.Properties.Resources.find;
-            this.btn_searchHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchHs.Location = new System.Drawing.Point(335, 200);
-            this.btn_searchHs.Name = "btn_searchHs";
-            this.btn_searchHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_searchHs.Size = new System.Drawing.Size(52, 50);
-            this.btn_searchHs.TabIndex = 84;
-            // 
-            // btn_deletehs
-            // 
-            this.btn_deletehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_deletehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_deletehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_deletehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_deletehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_deletehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_deletehs.FillColor = System.Drawing.Color.Transparent;
-            this.btn_deletehs.FillColor2 = System.Drawing.Color.Transparent;
-            this.btn_deletehs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_deletehs.ForeColor = System.Drawing.Color.White;
-            this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
-            this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletehs.Location = new System.Drawing.Point(269, 136);
-            this.btn_deletehs.Name = "btn_deletehs";
-            this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
-            this.btn_deletehs.TabIndex = 8;
-            // 
-            // btn_updatehs
-            // 
-            this.btn_updatehs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_updatehs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_updatehs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_updatehs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_updatehs.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_updatehs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_updatehs.FillColor = System.Drawing.Color.Transparent;
-            this.btn_updatehs.FillColor2 = System.Drawing.Color.Transparent;
-            this.btn_updatehs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_updatehs.ForeColor = System.Drawing.Color.White;
-            this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
-            this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatehs.Location = new System.Drawing.Point(200, 136);
-            this.btn_updatehs.Name = "btn_updatehs";
-            this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
-            this.btn_updatehs.TabIndex = 7;
-            // 
-            // btn_chamcong
-            // 
-            this.btn_chamcong.BackColor = System.Drawing.Color.Transparent;
-            this.btn_chamcong.BorderRadius = 25;
-            this.btn_chamcong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_chamcong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_chamcong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_chamcong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_chamcong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_chamcong.FillColor = System.Drawing.Color.MediumSpringGreen;
-            this.btn_chamcong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_chamcong.ForeColor = System.Drawing.Color.Black;
-            this.btn_chamcong.Image = global::QuanLyNhanSu.Properties.Resources.checklist;
-            this.btn_chamcong.Location = new System.Drawing.Point(21, 134);
-            this.btn_chamcong.Name = "btn_chamcong";
-            this.btn_chamcong.ShadowDecoration.BorderRadius = 30;
-            this.btn_chamcong.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.btn_chamcong.Size = new System.Drawing.Size(167, 45);
-            this.btn_chamcong.TabIndex = 115;
-            this.btn_chamcong.Text = "Chấm công";
             // 
             // TinhLuong
             // 
