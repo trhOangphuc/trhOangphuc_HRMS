@@ -204,7 +204,7 @@
             this.btn_updatehs.ForeColor = System.Drawing.Color.White;
             this.btn_updatehs.Image = global::QuanLyNhanSu.Properties.Resources.updated;
             this.btn_updatehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_updatehs.Location = new System.Drawing.Point(33, 287);
+            this.btn_updatehs.Location = new System.Drawing.Point(184, 263);
             this.btn_updatehs.Name = "btn_updatehs";
             this.btn_updatehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_updatehs.Size = new System.Drawing.Size(46, 43);
@@ -229,11 +229,11 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 439);
+            this.label2.Location = new System.Drawing.Point(19, 378);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 18);
+            this.label2.Size = new System.Drawing.Size(222, 18);
             this.label2.TabIndex = 120;
-            this.label2.Text = "Nhập :";
+            this.label2.Text = "Thống kê chấm công tháng :";
             // 
             // txt_thongke
             // 
@@ -252,7 +252,7 @@
             this.txt_thongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_thongke.ForeColor = System.Drawing.Color.Black;
             this.txt_thongke.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.txt_thongke.Location = new System.Drawing.Point(74, 433);
+            this.txt_thongke.Location = new System.Drawing.Point(22, 405);
             this.txt_thongke.Margin = new System.Windows.Forms.Padding(5, 2, 2, 2);
             this.txt_thongke.MaxLength = 40;
             this.txt_thongke.Name = "txt_thongke";
@@ -268,7 +268,7 @@
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 25;
+            this.guna2Button1.BorderRadius = 15;
             this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -278,11 +278,11 @@
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
             this.guna2Button1.Image = global::QuanLyNhanSu.Properties.Resources.annuities;
-            this.guna2Button1.Location = new System.Drawing.Point(226, 420);
+            this.guna2Button1.Location = new System.Drawing.Point(161, 405);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.BorderRadius = 30;
             this.guna2Button1.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2Button1.Size = new System.Drawing.Size(137, 42);
+            this.guna2Button1.Size = new System.Drawing.Size(125, 32);
             this.guna2Button1.TabIndex = 116;
             this.guna2Button1.Text = "Thống kê";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -293,9 +293,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(20, 479);
+            this.richTextBox1.Location = new System.Drawing.Point(20, 443);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(360, 165);
+            this.richTextBox1.Size = new System.Drawing.Size(360, 210);
             this.richTextBox1.TabIndex = 115;
             this.richTextBox1.Text = "Tổng ngày công và chính sách khen thưởng của nhân viên theo tháng hoặc năm";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -313,7 +313,7 @@
             this.btn_chamcong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_chamcong.ForeColor = System.Drawing.Color.Black;
             this.btn_chamcong.Image = global::QuanLyNhanSu.Properties.Resources.checklist;
-            this.btn_chamcong.Location = new System.Drawing.Point(243, 290);
+            this.btn_chamcong.Location = new System.Drawing.Point(21, 264);
             this.btn_chamcong.Name = "btn_chamcong";
             this.btn_chamcong.ShadowDecoration.BorderRadius = 30;
             this.btn_chamcong.ShadowDecoration.Color = System.Drawing.Color.Gray;
@@ -338,7 +338,7 @@
             this.btn_deletehs.ForeColor = System.Drawing.Color.White;
             this.btn_deletehs.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletehs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletehs.Location = new System.Drawing.Point(104, 287);
+            this.btn_deletehs.Location = new System.Drawing.Point(255, 263);
             this.btn_deletehs.Name = "btn_deletehs";
             this.btn_deletehs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletehs.Size = new System.Drawing.Size(46, 43);
@@ -390,6 +390,7 @@
             this.dtp_date.Size = new System.Drawing.Size(238, 36);
             this.dtp_date.TabIndex = 102;
             this.dtp_date.Value = new System.DateTime(2024, 10, 12, 6, 37, 26, 931);
+            this.dtp_date.ValueChanged += new System.EventHandler(this.dtp_date_ValueChanged);
             // 
             // label8
             // 
@@ -455,7 +456,7 @@
             this.resetHs.ForeColor = System.Drawing.Color.White;
             this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(173, 289);
+            this.resetHs.Location = new System.Drawing.Point(324, 265);
             this.resetHs.Name = "resetHs";
             this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetHs.Size = new System.Drawing.Size(46, 43);
@@ -479,7 +480,7 @@
             this.search_hs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_hs.ForeColor = System.Drawing.Color.Black;
             this.search_hs.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_hs.Location = new System.Drawing.Point(20, 362);
+            this.search_hs.Location = new System.Drawing.Point(20, 324);
             this.search_hs.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_hs.MaxLength = 40;
             this.search_hs.Name = "search_hs";
@@ -506,7 +507,7 @@
             this.btn_searchHs.ForeColor = System.Drawing.Color.White;
             this.btn_searchHs.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchHs.Location = new System.Drawing.Point(341, 362);
+            this.btn_searchHs.Location = new System.Drawing.Point(340, 324);
             this.btn_searchHs.Name = "btn_searchHs";
             this.btn_searchHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchHs.Size = new System.Drawing.Size(52, 50);

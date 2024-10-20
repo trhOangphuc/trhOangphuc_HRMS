@@ -82,6 +82,7 @@ namespace QuanLyNhanSu
                 SELECT 
                     PC.MaPhanCong, 
                     PC.IDnhanvien, 
+                    NV.HoTen,
                     PC.MaDuAn, 
                     DA.TenDuAn,
                     PC.NgayBatDau, 
@@ -89,6 +90,8 @@ namespace QuanLyNhanSu
                     PC.ViTri 
                 FROM 
                     PhanCong PC
+                LEFT JOIN
+                    NhanVien NV ON PC.IDnhanvien = NV.ID
                 LEFT JOIN 
                     DuAn DA ON PC.MaDuAn = DA.MaDuAn ORDER BY MaPhanCong";
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -227,43 +230,78 @@ namespace QuanLyNhanSu
                     //    }
                     //}
 
-                    string query = "INSERT INTO PhanCong (IDnhanvien, MaDuAn, NgayBatDau, NgayKetThuc, ViTri) VALUES (@IDnhanvien, @MaDuAn, @NgayBatDau, @NgayKetThuc, @ViTri)";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Kiểm tra nếu dự án đã có Ngày Kết Thúc (không rỗng)
+                    string checkQuery = "SELECT NgayKetThuc FROM DuAn WHERE MaDuAn = @MaDuAn";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@IDnhanvien", txt_Manv.Text);
-                        command.Parameters.AddWithValue("@MaDuAn", cmb_mada.Text);
-                        command.Parameters.AddWithValue("@NgayBatDau", dtp_dateStart.Value);
-                        // Kiểm tra xem txt_dateEnd có giá trị hay không
-                        if (string.IsNullOrWhiteSpace(txt_dateEnd.Text))
+                        checkCommand.Parameters.AddWithValue("@MaDuAn", cmb_mada.Text);
+                        object result = checkCommand.ExecuteScalar();
+
+                        if (result != DBNull.Value && result != null)
                         {
-                            command.Parameters.AddWithValue("@NgayKetThuc", DBNull.Value); // Đặt giá trị là NULL
+                            DateTime ngayKetThucDuAn = (DateTime)result;
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Dự án đã kết thúc vào ngày: " + ngayKetThucDuAn.ToString("dd/MM/yyyy");
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return; // Dừng quá trình update nếu dự án đã kết thúc
                         }
-                        else
+                    }
+
+                    string checkParticipationQuery = "SELECT COUNT(*) FROM PhanCong WHERE IDnhanvien = @IDnhanvien AND MaDuAn = @MaDuAn";
+                    using (SqlCommand checkParticipationCommand = new SqlCommand(checkParticipationQuery, connection))
+                    {
+                        checkParticipationCommand.Parameters.AddWithValue("@IDnhanvien", txt_Manv.Text);
+                        checkParticipationCommand.Parameters.AddWithValue("@MaDuAn", cmb_mada.Text);
+                        int participationCount = (int)checkParticipationCommand.ExecuteScalar();
+
+                        if (participationCount > 0)
                         {
-                            DateTime dateEnd;
-                            // Sử dụng TryParseExact để phân tích theo định dạng dd/MM/yyyy
-                            if (DateTime.TryParseExact(txt_dateEnd.Text, "dd/MM/yyyy",
-                                CultureInfo.InvariantCulture, DateTimeStyles.None, out dateEnd))
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Nhân viên đã tham gia dự án này!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+
+                        string query = "INSERT INTO PhanCong (IDnhanvien, MaDuAn, NgayBatDau, NgayKetThuc, ViTri) VALUES (@IDnhanvien, @MaDuAn, @NgayBatDau, @NgayKetThuc, @ViTri)";
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@IDnhanvien", txt_Manv.Text);
+                            command.Parameters.AddWithValue("@MaDuAn", cmb_mada.Text);
+                            command.Parameters.AddWithValue("@NgayBatDau", dtp_dateStart.Value);
+                            // Kiểm tra xem txt_dateEnd có giá trị hay không
+                            if (string.IsNullOrWhiteSpace(txt_dateEnd.Text))
                             {
-                                command.Parameters.AddWithValue("@NgayKetThuc", dateEnd); // Chuyển đổi sang DateTime
+                                command.Parameters.AddWithValue("@NgayKetThuc", DBNull.Value); // Đặt giá trị là NULL
                             }
                             else
                             {
-                                Notification notification = new Notification();
-                                notification.NotificationText = "Ngày kết thúc không đúng định dạng (dd/MM/yyyy)!";
-                                notification.OkButtonText = "OK";
-                                notification.ShowDialog();
-                                txt_dateEnd.Focus();
-                                return;
+                                DateTime dateEnd;
+                                // Sử dụng TryParseExact để phân tích theo định dạng dd/MM/yyyy
+                                if (DateTime.TryParseExact(txt_dateEnd.Text, "dd/MM/yyyy",
+                                    CultureInfo.InvariantCulture, DateTimeStyles.None, out dateEnd))
+                                {
+                                    command.Parameters.AddWithValue("@NgayKetThuc", dateEnd); // Chuyển đổi sang DateTime
+                                }
+                                else
+                                {
+                                    Notification notification = new Notification();
+                                    notification.NotificationText = "Ngày kết thúc không đúng định dạng (dd/MM/yyyy)!";
+                                    notification.OkButtonText = "OK";
+                                    notification.ShowDialog();
+                                    txt_dateEnd.Focus();
+                                    return;
+                                }
                             }
-                        }
-                        command.Parameters.AddWithValue("@ViTri", txt_vitriPC.Text);
+                            command.Parameters.AddWithValue("@ViTri", txt_vitriPC.Text);
 
-                        command.ExecuteNonQuery();
-                        Success sc = new Success();
-                        sc.ShowDialog();
-                        LoadData();
-                        Reset();
+                            command.ExecuteNonQuery();
+                            Success sc = new Success();
+                            sc.ShowDialog();
+                            LoadData();
+                            Reset();
+                        }
                     }
                 }
                 catch (Exception ex)

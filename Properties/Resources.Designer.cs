@@ -543,6 +543,16 @@ namespace QuanLyNhanSu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap refesh__1_ {
+            get {
+                object obj = ResourceManager.GetObject("refesh__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reset {
             get {
                 object obj = ResourceManager.GetObject("reset", resourceCulture);
@@ -646,6 +656,16 @@ namespace QuanLyNhanSu.Properties {
         internal static System.Drawing.Bitmap tik_tok {
             get {
                 object obj = ResourceManager.GetObject("tik_tok", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tinhluong {
+            get {
+                object obj = ResourceManager.GetObject("tinhluong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

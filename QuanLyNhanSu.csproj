@@ -494,5 +494,14 @@
   <ItemGroup>
     <None Include="Resources\bookmark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refesh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refesh %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tinhluong.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

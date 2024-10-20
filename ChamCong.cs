@@ -23,16 +23,16 @@ namespace QuanLyNhanSu
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
-            cmb_trangthai.Items.Add("--Chọn trạng thái chấm công--");
             cmb_trangthai.Items.Add("Đúng giờ");
             cmb_trangthai.Items.Add("Đi muộn");
-            cmb_trangthai.StartIndex = 0;
+            cmb_trangthai.StartIndex = -1;
             cb_nghi.Enabled = false;
             cb_dilam.Enabled = false;
-            if(cb_dilam.Checked == true)
+            if (cb_dilam.Checked == false)
             {
                 cb_chamcong.Enabled = false;
             }
+            dtp_date.ValueChanged += dtp_date_ValueChanged;
             KiemTraNgayNghi();
         }
 
@@ -43,7 +43,7 @@ namespace QuanLyNhanSu
                 if (connection == null)
                 {
                     Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.ErrorText = "Lỗi kết nối Database!";
                     error.OkButtonText = "OK";
                     error.ShowDialog();
                     return;
@@ -53,27 +53,29 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
 
-                    // Lấy ngày hiện tại
-                    DateTime ngayHienTai = DateTime.Now.Date;
+                    // Lấy ngày được chọn từ DateTimePicker (dtp_date)
+                    DateTime ngayDuocChon = dtp_date.Value.Date;
 
-                    // Truy vấn kiểm tra xem ngày hiện tại có phải là ngày nghỉ không
-                    string query = "SELECT COUNT(*) FROM NgayNghiLe WHERE Ngay = @NgayHienTai";
+                    // Truy vấn kiểm tra xem ngày được chọn có tồn tại trong bảng NgayNghiLe
+                    string query = "SELECT COUNT(*) FROM NgayNghiLe WHERE Ngay = @Ngay";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@NgayHienTai", ngayHienTai);
+                        // Gán tham số Ngay cho câu truy vấn
+                        command.Parameters.AddWithValue("@Ngay", ngayDuocChon);
 
+                        // Thực hiện truy vấn và lấy kết quả
                         int count = (int)command.ExecuteScalar();
 
-                        // Nếu có kết quả (ngày hiện tại là ngày nghỉ)
+                        // Nếu có kết quả (ngày được chọn là ngày nghỉ)
                         if (count > 0)
                         {
-                            // Ngày nghỉ
+                            // Ngày nghỉ, đánh dấu checkbox tương ứng
                             cb_nghi.Checked = true;
                             cb_dilam.Checked = false;
                         }
                         else
                         {
-                            // Ngày làm việc
+                            // Ngày làm việc, đánh dấu checkbox tương ứng
                             cb_nghi.Checked = false;
                             cb_dilam.Checked = true;
                         }
@@ -81,6 +83,7 @@ namespace QuanLyNhanSu
                 }
                 catch (Exception ex)
                 {
+                    // Bắt và hiển thị lỗi nếu có
                     Error er = new Error();
                     er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                     er.OkButtonText = "OK";
@@ -88,6 +91,8 @@ namespace QuanLyNhanSu
                 }
             }
         }
+
+
 
         private void LoadData()
         {
@@ -119,7 +124,7 @@ namespace QuanLyNhanSu
                 LEFT JOIN 
                     NhanVien NV ON CC.IDnhanvien = NV.ID
                 LEFT JOIN 
-                    PhongBan PB ON NV.MaPB = PB.MaPB ORDER BY NgayLamViec";
+                    PhongBan PB ON NV.MaPB = PB.MaPB ORDER BY IDnhanvien, NgayLamViec";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -139,7 +144,7 @@ namespace QuanLyNhanSu
 
         private void btn_chamcong_Click(object sender, EventArgs e)
         {
-            if(cb_nghi.Checked == true)
+            if (cb_nghi.Checked == true)
             {
                 Notification notification = new Notification();
                 notification.NotificationText = "Ngày nghỉ không thể chấm công !";
@@ -154,6 +159,7 @@ namespace QuanLyNhanSu
                 notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
+                txt_manv.Focus();
                 return;
             }
 
@@ -210,8 +216,6 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-
-                    // Kiểm tra xem ID nhân viên có tồn tại không
                     string checkQuery = "SELECT COUNT(*) FROM NhanVien WHERE ID = @IDnhanvien";
                     using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
@@ -229,11 +233,10 @@ namespace QuanLyNhanSu
                         }
                     }
 
-                    // Kiểm tra xem ngày đó có phải là ngày nghỉ lễ hay không
                     string checkHolidayQuery = @"
-                SELECT COUNT(*) 
-                FROM NgayNghiLe 
-                WHERE Ngay = @NgayLamViec";
+                       SELECT COUNT(*) 
+                       FROM NgayNghiLe 
+                       WHERE Ngay = @NgayLamViec";
                     using (SqlCommand checkHolidayCommand = new SqlCommand(checkHolidayQuery, connection))
                     {
                         checkHolidayCommand.Parameters.AddWithValue("@NgayLamViec", dtp_date.Value);
@@ -249,15 +252,15 @@ namespace QuanLyNhanSu
                         }
                     }
 
-                    // Kiểm tra xem đã có bản ghi ChamCong với IDnhanvien và NgayLamViec chưa
+                    
                     string checkDuplicateQuery = @"
-            SELECT COUNT(*) 
-            FROM ChamCong 
-            WHERE IDnhanvien = @IDnhanvien AND NgayLamViec = @NgayLamViec";
+                        SELECT COUNT(*) 
+                        FROM ChamCong 
+                        WHERE IDnhanvien = @IDnhanvien AND CAST(NgayLamViec AS DATE) = @NgayLamViec";
                     using (SqlCommand checkDuplicateCommand = new SqlCommand(checkDuplicateQuery, connection))
                     {
-                        checkDuplicateCommand.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
-                        checkDuplicateCommand.Parameters.AddWithValue("@NgayLamViec", dtp_date.Value);
+                        checkDuplicateCommand.Parameters.AddWithValue("@IDnhanvien", idNhanVien);
+                        checkDuplicateCommand.Parameters.AddWithValue("@NgayLamViec", dtp_date.Value.Date);
                         int duplicateCount = (int)checkDuplicateCommand.ExecuteScalar();
 
                         if (duplicateCount > 0)
@@ -270,16 +273,17 @@ namespace QuanLyNhanSu
                         }
                     }
 
-                    // Chèn bản ghi mới vào ChamCong
+
                     string query = @"
-            INSERT INTO ChamCong (IDnhanvien, NgayLamViec, LamViec, TrangThai)
-            VALUES (@IDnhanvien, @NgayLamViec, @LamViec, @TrangThai)";
+                        INSERT INTO ChamCong (IDnhanvien, NgayLamViec, LamViec, TrangThai)
+                        VALUES (@IDnhanvien, @NgayLamViec, @LamViec, @TrangThai)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+                        command.Parameters.AddWithValue("@IDnhanvien", idNhanVien);
                         command.Parameters.AddWithValue("@NgayLamViec", dtp_date.Value);
                         command.Parameters.AddWithValue("@LamViec", cb_chamcong.Checked);
+                        command.Parameters.AddWithValue("@TrangThai", cmb_trangthai.Text);
                         command.ExecuteNonQuery();
                         Success sc = new Success();
                         sc.ShowDialog();
@@ -290,7 +294,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -303,8 +307,10 @@ namespace QuanLyNhanSu
             txt_manv.Text = string.Empty;
             txt_manv.Enabled = true;
             dtp_date.Value = DateTime.Now;
-            cb_chamcong.Checked = false;
+            cb_chamcong.Checked = true;
+            dtp_date.Enabled = true;
             dataGridView1.ClearSelection();
+            cmb_trangthai.SelectedIndex = -1;
             LoadData();
         }
 
@@ -347,7 +353,7 @@ namespace QuanLyNhanSu
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@IDnhanvien", dataGridView1.CurrentRow.Cells["IDnhanvien"].Value);
-                            command.Parameters.AddWithValue("@NgayLamViec", dataGridView1.CurrentRow.Cells["NgayLamViec"].Value); 
+                            command.Parameters.AddWithValue("@NgayLamViec", dataGridView1.CurrentRow.Cells["NgayLamViec"].Value);
                             command.ExecuteNonQuery();
                             Success sc = new Success();
                             sc.ShowDialog();
@@ -358,7 +364,7 @@ namespace QuanLyNhanSu
                     catch (Exception ex)
                     {
                         Error er = new Error();
-                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message; 
                         er.OkButtonText = "OK";
                         er.ShowDialog();
                     }
@@ -450,7 +456,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -460,6 +466,52 @@ namespace QuanLyNhanSu
         private void btn_searchHs_Click(object sender, EventArgs e)
         {
             search(search_hs.Text);
+        }
+        private int TinhSoNgayLamViec()
+        {
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+            int totalDaysInMonth = DateTime.DaysInMonth(year, month); // Tổng số ngày trong tháng hiện tại
+            int workingDays = 0; // Số ngày làm việc
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    throw new Exception("Lỗi kết nối Database!");
+                }
+
+                connection.Open();
+
+                // Lấy danh sách ngày nghỉ lễ từ cơ sở dữ liệu
+                HashSet<DateTime> holidays = new HashSet<DateTime>();
+                string holidayQuery = "SELECT Ngay FROM NgayNghiLe"; // Giả định bạn có bảng NgayNghiLe
+                using (SqlCommand holidayCommand = new SqlCommand(holidayQuery, connection))
+                {
+                    using (SqlDataReader reader = holidayCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            holidays.Add(reader.GetDateTime(0).Date); // Thêm ngày nghỉ vào HashSet
+                        }
+                    }
+                }
+
+                // Tính số ngày làm việc
+                for (int day = 1; day <= totalDaysInMonth; day++)
+                {
+                    DateTime currentDate = new DateTime(year, month, day);
+                    // Kiểm tra xem ngày hiện tại có phải là thứ Bảy, Chủ Nhật hoặc ngày nghỉ không
+                    if (currentDate.DayOfWeek != DayOfWeek.Saturday &&
+                        currentDate.DayOfWeek != DayOfWeek.Sunday &&
+                        !holidays.Contains(currentDate.Date))
+                    {
+                        workingDays++; // Tăng số ngày làm việc nếu không phải thứ Bảy, Chủ Nhật hoặc ngày nghỉ
+                    }
+                }
+            }
+
+            return workingDays;
         }
 
         private void thongke()
@@ -523,20 +575,22 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
                     string query = @"
-        SELECT 
-            NV.HoTen,
-            COUNT(CC.LamViec) AS TongNgayCong,
-            SUM(CASE WHEN CC.TrangThai = 'Đúng giờ' THEN 1 ELSE 0 END) AS SoNgayDungGio
-        FROM 
-            ChamCong CC
-        LEFT JOIN 
-            NhanVien NV ON CC.IDnhanvien = NV.ID
-        WHERE 
-            CC.IDnhanvien = @IDnhanvien 
-            AND MONTH(CC.NgayLamViec) = MONTH(@ThangNam) 
-            AND YEAR(CC.NgayLamViec) = YEAR(@ThangNam)
-        GROUP BY 
-            NV.HoTen";
+                SELECT 
+                    NV.HoTen,
+                    COUNT(CASE WHEN CC.TrangThai = N'Đúng giờ' THEN 1 END) AS SoNgayDungGio,
+                    COUNT(CASE WHEN CC.TrangThai = N'Đi muộn' THEN 1 END) AS SoNgayDiMuon,
+                    COUNT(CC.LamViec) AS TongNgayCong
+                FROM 
+                    ChamCong CC
+                LEFT JOIN 
+                    NhanVien NV ON CC.IDnhanvien = NV.ID
+                WHERE 
+                    CC.IDnhanvien = @IDnhanvien 
+                    AND MONTH(CC.NgayLamViec) = MONTH(@ThangNam) 
+                    AND YEAR(CC.NgayLamViec) = YEAR(@ThangNam)
+                GROUP BY 
+                    NV.HoTen;
+";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -545,26 +599,31 @@ namespace QuanLyNhanSu
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            richTextBox1.Clear(); // Xóa nội dung cũ
-                            if (reader.Read()) // Chỉ đọc một dòng
+                            richTextBox1.Clear();
+                            richTextBox1.ForeColor = Color.Black;
+                            if (reader.Read())
                             {
                                 // Lấy thông tin từ reader
                                 string hoTen = reader["HoTen"].ToString();
-                                int tongngaycong = Convert.ToInt32(reader["TongNgayCong"]);
+                                int tongNgayChamCong = TinhSoNgayLamViec(); // Lưu ý: phương thức này cần được kiểm tra để đảm bảo trả về giá trị chính xác
+                                int tongNgayCong = Convert.ToInt32(reader["TongNgayCong"]);
                                 int soNgayDungGio = Convert.ToInt32(reader["SoNgayDungGio"]);
+                                int soNgayDiMuon = Convert.ToInt32(reader["SoNgayDiMuon"]);
 
                                 // Hiển thị thông tin trong RichTextBox
                                 richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Bold);
-                                richTextBox1.AppendText($"Tổng ngày công tháng {thangNam.ToString("MM/yyyy")} của nhân viên:\n\n");
+                                richTextBox1.AppendText($"Tổng ngày công {thangNam.ToString("MM/yyyy")} của nhân viên:\n");
                                 richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Regular);
                                 richTextBox1.AppendText($"\tID Nhân viên: {idNhanVien}\n");
                                 richTextBox1.AppendText($"\tHọ tên: {hoTen}\n");
-                                richTextBox1.AppendText($"\tTổng ngày công: {tongngaycong}\n");
+                                richTextBox1.AppendText($"\tTổng ngày công: {tongNgayCong}/{tongNgayChamCong}\n");
 
-                                // Kiểm tra và hiển thị kết quả khen thưởng hoặc kỷ luật
-                                if (tongngaycong >= 20) // Giả sử tháng có tối đa 22 ngày công
+                                // Thống kê điều kiện
+                                richTextBox1.AppendText($"\tTổng ngày công: {tongNgayCong}\n\tTổng ngày làm việc: {tongNgayChamCong}\n\tNgày đúng giờ: {soNgayDungGio}\n\tNgày đi muộn: {soNgayDiMuon}\n");
+
+                                if (tongNgayCong == tongNgayChamCong)
                                 {
-                                    if (soNgayDungGio >= 20) // Số ngày đi làm đúng giờ
+                                    if (soNgayDungGio == tongNgayChamCong) // Số ngày đi làm đúng giờ
                                     {
                                         richTextBox1.AppendText("\tKhen thưởng: Đạt điều kiện đi làm đúng giờ và đủ ngày công.\n");
                                     }
@@ -573,12 +632,28 @@ namespace QuanLyNhanSu
                                         richTextBox1.AppendText("\tKhen thưởng: Chưa đạt điều kiện đi làm đúng giờ.\n");
                                     }
                                 }
-                                else if (tongngaycong < 10)
+                                else if (tongNgayCong < tongNgayChamCong / 2)
                                 {
                                     richTextBox1.AppendText("\tKỷ luật: Thiếu ngày công.\n");
                                 }
 
-                                richTextBox1.AppendText("=======================================");
+                                // Kiểm tra điều kiện "Đi muộn" nhiều
+                                if (soNgayDiMuon >= tongNgayCong / 2)
+                                {
+                                    richTextBox1.AppendText("\tKỷ luật: Đi muộn nhiều.\n");
+                                }
+                                else
+                                {
+                                    richTextBox1.AppendText("\tChấm công bình thường.\n");
+                                }
+
+                                // Kiểm tra nếu số ngày "Đúng giờ" bằng tổng số ngày công
+                                if (soNgayDungGio == tongNgayCong)
+                                {
+                                    richTextBox1.AppendText("\tChấm công đủ: Nhân viên đi làm đúng giờ đủ ngày.\n");
+                                }
+
+                                richTextBox1.AppendText("=====================================");
                             }
                             else
                             {
@@ -592,12 +667,14 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
             }
         }
+
+
 
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -615,11 +692,32 @@ namespace QuanLyNhanSu
             if (string.IsNullOrEmpty(txt_manv.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng chọn để xóa !";
+                notification.NotificationText = "Vui lòng chọn để sửa !";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
             }
+
+            if (!int.TryParse(txt_manv.Text, out int idNhanVien))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Sai ID nhân viên!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                txt_manv.Focus();
+                return;
+            }
+
+            if (cmb_trangthai.SelectedItem == null || string.IsNullOrWhiteSpace(cmb_trangthai.SelectedItem.ToString()))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn trạng thái ngày công!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                cmb_trangthai.Focus();
+                return;
+            }
+
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 if (connection == null)
@@ -635,14 +733,39 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
+
+                    string checkDuplicateQuery = @"
+                        SELECT COUNT(*) 
+                        FROM ChamCong 
+                        WHERE MaChamCong = @MaChamCong AND IDnhanvien = @IDnhanvien AND NgayLamViec = @NgayLamViec";
+                    using (SqlCommand checkDuplicateCommand = new SqlCommand(checkDuplicateQuery, connection))
+                    {
+                        checkDuplicateCommand.Parameters.AddWithValue("@MaChamCong", dataGridView1.CurrentRow.Cells["MaChamCong"].Value);
+                        checkDuplicateCommand.Parameters.AddWithValue("@IDnhanvien", idNhanVien);
+                        checkDuplicateCommand.Parameters.AddWithValue("@NgayLamViec", dtp_date.Value);
+                        int duplicateCount = (int)checkDuplicateCommand.ExecuteScalar();
+
+                        if (duplicateCount > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Đã tồn tại bản ghi cho nhân viên này vào ngày đã chọn!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
                     string updateQuery = @"
                 UPDATE ChamCong
-                SET TrangThai = @TrangThai,
-                IDnhanvien = @IDnhanvien ";
+                SET TrangThai = @TrangThai
+                Where MaChamCong = @MaChamCong AND
+                IDnhanvien = @IDnhanvien AND NgayLamViec = @NgayLamViec ";
                     using (SqlCommand command = new SqlCommand(updateQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+                        command.Parameters.AddWithValue("@MaChamCong", dataGridView1.CurrentRow.Cells["MaChamCong"].Value);
+                        command.Parameters.AddWithValue("@IDnhanvien", idNhanVien);
                         command.Parameters.AddWithValue("@TrangThai", cmb_trangthai.Text);
+                        command.Parameters.AddWithValue("@NgayLamViec", dataGridView1.CurrentRow.Cells["NgayLamViec"].Value);
                         command.ExecuteNonQuery();
                         Success sc = new Success();
                         sc.ShowDialog();
@@ -667,6 +790,11 @@ namespace QuanLyNhanSu
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtp_date_ValueChanged(object sender, EventArgs e)
+        {
+            KiemTraNgayNghi();
         }
     }
 }

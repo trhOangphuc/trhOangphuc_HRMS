@@ -16,7 +16,7 @@ namespace QuanLyNhanSu
     public partial class HomPagePanel : Form
     {
 
-        private bool isUpdatingCheckboxes = false; // Biến cờ để theo dõi trạng thái cập nhật
+        private bool isUpdatingCheckboxes = false; 
         public HomPagePanel()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace QuanLyNhanSu
             dtp_date2.Value = DateTime.Now;
             chart_nhanvien.ChartAreas[0].BackColor = Color.Transparent;
             chart_phongban.ChartAreas[0].BackColor = Color.Transparent;
+            dtp_date2.Enabled = false;
             KiemTraNgayNghi();
         }
 
@@ -56,15 +57,11 @@ namespace QuanLyNhanSu
                     {
                         command.Parameters.AddWithValue("@NgayHienTai", ngayHienTai);
                         int count = (int)command.ExecuteScalar();
+                        isUpdatingCheckboxes = true;
+                        cb_nghi.Checked = count > 0; 
+                        cb_dilam.Checked = count == 0; 
 
-                        // Thiết lập trạng thái checkbox dựa trên kết quả
-                        isUpdatingCheckboxes = true; // Đánh dấu đang trong quá trình cập nhật checkbox
-
-                        // Nếu có kết quả (ngày hiện tại là ngày nghỉ)
-                        cb_nghi.Checked = count > 0; // Đánh dấu là ngày nghỉ
-                        cb_dilam.Checked = count == 0; // Đánh dấu là ngày đi làm
-
-                        isUpdatingCheckboxes = false; // Kết thúc quá trình cập nhật checkbox
+                        isUpdatingCheckboxes = false; 
                     }
                 }
                 catch (Exception ex)
@@ -97,30 +94,26 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
 
-                    // Lấy ngày từ DateTimePicker
-                    DateTime selectedDate = dtp_date.Value.Date; // Lấy giá trị ngày từ DateTimePicker
+                    DateTime selectedDate = dtp_date.Value.Date; 
 
                     string query = @"
-            SELECT COUNT(*) 
-            FROM ChamCong 
-            WHERE CONVERT(DATE, NgayLamViec) = @NgayLamViec AND LamViec = 1";
+                            SELECT COUNT(*) 
+                            FROM ChamCong 
+                            WHERE CONVERT(DATE, NgayLamViec) = @NgayLamViec AND LamViec = 1";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Thêm tham số kiểu DateTime cho truy vấn
-                        command.Parameters.AddWithValue("@NgayLamViec", selectedDate); // Đảm bảo chỉ truyền phần ngày
+                        command.Parameters.AddWithValue("@NgayLamViec", selectedDate); 
 
-                        // Lấy số lượng nhân viên làm việc (LamViec = true)
                         int count = (int)command.ExecuteScalar();
 
-                        // Hiển thị kết quả vào lb_chamcong
                         lb_chamcong.Text = count.ToString();
                     }
                 }
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -184,7 +177,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -213,7 +206,6 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    // Đếm số lượng nhân viên dựa trên giới tính và ID
                     string query = "SELECT GioiTinh, COUNT(ID) AS SoLuong FROM NhanVien GROUP BY GioiTinh";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -239,7 +231,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -264,13 +256,11 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-
-                    // Đếm số lượng nhân viên theo phòng ban từ bảng NhanVien và PhongBan
                     string query = @"
-                SELECT pb.MaPB, COUNT(nv.ID) AS SoLuong 
-                FROM PhongBan pb
-                LEFT JOIN NhanVien nv ON pb.MaPB = nv.MaPB
-                GROUP BY pb.MaPB";
+                            SELECT pb.MaPB, COUNT(nv.ID) AS SoLuong 
+                            FROM PhongBan pb
+                            LEFT JOIN NhanVien nv ON pb.MaPB = nv.MaPB
+                            GROUP BY pb.MaPB";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -278,24 +268,21 @@ namespace QuanLyNhanSu
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
-                        // Kiểm tra xem có dữ liệu hay không
                         if (dataTable.Rows.Count == 0)
                         {
                             MessageBox.Show("Không có dữ liệu để hiển thị cho biểu đồ số nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
-                        // Thiết lập biểu đồ
                         chart_phongban.Series.Clear();
                         chart_phongban.ChartAreas.Clear();
                         chart_phongban.ChartAreas.Add(new ChartArea("NhanVienChartArea"));
 
                         Series series = new Series("SoLuongNhanVien")
                         {
-                            ChartType = SeriesChartType.Pie // Thiết lập loại biểu đồ là hình tròn
+                            ChartType = SeriesChartType.Pie 
                         };
 
-                        // Thêm dữ liệu vào biểu đồ
                         foreach (DataRow row in dataTable.Rows)
                         {
                             series.Points.AddXY(row["MaPB"].ToString(), row["SoLuong"]);
@@ -303,26 +290,22 @@ namespace QuanLyNhanSu
 
                         chart_phongban.Series.Add(series);
 
-                        // Tắt hiển thị nhãn cho từng điểm
                         foreach (DataPoint point in series.Points)
                         {
-                            point.Label = ""; // Tắt hiển thị nhãn cho từng điểm
+                            point.Label = ""; 
                         }
+                        series.IsValueShownAsLabel = false; 
 
-                        // Ngăn hiển thị giá trị trên các phần của biểu đồ
-                        series.IsValueShownAsLabel = false; // Ngăn hiển thị giá trị trên các phần của biểu đồ
-
-                        // Tắt hiển thị nhãn bên trong (nếu có)
                         foreach (DataPoint point in series.Points)
                         {
-                            point.IsValueShownAsLabel = false; // Ngăn hiển thị giá trị cho từng điểm
+                            point.IsValueShownAsLabel = false; 
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -344,11 +327,11 @@ namespace QuanLyNhanSu
 
         private void dtp_date2_ValueChanged(object sender, EventArgs e)
         {
-            if (isUpdatingCheckboxes) return; // Thoát nếu đang trong quá trình cập nhật checkbox
+            if (isUpdatingCheckboxes) return; 
 
             try
             {
-                isUpdatingCheckboxes = true; // Bắt đầu cập nhật checkbox
+                isUpdatingCheckboxes = true; 
 
                 using (SqlConnection connection = connectdatabase.Connect())
                 {
@@ -392,15 +375,14 @@ namespace QuanLyNhanSu
             }
             finally
             {
-                isUpdatingCheckboxes = false; // Kết thúc cập nhật checkbox
+                isUpdatingCheckboxes = false; 
             }
         }
 
         private void cb_dilam_CheckedChanged(object sender, EventArgs e)
         {
-            if (isUpdatingCheckboxes) return; // Thoát nếu đang trong quá trình cập nhật checkbox
+            if (isUpdatingCheckboxes) return; 
 
-            // Tiếp tục nếu cần thay đổi
             using (SqlConnection connection = connectdatabase.Connect())
             {
                 if (connection == null)
@@ -457,13 +439,10 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-
-                    // Lấy ngày hiện tại
                     DateTime ngayHienTai = DateTime.Now.Date;
 
                     if (cb_nghi.Checked)
                     {
-                        // Kiểm tra xem ngày đã tồn tại trong NgayNghiLe chưa
                         string checkQuery = "SELECT COUNT(*) FROM NgayNghiLe WHERE Ngay = @NgayHienTai";
                         using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                         {
@@ -472,7 +451,6 @@ namespace QuanLyNhanSu
 
                             if (count == 0)
                             {
-                                // Nếu chưa tồn tại, thêm ngày vào bảng NgayNghiLe
                                 string insertQuery = "INSERT INTO NgayNghiLe (Ngay) VALUES (@NgayHienTai)";
                                 using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
                                 {
@@ -519,7 +497,18 @@ namespace QuanLyNhanSu
             return workingDays;
         }
 
-        private int LaySoNgayNghi()
+        private int LaySoNgayNghi(SqlConnection conn)
+        {
+            string query = "SELECT COUNT(*) FROM NgayNghiLe WHERE MONTH(Ngay) = @Month AND YEAR(Ngay) = @Year";
+            using (SqlCommand command = new SqlCommand(query, conn))
+            {
+                command.Parameters.AddWithValue("@Month", DateTime.Now.Month);
+                command.Parameters.AddWithValue("@Year", DateTime.Now.Year);
+                return (int)command.ExecuteScalar();
+            }
+        }
+
+        public int TinhSoNgayLamViecThucTe()
         {
             using (SqlConnection connection = connectdatabase.Connect())
             {
@@ -532,28 +521,35 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-                    string query = "SELECT COUNT(*) FROM NgayNghiLe WHERE MONTH(Ngay) = @Month AND YEAR(Ngay) = @Year";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+
+                    // Tính số ngày làm việc tiêu chuẩn (các ngày từ thứ 2 đến thứ 6 trong tháng)
+                    int workingDays = TinhSoNgayLamViec();
+
+                    // Lấy số ngày nghỉ lễ chính thức từ cơ sở dữ liệu
+                    int daysOff = LaySoNgayNghi(connection);
+
+                    // Tính số ngày làm việc thực tế
+                    int actualWorkingDays = workingDays;
+
+                    // Trừ đi các ngày nghỉ không phải thứ Bảy và Chủ Nhật
+                    if (daysOff > 0)
                     {
-                        command.Parameters.AddWithValue("@Month", DateTime.Now.Month);
-                        command.Parameters.AddWithValue("@Year", DateTime.Now.Year);
-                        return (int)command.ExecuteScalar();
+                        // Giả sử LaySoNgayNghi trả về số ngày nghỉ không bao gồm thứ Bảy và Chủ Nhật
+                        actualWorkingDays -= daysOff;
                     }
+
+                    // Đảm bảo không có số ngày làm việc âm
+                    return Math.Max(actualWorkingDays, 0);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // Xử lý lỗi
+                    // Xử lý lỗi và ghi lại thông báo lỗi nếu cần
+                    Console.WriteLine(ex.Message);
                     return 0;
                 }
             }
         }
 
-        public int TinhSoNgayLamViecThucTe()
-        {
-            int workingDays = TinhSoNgayLamViec(); // Tính số ngày làm việc
-            int daysOff = LaySoNgayNghi(); // Lấy số ngày nghỉ từ cơ sở dữ liệu
-            return workingDays - daysOff; // Trừ số ngày nghỉ
-        }
 
         private void label9_Click(object sender, EventArgs e)
         {
@@ -565,7 +561,7 @@ namespace QuanLyNhanSu
             lb_thang.Text = DateTime.Now.Month.ToString();
 
             // Cập nhật số ngày làm việc thực tế vào label lb_ngaychamcong
-            lb_ngaychamcong.Text = TinhSoNgayLamViec().ToString();
+            lb_ngaychamcong.Text = TinhSoNgayLamViecThucTe().ToString();
 
             // Cập nhật tổng số ngày làm việc (không tính thứ Bảy và Chủ Nhật)
             lb_tongngay.Text = TinhSoNgayLamViec().ToString();
@@ -634,6 +630,11 @@ namespace QuanLyNhanSu
                     er.ShowDialog();
                 }
             }
+        }
+
+        private void btn_updatehs_Click(object sender, EventArgs e)
+        {
+            KiemTraNgayNghi();
         }
     }
 }

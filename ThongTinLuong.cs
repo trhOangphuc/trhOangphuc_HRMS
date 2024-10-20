@@ -146,7 +146,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -176,7 +179,10 @@ namespace QuanLyNhanSu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi");
+                        Error er = new Error();
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
+                        er.OkButtonText = "OK";
+                        er.ShowDialog();
                     }
                 }
             }
@@ -236,8 +242,8 @@ namespace QuanLyNhanSu
                         command.Parameters.AddWithValue("@MaLuong", txt_maluong.Text);
                         command.Parameters.AddWithValue("@MaPB", cmb_phongban.Text);
                         command.Parameters.AddWithValue("@MaCV", cmb_chucvu.Text);
-                        command.Parameters.AddWithValue("@PhuCap", lcb);
-                        command.Parameters.AddWithValue("@LuongCoBan", phucap);
+                        command.Parameters.AddWithValue("@PhuCap", phucap);
+                        command.Parameters.AddWithValue("@LuongCoBan", lcb);
  
 
                         command.ExecuteNonQuery();
@@ -336,7 +342,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
