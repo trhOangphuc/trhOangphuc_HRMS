@@ -46,9 +46,23 @@
             this.TongKyLuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LuongCoBan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongPhuCap2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongNgayCong2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongThuong2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongKyLuat2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongLuong2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.x.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // x
@@ -98,7 +112,7 @@
             this.txt_thang.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_thang.ForeColor = System.Drawing.Color.Black;
             this.txt_thang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_thang.Location = new System.Drawing.Point(457, 84);
+            this.txt_thang.Location = new System.Drawing.Point(372, 84);
             this.txt_thang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_thang.Name = "txt_thang";
             this.txt_thang.PasswordChar = '\0';
@@ -115,7 +129,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(338, 93);
+            this.label2.Location = new System.Drawing.Point(253, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 18);
             this.label2.TabIndex = 118;
@@ -136,7 +150,7 @@
             this.txt_manv.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_manv.ForeColor = System.Drawing.Color.Black;
             this.txt_manv.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_manv.Location = new System.Drawing.Point(457, 27);
+            this.txt_manv.Location = new System.Drawing.Point(372, 27);
             this.txt_manv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_manv.Name = "txt_manv";
             this.txt_manv.PasswordChar = '\0';
@@ -159,7 +173,7 @@
             this.resetHs.ForeColor = System.Drawing.Color.White;
             this.resetHs.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetHs.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetHs.Location = new System.Drawing.Point(649, 143);
+            this.resetHs.Location = new System.Drawing.Point(564, 143);
             this.resetHs.Name = "resetHs";
             this.resetHs.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetHs.Size = new System.Drawing.Size(46, 43);
@@ -179,7 +193,7 @@
             this.btn_chamcong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_chamcong.ForeColor = System.Drawing.Color.Black;
             this.btn_chamcong.Image = global::QuanLyNhanSu.Properties.Resources.tinhluong;
-            this.btn_chamcong.Location = new System.Drawing.Point(399, 143);
+            this.btn_chamcong.Location = new System.Drawing.Point(314, 143);
             this.btn_chamcong.Name = "btn_chamcong";
             this.btn_chamcong.ShadowDecoration.BorderRadius = 30;
             this.btn_chamcong.ShadowDecoration.Color = System.Drawing.Color.Gray;
@@ -195,7 +209,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(338, 36);
+            this.label7.Location = new System.Drawing.Point(253, 36);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 18);
             this.label7.TabIndex = 99;
@@ -299,12 +313,123 @@
             this.label1.Text = "(lương cơ bản / tổng ngày chấm công tháng)* tổng ngày công + tổng phụ cấp + tổng " +
     "thưởng - tổng kỷ luật = tổng lương";
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID2,
+            this.HoTen2,
+            this.NgaySinh,
+            this.MaPB,
+            this.MaCV,
+            this.LuongCoBan2,
+            this.TongPhuCap2,
+            this.TongNgayCong2,
+            this.TongThuong2,
+            this.TongKyLuat2,
+            this.TongLuong2});
+            this.dataGridView2.Location = new System.Drawing.Point(12, 358);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(1051, 298);
+            this.dataGridView2.TabIndex = 121;
+            // 
+            // ID2
+            // 
+            this.ID2.DataPropertyName = "ID";
+            this.ID2.FillWeight = 32.00491F;
+            this.ID2.HeaderText = "ID";
+            this.ID2.MinimumWidth = 7;
+            this.ID2.Name = "ID2";
+            // 
+            // HoTen2
+            // 
+            this.HoTen2.DataPropertyName = "HoTen";
+            this.HoTen2.FillWeight = 148.7578F;
+            this.HoTen2.HeaderText = "Họ Tên";
+            this.HoTen2.MinimumWidth = 35;
+            this.HoTen2.Name = "HoTen2";
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            // 
+            // MaPB
+            // 
+            this.MaPB.DataPropertyName = "MaPB";
+            this.MaPB.HeaderText = "Phòng ban";
+            this.MaPB.Name = "MaPB";
+            // 
+            // MaCV
+            // 
+            this.MaCV.DataPropertyName = "MaCV";
+            this.MaCV.HeaderText = "Chức vụ";
+            this.MaCV.Name = "MaCV";
+            // 
+            // LuongCoBan2
+            // 
+            this.LuongCoBan2.DataPropertyName = "LuongCoBan";
+            this.LuongCoBan2.FillWeight = 87.80294F;
+            this.LuongCoBan2.HeaderText = "Lương cơ bản";
+            this.LuongCoBan2.Name = "LuongCoBan2";
+            // 
+            // TongPhuCap2
+            // 
+            this.TongPhuCap2.DataPropertyName = "TongPhuCap2";
+            this.TongPhuCap2.HeaderText = "Tổng phụ cấp";
+            this.TongPhuCap2.Name = "TongPhuCap2";
+            // 
+            // TongNgayCong2
+            // 
+            this.TongNgayCong2.DataPropertyName = "TongNgayCong2";
+            this.TongNgayCong2.HeaderText = "Tổng ngày công";
+            this.TongNgayCong2.Name = "TongNgayCong2";
+            // 
+            // TongThuong2
+            // 
+            this.TongThuong2.DataPropertyName = "TongThuong2";
+            this.TongThuong2.HeaderText = "Tổng thưởng";
+            this.TongThuong2.Name = "TongThuong2";
+            // 
+            // TongKyLuat2
+            // 
+            this.TongKyLuat2.DataPropertyName = "TongKyLuat2";
+            this.TongKyLuat2.HeaderText = "Tông kỷ luật";
+            this.TongKyLuat2.Name = "TongKyLuat2";
+            // 
+            // TongLuong2
+            // 
+            this.TongLuong2.DataPropertyName = "TongLuong2";
+            this.TongLuong2.HeaderText = "Tổng lương";
+            this.TongLuong2.Name = "TongLuong2";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 331);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1051, 24);
+            this.label3.TabIndex = 122;
+            this.label3.Text = "Bảng lương";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // TinhLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(215)))), ((int)(((byte)(153)))));
             this.ClientSize = new System.Drawing.Size(1075, 656);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.x);
@@ -316,6 +441,7 @@
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +467,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TongKyLuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongLuong;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LuongCoBan2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongPhuCap2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongNgayCong2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongThuong2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongKyLuat2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongLuong2;
+        private System.Windows.Forms.Label label3;
     }
 }

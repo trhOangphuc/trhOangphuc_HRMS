@@ -266,7 +266,7 @@ namespace QuanLyNhanSu
                         if (duplicateCount > 0)
                         {
                             Notification notification = new Notification();
-                            notification.NotificationText = "Đã tồn tại bản ghi cho nhân viên này vào ngày đã chọn!";
+                            notification.NotificationText = "Nhân viên đã chấm công cho ngày hôm nay!";
                             notification.OkButtonText = "OK";
                             notification.ShowDialog();
                             return;

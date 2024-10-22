@@ -29,6 +29,59 @@ namespace QuanLyNhanSu
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
         }
 
+        public DataTable GetHoSo()
+        {
+            DataTable DataTable = new DataTable();
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                }
+
+                try
+                {
+                    connection.Open();
+                    string query = @"
+                SELECT 
+                    NV.ID, 
+                    NV.HoTen, 
+                    NV.GioiTinh, 
+                    NV.NgaySinh, 
+                    NV.Sdt, 
+                    NV.DiaChi, 
+                    PB.MaPB, 
+                    CV.MaCV 
+                FROM 
+                    NhanVien NV
+                LEFT JOIN 
+                    PhongBan PB ON NV.MaPB = PB.MaPB
+                LEFT JOIN 
+                    ChucVu CV ON NV.MaCV = CV.MaCV ORDER BY ID";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
+                }
+            }
+            return DataTable;
+        }
+
         private void LoadData()
         {
             using (SqlConnection connection = connectdatabase.Connect())

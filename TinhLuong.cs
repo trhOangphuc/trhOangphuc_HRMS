@@ -20,6 +20,172 @@ namespace QuanLyNhanSu
             //LoadComboBoxData();
             dataGridView1.Columns["TongLuong"].DefaultCellStyle.BackColor = Color.SkyBlue;
             dataGridView1.ReadOnly = true;
+            BangLuong();
+            label3.Text = $"Bảng lương tháng {DateTime.Now.Month}";
+        }
+
+        public DataTable GetBangLuong()
+        {
+            DataTable DataTable = new DataTable();
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database!";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                }
+
+                try
+                {
+                    connection.Open();
+                    string query = @"
+                          SELECT 
+                                NV.ID, 
+                                NV.HoTen,
+                                NV.NgaySinh,
+                                NV.MaPB,
+                                NV.MaCV,
+                                L.LuongCoBan,
+                                SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0))  AS TongPhuCap2,
+                                COUNT(DISTINCT CASE WHEN CC.LamViec = 1 THEN CC.NgayLamViec END) AS TongNgayCong2, 
+                                SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) + SUM(DISTINCT COALESCE(KT.GiaTri, 0)) AS TongThuong2,
+                                SUM(DISTINCT COALESCE(KL.GiaTri, 0)) AS TongKyLuat2,     
+                                ROUND (
+                                (
+                                 SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0)) +
+                                 SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) - 
+                                 SUM(DISTINCT COALESCE(KL.GiaTri, 0)) + 
+                                 (SUM(DISTINCT CASE WHEN CC.LamViec = 1 THEN 1 ELSE 0 END) * (L.LuongCoBan / @SoNgayLamViec))), 2
+                                ) AS TongLuong2
+                            FROM 
+                                NhanVien NV
+                            LEFT JOIN 
+                                ChinhSach CS ON NV.ID = CS.IDnhanvien
+                            LEFT JOIN 
+                                KhenThuong KT ON CS.MaKT = KT.MaKT
+                            LEFT JOIN 
+                                DuAn DU ON CS.MaDuAn = DU.MaDuAn
+                            LEFT JOIN 
+                                PhanCong PC ON NV.ID = PC.IDnhanvien
+                            LEFT JOIN 
+                                KyLuat KL ON CS.MaKL = KL.MaKL
+                            LEFT JOIN 
+                                Luong L ON NV.MaPB = L.MaPB AND NV.MaCV = L.MaCV
+                            LEFT JOIN 
+                                ChamCong CC ON NV.ID = CC.IDnhanvien 
+                            WHERE MONTH(CC.NgayLamViec) = MONTH(GETDATE()) 
+                                AND YEAR(CC.NgayLamViec) = YEAR(GETDATE()) 
+                            GROUP BY 
+                                NV.ID,
+                                NV.HoTen,
+                                NV.NgaySinh,
+                                NV.MaPB,
+                                NV.MaCV,  L.LuongCoBan;
+                ";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        int soNgayLamViec = TinhSoNgayLamViec();
+                        command.Parameters.AddWithValue("@SoNgayLamViec", soNgayLamViec);
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView2.DataSource = dataTable;
+                        dataGridView2.AllowUserToAddRows = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
+                }
+            }
+            return DataTable;
+        }
+        private void BangLuong()
+        {
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                if (connection == null)
+                {
+                    Error error = new Error();
+                    error.ErrorText = "Lỗi kết nối Database!";
+                    error.OkButtonText = "OK";
+                    error.ShowDialog();
+                    return;
+                }
+
+                try
+                {
+                    connection.Open();
+                    string query = @"
+                          SELECT 
+                                NV.ID, 
+                                NV.HoTen,
+                                NV.NgaySinh,
+                                NV.MaPB,
+                                NV.MaCV,
+                                L.LuongCoBan,
+                                SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0))  AS TongPhuCap2,
+                                COUNT(DISTINCT CASE WHEN CC.LamViec = 1 THEN CC.NgayLamViec END) AS TongNgayCong2, 
+                                SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) + SUM(DISTINCT COALESCE(KT.GiaTri, 0)) AS TongThuong2,
+                                SUM(DISTINCT COALESCE(KL.GiaTri, 0)) AS TongKyLuat2,     
+                                ROUND (
+                                (
+                                 SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0)) +
+                                 SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) - 
+                                 SUM(DISTINCT COALESCE(KL.GiaTri, 0)) + 
+                                 (SUM(DISTINCT CASE WHEN CC.LamViec = 1 THEN 1 ELSE 0 END) * (L.LuongCoBan / @SoNgayLamViec))), 2
+                                ) AS TongLuong2
+                            FROM 
+                                NhanVien NV
+                            LEFT JOIN 
+                                ChinhSach CS ON NV.ID = CS.IDnhanvien
+                            LEFT JOIN 
+                                KhenThuong KT ON CS.MaKT = KT.MaKT
+                            LEFT JOIN 
+                                DuAn DU ON CS.MaDuAn = DU.MaDuAn
+                            LEFT JOIN 
+                                PhanCong PC ON NV.ID = PC.IDnhanvien
+                            LEFT JOIN 
+                                KyLuat KL ON CS.MaKL = KL.MaKL
+                            LEFT JOIN 
+                                Luong L ON NV.MaPB = L.MaPB AND NV.MaCV = L.MaCV
+                            LEFT JOIN 
+                                ChamCong CC ON NV.ID = CC.IDnhanvien 
+                            WHERE MONTH(CC.NgayLamViec) = MONTH(GETDATE()) 
+                                AND YEAR(CC.NgayLamViec) = YEAR(GETDATE()) 
+                            GROUP BY 
+                                NV.ID,
+                                NV.HoTen,
+                                NV.NgaySinh,
+                                NV.MaPB,
+                                NV.MaCV,  L.LuongCoBan;
+                ";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        int soNgayLamViec = TinhSoNgayLamViec();
+                        command.Parameters.AddWithValue("@SoNgayLamViec", soNgayLamViec);
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView2.DataSource = dataTable;
+                        dataGridView2.AllowUserToAddRows = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
+                }
+            }
         }
 
         //private void LoadComboBoxData()
@@ -67,7 +233,6 @@ namespace QuanLyNhanSu
             txt_manv.Text = string.Empty;
             txt_thang.Text = string.Empty;
             dataGridView1.ClearSelection();
-            LoadData();
         }
         private void LoadData()
         {
@@ -147,7 +312,7 @@ namespace QuanLyNhanSu
                                 L.LuongCoBan,
                                 SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0))  AS TongPhuCap,
                                 COUNT(DISTINCT CASE WHEN CC.LamViec = 1 THEN CC.NgayLamViec END) AS TongNgayCong, 
-                                SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) AS TongThuong,
+                                SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) + SUM(DISTINCT COALESCE(KT.GiaTri, 0)) AS TongThuong,
                                 SUM(DISTINCT COALESCE(KL.GiaTri, 0)) AS TongKyLuat,     
                                 ROUND (
                                 (
@@ -221,8 +386,8 @@ namespace QuanLyNhanSu
         {
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
-            int totalDaysInMonth = DateTime.DaysInMonth(year, month); // Tổng số ngày trong tháng hiện tại
-            int workingDays = 0; // Số ngày làm việc
+            int totalDaysInMonth = DateTime.DaysInMonth(year, month); 
+            int workingDays = 0; 
 
             for (int day = 1; day <= totalDaysInMonth; day++)
             {
