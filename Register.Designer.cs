@@ -167,9 +167,9 @@
             // lb_thongbao
             // 
             this.lb_thongbao.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_thongbao.Location = new System.Drawing.Point(173, 481);
+            this.lb_thongbao.Location = new System.Drawing.Point(173, 450);
             this.lb_thongbao.Name = "lb_thongbao";
-            this.lb_thongbao.Size = new System.Drawing.Size(219, 56);
+            this.lb_thongbao.Size = new System.Drawing.Size(219, 137);
             this.lb_thongbao.TabIndex = 43;
             this.lb_thongbao.Click += new System.EventHandler(this.lb_thongbao_Click);
             // 
@@ -211,7 +211,7 @@
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username.ForeColor = System.Drawing.Color.Black;
             this.txt_username.HoverState.BorderColor = System.Drawing.Color.Gray;
-            this.txt_username.Location = new System.Drawing.Point(119, 249);
+            this.txt_username.Location = new System.Drawing.Point(119, 227);
             this.txt_username.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.txt_username.MaxLength = 40;
             this.txt_username.Name = "txt_username";
@@ -243,7 +243,7 @@
             this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.ForeColor = System.Drawing.Color.Black;
             this.txt_password.HoverState.BorderColor = System.Drawing.Color.Gray;
-            this.txt_password.Location = new System.Drawing.Point(119, 328);
+            this.txt_password.Location = new System.Drawing.Point(119, 306);
             this.txt_password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_password.MaxLength = 36;
             this.txt_password.Name = "txt_password";
@@ -273,7 +273,7 @@
             this.Login_login.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_login.ForeColor = System.Drawing.Color.Black;
             this.Login_login.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.Login_login.Location = new System.Drawing.Point(119, 557);
+            this.Login_login.Location = new System.Drawing.Point(119, 590);
             this.Login_login.Name = "Login_login";
             this.Login_login.Size = new System.Drawing.Size(342, 62);
             this.Login_login.TabIndex = 5;
@@ -299,7 +299,7 @@
             this.txt_comfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_comfirm.ForeColor = System.Drawing.Color.Black;
             this.txt_comfirm.HoverState.BorderColor = System.Drawing.Color.Gray;
-            this.txt_comfirm.Location = new System.Drawing.Point(119, 403);
+            this.txt_comfirm.Location = new System.Drawing.Point(119, 381);
             this.txt_comfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_comfirm.MaxLength = 36;
             this.txt_comfirm.Name = "txt_comfirm";
@@ -329,7 +329,7 @@
             this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.ForeColor = System.Drawing.Color.Black;
             this.txt_name.HoverState.BorderColor = System.Drawing.Color.Gray;
-            this.txt_name.Location = new System.Drawing.Point(119, 176);
+            this.txt_name.Location = new System.Drawing.Point(119, 154);
             this.txt_name.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.txt_name.MaxLength = 40;
             this.txt_name.Name = "txt_name";
