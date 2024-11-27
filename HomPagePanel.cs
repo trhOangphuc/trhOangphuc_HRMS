@@ -15,8 +15,7 @@ namespace QuanLyNhanSu
 {
     public partial class HomPagePanel : Form
     {
-
-        private bool isUpdatingCheckboxes = false; 
+        private bool isUpdatingCheckboxes = false;
         public HomPagePanel()
         {
             InitializeComponent();
@@ -58,10 +57,10 @@ namespace QuanLyNhanSu
                         command.Parameters.AddWithValue("@NgayHienTai", ngayHienTai);
                         int count = (int)command.ExecuteScalar();
                         isUpdatingCheckboxes = true;
-                        cb_nghi.Checked = count > 0; 
-                        cb_dilam.Checked = count == 0; 
+                        cb_nghi.Checked = count > 0;
+                        cb_dilam.Checked = count == 0;
 
-                        isUpdatingCheckboxes = false; 
+                        isUpdatingCheckboxes = false;
                     }
                 }
                 catch (Exception ex)
@@ -94,7 +93,7 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
 
-                    DateTime selectedDate = dtp_date.Value.Date; 
+                    DateTime selectedDate = dtp_date.Value.Date;
 
                     string query = @"
                             SELECT COUNT(*) 
@@ -103,7 +102,7 @@ namespace QuanLyNhanSu
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@NgayLamViec", selectedDate); 
+                        command.Parameters.AddWithValue("@NgayLamViec", selectedDate);
 
                         int count = (int)command.ExecuteScalar();
 
@@ -113,7 +112,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -140,8 +139,8 @@ namespace QuanLyNhanSu
                     string query = "SELECT COUNT(*) FROM NhanVien";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        int count = (int)command.ExecuteScalar(); 
-                        lb_tongnv.Text = count.ToString(); 
+                        int count = (int)command.ExecuteScalar();
+                        lb_tongnv.Text = count.ToString();
                     }
                 }
                 catch (Exception ex)
@@ -177,7 +176,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -185,9 +184,9 @@ namespace QuanLyNhanSu
         }
         private void LoadQuyHienTai()
         {
-            int month = DateTime.Now.Month; 
+            int month = DateTime.Now.Month;
             int quy = (month - 1) / 3 + 1;
-            lb_quy.Text = $"{quy}"; 
+            lb_quy.Text = $"{quy}";
         }
 
         private void LoadChartNhanVien()
@@ -225,13 +224,13 @@ namespace QuanLyNhanSu
                             series.Points.AddXY(row["GioiTinh"].ToString(), row["SoLuong"]);
                         }
 
-                        chart_nhanvien.Series.Add(series); 
+                        chart_nhanvien.Series.Add(series);
                     }
                 }
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -280,7 +279,7 @@ namespace QuanLyNhanSu
 
                         Series series = new Series("SoLuongNhanVien")
                         {
-                            ChartType = SeriesChartType.Pie 
+                            ChartType = SeriesChartType.Pie
                         };
 
                         foreach (DataRow row in dataTable.Rows)
@@ -292,20 +291,20 @@ namespace QuanLyNhanSu
 
                         foreach (DataPoint point in series.Points)
                         {
-                            point.Label = ""; 
+                            point.Label = "";
                         }
-                        series.IsValueShownAsLabel = false; 
+                        series.IsValueShownAsLabel = false;
 
                         foreach (DataPoint point in series.Points)
                         {
-                            point.IsValueShownAsLabel = false; 
+                            point.IsValueShownAsLabel = false;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }
@@ -327,11 +326,11 @@ namespace QuanLyNhanSu
 
         private void dtp_date2_ValueChanged(object sender, EventArgs e)
         {
-            if (isUpdatingCheckboxes) return; 
+            if (isUpdatingCheckboxes) return;
 
             try
             {
-                isUpdatingCheckboxes = true; 
+                isUpdatingCheckboxes = true;
 
                 using (SqlConnection connection = connectdatabase.Connect())
                 {
@@ -375,13 +374,13 @@ namespace QuanLyNhanSu
             }
             finally
             {
-                isUpdatingCheckboxes = false; 
+                isUpdatingCheckboxes = false;
             }
         }
 
         private void cb_dilam_CheckedChanged(object sender, EventArgs e)
         {
-            if (isUpdatingCheckboxes) return; 
+            if (isUpdatingCheckboxes) return;
 
             using (SqlConnection connection = connectdatabase.Connect())
             {
@@ -582,12 +581,13 @@ namespace QuanLyNhanSu
 
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                if(cb_nghi.Checked == false)
+                if (cb_nghi.Checked == false)
                 {
                     Notification tb = new Notification();
                     tb.NotificationText = "Ngày này công ty đang đi làm!";
                     tb.OkButtonText = "OK";
                     tb.ShowDialog();
+                    return;
                 }
                 if (connection == null)
                 {
@@ -601,11 +601,11 @@ namespace QuanLyNhanSu
                 try
                 {
                     connection.Open();
-
-                    string insertQuery = "INSERT INTO NgayNghiLe (Ngay, LyDo) VALUES (@Ngay, @LyDo)";
+                    DateTime selectedDate = dtp_date2.Value.Date;
+                    string insertQuery = "UPDATE NgayNghiLe SET LyDo = @LyDo WHERE Ngay = @Ngay";
                     using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
                     {
-                        insertCommand.Parameters.AddWithValue("@Ngay", dtp_date2.Value);
+                        insertCommand.Parameters.AddWithValue("@Ngay", selectedDate);
                         insertCommand.Parameters.AddWithValue("@LyDo", lyDo);
 
                         int rowsAffected = insertCommand.ExecuteNonQuery();

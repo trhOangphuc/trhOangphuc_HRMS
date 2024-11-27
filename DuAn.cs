@@ -352,35 +352,71 @@ namespace QuanLyNhanSu
             if (string.IsNullOrEmpty(txt_mada.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng chọn dự án để xóa !";
+                notification.NotificationText = "Vui lòng chọn dự án để xóa!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
             }
+
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "DELETE FROM DuAn WHERE MaDuAn = @MaDuAn";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@MaDuAn", txt_mada.Text);
+                    connection.Open();
 
-                    try
+                    // Kiểm tra xem có bản ghi nào trong bảng PhanCong tham chiếu đến MaDuAn không
+                    string checkQuery = "SELECT COUNT(*) FROM PhanCong WHERE MaDuAn = @MaDuAn";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
-                        connection.Open();
-                        command.ExecuteNonQuery();
+                        checkCommand.Parameters.AddWithValue("@MaDuAn", txt_mada.Text);
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Dự án này đang được phân công. Vui lòng xử lý trước khi xóa!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    // Kiểm tra xem có bản ghi nào trong bảng ChinhSach tham chiếu đến MaDuAn không
+                    string checkQuery2 = "SELECT COUNT(*) FROM ChinhSach WHERE MaDuAn = @MaDuAn";
+                    using (SqlCommand checkCommand2 = new SqlCommand(checkQuery2, connection))
+                    {
+                        checkCommand2.Parameters.AddWithValue("@MaDuAn", txt_mada.Text);
+                        int count2 = (int)checkCommand2.ExecuteScalar();
+
+                        if (count2 > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Dự án này đang được khen thưởng. Vui lòng xử lý trước khi xóa!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    // Nếu không có bản ghi nào tham chiếu đến MaDuAn, thực hiện xóa dự án
+                    string deleteQuery = "DELETE FROM DuAn WHERE MaDuAn = @MaDuAn";
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@MaDuAn", txt_mada.Text);
+                        deleteCommand.ExecuteNonQuery();
                         LoadData();
                         Reset();
                         Success sc = new Success();
                         sc.BringToFront();
                         sc.ShowDialog();
                     }
-                    catch (Exception ex)
-                    {
-                        Error er = new Error();
-                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
-                        er.OkButtonText = "OK";
-                        er.ShowDialog();
-                    }
+                }
+                catch (Exception ex)
+                {
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }

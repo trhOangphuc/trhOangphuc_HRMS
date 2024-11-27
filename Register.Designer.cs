@@ -169,7 +169,7 @@
             this.lb_thongbao.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_thongbao.Location = new System.Drawing.Point(173, 481);
             this.lb_thongbao.Name = "lb_thongbao";
-            this.lb_thongbao.Size = new System.Drawing.Size(219, 56);
+            this.lb_thongbao.Size = new System.Drawing.Size(219, 106);
             this.lb_thongbao.TabIndex = 43;
             this.lb_thongbao.Click += new System.EventHandler(this.lb_thongbao_Click);
             // 
@@ -273,7 +273,7 @@
             this.Login_login.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_login.ForeColor = System.Drawing.Color.Black;
             this.Login_login.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.Login_login.Location = new System.Drawing.Point(119, 557);
+            this.Login_login.Location = new System.Drawing.Point(119, 590);
             this.Login_login.Name = "Login_login";
             this.Login_login.Size = new System.Drawing.Size(342, 62);
             this.Login_login.TabIndex = 5;

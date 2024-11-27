@@ -191,28 +191,29 @@ namespace QuanLyNhanSu
         private void add_hs_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txt_lcb.Text) || string.IsNullOrWhiteSpace(txt_maluong.Text)
-                || string.IsNullOrWhiteSpace(txt_phucap.Text) )
+            // Kiểm tra thông tin nhập
+            if (string.IsNullOrWhiteSpace(txt_lcb.Text) || string.IsNullOrWhiteSpace(txt_maluong.Text) || string.IsNullOrWhiteSpace(txt_phucap.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin !";
+                notification.NotificationText = "Vui lòng nhập đầy đủ thông tin!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
             }
 
-            if(!float.TryParse(txt_lcb.Text, out float lcb))
+            // Kiểm tra định dạng của lương cơ bản và phụ cấp
+            if (!float.TryParse(txt_lcb.Text, out float lcb))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng nhập lương cơ bản kiểu số !";
+                notification.NotificationText = "Vui lòng nhập lương cơ bản kiểu số!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
             }
-            if(!float.TryParse(txt_phucap.Text, out float phucap))
+            if (!float.TryParse(txt_phucap.Text, out float phucap))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng nhập phụ cấp kiểu số !";
+                notification.NotificationText = "Vui lòng nhập phụ cấp kiểu số!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
@@ -223,7 +224,7 @@ namespace QuanLyNhanSu
                 if (connection == null)
                 {
                     Error error = new Error();
-                    error.ErrorText = "Lỗi kết nối Database !";
+                    error.ErrorText = "Lỗi kết nối Database!";
                     error.OkButtonText = "OK";
                     error.ShowDialog();
                     return;
@@ -233,20 +234,38 @@ namespace QuanLyNhanSu
                 {
                     connection.Open();
 
-                    string query = @"
-                      INSERT INTO Luong (MaLuong, MaPB, MaCV, PhuCap, LuongCoBan)
-                      VALUES (@MaLuong, @MaPB, @MaCV, @PhuCap, @LuongCoBan)";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Kiểm tra xem mã lương có tồn tại không
+                    string checkQuery = "SELECT COUNT(*) FROM Luong WHERE MaLuong = @MaLuong";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@MaLuong", txt_maluong.Text);
-                        command.Parameters.AddWithValue("@MaPB", cmb_phongban.Text);
-                        command.Parameters.AddWithValue("@MaCV", cmb_chucvu.Text);
-                        command.Parameters.AddWithValue("@PhuCap", phucap);
-                        command.Parameters.AddWithValue("@LuongCoBan", lcb);
- 
+                        checkCommand.Parameters.AddWithValue("@MaLuong", txt_maluong.Text);
+                        int count = (int)checkCommand.ExecuteScalar();
 
-                        command.ExecuteNonQuery();
+                        if (count > 0)
+                        {
+                            // Nếu mã lương đã tồn tại, hiển thị thông báo
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Mã lương này đã tồn tại. Vui lòng nhập mã lương khác!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    // Nếu mã lương không tồn tại, thực hiện thêm mới
+                    string insertQuery = @"
+                INSERT INTO Luong (MaLuong, MaPB, MaCV, PhuCap, LuongCoBan)
+                VALUES (@MaLuong, @MaPB, @MaCV, @PhuCap, @LuongCoBan)";
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@MaLuong", txt_maluong.Text);
+                        insertCommand.Parameters.AddWithValue("@MaPB", cmb_phongban.Text);
+                        insertCommand.Parameters.AddWithValue("@MaCV", cmb_chucvu.Text);
+                        insertCommand.Parameters.AddWithValue("@PhuCap", phucap);
+                        insertCommand.Parameters.AddWithValue("@LuongCoBan", lcb);
+
+                        insertCommand.ExecuteNonQuery();
                         Success sc = new Success();
                         sc.ShowDialog();
                         LoadData();
@@ -256,7 +275,7 @@ namespace QuanLyNhanSu
                 catch (Exception ex)
                 {
                     Error er = new Error();
-                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                     er.OkButtonText = "OK";
                     er.ShowDialog();
                 }

@@ -423,6 +423,7 @@ namespace QuanLyNhanSu
 
         private void reset()
         {
+            cmb_duan.Enabled = true;
             cmb_KL.Enabled = true;
             cmb_KT.Enabled = true;
             richTextBox1.Text = string.Empty;
@@ -1137,23 +1138,7 @@ namespace QuanLyNhanSu
                             return;
                         }
                     }
-                    string checkExistingQuery = "SELECT COUNT(*) FROM ChinhSach WHERE IDnhanvien = @IDnhanvien AND MaDuAn = @MaDuAn";
-                    using (SqlCommand checkExistingCommand = new SqlCommand(checkExistingQuery, connection))
-                    {
-                        checkExistingCommand.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
-                        checkExistingCommand.Parameters.AddWithValue("@MaDuAn", cmb_duan.Text);
-
-                        int existingCount = (int)checkExistingCommand.ExecuteScalar();
-
-                        if (existingCount > 0)
-                        {
-                            Notification notification = new Notification();
-                            notification.NotificationText = "Nhân viên đã có trong bảng chính sách với dự án này!";
-                            notification.OkButtonText = "OK";
-                            notification.ShowDialog();
-                            return;
-                        }
-                    }
+                    
 
                     string checkParticipationQuery = "SELECT COUNT(*) FROM PhanCong WHERE IDnhanvien = @IDnhanvien AND MaDuAn = @MaDuAn";
                     using (SqlCommand checkParticipationCommand = new SqlCommand(checkParticipationQuery, connection))
@@ -1172,7 +1157,23 @@ namespace QuanLyNhanSu
                             return;
                         }
 
+                        string checkExistingQuery = "SELECT COUNT(*) FROM ChinhSach WHERE IDnhanvien = @IDnhanvien AND MaDuAn = @MaDuAn";
+                        using (SqlCommand checkExistingCommand = new SqlCommand(checkExistingQuery, connection))
+                        {
+                            checkExistingCommand.Parameters.AddWithValue("@IDnhanvien", txt_manv.Text);
+                            checkExistingCommand.Parameters.AddWithValue("@MaDuAn", cmb_duan.Text);
 
+                            int existingCount = (int)checkExistingCommand.ExecuteScalar();
+
+                            if (existingCount > 0)
+                            {
+                                Notification notification = new Notification();
+                                notification.NotificationText = "Nhân viên đã có trong bảng chính sách với dự án này!";
+                                notification.OkButtonText = "OK";
+                                notification.ShowDialog();
+                                return;
+                            }
+                        }
 
                         string query = @"
                       INSERT INTO ChinhSach (IDnhanvien, MaDuAn, KTDuAn)

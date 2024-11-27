@@ -221,70 +221,74 @@ namespace QuanLyNhanSu
             if (string.IsNullOrEmpty(txt_mapb.Text))
             {
                 Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng chọn phòng ban để xóa !";
+                notification.NotificationText = "Vui lòng chọn phòng ban để xóa!";
                 notification.OkButtonText = "OK";
                 notification.ShowDialog();
                 return;
             }
+
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "DELETE FROM PhongBan WHERE MaPB = @MaPB";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
+                    connection.Open();
 
-                    try
+                    // Kiểm tra xem phòng ban có nhân viên nào không
+                    string checkQuery = "SELECT COUNT(*) FROM NhanVien WHERE MaPB = @MaPB";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
-                        connection.Open();
-                        command.ExecuteNonQuery();
+                        checkCommand.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Phòng ban này có nhân viên. Vui lòng xóa hoặc chuyển nhân viên trước!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    string checkQuery2 = "SELECT COUNT(*) FROM Luong WHERE MaPB = @MaPB";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery2, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Phòng ban này có thông tin lương. Vui lòng xóa thông tin lương trước để xóa phòng ban!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    // Nếu không có nhân viên trong phòng ban, thực hiện xóa
+                    string deleteQuery = "DELETE FROM PhongBan WHERE MaPB = @MaPB";
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@MaPB", txt_mapb.Text);
+                        deleteCommand.ExecuteNonQuery();
                         LoadData();
+
                         Success sc = new Success();
                         sc.BringToFront();
                         sc.ShowDialog();
                     }
-                    catch (Exception ex)
-                    {
-                        Error er = new Error();
-                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
-                        er.OkButtonText = "OK";
-                        er.ShowDialog();
-                    }
                 }
-            }
-
-            if (string.IsNullOrEmpty(txt_chucvu.Text))
-            {
-                Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng chọn chức vụ để xóa!";
-                notification.OkButtonText = "OK";
-                notification.ShowDialog();
-                return;
-            }
-
-            using (SqlConnection connection = connectdatabase.Connect())
-            {
-                string query = "DELETE FROM ChucVu WHERE MaCV = @MaCV";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                catch (Exception ex)
                 {
-                    command.Parameters.AddWithValue("@MaCV", txt_chucvu.Text);
-
-                    try
-                    {
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        LoadDataCV(); 
-                        Success sc = new Success();
-                        sc.ShowDialog();
-                    }
-                    catch (Exception ex)
-                    {
-                        Error er = new Error();
-                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
-                        er.OkButtonText = "OK";
-                        er.ShowDialog();
-                    }
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
+
+
         }
 
 
@@ -522,6 +526,78 @@ namespace QuanLyNhanSu
                         notification.OkButtonText = "OK";
                         notification.ShowDialog();
                     }
+                }
+            }
+        }
+
+        private void guna2GradientCircleButton2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_chucvu.Text))
+            {
+                Notification notification = new Notification();
+                notification.NotificationText = "Vui lòng chọn chức vụ để xóa!";
+                notification.OkButtonText = "OK";
+                notification.ShowDialog();
+                return;
+            }
+
+            using (SqlConnection connection = connectdatabase.Connect())
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Kiểm tra xem chức vụ có nhân viên nào không
+                    string checkQuery = "SELECT COUNT(*) FROM NhanVien WHERE MaCV = @MaCV";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@MaCV", txt_chucvu.Text);
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Chức vụ này có nhân viên. Vui lòng xóa hoặc chuyển nhân viên trước!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    string checkQuery2 = "SELECT COUNT(*) FROM Luong WHERE MaCV = @MaCV";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery2, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@MaCV", txt_chucvu.Text);
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Chức vụ này có nhân viên. Vui lòng xóa thông tin lương trước để xóa !";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+                    }
+
+                    // Nếu không có nhân viên trong chức vụ, thực hiện xóa
+                    string deleteQuery = "DELETE FROM ChucVu WHERE MaCV = @MaCV";
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@MaCV", txt_chucvu.Text);
+                        deleteCommand.ExecuteNonQuery();
+                        LoadDataCV();
+
+                        Success sc = new Success();
+                        sc.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Error er = new Error();
+                    er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
+                    er.OkButtonText = "OK";
+                    er.ShowDialog();
                 }
             }
         }

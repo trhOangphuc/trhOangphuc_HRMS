@@ -239,40 +239,74 @@ namespace QuanLyNhanSu
         {
             if (string.IsNullOrEmpty(txt_makl.Text))
             {
-                Notification notification = new Notification();
-                notification.NotificationText = "Vui lòng chọn để xóa !";
-                notification.OkButtonText = "OK";
-                notification.ShowDialog();
+                ShowNotification("Vui lòng chọn khen thưởng để xóa!");
                 return;
             }
+
             using (SqlConnection connection = connectdatabase.Connect())
             {
-                string query = "DELETE FROM KyLuat WHERE MaKL = @MaKL";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@MaKL", txt_makl.Text);
+                    connection.Open();
 
-                    try
+                    // Kiểm tra khen thưởng có nhân viên nào đang dùng không
+                    string checkQuery = "SELECT COUNT(*) FROM ChinhSach WHERE MaKL = @MaKL";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        LoadData();
-                        Reset();
-                        Success sc = new Success();
-                        sc.BringToFront();
-                        sc.ShowDialog();
+                        checkCommand.Parameters.AddWithValue("@MaKL", txt_makl.Text);
+                        int count = (int)checkCommand.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            ShowNotification("Kỷ luật này có nhân viên. Vui lòng xóa hoặc chuyển nhân viên trước!");
+                            return;
+                        }
                     }
-                    catch (Exception ex)
+
+                    // Thực hiện xóa khen thưởng
+                    string deleteQuery = "DELETE FROM KyLuat WHERE MaKL = @MaKL";
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
                     {
-                        Error er = new Error();
-                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
-                        er.OkButtonText = "OK";
-                        er.ShowDialog();
+                        deleteCommand.Parameters.AddWithValue("@MaKL", txt_makl.Text);
+                        deleteCommand.ExecuteNonQuery();
                     }
+
+                    LoadData();
+                    Reset();
+                    ShowSuccess("Xóa thành công!");
+                }
+                catch (Exception ex)
+                {
+                    ShowError("Đã xảy ra lỗi: " + ex.Message);
                 }
             }
         }
+        private void ShowNotification(string message)
+        {
+            Notification notification = new Notification
+            {
+                NotificationText = message,
+                OkButtonText = "OK"
+            };
+            notification.ShowDialog();
+        }
 
+        private void ShowSuccess(string message)
+        {
+            Success success = new Success();
+            success.BringToFront();
+            success.ShowDialog();
+        }
+
+        private void ShowError(string message)
+        {
+            Error error = new Error
+            {
+                ErrorText = message,
+                OkButtonText = "OK"
+            };
+            error.ShowDialog();
+        }
         private void btn_searchKl_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = connectdatabase.Connect())

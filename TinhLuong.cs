@@ -247,14 +247,6 @@ namespace QuanLyNhanSu
                     return;
                 }
 
-                //if (dataGridView1.Rows.Count == 0)
-                //{
-                //    Notification notification = new Notification();
-                //    notification.NotificationText = "Không tìm thấy dữ liệu cho nhân viên này!";
-                //    notification.OkButtonText = "OK";
-                //    notification.ShowDialog();
-                //    return;
-                //}
                 if (!int.TryParse(txt_manv.Text, out int idNhanVien))
                 {
                     Notification notification = new Notification();
@@ -265,100 +257,89 @@ namespace QuanLyNhanSu
                     return;
                 }
 
-                
+                int thang;
+                if (!int.TryParse(txt_thang.Text, out thang) || thang < 1 || thang > 12)
+                {
+                    Notification notification = new Notification();
+                    notification.NotificationText = "Tháng phải là số nguyên từ 1 đến 12!";
+                    notification.OkButtonText = "OK";
+                    notification.ShowDialog();
+                    return;
+                }
+
                 try
                 {
                     connection.Open();
 
-                    // Kiểm tra xem nhân viên đã có chấm công nào chưa
-                    string checkChamCongQuery = "SELECT COUNT(*) FROM ChamCong WHERE IDnhanvien = @IDnhanvien";
+                    // Kiểm tra xem có chấm công cho nhân viên trong tháng nhập vào không
+                    string checkChamCongQuery = @"
+                SELECT COUNT(*) 
+                FROM ChamCong 
+                WHERE IDnhanvien = @IDnhanvien 
+                    AND MONTH(NgayLamViec) = @Thang 
+                    AND YEAR(NgayLamViec) = YEAR(GETDATE())";
+
                     using (SqlCommand checkChamCongCommand = new SqlCommand(checkChamCongQuery, connection))
                     {
                         checkChamCongCommand.Parameters.AddWithValue("@IDnhanvien", idNhanVien);
+                        checkChamCongCommand.Parameters.AddWithValue("@Thang", thang);
+
                         int chamCongCount = (int)checkChamCongCommand.ExecuteScalar();
 
                         if (chamCongCount == 0)
                         {
                             Notification notification = new Notification();
-                            notification.NotificationText = "Nhân viên này chưa có chấm công nào!";
+                            notification.NotificationText = "Không có dữ liệu chấm công cho nhân viên trong tháng đã chọn!";
                             notification.OkButtonText = "OK";
                             notification.ShowDialog();
-                            txt_manv.Focus();
                             return;
                         }
                     }
 
-                    string checkQuery = "SELECT COUNT(*) FROM NhanVien WHERE ID = @IDnhanvien";
-                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
-                    {
-                        checkCommand.Parameters.AddWithValue("@IDnhanvien", idNhanVien);
-                        int count = (int)checkCommand.ExecuteScalar();
-
-                        if (count == 0)
-                        {
-                            Notification notification = new Notification();
-                            notification.NotificationText = "ID nhân viên không tồn tại!";
-                            notification.OkButtonText = "OK";
-                            notification.ShowDialog();
-                            txt_manv.Focus();
-                            return;
-                        }
-                    }
-
+                    // Nếu có dữ liệu chấm công, tiến hành tải dữ liệu bảng lương
                     string query = @"
-                            SELECT 
-                                NV.ID, 
-                                NV.HoTen,
-                                L.LuongCoBan,
-                                SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0))  AS TongPhuCap,
-                                COUNT(DISTINCT CASE WHEN CC.LamViec = 1 THEN CC.NgayLamViec END) AS TongNgayCong, 
-                                SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) + SUM(DISTINCT COALESCE(KT.GiaTri, 0)) AS TongThuong,
-                                SUM(DISTINCT COALESCE(KL.GiaTri, 0)) AS TongKyLuat,     
-                                ROUND (
-                                (
-                                 SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0)) +
-                                 SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) - 
-                                 SUM(DISTINCT COALESCE(KL.GiaTri, 0)) + 
-                                 (SUM(DISTINCT CASE WHEN CC.LamViec = 1 THEN 1 ELSE 0 END) * (L.LuongCoBan / @SoNgayLamViec))), 2
-                                ) AS TongLuong 
-                            FROM 
-                                NhanVien NV
-                            LEFT JOIN 
-                                ChinhSach CS ON NV.ID = CS.IDnhanvien
-                            LEFT JOIN 
-                                KhenThuong KT ON CS.MaKT = KT.MaKT
-                            LEFT JOIN 
-                                DuAn DU ON CS.MaDuAn = DU.MaDuAn
-                            LEFT JOIN 
-                                PhanCong PC ON NV.ID = PC.IDnhanvien
-                            LEFT JOIN 
-                                KyLuat KL ON CS.MaKL = KL.MaKL
-                            LEFT JOIN 
-                                Luong L ON NV.MaPB = L.MaPB AND NV.MaCV = L.MaCV
-                            LEFT JOIN 
-                                ChamCong CC ON NV.ID = CC.IDnhanvien 
-                            WHERE 
-                                CC.LamViec = 1 
-                                AND MONTH(CC.NgayLamViec) = @Thang 
-                                AND YEAR(CC.NgayLamViec) = YEAR(GETDATE()) 
-                                AND NV.ID = @MaNV
-                            GROUP BY 
-                                NV.ID, NV.HoTen, L.LuongCoBan;
-                            ";
+                SELECT 
+                    NV.ID, 
+                    NV.HoTen,
+                    L.LuongCoBan,
+                    SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0)) AS TongPhuCap,
+                    COUNT(DISTINCT CASE WHEN CC.LamViec = 1 THEN CC.NgayLamViec END) AS TongNgayCong, 
+                    SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) + SUM(DISTINCT COALESCE(KT.GiaTri, 0)) AS TongThuong,
+                    SUM(DISTINCT COALESCE(KL.GiaTri, 0)) AS TongKyLuat,     
+                    ROUND (
+                    (
+                        SUM(DISTINCT L.PhuCap) + SUM(DISTINCT COALESCE(DU.PhuCapDuAn, 0)) +
+                        SUM(DISTINCT COALESCE(CS.KTDuAn, 0)) - 
+                        SUM(DISTINCT COALESCE(KL.GiaTri, 0)) + 
+                        (SUM(DISTINCT CASE WHEN CC.LamViec = 1 THEN 1 ELSE 0 END) * (L.LuongCoBan / @SoNgayLamViec))), 2
+                    ) AS TongLuong 
+                FROM 
+                    NhanVien NV
+                LEFT JOIN 
+                    ChinhSach CS ON NV.ID = CS.IDnhanvien
+                LEFT JOIN 
+                    KhenThuong KT ON CS.MaKT = KT.MaKT
+                LEFT JOIN 
+                    DuAn DU ON CS.MaDuAn = DU.MaDuAn
+                LEFT JOIN 
+                    PhanCong PC ON NV.ID = PC.IDnhanvien
+                LEFT JOIN 
+                    KyLuat KL ON CS.MaKL = KL.MaKL
+                LEFT JOIN 
+                    Luong L ON NV.MaPB = L.MaPB AND NV.MaCV = L.MaCV
+                LEFT JOIN 
+                    ChamCong CC ON NV.ID = CC.IDnhanvien 
+                WHERE 
+                    CC.LamViec = 1 
+                    AND MONTH(CC.NgayLamViec) = @Thang 
+                    AND YEAR(CC.NgayLamViec) = YEAR(GETDATE()) 
+                    AND NV.ID = @MaNV
+                GROUP BY 
+                    NV.ID, NV.HoTen, L.LuongCoBan;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@MaNV", idNhanVien);
-                        int thang;
-                        if (!int.TryParse(txt_thang.Text, out thang) || thang < 1 || thang > 12)
-                        {
-                            Notification notification = new Notification();
-                            notification.NotificationText = "Tháng phải là số nguyên từ 1 đến 12!";
-                            notification.OkButtonText = "OK";
-                            notification.ShowDialog();
-                            return;
-                        }
-
                         command.Parameters.AddWithValue("@Thang", thang);
                         int soNgayLamViec = TinhSoNgayLamViec();
                         command.Parameters.AddWithValue("@SoNgayLamViec", soNgayLamViec);
@@ -366,8 +347,19 @@ namespace QuanLyNhanSu
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count == 0)
+                        {
+                            Notification notification = new Notification();
+                            notification.NotificationText = "Không có dữ liệu lương cho nhân viên này!";
+                            notification.OkButtonText = "OK";
+                            notification.ShowDialog();
+                            return;
+                        }
+
                         dataGridView1.DataSource = dataTable;
                         dataGridView1.AllowUserToAddRows = false;
+
                         Success sc = new Success();
                         sc.ShowDialog();
                     }
@@ -381,6 +373,7 @@ namespace QuanLyNhanSu
                 }
             }
         }
+
 
         private int TinhSoNgayLamViec()
         {

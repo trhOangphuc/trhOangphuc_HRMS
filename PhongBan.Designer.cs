@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label4 = new System.Windows.Forms.Label();
+            this.guna2GradientCircleButton2 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_chucvu)).BeginInit();
@@ -58,6 +59,7 @@
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.guna2GradientCircleButton2);
             this.panel.Controls.Add(this.guna2GradientCircleButton1);
             this.panel.Controls.Add(this.resetb);
             this.panel.Controls.Add(this.txt_mapb);
@@ -113,7 +115,7 @@
             this.resetb.ForeColor = System.Drawing.Color.White;
             this.resetb.Image = global::QuanLyNhanSu.Properties.Resources.reset;
             this.resetb.ImageSize = new System.Drawing.Size(40, 40);
-            this.resetb.Location = new System.Drawing.Point(399, 152);
+            this.resetb.Location = new System.Drawing.Point(393, 131);
             this.resetb.Name = "resetb";
             this.resetb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.resetb.Size = new System.Drawing.Size(46, 43);
@@ -172,7 +174,7 @@
             this.search_phongban.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_phongban.ForeColor = System.Drawing.Color.Black;
             this.search_phongban.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(130)))), ((int)(((byte)(247)))));
-            this.search_phongban.Location = new System.Drawing.Point(20, 152);
+            this.search_phongban.Location = new System.Drawing.Point(40, 131);
             this.search_phongban.Margin = new System.Windows.Forms.Padding(10, 4, 4, 4);
             this.search_phongban.MaxLength = 40;
             this.search_phongban.Name = "search_phongban";
@@ -181,7 +183,7 @@
             this.search_phongban.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.search_phongban.PlaceholderText = "Tìm kiếm tên phòng ban";
             this.search_phongban.SelectedText = "";
-            this.search_phongban.Size = new System.Drawing.Size(208, 50);
+            this.search_phongban.Size = new System.Drawing.Size(247, 50);
             this.search_phongban.TabIndex = 3;
             this.search_phongban.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.search_phongban.TextChanged += new System.EventHandler(this.search_phongban_TextChanged);
@@ -198,7 +200,7 @@
             this.btn_searchPb.ForeColor = System.Drawing.Color.White;
             this.btn_searchPb.Image = global::QuanLyNhanSu.Properties.Resources.find;
             this.btn_searchPb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_searchPb.Location = new System.Drawing.Point(232, 152);
+            this.btn_searchPb.Location = new System.Drawing.Point(317, 131);
             this.btn_searchPb.Name = "btn_searchPb";
             this.btn_searchPb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_searchPb.Size = new System.Drawing.Size(52, 50);
@@ -240,7 +242,7 @@
             this.btn_deletePb.ForeColor = System.Drawing.Color.White;
             this.btn_deletePb.Image = global::QuanLyNhanSu.Properties.Resources.bin;
             this.btn_deletePb.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_deletePb.Location = new System.Drawing.Point(325, 152);
+            this.btn_deletePb.Location = new System.Drawing.Point(0, 263);
             this.btn_deletePb.Name = "btn_deletePb";
             this.btn_deletePb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btn_deletePb.Size = new System.Drawing.Size(46, 43);
@@ -375,7 +377,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(622, 27);
             this.label1.TabIndex = 98;
-            this.label1.Text = "Bảng kỷ luật";
+            this.label1.Text = "Chức vụ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // guna2CustomGradientPanel1
@@ -403,8 +405,29 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(622, 27);
             this.label4.TabIndex = 98;
-            this.label4.Text = "Bảng kỷ luật";
+            this.label4.Text = "Phòng ban";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // guna2GradientCircleButton2
+            // 
+            this.guna2GradientCircleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientCircleButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientCircleButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientCircleButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientCircleButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientCircleButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientCircleButton2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2GradientCircleButton2.FillColor2 = System.Drawing.Color.Transparent;
+            this.guna2GradientCircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientCircleButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientCircleButton2.Image = global::QuanLyNhanSu.Properties.Resources.bin;
+            this.guna2GradientCircleButton2.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2GradientCircleButton2.Location = new System.Drawing.Point(6, 609);
+            this.guna2GradientCircleButton2.Name = "guna2GradientCircleButton2";
+            this.guna2GradientCircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2GradientCircleButton2.Size = new System.Drawing.Size(46, 43);
+            this.guna2GradientCircleButton2.TabIndex = 92;
+            this.guna2GradientCircleButton2.Click += new System.EventHandler(this.guna2GradientCircleButton2_Click);
             // 
             // PhongBan
             // 
@@ -451,5 +474,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton guna2GradientCircleButton2;
     }
 }

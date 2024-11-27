@@ -648,7 +648,7 @@ namespace QuanLyNhanSu
                                 }
 
                                 // Kiểm tra nếu số ngày "Đúng giờ" bằng tổng số ngày công
-                                if (soNgayDungGio == tongNgayCong)
+                                if (soNgayDungGio == tongNgayChamCong)
                                 {
                                     richTextBox1.AppendText("\tChấm công đủ: Nhân viên đi làm đúng giờ đủ ngày.\n");
                                 }

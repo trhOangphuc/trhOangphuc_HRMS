@@ -325,8 +325,9 @@ namespace QuanLyNhanSu
                 return;
             }
             Question questionForm = new Question();
-            questionForm.QuestionText = "xóa nhân viên này không?";
+            questionForm.QuestionText = "Bạn có chắc chắn muốn xóa nhân viên này không?";
             questionForm.OkButtonText = "Có";
+
             if (questionForm.ShowDialog() == DialogResult.OK)
             {
                 using (SqlConnection connection = connectdatabase.Connect())
@@ -343,12 +344,31 @@ namespace QuanLyNhanSu
                     try
                     {
                         connection.Open();
-                        string query = "DELETE FROM NhanVien WHERE ID = @ID";
 
-                        using (SqlCommand command = new SqlCommand(query, connection))
+                        // Kiểm tra xem nhân viên có được tham chiếu trong bảng ChamCong hay không
+                        string checkQuery = "SELECT COUNT(*) FROM ChamCong WHERE IDnhanvien = @ID";
+                        using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                         {
-                            command.Parameters.AddWithValue("@ID", dataGridView1.CurrentRow.Cells["ID"].Value);
-                            command.ExecuteNonQuery();
+                            checkCommand.Parameters.AddWithValue("@ID", dataGridView1.CurrentRow.Cells["ID"].Value);
+                            int count = (int)checkCommand.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                // Nếu có bản ghi tham chiếu, hiển thị thông báo và dừng quá trình xóa
+                                Notification notification = new Notification();
+                                notification.NotificationText = "Không thể xóa nhân viên này vì có dữ liệu liên quan trong bảng Chấm Công!";
+                                notification.OkButtonText = "OK";
+                                notification.ShowDialog();
+                                return;
+                            }
+                        }
+
+                        // Nếu không có bản ghi tham chiếu, thực hiện xóa nhân viên
+                        string deleteQuery = "DELETE FROM NhanVien WHERE ID = @ID";
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@ID", dataGridView1.CurrentRow.Cells["ID"].Value);
+                            deleteCommand.ExecuteNonQuery();
                             Success sc = new Success();
                             sc.ShowDialog();
                             LoadData();
@@ -358,7 +378,7 @@ namespace QuanLyNhanSu
                     catch (Exception ex)
                     {
                         Error er = new Error();
-                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;  // Thông báo lỗi chung
+                        er.ErrorText = "Đã xảy ra lỗi: " + ex.Message;
                         er.OkButtonText = "OK";
                         er.ShowDialog();
                     }
